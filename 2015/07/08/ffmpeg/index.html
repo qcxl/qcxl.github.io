@@ -3,57 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用Hexo搭建Blog | Mobile Development</title>
+  <title>FFmpeg For Android | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。
-用到的工具:
-
-Mac mini
-Brew
-npm (包管理,类似于Python中的pip)
-Git
-Node.js
-Hexo
-SSH
-GitHub
-个人申请的域名
-
-安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebr">
+  <meta name="description" content="去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.
+FFmpeg4Android
+Android WarZone 可能需要翻墙FFmpeg Android Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo搭建Blog">
-<meta property="og:url" content="http://yoursite.com/2015/07/07/setup-blog/index.html">
+<meta property="og:title" content="FFmpeg For Android">
+<meta property="og:url" content="http://yoursite.com/2015/07/08/ffmpeg/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。
-用到的工具:
-
-Mac mini
-Brew
-npm (包管理,类似于Python中的pip)
-Git
-Node.js
-Hexo
-SSH
-GitHub
-个人申请的域名
-
-安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebr">
-<meta property="og:updated_time" content="2015-07-07T14:20:24.000Z">
+<meta property="og:description" content="去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.
+FFmpeg4Android
+Android WarZone 可能需要翻墙FFmpeg Android Java">
+<meta property="og:updated_time" content="2015-07-08T12:57:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Hexo搭建Blog">
-<meta name="twitter:description" content="最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。
-用到的工具:
-
-Mac mini
-Brew
-npm (包管理,类似于Python中的pip)
-Git
-Node.js
-Hexo
-SSH
-GitHub
-个人申请的域名
-
-安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebr">
+<meta name="twitter:title" content="FFmpeg For Android">
+<meta name="twitter:description" content="去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.
+FFmpeg4Android
+Android WarZone 可能需要翻墙FFmpeg Android Java">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -284,11 +251,11 @@ GitHub
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-setup-blog" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/07/setup-blog/" class="article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">2015-07-07</time>
+      <a href="/2015/07/08/ffmpeg/" class="article-date">
+  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">2015-07-08</time>
 </a>
     </div>
   
@@ -301,7 +268,7 @@ GitHub
         
   
     <h1 class="article-title" itemprop="name">
-      使用Hexo搭建Blog
+      FFmpeg For Android
     </h1>
   
 
@@ -317,73 +284,10 @@ GitHub
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
-<p>用到的工具:</p>
-<ul>
-<li>Mac mini</li>
-<li>Brew</li>
-<li>npm (包管理,类似于Python中的pip)</li>
-<li>Git</li>
-<li>Node.js</li>
-<li>Hexo</li>
-<li>SSH</li>
-<li>GitHub</li>
-<li>个人申请的域名</li>
-</ul>
-<h3 id="安装Homebrew">安装<a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装Git">安装Git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<h3 id="安装Node-js">安装Node.js</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>使用以下命令验证是否安装成功 node -v  npm -v</p>
-<h3 id="安装Hexo">安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在OS X上面安装完毕之运行hexo时可能会提示这样的错误:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[SyntaxError: Unexpected token ILLEGAL]</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>安装时,可以用npm install hexo —no-optional来解决</p>
+        <p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
+<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
+<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
 </blockquote>
-<p>创建项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init hexo      <span class="comment">#创建并初始化项目(工作区)</span></span><br></pre></td></tr></table></figure></p>
-<p>进入目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure></p>
-<p>或者先创建目录然后再初始化项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir hexo     <span class="comment">#目录名</span></span><br><span class="line"><span class="built_in">cd</span> hexo        <span class="comment">#进入刚才新建的目录</span></span><br><span class="line">hexo init      <span class="comment">#初始化项目</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="安装依赖包(Hexo模块)">安装依赖包(Hexo模块)</h3><blockquote>
-<p>详细的Hexo2to3信息<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span>.  <span class="built_in">cd</span> hexo</span><br><span class="line"><span class="number">1</span>.  npm install hexo-generator-index --save</span><br><span class="line"><span class="number">2</span>.  npm install hexo-generator-archive --save</span><br><span class="line"><span class="number">3</span>.  npm install hexo-generator-category --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-generator-tag --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-server --save</span><br><span class="line"><span class="number">6</span>.  npm install hexo-deployer-git --save</span><br><span class="line"><span class="number">7</span>.  npm install hexo-renderer-marked@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">8</span>.  npm install hexo-renderer-stylus@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">9</span>.  npm install hexo-generator-feed@<span class="number">1</span> --save</span><br><span class="line"><span class="number">10</span>. npm install hexo-generator-sitemap@<span class="number">1</span> --save</span><br><span class="line"><span class="number">11</span>. npm install hexo-renderer-ejs --save</span><br><span class="line"><span class="number">12</span>. npm install hexo --save</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="Hexo_部署">Hexo 部署</h3><ul>
-<li><p>生成静态文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改hexo目录下的_config.yml文件</p>
-<blockquote>
-<p>主要修改的有</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url:＃你申请的域名</span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git    <span class="comment">#部署类型, 本文使用Github</span></span><br><span class="line">  repository: git@github.com:xxx/xxx.github.io.git  <span class="comment">#部署的仓库的SSH</span></span><br><span class="line">  branch: master   <span class="comment">#部署分支,一般使用master主分支</span></span><br><span class="line">  plugins:</span><br><span class="line">  - hexo-generator-feed   <span class="comment">#此插件用于RSS订阅</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>开启本地server调试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>用浏览器打开<a href="http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了" target="_blank" rel="external">http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了</a></p>
-<h3 id="修改主题">修改主题</h3><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置<br>修改hexo根目录下的 _config.yml中theme: yilia</p>
-</li>
-<li>更新<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo/themes/yilia</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="SSH">SSH</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ～/.ssh  <span class="comment">#检查是否已经存在ssh</span></span><br></pre></td></tr></table></figure>
-<p>如果存在,先将已有的ssh备份或者将新建的ssh生成到另外的目录下<br>如果不存在,通过默认的参数直接生成ssh<br>生成过程如下:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C xxxxx@gmail.com（注册github时的email）</span><br></pre></td></tr></table></figure></p>
-<p>在github中添加ssh:</p>
-<ul>
-<li>登陆github,选择Account Settings—&gt;SSH Public Keys 添加ssh</li>
-<li>Title:xxxxx@gmail.com</li>
-<li>Key:打开你生成的id_rsa.pub文件,将其中内容拷贝至此<br>测试SSH<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>至此,git和github的设置就完成了</p>
-<h3 id="添加个人域名">添加个人域名</h3><ul>
-<li>申请个人域名</li>
-<li>打开万网域名解析,添加一条解析纪录 CNAME—www—xxxx.github.io—保存</li>
-<li>xxxx.github.io 根目录添加文件CNAME,内容为你的域名<br>至此,Blog搭建完毕!</li>
-</ul>
 
       
     </div>
@@ -393,15 +297,11 @@ GitHub
     
 <nav id="article-nav">
   
-    <a href="/2015/07/08/ffmpeg/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          FFmpeg For Android
-        
-      </div>
-    </a>
   
+    <a href="/2015/07/07/setup-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Hexo搭建Blog</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -428,7 +328,7 @@ GitHub
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="setup-blog" data-title="使用Hexo搭建Blog" data-url="http://yoursite.com/2015/07/07/setup-blog/"></div>
+	<div class="ds-thread" data-thread-key="ffmpeg" data-title="FFmpeg For Android" data-url="http://yoursite.com/2015/07/08/ffmpeg/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

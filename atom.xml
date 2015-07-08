@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-07-07T14:20:24.000Z</updated>
+  <updated>2015-07-08T12:57:52.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[FFmpeg For Android]]></title>
+    <link href="http://yoursite.com/2015/07/08/ffmpeg/"/>
+    <id>http://yoursite.com/2015/07/08/ffmpeg/</id>
+    <published>2015-07-08T02:27:30.000Z</published>
+    <updated>2015-07-08T12:57:52.000Z</updated>
+    <content type="html"><![CDATA[<p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
+<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
+<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
+<h3 id="FFmpeg4Android">FFmpeg4Android</h3><]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[使用Hexo搭建Blog]]></title>
