@@ -1,27 +1,292 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <title><![CDATA[Mobile Development]]></title>
-  <subtitle><![CDATA[移动开发]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com//"/>
-  <updated>2015-07-09T08:17:09.000Z</updated>
-  <id>http://yoursite.com//</id>
+  <title>使用Pinyin4j 实现列表按内容首字母排序 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下载Pinyin4j库
+封装排序Modelpublic class SortModel &amp;#123;	private String name;   	private String sortLetters;  	public SortModel() &amp;#123;		super();		// TODO Auto-generated constructor stub	&amp;#125;		public Sor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Pinyin4j 实现列表按内容首字母排序">
+<meta property="og:url" content="http://yoursite.com/2015/07/09/pinyin4j/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="下载Pinyin4j库
+封装排序Modelpublic class SortModel &amp;#123;	private String name;   	private String sortLetters;  	public SortModel() &amp;#123;		super();		// TODO Auto-generated constructor stub	&amp;#125;		public Sor">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_edit_pressed.9.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_icon_normal.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/show_head_toast_bg.9.PNG">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/emotionstore_progresscancelbtn.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_edit_normal.9.png">
+<meta property="og:updated_time" content="2015-07-09T08:17:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Pinyin4j 实现列表按内容首字母排序">
+<meta name="twitter:description" content="下载Pinyin4j库
+封装排序Modelpublic class SortModel &amp;#123;	private String name;   	private String sortLetters;  	public SortModel() &amp;#123;		super();		// TODO Auto-generated constructor stub	&amp;#125;		public Sor">
   
-  <author>
-    <name><![CDATA[weifeng]]></name>
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tinyletter.com/daimajia/archive">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-pinyin4j" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/09/pinyin4j/" class="article-date">
+  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">2015-07-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
-  </author>
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+    <h1 class="article-title" itemprop="name">
+      使用Pinyin4j 实现列表按内容首字母排序
+    </h1>
   
-  <entry>
-    <title><![CDATA[使用Pinyin4j 实现列表按内容首字母排序]]></title>
-    <link href="http://yoursite.com/2015/07/09/pinyin4j/"/>
-    <id>http://yoursite.com/2015/07/09/pinyin4j/</id>
-    <published>2015-07-09T05:10:45.000Z</published>
-    <updated>2015-07-09T08:17:09.000Z</updated>
-    <content type="html"><![CDATA[<ul>
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
 <li><h3 id="下载Pinyin4j库">下载<a href="http://mvnrepository.com/artifact/com.belerweb/pinyin4j/2.5.0" target="_blank" rel="external">Pinyin4j</a>库</h3></li>
 <li><h3 id="封装排序Model">封装排序Model</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;   </span><br><span class="line">	<span class="keyword">private</span> String sortLetters;  </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">(String name, String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSortLetters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSortLetters</span><span class="params">(String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -72,180 +337,133 @@
 <li><h3 id="资源文件">资源文件</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_edit_pressed.9.png" alt="search_bar_edit_pressed" title="search_bar_edit_pressed"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_icon_normal.png" alt="search_bar_icon_normal" title="search_bar_icon_normal"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/show_head_toast_bg.9.PNG" alt="show_head_toast_bg" title="show_head_toast_bg"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/emotionstore_progresscancelbtn.png" alt="emotionstore_progresscancelbtn" title="emotionstore_progresscancelbtn"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/search_bar_edit_normal.9.png" alt="search_bar_edit_normal" title="search_bar_edit_normal"></p>
 </li>
 </ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<ul>
-<li><h3 id="下载Pinyin4j库">下载<a href="http://mvnrepository.com/artifact/com.belerweb/pinyin4j/2.5.0">Pinyin4j</a>库</h3></li>
-<li><h3 id="封装排序Model">封装排序Model</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;   </span><br><span class="line">	<span class="keyword">private</span> String sortLetters;  </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">(String name, String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSortLetters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSortLetters</span><span class="params">(String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>]]>
+
+      
+    </div>
     
-    </summary>
-    
-  </entry>
+  </div>
   
-  <entry>
-    <title><![CDATA[FFmpeg For Android]]></title>
-    <link href="http://yoursite.com/2015/07/08/ffmpeg/"/>
-    <id>http://yoursite.com/2015/07/08/ffmpeg/</id>
-    <published>2015-07-08T02:27:30.000Z</published>
-    <updated>2015-07-08T12:57:52.000Z</updated>
-    <content type="html"><![CDATA[<p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
-<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
-<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
-<h3 id="FFmpeg4Android">FFmpeg4Android</h3><]]>
-    </summary>
     
-  </entry>
+<nav id="article-nav">
   
-  <entry>
-    <title><![CDATA[使用Hexo搭建Blog]]></title>
-    <link href="http://yoursite.com/2015/07/07/setup-blog/"/>
-    <id>http://yoursite.com/2015/07/07/setup-blog/</id>
-    <published>2015-07-07T08:39:17.000Z</published>
-    <updated>2015-07-08T14:42:27.000Z</updated>
-    <content type="html"><![CDATA[<p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
-<p>用到的工具:</p>
-<ul>
-<li>Mac mini</li>
-<li>Brew</li>
-<li>npm (包管理,类似于Python中的pip)</li>
-<li>Git</li>
-<li>Node.js</li>
-<li>Hexo</li>
-<li>SSH</li>
-<li>GitHub</li>
-<li>个人申请的域名</li>
-</ul>
-<h3 id="安装Homebrew">安装<a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装Git">安装Git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<h3 id="安装Node-js">安装Node.js</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>使用以下命令验证是否安装成功 node -v  npm -v</p>
-<h3 id="安装Hexo">安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在OS X上面安装完毕之运行hexo时可能会提示这样的错误:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[SyntaxError: Unexpected token ILLEGAL]</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>安装时,可以用npm install hexo —no-optional来解决</p>
-</blockquote>
-<p>创建项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init hexo      <span class="comment">#创建并初始化项目(工作区)</span></span><br></pre></td></tr></table></figure></p>
-<p>进入目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure></p>
-<p>或者先创建目录然后再初始化项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir hexo     <span class="comment">#目录名</span></span><br><span class="line"><span class="built_in">cd</span> hexo        <span class="comment">#进入刚才新建的目录</span></span><br><span class="line">hexo init      <span class="comment">#初始化项目</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="安装依赖包(Hexo模块)">安装依赖包(Hexo模块)</h3><blockquote>
-<p>详细的Hexo2to3信息<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span>.  <span class="built_in">cd</span> hexo</span><br><span class="line"><span class="number">1</span>.  npm install hexo-generator-index --save</span><br><span class="line"><span class="number">2</span>.  npm install hexo-generator-archive --save</span><br><span class="line"><span class="number">3</span>.  npm install hexo-generator-category --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-generator-tag --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-server --save</span><br><span class="line"><span class="number">6</span>.  npm install hexo-deployer-git --save</span><br><span class="line"><span class="number">7</span>.  npm install hexo-renderer-marked@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">8</span>.  npm install hexo-renderer-stylus@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">9</span>.  npm install hexo-generator-feed@<span class="number">1</span> --save</span><br><span class="line"><span class="number">10</span>. npm install hexo-generator-sitemap@<span class="number">1</span> --save</span><br><span class="line"><span class="number">11</span>. npm install hexo-renderer-ejs --save</span><br><span class="line"><span class="number">12</span>. npm install hexo --save</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="Hexo_部署">Hexo 部署</h3><ul>
-<li><p>生成静态文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改hexo目录下的_config.yml文件</p>
-<blockquote>
-<p>主要修改的有</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url:＃你申请的域名</span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git    <span class="comment">#部署类型, 本文使用Github</span></span><br><span class="line">  repository: git@github.com:xxx/xxx.github.io.git  <span class="comment">#部署的仓库的SSH</span></span><br><span class="line">  branch: master   <span class="comment">#部署分支,一般使用master主分支</span></span><br><span class="line">  plugins:</span><br><span class="line">  - hexo-generator-feed   <span class="comment">#此插件用于RSS订阅</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>开启本地server调试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>用浏览器打开<a href="http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了" target="_blank" rel="external">http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了</a></p>
-<h3 id="修改主题">修改主题</h3><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置<br>修改hexo根目录下的 _config.yml中theme: yilia</p>
-</li>
-<li>更新<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo/themes/yilia</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="SSH">SSH</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ～/.ssh  <span class="comment">#检查是否已经存在ssh</span></span><br></pre></td></tr></table></figure>
-<p>如果存在,先将已有的ssh备份或者将新建的ssh生成到另外的目录下<br>如果不存在,通过默认的参数直接生成ssh<br>生成过程如下:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C xxxxx@gmail.com（注册github时的email）</span><br></pre></td></tr></table></figure></p>
-<p>在github中添加ssh:</p>
-<ul>
-<li>登陆github,选择Account Settings—&gt;SSH Public Keys 添加ssh</li>
-<li>Title:xxxxx@gmail.com</li>
-<li>Key:打开你生成的id_rsa.pub文件,将其中内容拷贝至此<br>测试SSH<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>至此,git和github的设置就完成了</p>
-<h3 id="添加个人域名">添加个人域名</h3><ul>
-<li>申请个人域名</li>
-<li>打开万网域名解析,添加一条解析纪录 CNAME—www—xxxx.github.io—保存</li>
-<li>xxxx.github.io 根目录添加文件CNAME,内容为你的域名<br>至此,Blog搭建完毕!<a id="more"></a></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
-<p>用到的工具:</p>
-<ul>
-<li>Mac mini</li>
-<li>Brew</li>
-<li>npm (包管理,类似于Python中的pip)</li>
-<li>Git</li>
-<li>Node.js</li>
-<li>Hexo</li>
-<li>SSH</li>
-<li>GitHub</li>
-<li>个人申请的域名</li>
-</ul>
-<h3 id="安装Homebrew">安装<a href="http://brew.sh/">Homebrew</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装Git">安装Git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<h3 id="安装Node-js">安装Node.js</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>使用以下命令验证是否安装成功 node -v  npm -v</p>
-<h3 id="安装Hexo">安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在OS X上面安装完毕之运行hexo时可能会提示这样的错误:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[SyntaxError: Unexpected token ILLEGAL]</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>安装时,可以用npm install hexo —no-optional来解决</p>
-</blockquote>
-<p>创建项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init hexo      <span class="comment">#创建并初始化项目(工作区)</span></span><br></pre></td></tr></table></figure></p>
-<p>进入目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure></p>
-<p>或者先创建目录然后再初始化项目<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir hexo     <span class="comment">#目录名</span></span><br><span class="line"><span class="built_in">cd</span> hexo        <span class="comment">#进入刚才新建的目录</span></span><br><span class="line">hexo init      <span class="comment">#初始化项目</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="安装依赖包(Hexo模块)">安装依赖包(Hexo模块)</h3><blockquote>
-<p>详细的Hexo2to3信息<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span>.  <span class="built_in">cd</span> hexo</span><br><span class="line"><span class="number">1</span>.  npm install hexo-generator-index --save</span><br><span class="line"><span class="number">2</span>.  npm install hexo-generator-archive --save</span><br><span class="line"><span class="number">3</span>.  npm install hexo-generator-category --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-generator-tag --save</span><br><span class="line"><span class="number">4</span>.  npm install hexo-server --save</span><br><span class="line"><span class="number">6</span>.  npm install hexo-deployer-git --save</span><br><span class="line"><span class="number">7</span>.  npm install hexo-renderer-marked@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">8</span>.  npm install hexo-renderer-stylus@<span class="number">0.2</span> --save</span><br><span class="line"><span class="number">9</span>.  npm install hexo-generator-feed@<span class="number">1</span> --save</span><br><span class="line"><span class="number">10</span>. npm install hexo-generator-sitemap@<span class="number">1</span> --save</span><br><span class="line"><span class="number">11</span>. npm install hexo-renderer-ejs --save</span><br><span class="line"><span class="number">12</span>. npm install hexo --save</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="Hexo_部署">Hexo 部署</h3><ul>
-<li><p>生成静态文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改hexo目录下的_config.yml文件</p>
-<blockquote>
-<p>主要修改的有</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url:＃你申请的域名</span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git    <span class="comment">#部署类型, 本文使用Github</span></span><br><span class="line">  repository: git@github.com:xxx/xxx.github.io.git  <span class="comment">#部署的仓库的SSH</span></span><br><span class="line">  branch: master   <span class="comment">#部署分支,一般使用master主分支</span></span><br><span class="line">  plugins:</span><br><span class="line">  - hexo-generator-feed   <span class="comment">#此插件用于RSS订阅</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>开启本地server调试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>用浏览器打开<a href="http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了">http://localhost:4000/或者http://127.0.0.1:4000/就能看到网页了</a></p>
-<h3 id="修改主题">修改主题</h3><ul>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置<br>修改hexo根目录下的 _config.yml中theme: yilia</p>
-</li>
-<li>更新<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo/themes/yilia</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="SSH">SSH</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ～/.ssh  <span class="comment">#检查是否已经存在ssh</span></span><br></pre></td></tr></table></figure>
-<p>如果存在,先将已有的ssh备份或者将新建的ssh生成到另外的目录下<br>如果不存在,通过默认的参数直接生成ssh<br>生成过程如下:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C xxxxx@gmail.com（注册github时的email）</span><br></pre></td></tr></table></figure></p>
-<p>在github中添加ssh:</p>
-<ul>
-<li>登陆github,选择Account Settings—&gt;SSH Public Keys 添加ssh</li>
-<li>Title:xxxxx@gmail.com</li>
-<li>Key:打开你生成的id_rsa.pub文件,将其中内容拷贝至此<br>测试SSH<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>至此,git和github的设置就完成了</p>
-<h3 id="添加个人域名">添加个人域名</h3><ul>
-<li>申请个人域名</li>
-<li>打开万网域名解析,添加一条解析纪录 CNAME—www—xxxx.github.io—保存</li>
-<li>xxxx.github.io 根目录添加文件CNAME,内容为你的域名<br>至此,Blog搭建完毕!]]>
-    
-    </summary>
-    
-  </entry>
   
-</feed>
+    <a href="/2015/07/08/ffmpeg/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FFmpeg For Android</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="pinyin4j" data-title="使用Pinyin4j 实现列表按内容首字母排序" data-url="http://yoursite.com/2015/07/09/pinyin4j/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>
