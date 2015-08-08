@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-07-09T08:17:09.000Z</updated>
+  <updated>2015-08-08T01:41:08.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Python 安装第三方模块]]></title>
+    <link href="http://yoursite.com/2015/08/08/install-python-plug/"/>
+    <id>http://yoursite.com/2015/08/08/install-python-plug/</id>
+    <published>2015-08-08T01:13:07.000Z</published>
+    <updated>2015-08-08T01:41:08.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="安装easy_install">安装easy_install</h3><blockquote>
+<p>在Python中安装第三方模块是通过setuptools这个工具完成的。Python有两个封装了setuptools的包管理工具:<br>  easy_install 和 pip 。目前官方推荐使用pip 。如果你正在使用Mac或者Linux,安装pip本身这个步骤就可以跳过了.<br>  这里讲讲Mac下如何安装easy_install。</p>
+</blockquote>
+<ul>
+<li>目前<a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">setuptools</a>版本是18.1<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/setuptools.png" alt="setuptools" title="setuptools"></li>
+<li><p>解压setuptools-18.1.zip文件,打开终端输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> setuptools-<span class="number">18.1</span></span><br><span class="line">sudo python ez_setup.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>之后,你就可以直接用它来安装你想要的模块,比人BeautifulSoup(HTML/XML的解析器)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">easy_install BeautifulSoup</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这里列举一些常用的模块</p>
+<ul>
+<li>chardet - 查询字符串内容使用何种编码方式</li>
+<li>PIL - 图形处理</li>
+<li>PyXML - 解析和处理XML文件</li>
+<li>MySQLdb - 连接MySQL数据库</li>
+<li>Tkinter - 图形界面接口，python自带 </li>
+<li>smtplib - 发送电子邮件</li>
+<li>ftplib - ftp编程</li>
+<li>PyMedia - 多媒体操作</li>
+<li>PyOpenGL - OpenGL接口</li>
+<li>BeautifulSoup - HTML/XML的解析器</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="安装easy_install">安装easy_install</h3><blockquote>
+<p>在Python中安装第三方模块是通过setuptools这个工具完成的。Python有两个封装了setuptools的包管理工具:<br>  easy_insta]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[使用Pinyin4j 实现列表按内容首字母排序]]></title>
