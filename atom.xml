@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-10T14:32:51.000Z</updated>
+  <updated>2015-08-10T14:50:04.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,16 +20,18 @@
     <link href="http://yoursite.com/2015/08/10/scrapy/"/>
     <id>http://yoursite.com/2015/08/10/scrapy/</id>
     <published>2015-08-10T14:04:25.000Z</published>
-    <updated>2015-08-10T14:32:51.000Z</updated>
+    <updated>2015-08-10T14:50:04.000Z</updated>
     <content type="html"><![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4" target="_blank" rel="external">lxml</a>模块,当前版本是3.4.4</h3><ul>
-<li><p>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c" target="_blank" rel="external">lxml-3.4.4.tar.gz</a></p>
-</li>
+<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c" target="_blank" rel="external">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
+</ul>
+<ul>
 <li><p>安装lxml</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
 </li>
 </ul>
+<a id="more"></a>
 <ul>
 <li>解决方法有如下几种:<ul>
 <li>配置路径:CPATH<br><code>sudo CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2 CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install lxml</code></li>
@@ -37,9 +39,32 @@
 </ul>
 </li>
 </ul>
+<h3 id="安装w3lib">安装<a href="https://pypi.python.org/pypi/w3lib#downloads" target="_blank" rel="external">w3lib</a></h3><ul>
+<li>下载并解压<a href="https://pypi.python.org/packages/source/w/w3lib/w3lib-1.12.0.tar.gz#md5=c2545617229b3fc72d59afed85b18035" target="_blank" rel="external">w3lib-1.12.0.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/w3lib.png" alt="w3lib" title="w3lib"></li>
+<li>安装w3lib<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> w3lib-<span class="number">1.12</span>.<span class="number">0</span> <span class="comment">#进入w3lib目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装Scrapy">安装<a href="http://scrapy.org/" target="_blank" rel="external">Scrapy</a></h3><ul>
+<li>下载并解压Scrapy<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/scrapy.png" alt="scrapy" title="scrapy"></li>
+<li>Scrapy<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> scrapy-scrapy-<span class="number">8124</span>af9 <span class="comment">#进入scrapy目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>至此,整个Scrapy模块安装完成,接下来就是学习如何使用Scrapy.</p>
+</blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4" target="_blank" rel="external">lxml</a>模块,当前版本是3.4.4</h3><u]]>
+    <![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4">lxml</a>模块,当前版本是3.4.4</h3><ul>
+<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
+</ul>
+<ul>
+<li><p>安装lxml</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
+</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
