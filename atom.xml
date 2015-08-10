@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-10T14:24:38.000Z</updated>
+  <updated>2015-08-10T14:32:51.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,20 +20,20 @@
     <link href="http://yoursite.com/2015/08/10/scrapy/"/>
     <id>http://yoursite.com/2015/08/10/scrapy/</id>
     <published>2015-08-10T14:04:25.000Z</published>
-    <updated>2015-08-10T14:24:38.000Z</updated>
+    <updated>2015-08-10T14:32:51.000Z</updated>
     <content type="html"><![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4" target="_blank" rel="external">lxml</a>模块,当前版本是3.4.4</h3><ul>
 <li><p>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c" target="_blank" rel="external">lxml-3.4.4.tar.gz</a></p>
 </li>
 <li><p>安装lxml</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><a href="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" title="lxml_error" target="_blank" rel="external">lxml_error</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.<span class="number">9</span>.sdk/usr/include/libxml2 CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install lxml</span><br></pre></td></tr></table></figure>
+<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
 </li>
-<li><p>解决方法有如下几种:</p>
+</ul>
 <ul>
-<li>配置路径:CPATH    sudo CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2 CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install lxml</li>
-<li>终端执行命令安装或更新命令行开发工具:    xcode-select —install</li>
+<li>解决方法有如下几种:<ul>
+<li>配置路径:CPATH<br><code>sudo CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2 CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install lxml</code></li>
+<li>终端执行命令安装或更新命令行开发工具:<br><code>xcode-select --install</code></li>
 </ul>
 </li>
 </ul>
