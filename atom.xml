@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-10T14:50:04.000Z</updated>
+  <updated>2015-08-11T06:19:38.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Mac 下安装并配置启动MongoDB]]></title>
+    <link href="http://yoursite.com/2015/08/11/install-mongodb/"/>
+    <id>http://yoursite.com/2015/08/11/install-mongodb/</id>
+    <published>2015-08-11T05:41:14.000Z</published>
+    <updated>2015-08-11T06:19:38.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a></h3><ul>
+<li>从<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a>官网下载<br><img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png&quot;" alt="mongodb" title="mongodb"></li>
+</ul>
+<ul>
+<li>或者使用brew安装<br>｀brew install mongodb｀<a id="more"></a>
+<img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png&quot;" alt="install_mongodb" title="install_mongodb"></li>
+</ul>
+<h3 id="配置MongoDB">配置MongoDB</h3><ul>
+<li>默认mongodb数据文件是放到根目录 /data/db 文件夹下,如果没有这个文件,请自行创建.<ul>
+<li><code>sudo mkdir -p /data/db</code></li>
+<li><code>sudo chmod -R 777 /data/db (#文件需要写入权限,不然启动mongodb会失败)</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>配置环境变量加入mongodb<ul>
+<li><code>cd ~</code></li>
+<li><code>open -e .bash_profile</code></li>
+<li><code>export MONGODB_PATH=/usr/local/Cellar/mongodb/3.0.4/bin;</code></li>
+<li><code>export PATH=${PATH}:${MONGODB_PATH}</code></li>
+<li><code>source ~/.bash_profile</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>修改mongodb配置文件,配置文件默认在/usr/local/etc下的mongod.conf<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  path: /usr/<span class="built_in">local</span>/var/<span class="built_in">log</span>/mongodb/mongo.log</span><br><span class="line">  <span class="built_in">log</span>Append: <span class="literal">true</span></span><br><span class="line">storage:  <span class="comment"># Store data in /usr/local/var/mongodb instead of the default /data/db</span></span><br><span class="line">  dbPath: /data/db</span><br><span class="line">net:</span><br><span class="line">  <span class="built_in">bind</span>Ip: <span class="number">127.0</span>.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>第六行修改成数据库文件写入目录地址,如果准备连接非本地环境的mongodb数据库时,bind_ip = 0.0.0.0 即可.</code></p>
+<h3 id="启动MongoDB">启动MongoDB</h3><ul>
+<li><p>启动MongoDB服务器端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/db</span><br><span class="line">mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动mongodb客户端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/etc/</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>到现在为止,完成了mongodb的安装、配置、服务器端启动、客户端启动,下一步就是如何使用.</code></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads">MongoDB</a></h3><ul>
+<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png&quot;" alt="mongodb" title="mongodb"></li>
+</ul>
+<ul>
+<li>或者使用brew安装<br>｀brew install mongodb｀]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Mac下安装爬虫框架Scrapy]]></title>

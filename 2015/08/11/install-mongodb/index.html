@@ -3,17 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>Mac 下安装并配置启动MongoDB | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="安装MongoDB
+从MongoDB官网下载
+
+
+或者使用brew安装｀brew install mongodb｀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 下安装并配置启动MongoDB">
+<meta property="og:url" content="http://yoursite.com/2015/08/11/install-mongodb/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="安装MongoDB
+从MongoDB官网下载
+
+
+或者使用brew安装｀brew install mongodb｀">
+<meta property="og:image" content="http://yoursite.com/"http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png"">
+<meta property="og:image" content="http://yoursite.com/"http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png"">
+<meta property="og:updated_time" content="2015-08-11T06:19:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="Mac 下安装并配置启动MongoDB">
+<meta name="twitter:description" content="安装MongoDB
+从MongoDB官网下载
+
+
+或者使用brew安装｀brew install mongodb｀">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,184 +263,136 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-install-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/08/11/install-mongodb/" class="article-date">
+  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">2015-08-11</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac 下安装并配置启动MongoDB
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/11/install-mongodb/" class="archive-article-date">
-  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">8月 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a></h3><ul>
+<li>从<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a>官网下载<br><img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png&quot;" alt="mongodb" title="mongodb"></li>
+</ul>
+<ul>
+<li>或者使用brew安装<br>｀brew install mongodb｀<a id="more"></a>
+<img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png&quot;" alt="install_mongodb" title="install_mongodb"></li>
+</ul>
+<h3 id="配置MongoDB">配置MongoDB</h3><ul>
+<li>默认mongodb数据文件是放到根目录 /data/db 文件夹下,如果没有这个文件,请自行创建.<ul>
+<li><code>sudo mkdir -p /data/db</code></li>
+<li><code>sudo chmod -R 777 /data/db (#文件需要写入权限,不然启动mongodb会失败)</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>配置环境变量加入mongodb<ul>
+<li><code>cd ~</code></li>
+<li><code>open -e .bash_profile</code></li>
+<li><code>export MONGODB_PATH=/usr/local/Cellar/mongodb/3.0.4/bin;</code></li>
+<li><code>export PATH=${PATH}:${MONGODB_PATH}</code></li>
+<li><code>source ~/.bash_profile</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>修改mongodb配置文件,配置文件默认在/usr/local/etc下的mongod.conf<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  path: /usr/<span class="built_in">local</span>/var/<span class="built_in">log</span>/mongodb/mongo.log</span><br><span class="line">  <span class="built_in">log</span>Append: <span class="literal">true</span></span><br><span class="line">storage:  <span class="comment"># Store data in /usr/local/var/mongodb instead of the default /data/db</span></span><br><span class="line">  dbPath: /data/db</span><br><span class="line">net:</span><br><span class="line">  <span class="built_in">bind</span>Ip: <span class="number">127.0</span>.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>第六行修改成数据库文件写入目录地址,如果准备连接非本地环境的mongodb数据库时,bind_ip = 0.0.0.0 即可.</code></p>
+<h3 id="启动MongoDB">启动MongoDB</h3><ul>
+<li><p>启动MongoDB服务器端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/db</span><br><span class="line">mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动mongodb客户端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/etc/</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>到现在为止,完成了mongodb的安装、配置、服务器端启动、客户端启动,下一步就是如何使用.</code></p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/10/scrapy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac下安装爬虫框架Scrapy</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/10/scrapy/" class="archive-article-date">
-  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">8月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/08/install-python-plug/" class="archive-article-date">
-  	<time datetime="2015-08-08T01:13:07.000Z" itemprop="datePublished">8月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/08/install-python-plug/">Python 安装第三方模块</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/09/pinyin4j/" class="archive-article-date">
-  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">7月 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="install-mongodb" data-title="Mac 下安装并配置启动MongoDB" data-url="http://yoursite.com/2015/08/11/install-mongodb/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/08/ffmpeg/" class="archive-article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">7月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/07/setup-blog/" class="archive-article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">7月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -451,8 +418,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
