@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-11T06:19:38.000Z</updated>
+  <updated>2015-08-11T06:27:00.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,13 +20,16 @@
     <link href="http://yoursite.com/2015/08/11/install-mongodb/"/>
     <id>http://yoursite.com/2015/08/11/install-mongodb/</id>
     <published>2015-08-11T05:41:14.000Z</published>
-    <updated>2015-08-11T06:19:38.000Z</updated>
+    <updated>2015-08-11T06:27:00.000Z</updated>
     <content type="html"><![CDATA[<h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a></h3><ul>
-<li>从<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a>官网下载<br><img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png&quot;" alt="mongodb" title="mongodb"></li>
+<li>从<a href="https://www.mongodb.org/downloads" target="_blank" rel="external">MongoDB</a>官网下载<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png" alt="mongodb" title="mongodb"></li>
 </ul>
 <ul>
-<li>或者使用brew安装<br>｀brew install mongodb｀<a id="more"></a>
-<img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png&quot;" alt="install_mongodb" title="install_mongodb"></li>
+<li>或者使用brew安装<ul>
+<li><code>brew install mongodb</code><a id="more"></a></li>
+<li><img src="http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png" alt="install_mongodb" title="install_mongodb"></li>
+</ul>
+</li>
 </ul>
 <h3 id="配置MongoDB">配置MongoDB</h3><ul>
 <li>默认mongodb数据文件是放到根目录 /data/db 文件夹下,如果没有这个文件,请自行创建.<ul>
@@ -62,10 +65,11 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads">MongoDB</a></h3><ul>
-<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="&quot;http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png&quot;" alt="mongodb" title="mongodb"></li>
+<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png" alt="mongodb" title="mongodb"></li>
 </ul>
 <ul>
-<li>或者使用brew安装<br>｀brew install mongodb｀]]>
+<li>或者使用brew安装<ul>
+<li><code>brew install mongodb</code>]]>
     
     </summary>
     
