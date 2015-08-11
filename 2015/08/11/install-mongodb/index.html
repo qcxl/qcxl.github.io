@@ -23,7 +23,8 @@ brew install mongodb">
 brew install mongodb">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/install_mongodb.png">
-<meta property="og:updated_time" content="2015-08-11T06:27:00.000Z">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/shutdown_mangodb.png">
+<meta property="og:updated_time" content="2015-08-11T06:38:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 下安装并配置启动MongoDB">
 <meta name="twitter:description" content="安装MongoDB
@@ -339,7 +340,18 @@ brew install mongodb">
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/etc/</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><code>到现在为止,完成了mongodb的安装、配置、服务器端启动、客户端启动,下一步就是如何使用.</code></p>
+<h3 id="关闭mongodb">关闭mongodb</h3><ul>
+<li>登录Mongodb数据库后关闭服务.<ul>
+<li><code>use admin</code></li>
+<li><code>db.shutdownServer()</code></li>
+<li><code>exit</code><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/shutdown_mangodb.png" alt="shutdown_mongodb" title="shutdown_mongodb"></li>
+</ul>
+</li>
+<li>另外一种安全关闭方法:<ul>
+<li><code>kill -15, killall mongod</code><br><code>到现在为止,完成了mongodb的安装、配置、服务器端启动、客户端启动、关闭mongodb,下一步就是如何使用.</code></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
