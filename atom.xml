@@ -185,6 +185,38 @@
   </entry>
   
   <entry>
+    <title><![CDATA[Android自定义组件坐标详解]]></title>
+    <link href="http://yoursite.com/2015/07/10/android_view_position/"/>
+    <id>http://yoursite.com/2015/07/10/android_view_position/</id>
+    <published>2015-07-10T05:48:07.000Z</published>
+    <updated>2015-08-11T13:28:14.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="获取View自身宽高">获取View自身宽高</h3><blockquote>
+<p>View.getWidth();  #View宽<br>  View.getHeight(); #View高</p>
+</blockquote>
+<h3 id="获取View自身坐标">获取View自身坐标</h3><blockquote>
+<p>相对于父控件<br>    getLeft():获取到的是view自身的左边到其父布局左边的距离<br>    getTop:获取到的是view自身的顶边到其父布局顶边的距离<br>    getRight():获取到的是view自身的右边到其父布局左边的距离<br>    getBottom():获取到的是view自身的底边到其父布局顶边的距离</p>
+</blockquote>
+<a id="more"></a>
+<p>  这些方法获取到的数据可以用在什么地方呢？<br>    比如要实现一个自定义的特殊布局—-<a href="http://blog.csdn.net/singwhatiwanna/article/details/42614953" target="_blank" rel="external">水波纹特效布局</a>,<br>    该布局内的任何控件点击后都会出现波纹效果,就要通过不断刷新布局,去更新这个控件上面的波纹半径,为了节省资源,每次刷新布局都时候不会整个布局都刷新,而只是通过<br>    <code>postInvalidateDelayed(INVALIDATE_DURATION, left, top, right, bottom);</code><br>    在布局的画布上每次只去更新点击事件所点击的对应的控件的位置,那么这里就可以用view的那四个方法,分别获取自身的四条边对应的坐标从而让布局去刷新重绘。<br>    当然博客中是使用绝对坐标去计算的,因为这里实现的是一个布局,可能里面还会嵌套另外的布局,经过多次嵌套之后所获取到的值,是相对于控件直接对应的父布局（这个布局有可能已经是我们重写的布局的子布局了）的距离,这样去刷新的区域肯定是不准确的,所以博客里面使用相对屏幕的绝对坐标计算需要刷新的控件区域。<br>    如果这里自定义的不是布局，而只是一个控件的话，就可以通过以上方法获取到坐标，然后要求自己所在的布局去重绘这一区域就可以了。当然这只是一种思路，其实没必要去要求布局重绘，完全可以直接view自身重绘就可以了。</p>
+<h3 id="MotionEvent获取坐标">MotionEvent获取坐标</h3><blockquote>
+<p>相对于当前控件本身:getX(),getY()<br>  相对于屏幕:getRawX(),getRawY()</p>
+</blockquote>
+<p>  这些方法可以用在什么地方呢？<br>  getRawX和getRawY在之前那篇博客里广泛使用了,可以去那里看用法,getX()和getY()这两个方法在对view进行自定义的时候可能用的会比较多。</p>
+<p>  <img src="http://7xk9ih.com1.z0.glb.clouddn.com/view_position.png" alt="View" title="Android自定义组件坐标详解"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="获取View自身宽高">获取View自身宽高</h3><blockquote>
+<p>View.getWidth();  #View宽<br>  View.getHeight(); #View高</p>
+</blockquote>
+<h3 id="获取View自身坐标">获取View自身坐标</h3><blockquote>
+<p>相对于父控件<br>    getLeft():获取到的是view自身的左边到其父布局左边的距离<br>    getTop:获取到的是view自身的顶边到其父布局顶边的距离<br>    getRight():获取到的是view自身的右边到其父布局左边的距离<br>    getBottom():获取到的是view自身的底边到其父布局顶边的距离</p>
+</blockquote>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[使用Pinyin4j 实现列表按内容首字母排序]]></title>
     <link href="http://yoursite.com/2015/07/09/pinyin4j/"/>
     <id>http://yoursite.com/2015/07/09/pinyin4j/</id>

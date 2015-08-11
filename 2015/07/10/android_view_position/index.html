@@ -3,17 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>Android自定义组件坐标详解 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="获取View自身宽高
+View.getWidth();  #View宽  View.getHeight(); #View高
+
+获取View自身坐标
+相对于父控件    getLeft():获取到的是view自身的左边到其父布局左边的距离    getTop:获取到的是view自身的顶边到其父布局顶边的距离    getRight():获取到的是view自身的右边到其父布局左边的距离    getB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自定义组件坐标详解">
+<meta property="og:url" content="http://yoursite.com/2015/07/10/android_view_position/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="获取View自身宽高
+View.getWidth();  #View宽  View.getHeight(); #View高
+
+获取View自身坐标
+相对于父控件    getLeft():获取到的是view自身的左边到其父布局左边的距离    getTop:获取到的是view自身的顶边到其父布局顶边的距离    getRight():获取到的是view自身的右边到其父布局左边的距离    getB">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/view_position.png">
+<meta property="og:updated_time" content="2015-08-11T13:28:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="Android自定义组件坐标详解">
+<meta name="twitter:description" content="获取View自身宽高
+View.getWidth();  #View宽  View.getHeight(); #View高
+
+获取View自身坐标
+相对于父控件    getLeft():获取到的是view自身的左边到其父布局左边的距离    getTop:获取到的是view自身的顶边到其父布局顶边的距离    getRight():获取到的是view自身的右边到其父布局左边的距离    getB">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,211 +262,120 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-android_view_position" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/07/10/android_view_position/" class="article-date">
+  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android自定义组件坐标详解
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/11/install-mongodb/" class="archive-article-date">
-  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">8月 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="获取View自身宽高">获取View自身宽高</h3><blockquote>
+<p>View.getWidth();  #View宽<br>  View.getHeight(); #View高</p>
+</blockquote>
+<h3 id="获取View自身坐标">获取View自身坐标</h3><blockquote>
+<p>相对于父控件<br>    getLeft():获取到的是view自身的左边到其父布局左边的距离<br>    getTop:获取到的是view自身的顶边到其父布局顶边的距离<br>    getRight():获取到的是view自身的右边到其父布局左边的距离<br>    getBottom():获取到的是view自身的底边到其父布局顶边的距离</p>
+</blockquote>
+<a id="more"></a>
+<p>  这些方法获取到的数据可以用在什么地方呢？<br>    比如要实现一个自定义的特殊布局—-<a href="http://blog.csdn.net/singwhatiwanna/article/details/42614953" target="_blank" rel="external">水波纹特效布局</a>,<br>    该布局内的任何控件点击后都会出现波纹效果,就要通过不断刷新布局,去更新这个控件上面的波纹半径,为了节省资源,每次刷新布局都时候不会整个布局都刷新,而只是通过<br>    <code>postInvalidateDelayed(INVALIDATE_DURATION, left, top, right, bottom);</code><br>    在布局的画布上每次只去更新点击事件所点击的对应的控件的位置,那么这里就可以用view的那四个方法,分别获取自身的四条边对应的坐标从而让布局去刷新重绘。<br>    当然博客中是使用绝对坐标去计算的,因为这里实现的是一个布局,可能里面还会嵌套另外的布局,经过多次嵌套之后所获取到的值,是相对于控件直接对应的父布局（这个布局有可能已经是我们重写的布局的子布局了）的距离,这样去刷新的区域肯定是不准确的,所以博客里面使用相对屏幕的绝对坐标计算需要刷新的控件区域。<br>    如果这里自定义的不是布局，而只是一个控件的话，就可以通过以上方法获取到坐标，然后要求自己所在的布局去重绘这一区域就可以了。当然这只是一种思路，其实没必要去要求布局重绘，完全可以直接view自身重绘就可以了。</p>
+<h3 id="MotionEvent获取坐标">MotionEvent获取坐标</h3><blockquote>
+<p>相对于当前控件本身:getX(),getY()<br>  相对于屏幕:getRawX(),getRawY()</p>
+</blockquote>
+<p>  这些方法可以用在什么地方呢？<br>  getRawX和getRawY在之前那篇博客里广泛使用了,可以去那里看用法,getX()和getY()这两个方法在对view进行自定义的时候可能用的会比较多。</p>
+<p>  <img src="http://7xk9ih.com1.z0.glb.clouddn.com/view_position.png" alt="View" title="Android自定义组件坐标详解"></p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/08/install-python-plug/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Python 安装第三方模块
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/09/pinyin4j/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Pinyin4j 实现列表按内容首字母排序</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/10/scrapy/" class="archive-article-date">
-  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">8月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/08/install-python-plug/" class="archive-article-date">
-  	<time datetime="2015-08-08T01:13:07.000Z" itemprop="datePublished">8月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/08/install-python-plug/">Python 安装第三方模块</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/10/android_view_position/" class="archive-article-date">
-  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">7月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/10/android_view_position/">Android自定义组件坐标详解</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android_view_position" data-title="Android自定义组件坐标详解" data-url="http://yoursite.com/2015/07/10/android_view_position/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/09/pinyin4j/" class="archive-article-date">
-  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">7月 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/08/ffmpeg/" class="archive-article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">7月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/07/setup-blog/" class="archive-article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">7月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -478,8 +401,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
