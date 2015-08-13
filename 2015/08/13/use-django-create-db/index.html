@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Mobile Development</title>
+  <title>Django使用数据库 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+  <meta name="description" content="Python连接并使用MySQL
+在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现EnvironmentError: mysql_config not found错误
+brew install mysql
+将MySQL添加到系统环境变量中去 export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin 或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django使用数据库">
+<meta property="og:url" content="http://yoursite.com/2015/08/13/use-django-create-db/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="Python连接并使用MySQL
+在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现EnvironmentError: mysql_config not found错误
+brew install mysql
+将MySQL添加到系统环境变量中去 export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin 或">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/install_mysql.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/syncdb.png">
+<meta property="og:updated_time" content="2015-08-13T09:57:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="Django使用数据库">
+<meta name="twitter:description" content="Python连接并使用MySQL
+在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现EnvironmentError: mysql_config not found错误
+brew install mysql
+将MySQL添加到系统环境变量中去 export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin 或">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,265 +260,144 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-use-django-create-db" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/08/13/use-django-create-db/" class="article-date">
+  	<time datetime="2015-08-13T09:20:50.000Z" itemprop="datePublished">2015-08-13</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Django使用数据库
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/13/use-django-create-db/" class="archive-article-date">
-  	<time datetime="2015-08-13T09:20:50.000Z" itemprop="datePublished">8月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/13/use-django-create-db/">Django使用数据库</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Python连接并使用MySQL">Python连接并使用MySQL</h3><ul>
+<li>在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现<code>EnvironmentError: mysql_config not found</code>错误</li>
+<li><code>brew install mysql</code></li>
+<li>将MySQL添加到系统环境变量中去 <code>export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin</code> 或者 <code>export PATH=$PATH:/usr/local/opt/mysql/bin</code></li>
+<li>使用pip活着easy_install安装MySQL-Python <code>pip install MySQL-Python</code> 或者 <code>sudo easy_install MySQL-Python</code>.<a id="more"></a>
+<img src="http://7xk9ih.com1.z0.glb.clouddn.com/install_mysql.png" alt="MySQL" title="MySQL"></li>
+</ul>
+<h3 id="启动MySQL">启动MySQL</h3><ul>
+<li><code>mysql.server start</code></li>
+</ul>
+<h3 id="使用MySQL并创建数据库">使用MySQL并创建数据库</h3><ul>
+<li><code>mysql -uroot #以root用户身份登陆</code></li>
+<li>创建数据库并设置字符集 <code>create database 数据库名 default charset = utf8;</code></li>
+<li>显示所有数据库 <code>show databases;</code></li>
+<li>使用某个数据库 <code>use 数据库名;</code></li>
+<li>显示所有该数据库下的表 <code>show tables;</code></li>
+<li>显示某张表数据结构 <code>desc 表名;</code></li>
+</ul>
+<h3 id="创建项目和app">创建项目和app</h3><ul>
+<li><code>django-admin.py startproject 项目名</code></li>
+<li><code>django-admin.py startapp app名</code></li>
+<li><p>修改/项目名/项目名/settings.py和urls.py</p>
+<ul>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">   <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">   <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">   <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">   <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">   <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">   <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">   <span class="string">'blog'</span>,</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<ul>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">  DATABASES = &#123;</span><br><span class="line">   <span class="string">'default'</span>: &#123;</span><br><span class="line">       <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">       <span class="string">'NAME'</span>: <span class="string">'数据库名'</span>,</span><br><span class="line">       <span class="string">'USER'</span>: <span class="string">'root'</span>,</span><br><span class="line">       <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</span><br><span class="line">       <span class="string">'HOST'</span>: <span class="string">''</span>,</span><br><span class="line">       <span class="string">'PORT'</span>: <span class="string">''</span>,</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">       <span class="string">'DIRS'</span>: [BASE_DIR+<span class="string">"/templates"</span>],</span><br><span class="line">       <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">       <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">           <span class="string">'context_processors'</span>: [</span><br><span class="line">               <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">               <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">               <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">               <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">           	],</span><br><span class="line">       	&#125;,</span><br><span class="line">   	&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>urls.py 修改参见上篇blog</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="修改blog目录下models-py文件_创建django_employee表">修改blog目录下models.py文件 创建django_employee表</h3><ul>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/syncdb.png" alt="models" title="models"></p>
+<ul>
+<li><code>python manage.py makemigrations</code></li>
+<li><code>python manage.py migrate</code></li>
+<li>查看数据库是不是已经成功添加了django_employee表呢</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/13/install-django/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac 下安装Django</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/13/install-django/" class="archive-article-date">
-  	<time datetime="2015-08-13T01:37:17.000Z" itemprop="datePublished">8月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/13/install-django/">Mac 下安装Django</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/11/install-mongodb/" class="archive-article-date">
-  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">8月 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/10/scrapy/" class="archive-article-date">
-  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">8月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="use-django-create-db" data-title="Django使用数据库" data-url="http://yoursite.com/2015/08/13/use-django-create-db/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/08/install-python-plug/" class="archive-article-date">
-  	<time datetime="2015-08-08T01:13:07.000Z" itemprop="datePublished">8月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/08/install-python-plug/">Python 安装第三方模块</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/10/android_view_position/" class="archive-article-date">
-  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">7月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/10/android_view_position/">Android自定义组件坐标详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/09/pinyin4j/" class="archive-article-date">
-  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">7月 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/08/ffmpeg/" class="archive-article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">7月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/07/setup-blog/" class="archive-article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">7月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -532,8 +423,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
