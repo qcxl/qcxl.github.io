@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-17T05:57:21.000Z</updated>
+  <updated>2015-08-17T07:44:06.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2015/08/17/basic-python-knowledge/"/>
     <id>http://yoursite.com/2015/08/17/basic-python-knowledge/</id>
     <published>2015-08-17T01:57:06.000Z</published>
-    <updated>2015-08-17T05:57:21.000Z</updated>
+    <updated>2015-08-17T07:44:06.000Z</updated>
     <content type="html"><![CDATA[<h3 id="将Python值转换为字符串的三种方式">将Python值转换为字符串的三种方式</h3><ul>
 <li>str 它会把值转换为合理形式的字符串,以便用户可以理解 <code>print str(&#39;Hello,World!&#39;)</code> #输出为 Hello,World!</li>
 <li>repr 会创建一个字符串,它以合法的Python表达式的形式来表示值 <code>print repr(&#39;Hello,World!&#39;)</code> #输出为 ‘Hello,World!’</li>
@@ -102,7 +102,7 @@
 <li>d[k]=v</li>
 <li>del d[k]</li>
 <li>k in d</li>
-<li>字典的格式化字符串 %(键)其它说明元素 例如 <code>phonebook = [&#39;Beth&#39;: &#39;9102&#39;, &#39;Alice&#39;: &#39;2341&#39;, &#39;Cecil&#39;: &#39;3258&#39;] &quot;Cecil&#39;s phone number is %(Cecil)s. &quot; % phonebook</code></li>
+<li>字典的格式化字符串 %(键)其它说明元素 例如 <code>phonebook = {&#39;Beth&#39;: &#39;9102&#39;, &#39;Alice&#39;: &#39;2341&#39;, &#39;Cecil&#39;: &#39;3258&#39;} &quot;Cecil&#39;s phone number is %(Cecil)s. &quot; % phonebook</code></li>
 <li>clear 清除字典中的所有项</li>
 <li>copy 这个方法实现的是浅复制 返回一个具有相同键－值对的新字典,当在副本中替换值的时候,原始字典不受影响,但是,如果修改了某个值(例如remove),原始字典也会改变,可以使用深复制来解决这个问题 <code>import copy from deepcopy</code></li>
 <li>fromkeys 使用给定的键键立新字典,每个键默认对应的值为None <code>{}.fromkeys([&#39;name&#39;,&#39;age&#39;])</code> #{‘name’: None, ‘age’: None}<br>如果不想使用None作为默认值,也可以自己提供默认值<code>{}.fromkeys([&#39;name&#39;,&#39;age&#39;], &#39;(unknown)&#39;)</code></li>
@@ -117,6 +117,35 @@
 <li>values和itervalues</li>
 </ul>
 <hr>
+<h3 id="条件、循环和其他语句">条件、循环和其他语句</h3><ul>
+<li>序列解包 <code>x, y ,z = 1, 2, 3</code></li>
+<li>链式赋值 <code>x = y = somefunction()</code></li>
+<li>增量赋值 <code>x +=1 fnord = &#39;foo&#39; fnord *= 2</code></li>
+<li>下面的值在为布尔表达式的时候,会被解释器看作假(False) <code>False None 0 &quot;&quot; () [] {}</code></li>
+<li><code>x is y</code> #x 和 y是同一个对象</li>
+<li><code>x is not y</code> #x和y是不同的对象 </li>
+<li><code>x in y</code> #x 是 y容器(例如,序列)的成员</li>
+<li><code>x not in y</code> #x 不是 y容器(例如,序列)的成员</li>
+<li>字符串和序列的比较,字符串可以按照字母顺序排列进行比较,<code>&quot;alpha&quot; &lt; &quot;beta&quot;</code> #True,序列类似</li>
+<li>断言 assert <code>age = -1 assert 0&lt; age &lt; 100</code></li>
+<li>并行迭代 内建的zip函数 可以将两个序列 “压缩” 在一起,然后返回一个元组的列表 <code>zip(names,ages)</code> #[(‘anne’,12),(‘george’,102)]<br>zip函数也可以作用于任意多的序列.关于它很重要的一点是zip可以应付不等长的序列,当最短的序列用完的时候就会停止.例如:<code>zip(rang(2), xrange(100000))</code> #[(0,0),(1,1)]</li>
+<li><p>编号迭代 有时候想要迭代序列中的对象,同时还要获取当前对象的索引,可以使用enumerate函数 这个函数可以在提供索引的地方迭代索引－值对 </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index, string <span class="keyword">in</span> enumerate(strings):</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'xxx'</span> <span class="keyword">in</span> string:</span><br><span class="line">        strings[index] = <span class="string">'[censored]'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>翻转和排序迭代</p>
+<ul>
+<li>reversed和sorted 它们同列表的reverse和sort(sorted和sort使用同样的参数)方法类似,但作用于任何序列或可迭代对象上,不是原地修改对象,而是返回翻转<br>或排序后的版本,最后返回列表</li>
+</ul>
+</li>
+<li>列表推导式 <code>[x*x for x in range(10) if x % 3 == 0]</code> #[0, 9, 36, 81] 也可以增加更多的for语句</li>
+<li><p>什么都没发生 Python中空代码块是非法的. 解决方法就是在语句块中加上一个pass语句</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> name = <span class="string">'Ralph'</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Welcome!'</span></span><br><span class="line"><span class="keyword">elif</span> name == <span class="string">'Enid'</span>:</span><br><span class="line">    <span class="comment">#还没写完</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">elif</span> name = <span class="string">'Bill'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Access Denied'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用del删除,它不仅会移除一个对象的引用,也会移除那个名字本身 <code>x = 1 del x</code> 看起来很简单,但理解起来有些难度</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = [<span class="string">'Hello'</span>, <span class="string">'World'</span>]</span><br><span class="line">y = x</span><br><span class="line">y[<span class="number">1</span>] = <span class="string">'Python'</span></span><br><span class="line"><span class="keyword">del</span> x</span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>最后输出y是[‘Hello’, ‘Python’],为什么会这样呢？x和y豆指向同一个列表.但是删除x并不会影响y.原因就是删除的只是名称,而不是列表本身(值).事实上,在Python中是没办法删除值的(也不需要过多考虑删除值的问题,因为在某个值不再使用的时候,Python解释器会负责内存的回收).</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="将Python值转换为字符串的三种方式">将Python值转换为字符串的三种方式</h3><ul>
