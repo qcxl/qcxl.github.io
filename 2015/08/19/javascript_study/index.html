@@ -27,7 +27,7 @@ debugger;
 alert();
 debugger;
 使用window的onerror属性&amp;lt;script typ">
-<meta property="og:updated_time" content="2015-08-20T08:09:57.000Z">
+<meta property="og:updated_time" content="2015-08-20T08:16:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习">
 <meta name="twitter:description" content="JavaScript可以放置的位置
@@ -379,13 +379,15 @@ debugger;
 <h3 id="弹出窗口">弹出窗口</h3><ul>
 <li><code>alert</code></li>
 <li>confirm <code>if(confirm(&quot;确认操作&quot;)){document.write(&quot;您已确认&quot;)}else{document.write(&quot;您没有确认&quot;)}</code></li>
-<li>prompt 第一个参数是提示语,第二个参数是默认内容 <code>var name = prompt(&quot;请输入您的名字:&quot;, &quot;weifeng&quot;); if(name){document.write(&quot;您的名字: &quot;+name)}</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"新开窗口"</span> <span class="attribute">name</span>=<span class="value">"open"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.open('http://www.baidu.com/');"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"return confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"刷新"</span> <span class="attribute">name</span>=<span class="value">"refresh"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.location.reload();"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>prompt 第一个参数是提示语,第二个参数是默认内容 <code>var name = prompt(&quot;请输入您的名字:&quot;, &quot;weifeng&quot;); if(name){document.write(&quot;您的名字: &quot;+name)}</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"新开窗口"</span> <span class="attribute">name</span>=<span class="value">"open"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.open('http://www.baidu.com/');"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"return confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"刷新"</span> <span class="attribute">name</span>=<span class="value">"refresh"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.location.reload();"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>*<code>window.open(&#39;page.html&#39;, &#39;window_title&#39;, &#39;height=100,width=100&#39;)</code></p>
+<li><p><code>window.open(&#39;page.html&#39;, &#39;window_title&#39;, &#39;height=100,width=100&#39;)</code></p>
 <blockquote>
 <p>page.html 弹出窗口的文件名或网址<br>window_title 弹出窗口的title<br>width、height宽高<br>top距离屏幕上方的像素值<br>left距离屏幕左边的像素值<br>toolbar<br>scrollbars<br>resizeable  yes , no<br>location 是否显示地址栏 yes,no<br>status 是否显示状态栏 yes,no</p>
 </blockquote>
+</li>
+</ul>
 <h3 id="函数">函数</h3><ul>
 <li>函数名大小写敏感</li>
 <li>以function 开头</li>
@@ -443,11 +445,13 @@ debugger;
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.color = color;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype.type="猫科动物";</span><br><span class="line">Cat.prototype.eat=function()&#123;</span><br><span class="line">	alert('吃老鼠');</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>isPrototypeOf()</code></li>
-<li><code>hasOwnPrototype()</code><h3 id="Date">Date</h3></li>
+<li><code>hasOwnPrototype()</code></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="Date">Date</h3><ul>
 <li><code>var mDate = new Date();</code></li>
 </ul>
 <h3 id="window">window</h3><ul>
