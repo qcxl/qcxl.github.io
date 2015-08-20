@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-19T13:21:24.000Z</updated>
+  <updated>2015-08-20T08:09:57.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2015/08/19/javascript_study/"/>
     <id>http://yoursite.com/2015/08/19/javascript_study/</id>
     <published>2015-08-19T09:14:07.000Z</published>
-    <updated>2015-08-19T13:21:24.000Z</updated>
+    <updated>2015-08-20T08:09:57.000Z</updated>
     <content type="html"><![CDATA[<h3 id="JavaScript可以放置的位置">JavaScript可以放置的位置</h3><ul>
 <li>可以将js放置在<code>&lt;head&gt; &lt;/head&gt;</code>之间</li>
 <li>可以将js放置在<code>&lt;body&gt; &lt;/body&gt;</code>之间</li>
@@ -33,7 +33,7 @@
 </li>
 </ul>
 <blockquote>
-<p>注意:每行语句的结尾以<code>;</code>结束.<br>单行注释<code>//</code>,多行注释<code>/* */</code><br>关键值不能作为变量和函数名</p>
+<p>注意:每行语句的结尾以<code>;</code>结束.<br>单行注释<code>//</code>,多行注释<code>/* */</code><br>关键值不能作为变量和函数名<br><a id="more"></a></p>
 </blockquote>
 <h3 id="数据类型">数据类型</h3><ul>
 <li>基本类型 undefined(未定义)、none(空对象)、boolean(true,false)、number(数值)、string(字符串)、object(对象)</li>
@@ -53,12 +53,207 @@
 <li>如果给没有定义的变量赋值时,JavaScript会自动定义这个变量,并且该变量会做为全局变量出现在JavaScript代码中</li>
 <li>可以重复定义</li>
 <li>可以在任意位置声明变量 </li>
+<li>声明全局变量的时候可以不用var,但是声明局部变量的时候一定要用var 否则会视为全局变量的引用</li>
+<li>变量的命名方法<ul>
+<li>匈牙利命名法 类型+变量描述 例如:<code>var aData</code><ul>
+<li><code>Array a</code></li>
+<li><code>Boolean b</code></li>
+<li><code>Float l</code></li>
+<li><code>Function f</code></li>
+<li><code>Integer n</code></li>
+<li><code>Object o</code></li>
+<li><code>String s</code></li>
+</ul>
+</li>
+<li>驼峰命名法 例如: <code>print fEmployee()</code></li>
+<li>帕思卡命名法  例如: <code>print BookInfo()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="运算符">运算符</h3><ul>
+<li>算术运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符<code>==、===、&lt;、&gt;、&lt;=、&gt;=、!=</code></li>
+<li>逻辑运算符<code>&amp;&amp; 也可以用and、|| 也可以用 or、! 也可以用not</code></li>
+<li>条件运算符<code>? :</code></li>
+</ul>
+<h3 id="流程控制语句">流程控制语句</h3><ul>
+<li>条件语句<ul>
+<li><code>if else</code></li>
+<li><code>switch(条件语句) case xxx: break; default: break;</code></li>
+</ul>
+</li>
+<li>循环语句<ul>
+<li>while循环</li>
+<li>do…while循环</li>
+<li>for循环</li>
+<li>break和continue语句</li>
+</ul>
+</li>
+</ul>
+<h3 id="弹出窗口">弹出窗口</h3><ul>
+<li><code>alert</code></li>
+<li>confirm <code>if(confirm(&quot;确认操作&quot;)){document.write(&quot;您已确认&quot;)}else{document.write(&quot;您没有确认&quot;)}</code></li>
+<li>prompt 第一个参数是提示语,第二个参数是默认内容 <code>var name = prompt(&quot;请输入您的名字:&quot;, &quot;weifeng&quot;); if(name){document.write(&quot;您的名字: &quot;+name)}</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"新开窗口"</span> <span class="attribute">name</span>=<span class="value">"open"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.open('http://www.baidu.com/');"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"return confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"删除"</span> <span class="attribute">name</span>=<span class="value">"del"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:confirm("</span><span class="value">确认删除?");"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"刷新"</span> <span class="attribute">name</span>=<span class="value">"refresh"</span> <span class="attribute">onclick</span>=<span class="value">"javascript:window.location.reload();"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>*<code>window.open(&#39;page.html&#39;, &#39;window_title&#39;, &#39;height=100,width=100&#39;)</code></p>
+<blockquote>
+<p>page.html 弹出窗口的文件名或网址<br>window_title 弹出窗口的title<br>width、height宽高<br>top距离屏幕上方的像素值<br>left距离屏幕左边的像素值<br>toolbar<br>scrollbars<br>resizeable  yes , no<br>location 是否显示地址栏 yes,no<br>status 是否显示状态栏 yes,no</p>
+</blockquote>
+<h3 id="函数">函数</h3><ul>
+<li>函数名大小写敏感</li>
+<li>以function 开头</li>
+<li>常用内置函数<ul>
+<li><code>eval()</code> 接收一个参数 执行里面的字符串代码 <code>var sum=&quot;1+2&quot;; eval(sum)</code></li>
+<li><code>parseInt()</code></li>
+<li><code>parseFloat()</code></li>
+<li><code>escape unescape</code> 将url编码和解码</li>
+<li><code>isNaN</code> 检测一个字符串不是数字<h3 id="数组">数组</h3></li>
+</ul>
+</li>
+<li>可以存放多种类型的数据</li>
+<li>可以根据数据的增加或者减少来调整数组的大小</li>
+<li>创建数组<ul>
+<li>构造函数创建:<ul>
+<li><code>var a1 = new Array();</code></li>
+<li><code>var a2 = new Array(5);</code></li>
+<li><code>var a3 = new Array(4,&#39;hello&#39;,new Date());</code>#有三个值</li>
+</ul>
+</li>
+<li>字面量:<ul>
+<li>var a4 = [];</li>
+<li>var a5 = [10];#当作数组的内容</li>
+</ul>
+</li>
+<li>常用方法:<ul>
+<li>join(char): <code>var a = new Array(1,2,3,4); doucment.write(a.join(&quot;,&quot;))</code> #输出1,2,3,4</li>
+<li>slice(start,end) 用于返回数组中的一个片段或者子数组,如果只写一个参数则返回参数到结束部分,如果参数出现负数则从数组尾部开始计数,如果start大于end则会返回一个空数组,并且slice是返回一个新数组,不改变原来的数组.</li>
+<li>concat(array) 连接2个数组 不改变原来的数组.</li>
+<li>reverse() 逆序 改变原来的数组</li>
+<li>sort() 可以自己定义函数 改变原来的数组 <code>var a3 = sort(function(v1,v2){return v1-v2;})</code></li>
+<li>delete 删除数组中的某个元素,但是不会改变数组的长度 被删除的元素值为undefined     <code>del(a[1])</code></li>
+<li>pop栈方法</li>
+<li>push栈方法</li>
+<li>shift 从数组索引最小的元素删除, 从头部开始取</li>
+<li>unshift 从数组索引最小的元素添加<h3 id="对象">对象</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性 <code>objectName.propertyName;</code></li>
+<li>方法 <code>objectName.methodName();</code></li>
+<li><p>创建JavaScript对象</p>
+<ul>
+<li><p>定义并创建对象</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function Person(firstname,lastname)&#123;</span><br><span class="line">	this.firstname = firstname;</span><br><span class="line">	this.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line">person = new Person('Bill','Gates');</span><br><span class="line"></span><br><span class="line">person = new Object();</span><br><span class="line">person.firstname = 'Bill';</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建直接的实例 <code>person = {firstname:&#39;bill&#39;, lastname:&#39;gates&#39;};</code></p>
+</li>
+<li>把属性添加到JavaScript对象 <code>personObj.firstname = &quot;Cat&quot;;</code></li>
+<li><p>把方法添加到JavaScript对象</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function Person(firstname,lastname)&#123;</span><br><span class="line">	this.firstname = firstname;</span><br><span class="line">	this.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line">person = new Object();</span><br><span class="line">person.firstname = 'Bill';</span><br><span class="line"></span><br><span class="line">person.changeName = function(lastname)&#123;</span><br><span class="line">	this.lastname = lastname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Prototype模式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.color = color;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype.type="猫科动物";</span><br><span class="line">Cat.prototype.eat=function()&#123;</span><br><span class="line">	alert('吃老鼠');</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>isPrototypeOf()</code></li>
+<li><code>hasOwnPrototype()</code><h3 id="Date">Date</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>var mDate = new Date();</code></li>
+</ul>
+<h3 id="window">window</h3><ul>
+<li><code>window.open、window.close()、window.alert()、window.moveTo(x,y)、window.resizeTo(x,y)、window.scrollTo(x,y)、window.back()、window.forward()、window.foucs()</code></li>
+<li>window子对象 <code>document、frames、history、location、navigator、screen</code><br><code>var width = window.innerwidth || document.documentElement.clientWidth || document.body.clientWidth;</code><br><code>var height = window.innerheight || document.documentElement.clientHeight || document.body.clientHeight;</code></li>
+</ul>
+<h3 id="Document">Document</h3><ul>
+<li>document对象集合<ul>
+<li><code>all()</code> 所有html元素访问的数组</li>
+<li><code>anchors[]</code> 所有anchors引用的数组</li>
+<li><code>forms[]</code> 使用form 名字或者 索引</li>
+<li><code>links[]</code></li>
+</ul>
+</li>
+<li>document对象属性<ul>
+<li><code>document.cookie</code></li>
+<li><code>document.domain</code></li>
+<li><code>document.referer</code></li>
+<li><code>document.title</code></li>
+<li><code>document.bgColor</code></li>
+<li><code>document.fgColor</code></li>
+<li><code>document.linkColor</code></li>
+<li><code>document.URL</code>  同一窗口打开另一窗口的url</li>
+<li><code>document.fileCreatedDate</code></li>
+<li><code>document.fileSize</code></li>
+<li><code>document.charset</code></li>
+</ul>
+</li>
+<li>常用对应方法<ul>
+<li><code>write()</code></li>
+<li><code>createElement(Tag)</code></li>
+<li><code>getElementById()</code></li>
+<li><code>geElementByName()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="定时器">定时器</h3><ul>
+<li><code>var t = setTimeout(&quot;javascript函数语句&quot;,毫秒)</code> 指定多少毫秒后执行javascript语句,只执行一次</li>
+<li><code>clearTimeout(t)</code></li>
+<li><code>var d = setInterval(&quot;javascript函数语句&quot;,毫秒)</code> 每隔多少毫秒执行一次</li>
+<li><code>clearInterval(d)</code></li>
+</ul>
+<h3 id="事件">事件</h3><ul>
+<li>onclick onmouseOver onmouseout onload onunload onfocus(选取输入框的时候) onBlur(离开输入框的时候) onChange(输入框的值做更改的时候) onsubmit</li>
+</ul>
+<h3 id="Cookie">Cookie</h3><ul>
+<li><code>document.cookie</code></li>
+<li>大小不超过4kb,否则会返回空字符串</li>
+<li>格式 cookiename = cookievalue</li>
+<li><code>alert(typeof document.cookie);</code> #返回string</li>
+</ul>
+<h3 id="正则表达式">正则表达式</h3><ul>
+<li>创建正则表达式<br>RegExp(“正则表达式”,”可选参数”)<br>g 全文查找<br>i 不考虑大小写<br>m 多长查找<br>或者使用字面量表示 <code>var re = /a/gi;</code></li>
+<li>正则表达式的属性和方法<ul>
+<li>source 返回正则表示中匹配文本的副本 它是只读属性</li>
+<li>lastIndex 返回字符的位置 被查找字符串中下一次成功匹配的开始位置</li>
+<li>$1 ~ $9 它返回在九个模式匹配中找到的最近保存的部分 也是只读的.</li>
+<li>input 执行规范表达式得到的字符串</li>
+<li>lastMatch 返回任何正则表达式中 搜索过程中最后匹配的字符</li>
+<li>lastParent 返回任何正则表达式中 直接查找过程中最后的子匹配</li>
+<li>leftContext</li>
+<li>rightContext</li>
+<li>test</li>
+<li>exec</li>
+<li>compile</li>
+</ul>
+</li>
+<li>String 对象一些和正则表达式相关的方法<ul>
+<li>match</li>
+<li>replace</li>
+<li>search</li>
+<li>split</li>
+</ul>
+</li>
 </ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="JavaScript可以放置的位置">JavaScript可以放置的位置</h3><ul>
 <li>可以将js放置在<code>&lt;head&gt; &lt;/head&gt;</code>之间</li>
-<li>可以将js放置在<code>&lt;body&]]>
+<li>可以将js放置在<code>&lt;body&gt; &lt;/body&gt;</code>之间</li>
+<li>可以将js放置在<code>&lt;/body&gt; &lt;/html&gt;</code>之间</li>
+</ul>
+<h3 id="调试JavaScript的几种方法">调试JavaScript的几种方法</h3><ul>
+<li>alert();</li>
+<li>debugger;</li>
+<li>使用window的onerror属性<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="axapta"></span><br><span class="line">window.onerror = function(sMsg, sUrl,sLine)&#123;</span><br><span class="line">	<span class="keyword">str</span> = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">str</span> += sMsg; <span class="preprocessor">#报错信息</span></span><br><span class="line">	<span class="keyword">str</span> += sUrl; <span class="preprocessor">#报错的当前url</span></span><br><span class="line">	<span class="keyword">str</span> += sLine; <span class="preprocessor">#报错的文件行数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意:每行语句的结尾以<code>;</code>结束.<br>单行注释<code>//</code>,多行注释<code>/* */</code><br>关键值不能作为变量和函数名<br>]]>
+    
     </summary>
     
   </entry>
