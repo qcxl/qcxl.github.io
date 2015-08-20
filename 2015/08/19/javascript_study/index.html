@@ -27,7 +27,11 @@ debugger;
 alert();
 debugger;
 使用window的onerror属性&amp;lt;script typ">
-<meta property="og:updated_time" content="2015-08-20T08:24:12.000Z">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/typeof.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/instanceof.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/prototype1.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/prototype2.png">
+<meta property="og:updated_time" content="2015-08-20T10:08:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript学习">
 <meta name="twitter:description" content="JavaScript可以放置的位置
@@ -322,7 +326,18 @@ debugger;
 </blockquote>
 <h3 id="数据类型">数据类型</h3><ul>
 <li>基本类型 undefined(未定义)、none(空对象)、boolean(true,false)、number(数值)、string(字符串)、object(对象)</li>
-<li>检测数据类型 typeof xxx</li>
+<li><p>包装类型 String、Boolean、Number</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var a = "string";</span><br><span class="line">alert(a.lenght); #输出6 其实基本类型中没有length属性,也没有t属性.为什么可以呢? 那是因为js会自动将基本类型转包装对象类型.使用完成会释放掉</span><br><span class="line">a.t = 3;#输出3</span><br><span class="line">alert(a.t) #输出undefined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检测数据类型 </p>
+<ul>
+<li>基本类型和函数对象判断 <code>typeof xxx(返回字符串)</code><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/typeof.png" alt="typeof" title="typeof"></li>
+<li>判断对象类型是基于原型链 instanceof(左操作数是对象 右操作数是函数对象或者函数构造器)、<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/instanceof.png" alt="instanceof" title="instanceof"></li>
+<li><code>Object.prototype.toString</code><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/prototype1.png" alt="prototype1" title="prototype1"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/prototype2.png" alt="prototype2" title="prototype2"></li>
+<li><code>constructor</code></li>
+<li><code>duck type</code></li>
+</ul>
+</li>
 <li>可以将任何值转换为boolean值,使用Boolean(xxx) 转换之后是true还是false取决于转化的数据类型以及其实际值.字符串默认会转换为true</li>
 <li>number包括整数和浮点数</li>
 <li>NoN(not a number) 它有两个特点任何涉及到的NoN操作都会返回NoN,NoN值和其它任何值都不相等包括它自己本身都不会相等</li>
@@ -358,7 +373,7 @@ debugger;
 <h3 id="运算符">运算符</h3><ul>
 <li>算术运算符</li>
 <li>赋值运算符</li>
-<li>比较运算符<code>==、===、&lt;、&gt;、&lt;=、&gt;=、!=</code></li>
+<li>比较运算符<code>==(类型相同,同===.类型不同,尝试类型转换和比较 null==undefined、number == string转number、boolean == ? 会先将boolean转为数字 true转为1 false转为0、object==number|string 尝试对象转为基本类型)、===(类型不同,返回false null===null、undefined === undefined、NaN不等于NaN、new Object不等于new Object、[1,2]不等于[1,2])、&lt;、&gt;、&lt;=、&gt;=、!=</code></li>
 <li>逻辑运算符<code>&amp;&amp; 也可以用and、|| 也可以用 or、! 也可以用not</code></li>
 <li>条件运算符<code>? :</code></li>
 </ul>
@@ -515,7 +530,7 @@ debugger;
 <li>正则表达式的属性和方法<ul>
 <li>source 返回正则表示中匹配文本的副本 它是只读属性</li>
 <li>lastIndex 返回字符的位置 被查找字符串中下一次成功匹配的开始位置</li>
-<li>$1 ~ $9 它返回在九个模式匹配中找到的最近保存的部分 也是只读的.</li>
+<li><code>$1 ~ $9</code> 它返回在九个模式匹配中找到的最近保存的部分 也是只读的.</li>
 <li>input 执行规范表达式得到的字符串</li>
 <li>lastMatch 返回任何正则表达式中 搜索过程中最后匹配的字符</li>
 <li>lastParent 返回任何正则表达式中 直接查找过程中最后的子匹配</li>
