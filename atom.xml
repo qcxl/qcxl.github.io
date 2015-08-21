@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-20T10:08:02.000Z</updated>
+  <updated>2015-08-21T07:42:07.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Sublime Text使用]]></title>
+    <link href="http://yoursite.com/2015/08/21/sublime_text_use/"/>
+    <id>http://yoursite.com/2015/08/21/sublime_text_use/</id>
+    <published>2015-08-21T04:57:50.000Z</published>
+    <updated>2015-08-21T07:42:07.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="工欲善其事必先利其器">工欲善其事必先利其器</h3><ul>
+<li><p>今天讲解Mac下如何为Sublime Text安装插件</p>
+<ul>
+<li>首先下载<a href="http://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a> </li>
+<li>通过Package Control来管理插件,那么如何来安装插件呢?<br>我这里参考了<a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">Package Control</a>网站,打开Sublime Text的console面板:打开的第一种方式 通过快捷键 ctrl+<code>,打开的第二种方式</code>View &gt; Show Console menu`</li>
+<li><p>如果您使用的是Sublime Text3则在打开的console面板中输入以下内容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
+<p>如果您使用的是Sublime Text2则在打开的console面板中输入以下内容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(ipp) <span class="keyword">else</span> <span class="keyword">None</span>; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="keyword">None</span>; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来就可以使用Package Control来安装插件了,这里我先教大家如何安装Markdown插件.</p>
+<ul>
+<li>不知道什么是Markdown的同学先Google了解下.按住<code>command(windows下为control键)+shift+p</code> 输入并选择<code>Package Control:Install Package</code></li>
+<li>然后在搜索框里输入插件名,回车即可,安装完成后不需要重启即可使用.</li>
+<li>分别安装 Markdown Editing、SublimeTmpl、Markdown Preview</li>
+<li><p>修改Markdown文件的默认保存后缀名.选择<code>Preferences &gt; Setting - more &gt; Syntax Specific - User</code> 会打开 <code>Markdown.sublime-settings</code>,然后将下面内容保存(文件名应该是:Packages/User/Markdown.sublime-settings)</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	"<span class="attribute">extensions</span>": <span class="value">[<span class="string">"md"</span>]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>Preferences &gt; Package Settings &gt; Markdown Editing &gt; Markdown GFM Settings - User</code> 这里可以修改Makdown Editing的编辑界面和输出格式等等.</p>
+</li>
+<li><p>进入<code>/Users/weifeng/Library/Application Support/Sublime\ Text\ 3/Packages/User/SublimeTmpl/templates/</code>目录增加一个模版文件<code>markdown.tmpl</code> 内容如下:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">title: $&#123;1:文章标题&#125;</span><br><span class="line">date: $&#123;date&#125;</span><br><span class="line">tags: $2</span><br><span class="line">author: $&#123;author&#125;</span><br><span class="line">email: $&#123;email&#125;</span><br><span class="line">link: $&#123;link&#125;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">$0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后打开<code>Preferences &gt; Package Settings &gt; SublimeTmpl &gt; Settings - Menu</code> 里面加上如下内容:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        "<span class="attribute">id</span>": <span class="value"><span class="string">"file"</span></span>,</span><br><span class="line">        "<span class="attribute">children</span>":</span><br><span class="line">        <span class="value">[</span><br><span class="line">            &#123;</span><br><span class="line">                "<span class="attribute">caption</span>": <span class="value"><span class="string">"New File (SublimeTmpl)"</span></span>,</span><br><span class="line">                "<span class="attribute">children</span>":</span><br><span class="line">                <span class="value">[</span><br><span class="line">                    &#123;</span><br><span class="line">                        "<span class="attribute">caption</span>": <span class="value"><span class="string">"Markdown"</span></span>,</span><br><span class="line">                        "<span class="attribute">command</span>": <span class="value"><span class="string">"sublime_tmpl"</span></span>,</span><br><span class="line">                        "<span class="attribute">args</span>": <span class="value">&#123;</span><br><span class="line">                            "<span class="attribute">type</span>": <span class="value"><span class="string">"markdown"</span></span><br><span class="line">                        </span>&#125;   </span><br><span class="line">                    </span>&#125;,</span><br><span class="line">                    ......</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>Preferences &gt; Package Settings &gt; SublimeTmpl &gt; Settings - Commands</code> 里面加上如下内容:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">       "<span class="attribute">caption</span>": <span class="value"><span class="string">"Tmpl: Create Markdown"</span></span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"sublime_tmpl"</span></span>,</span><br><span class="line">       "<span class="attribute">args</span>": <span class="value">&#123;"<span class="attribute">type</span>": <span class="value"><span class="string">"markdown"</span></span>&#125;</span><br><span class="line">  	</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>Preferences &gt; Package Settings &gt; SublimeTmpl &gt; Settings - User</code> 里面加上如下内容:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">markdown</span>": <span class="value">&#123;</span><br><span class="line">        "<span class="attribute">syntax</span>": <span class="value"><span class="string">"Packages/MarkdownEditing/Markdown.tmLanguage"</span></span><br><span class="line">    </span>&#125;</span>,</span><br><span class="line">    "<span class="attribute">attr</span>": <span class="value">&#123;</span><br><span class="line">        "<span class="attribute">author</span>": <span class="value"><span class="string">"weifeng"</span> </span>,</span><br><span class="line">        "<span class="attribute">email</span>": <span class="value"><span class="string">"l157676363@qq.com"</span></span>,</span><br><span class="line">        "<span class="attribute">link</span>": <span class="value"><span class="string">"http://www.mobilecode.cn/"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改设置文件<code>Preferences &gt; Package Settings &gt; Markdown Preview &gt; Settings - User</code> 里面加上如下内容:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">enabled_parsers</span>": <span class="value">[<span class="string">"markdown"</span>]</span>,</span><br><span class="line">    "<span class="attribute">github_mode</span>": <span class="value"><span class="string">"markdown"</span></span>,</span><br><span class="line">    "<span class="attribute">enabled_parsers</span>": <span class="value">[<span class="string">"github"</span>]</span>,</span><br><span class="line">    "<span class="attribute">build_action</span>": <span class="value"><span class="string">"browser"</span></span>,</span><br><span class="line">    "<span class="attribute">enable_mathjax</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">    "<span class="attribute">enable_highlight</span>": <span class="value"><span class="literal">true</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置新建Markdown文件快捷键以及使用浏览器预览Markdown文件快捷键,打开<code>`Preferences &gt; Key Bindings - User</code> 里面添加如下内容:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"command+b"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"markdown_preview"</span></span>, "<span class="attribute">args</span>": <span class="value">&#123; "<span class="attribute">target</span>": <span class="value"><span class="string">"browser"</span></span>&#125; </span>&#125;,               </span><br><span class="line">	&#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"command+m"</span>]</span>, "<span class="attribute">command</span>":<span class="value"><span class="string">"sublime_tmpl"</span></span>, "<span class="attribute">args</span>": <span class="value">&#123;"<span class="attribute">type</span>": <span class="value"><span class="string">"markdown"</span></span>&#125; </span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装其它插件">安装其它插件</h3><blockquote>
+<p><code>[Sublime插件：增强篇](http://www.jianshu.com/p/5905f927d01b)</code><br><code>[如何优雅地使用Sublime Text3](http://www.jianshu.com/p/3cb5c6f2421c)</code><br><code>[MarkdownEditing](https://github.com/SublimeText-Markdown/MarkdownEditing)</code><br><code>[9个最佳的Sublime Text主题](http://www.techug.com/9-best-sublime-text-themes)</code><br><code>[12个不可不知的Sublime Text应用技巧和诀窍](http://segmentfault.com/a/1190000000505218)</code></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="工欲善其事必先利其器">工欲善其事必先利其器</h3><ul>
+<li><p>今天讲解Mac下如何为Sublime Text安装插件</p>
+<ul>
+<li>首先下载<a href="http://www.sublimetext.com/" target="_b]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[JavaScript学习]]></title>
