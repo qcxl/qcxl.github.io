@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-23T03:43:13.000Z</updated>
+  <updated>2015-08-23T04:39:34.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[jQuery学习]]></title>
+    <link href="http://yoursite.com/2015/08/23/jquery_study/"/>
+    <id>http://yoursite.com/2015/08/23/jquery_study/</id>
+    <published>2015-08-23T03:52:26.000Z</published>
+    <updated>2015-08-23T04:39:34.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="jQuery环境搭建">jQuery环境搭建</h3><ul>
+<li>第一种方式在<a href="http://jquery.com" target="_blank" rel="external">jQuery</a>的官方网站中,下载最新版本的jQuery文件库.在网站中找到最新版本文件的下载按钮,将jQuery框架文件下载到本地即可,引入jQuery文件库<br>下载完jQuery框架文件后,并不需要任何的安装,仅需要使用<code>&lt;script&gt;</code>文件导入标记,将jQuery框架文件导入页面中即可.那么,在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<br><code>&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code><br>在页面的头部分，加入上述代码后，便完成了jQuery框架开发环境的搭建，就可以开始我们的jQuery学习了.</li>
+<li>第二种方式在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<code>&lt;script src=&quot;//code.jquery.com/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code><a id="more"></a>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="jQuery环境搭建">jQuery环境搭建</h3><ul>
+<li>第一种方式在<a href="http://jquery.com">jQuery</a>的官方网站中,下载最新版本的jQuery文件库.在网站中找到最新版本文件的下载按钮,将jQuery框架文件下载到本地即可,引入jQuery文件库<br>下载完jQuery框架文件后,并不需要任何的安装,仅需要使用<code>&lt;script&gt;</code>文件导入标记,将jQuery框架文件导入页面中即可.那么,在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<br><code>&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code><br>在页面的头部分，加入上述代码后，便完成了jQuery框架开发环境的搭建，就可以开始我们的jQuery学习了.</li>
+<li>第二种方式在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<code>&lt;script src=&quot;//code.jquery.com/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Sublime Text使用]]></title>
