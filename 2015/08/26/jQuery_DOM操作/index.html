@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery DOM操作 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery DOM操作
+使用attr()方法控制元素的属性. attr()方法的作用是设置或者返回元素的属性,其中attr(属性名)格式是获取元素属性名的值,attr(属性名,属性值)格式则是设置元素属性名的值.&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;    &amp;lt;head&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery DOM操作">
+<meta property="og:url" content="http://yoursite.com/2015/08/26/jQuery_DOM操作/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="jQuery DOM操作
+使用attr()方法控制元素的属性. attr()方法的作用是设置或者返回元素的属性,其中attr(属性名)格式是获取元素属性名的值,attr(属性名,属性值)格式则是设置元素属性名的值.&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;    &amp;lt;head&amp;gt;">
+<meta property="og:image" content="http://img.mukewang.com/52bb8ca300011b7203780146.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bb90400001a1eb03640193.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bb94080001c89c03270369.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bb960c0001f4c603770161.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bb980d0001c85804680122.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bcd7850001d30303360171.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bcd9cd0001645203820142.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bb9da80001fede03660123.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bcdc2c0001b69c04750130.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bcdea700016dbf03980120.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bba3720001175203180227.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52bceff500018e0702910171.jpg">
+<meta property="og:updated_time" content="2015-08-26T01:21:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery DOM操作">
+<meta name="twitter:description" content="jQuery DOM操作
+使用attr()方法控制元素的属性. attr()方法的作用是设置或者返回元素的属性,其中attr(属性名)格式是获取元素属性名的值,attr(属性名,属性值)格式则是设置元素属性名的值.&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;    &amp;lt;head&amp;gt;">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery_DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery_DOM操作/" class="article-date">
+  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  <h1 itemprop="name">
+    <a class="article-title" href="http://www.mobilecode.cn/" target="_blank" itemprop="url">jQuery DOM操作</a>
+  </h1>
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
+<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>操作元素的内容. 使用<code>html()</code>和<code>text()</code>方法操作元素的内容,当两个方法的参数为空时,表示获取该元素的内容,而如果方法中包含参数,则表示将参数值设置为元素内容.<code>html()</code>方法可以获取元素的HTML内容.而<code>text()</code>方法只是获取元素中的文本内容,并不包含HTML格式代码.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var $content = "<span class="tag">&lt;<span class="title">b</span>&gt;</span>唉，我又变胖了！<span class="tag">&lt;/<span class="title">b</span>&gt;</span>";</span><br><span class="line">$("#html").html($content);</span><br><span class="line">$("#text").text($content);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bb90400001a1eb03640193.jpg" alt="htmlImg" title="htmlImg"></p>
+<ul>
+<li>操作元素的样式. 通过<code>addClass()</code>和<code>css()</code>方法可以方便地操作元素中的样式,前者括号中的参数为增加元素的样式名称,后者直接将样式的属性内容写在括号中。增加多个样式名称时,要用空格隔开。<code>$(&quot;#content&quot;).css({&quot;background-color&quot;:&quot;red&quot;,&quot;color&quot;:&quot;white&quot;});</code><br><img src="http://img.mukewang.com/52bb94080001c89c03270369.jpg" alt="classImg" title="classImg"></li>
+<li>移除属性和样式 使用<code>removeAttr(name)</code>和<code>removeClass(class)</code>分别可以实现移除元素的属性和样式的功能,前者方法中参数表示移除属性名,后者方法中参数则表示移除的样式名.<br><code>$(&quot;#content&quot;).removeClass(&quot;blue&quot;,&quot;white&quot;);</code><br><img src="http://img.mukewang.com/52bb960c0001f4c603770161.jpg" alt="removeImg" title="removeImg"></li>
+<li>使用<code>append()</code>方法向元素内追加内容 方法的功能是向指定的元素中追加内容,被追加的content参数,可以是字符、HTML元素标记,还可以是一个返回字符串内容的函数。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>append()方法追加内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="php"></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">rethtml</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> <span class="variable">$html</span> = <span class="string">"&lt;div id='test' title='hi'&gt;我是调用函数创建的&lt;/div&gt;"</span></span><br><span class="line">                <span class="keyword">return</span> <span class="variable">$html</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $(<span class="string">"body"</span>).append(rethtml());</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bb980d0001c85804680122.jpg" alt="appendImg" title="appendImg"></p>
+<ul>
+<li>使用<code>appendTo()</code>方法向被选元素内插入内容 <code>appendTo()</code>方法也可以向指定的元素内插入内容,它的使用格式是:<code>$(content).appendTo(selector)</code> 参数content表示需要插入的内容,参数selector表示被选的元素,即把content内容插入selector元素内,默认是在尾部。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>appendTo()方法插入内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>小乌龟<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red'&gt;小青蛙&lt;/span&gt;"</span></span><br><span class="line">            <span class="variable">$(</span><span class="variable">$html</span>).appendTo(<span class="string">"div"</span>);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bcd7850001d30303360171.jpg" alt="appendToImg" title="appendToImg"></p>
+<ul>
+<li>使用<code>before()</code>和<code>after()</code>在元素前后插入内容 它们分别表示在整个元素的前面和后面插入指定的元素或内容,调用格式分别为:<br><code>$(selector).before(content)</code>和<code>$(selector).after(content)</code>其中参数content表示插入的内容,该内容可以是元素或HTML字符串.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>after()方法在元素之后插入内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>我们交个朋友吧！<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red'&gt;兄弟。&lt;/span&gt;"</span></span><br><span class="line">            <span class="variable">$(</span><span class="string">".green"</span>).after(<span class="variable">$html</span>);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bcd9cd0001645203820142.jpg" alt="baImage" title="baImage"></p>
+<ul>
+<li>使用<code>clone()</code>方法复制元素 调用<code>clone()</code>方法可以生成一个被选元素的副本,即复制了一个被选元素，包含它的节点、文本和属性,它的调用格式为:<code>$(selector).clone()</code><br>其中参数selector可以是一个元素或HTML内容.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用clone()方法复制元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"red"</span> <span class="attribute">title</span>=<span class="value">"hi"</span>&gt;</span>我是美猴王<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"body"</span>)</span>.append<span class="params">($<span class="params">(<span class="string">".red"</span>)</span>.clone<span class="params">()</span>)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bb9da80001fede03660123.jpg" alt="cloneImg" title="cloneImg"></p>
+<ul>
+<li>替换内容 <code>replaceWith()</code>和<code>replaceAll()</code>方法都可以用于替换元素或元素中的内容,但它们调用时,内容和被替换元素所在的位置不同,分别为如下所示:<br><code>$(selector).replaceWith(content)</code>和<code>$(content).replaceAll(selector)</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用replaceAll()方法替换元素内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span> <span class="attribute">title</span>=<span class="value">"hi"</span>&gt;</span>我是屌丝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red' title='hi'&gt;我是土豪&lt;/span&gt;"</span>;</span><br><span class="line">            <span class="variable">$(</span><span class="variable">$html</span>).replaceAll(<span class="variable">$(</span><span class="string">".green"</span>));</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bcdc2c0001b69c04750130.jpg" alt="replaceImg" title="replaceImg"></p>
+<ul>
+<li>使用<code>wrap()</code>和<code>wrapInner()</code>方法包裹元素和内容.但前者用于包裹元素本身,后者则用于包裹元素中的内容,它们的调用格式分别为:<br><code>$(selector).wrap(wrapper)</code>和<code>$(selector).wrapInner(wrapper)</code><br>参数selector为被包裹的元素,wrapper参数为包裹元素的格式。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用wrapInner()方法包裹元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"red"</span> <span class="attribute">title</span>=<span class="value">'hi'</span>&gt;</span>我的身体有点歪<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">".red"</span>)</span>.wrapInner<span class="params">(<span class="string">"&lt;i&gt;&lt;/i&gt;"</span>)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bcdea700016dbf03980120.jpg" alt="wrapImg" title="wrapImg"></p>
+<ul>
+<li>使用<code>each()</code>方法可以遍历指定的元素集合,在遍历时,通过回调函数返回遍历元素的序列号,它的调用格式为:<code>$(selector).each(function(index))</code>参数function为遍历时的回调函数,index为遍历元素的序列号,它从0开始.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用each()方法遍历元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>桃子<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>葡萄<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>荔枝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="string">"span"</span>).?(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (index == <span class="number">1</span>) &#123;</span><br><span class="line">                    $(<span class="string">"span"</span>).attr(<span class="string">"class"</span>, <span class="string">"red"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bba3720001175203180227.jpg" alt="eachImg" title="eachImg"></p>
+<ul>
+<li>使用<code>remove()</code>和<code>empty()</code>方法删除元素.remove()方法删除所选元素本身和子元素,该方法可以通过添加过滤参数指定需要删除的某些元素,而empty()方法则只删除所选元素的子元素。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用empty()方法删除元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>桃子<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>葡萄<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>荔枝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"span"</span>)</span>.empty<span class="params">(<span class="string">".green"</span>)</span>?</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52bceff500018e0702910171.jpg" alt="removeImg" title="removeImg"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/26/jQuery事件与应用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          jQuery 事件与应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/23/jquery环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery环境搭建与三种选择器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jQuery_DOM操作" data-title="jQuery DOM操作" data-url="http://yoursite.com/2015/08/26/jQuery_DOM操作/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>
