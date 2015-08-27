@@ -3,17 +3,41 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Mobile Development</title>
+  <title>《锋利的jQuery》--读书笔记一 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+  <meta name="description" content="认识jQuery
+jQuery 的优势:
+轻量级  采用UglifyJS压缩
+强大的选择器
+出色的DOM操作的封装
+可靠的事件处理机制
+完善的Ajax
+不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名$也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《锋利的jQuery》--读书笔记一">
+<meta property="og:url" content="http://yoursite.com/2015/08/27/jquery_note_1/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="认识jQuery
+jQuery 的优势:
+轻量级  采用UglifyJS压缩
+强大的选择器
+出色的DOM操作的封装
+可靠的事件处理机制
+完善的Ajax
+不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名$也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/jq_ready_img.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/conflictImg.png">
+<meta property="og:updated_time" content="2015-08-27T09:57:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="《锋利的jQuery》--读书笔记一">
+<meta name="twitter:description" content="认识jQuery
+jQuery 的优势:
+轻量级  采用UglifyJS压缩
+强大的选择器
+出色的DOM操作的封装
+可靠的事件处理机制
+完善的Ajax
+不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名$也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,296 +272,161 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-jquery_note_1" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/08/27/jquery_note_1/" class="article-date">
+  	<time datetime="2015-08-27T01:57:47.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《锋利的jQuery》--读书笔记一
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/jquery_note_2/" class="archive-article-date">
-  	<time datetime="2015-08-27T06:02:21.000Z" itemprop="datePublished">8月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/jquery_note_2/">《锋利的jQuery》--读书笔记二</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="认识jQuery">认识jQuery</h3><ul>
+<li>jQuery 的优势:<ul>
+<li>轻量级  采用<a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="external">UglifyJS</a>压缩</li>
+<li>强大的选择器</li>
+<li>出色的DOM操作的封装</li>
+<li>可靠的事件处理机制</li>
+<li>完善的Ajax</li>
+<li>不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名<code>$</code>也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲突.</li>
+<li>出色的浏览器兼容性</li>
+<li>链式操作方式</li>
+<li>隐式迭代</li>
+<li>行为层与结构层的分离</li>
+<li>丰富的插件支持</li>
+<li>完善的文档</li>
+<li>开源</li>
+</ul>
+</li>
+<li>jquery.js和jquery.mini.js区别. 前者为完整无压缩开发版,主要用于测试、学习和开发,而后者是经过工具压缩或经过服务器开启Gzip压缩主要应用于产品和项目.<a id="more"></a>
+</li>
+</ul>
+<h3 id="jQuery对象和DOM对象的互相转换">jQuery对象和DOM对象的互相转换</h3><ul>
+<li>在jQuery库中,<code>$</code>就是jQuery的一个简写形式,例如:<code>$(&quot;#foo&quot;)</code>和<code>jQuery(&quot;#foo&quot;)</code>是等价的,<code>$.ajax</code>和<code>jQuery.ajax</code>是等价的.程序中的$符号都是jQuery的一个简写形式.</li>
+<li><code>window.onload</code>与<code>$(document).ready();</code>区别<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/jq_ready_img.png" alt="jq_ready_img" title="jq_ready_img"></li>
+<li><code>$(&quot;#foo&quot;).html</code> 等同于 <code>document.getElementById(&quot;foo&quot;).innerHTML;</code></li>
+<li>jQuery对象和DOM对象的互相转换<ul>
+<li>如果获得的对象是jQuery对象,那么在变量前面加上<code>$</code>例如:<code>var $variable = jQuery对象;</code></li>
+<li>如果获取的是DOM对象,则定义如下:<code>var variable = DOM对象;</code></li>
+<li>jQuery提供了两种方法将一个jQuery对象转换成DOM对象,即[index]和get(index)<blockquote>
+<p>jQuery对象是一个类似数组的对象,可以通过[index]的方法得到相应的DOM对象.例如: var $cr = $(“#cr”);  var cr = $cr[0];(或者通过var cr = $cr.get(0);) alert(cr.checked);</p>
+</blockquote>
+</li>
+<li>DOM对象转为jQuery对象.只需要用<code>$()</code>把DOM对象包装起来,就可以获得一个jQuery对象了.方式为$(DOM对象)。例如:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var cr = document.getElementById("cr"); //DOM对象</span><br><span class="line">var $cr = $(cr); //jQuery对象</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="解决_jQuery和其他库的冲突">解决 jQuery和其他库的冲突</h3><ul>
+<li><p>jQuery 库在其他库之后导入</p>
+<ul>
+<li>第一种方式:<code>jQuery.noConflict();</code> 将变量<code>$</code>的控制权移交给其他js库.然后使用jQuery的时候<code>jQuery(function(){});</code></li>
+<li>第二种方式: 自定义快捷方式<code>var $jq = jQuery.noConflict(); $jq(function(){})</code></li>
+<li><p>第三种方式:如果不想给jQuery自定义这些设备名称,还想使用<code>$</code>而不管其它库的<code>$()</code>方法,同时又不想与其他库相冲突,那么可以使用以下两种解决方法:<br>其一:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">jQuery.noConflict(); //将变量$的控制权让渡给其他库</span><br><span class="line">jQuery(function($)&#123; //使用jQuery设定页面加载时执行的函数</span><br><span class="line">    $("p").click(function()&#123; //在函数内部继续使用$()</span><br><span class="line">        alert($(this).text());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>其二:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">jQuery.noConflict(); //将变量$的控制权让渡给其他库</span><br><span class="line">(function($)&#123; //定义匿名函数并设置行参为$</span><br><span class="line">    $(function()&#123; //在函数内部$均为jQuery</span><br><span class="line">        $("p").click(function()&#123; //继续使用$()方法</span><br><span class="line">                alert($(this).text());</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)(jQuery); //执行匿名函数且传递实参 jQuery</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>jQuery 库在其他库之前导入</p>
+<ul>
+<li>可以直接使用”jQuery”来做一些jQuery的工作.同时,可以使用<code>$()</code>方法作为其他库的快捷方式.这里无需调用jQuery.noConflict()函数.<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/conflictImg.png" alt="conflictImg" title="conflictImg"></li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/27/jquery_note_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《锋利的jQuery》--读书笔记二
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/26/jQuery工具类函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery 工具类函数</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/jquery_note_1/" class="archive-article-date">
-  	<time datetime="2015-08-27T01:57:47.000Z" itemprop="datePublished">8月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/jquery_note_1/">《锋利的jQuery》--读书笔记一</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery工具类函数/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:18:42.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery工具类函数/">jQuery 工具类函数</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery_UI型插件/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:18:06.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery_UI型插件/">jQuery UI型插件</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jquery_note_1" data-title="《锋利的jQuery》--读书笔记一" data-url="http://yoursite.com/2015/08/27/jquery_note_1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery常用插件/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:17:34.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery常用插件/">jQuery 常用插件</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery实现Ajax应用/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:16:44.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery实现Ajax应用/">jQuery 实现Ajax应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery动画与特效/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:16:05.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery动画与特效/">jQuery 动画特效</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery事件与应用/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:14:51.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery事件与应用/">jQuery 事件与应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery_DOM操作/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery_DOM操作/">jQuery DOM操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/23/jquery环境搭建/" class="archive-article-date">
-  	<time datetime="2015-08-23T03:52:26.000Z" itemprop="datePublished">8月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/23/jquery环境搭建/">jQuery环境搭建与三种选择器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2015/page/2/">2</a><a class="page-number" href="/archives/2015/page/3/">3</a><a class="extend next" rel="next" href="/archives/2015/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -563,8 +452,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

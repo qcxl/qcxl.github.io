@@ -250,6 +250,134 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-sublime_text_use" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/21/sublime_text_use/" class="article-date">
+  	<time datetime="2015-08-21T04:57:50.000Z" itemprop="datePublished">2015-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/21/sublime_text_use/">Sublime Text使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="工欲善其事必先利其器">工欲善其事必先利其器</h3><ul>
+<li><p>今天讲解Mac下如何为Sublime Text安装插件</p>
+<ul>
+<li>首先下载<a href="http://www.sublimetext.com/">Sublime Text</a> </li>
+<li>通过Package Control来管理插件,那么如何来安装插件呢?<br>我这里参考了<a href="https://packagecontrol.io/installation#st3">Package Control</a>网站,打开Sublime Text的console面板:打开的第一种方式 通过快捷键 ctrl+<code>,打开的第二种方式</code>View &gt; Show Console menu`</li>
+<li><p>如果您使用的是Sublime Text3则在打开的console面板中输入以下内容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure>
+<p>如果您使用的是Sublime Text2则在打开的console面板中输入以下内容:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib; h = <span class="string">'eb2297e1a458f27d836c04bb0cbaf282'</span> + <span class="string">'d0e7a3098092775ccb37ca9d6b2e4b7d'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(ipp) <span class="keyword">else</span> <span class="keyword">None</span>; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="keyword">None</span>; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/21/sublime_text_use/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-javascript_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/19/javascript_study/" class="article-date">
+  	<time datetime="2015-08-19T09:14:07.000Z" itemprop="datePublished">2015-08-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/19/javascript_study/">JavaScript学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript可以放置的位置">JavaScript可以放置的位置</h3><ul>
+<li>可以将js放置在<code>&lt;head&gt; &lt;/head&gt;</code>之间</li>
+<li>可以将js放置在<code>&lt;body&gt; &lt;/body&gt;</code>之间</li>
+<li>可以将js放置在<code>&lt;/body&gt; &lt;/html&gt;</code>之间</li>
+</ul>
+<h3 id="调试JavaScript的几种方法">调试JavaScript的几种方法</h3><ul>
+<li>alert();</li>
+<li>debugger;</li>
+<li>使用window的onerror属性<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="axapta"></span><br><span class="line">window.onerror = function(sMsg, sUrl,sLine)&#123;</span><br><span class="line">	<span class="keyword">str</span> = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">str</span> += sMsg; <span class="preprocessor">#报错信息</span></span><br><span class="line">	<span class="keyword">str</span> += sUrl; <span class="preprocessor">#报错的当前url</span></span><br><span class="line">	<span class="keyword">str</span> += sLine; <span class="preprocessor">#报错的文件行数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意:每行语句的结尾以<code>;</code>结束.<br>单行注释<code>//</code>,多行注释<code>/* */</code><br>关键值不能作为变量和函数名<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/19/javascript_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-html_study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -734,118 +862,6 @@
         <p class="article-more-link">
           <a  href="/2015/07/10/android_view_position/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-pinyin4j" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/09/pinyin4j/" class="article-date">
-  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">2015-07-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><h3 id="下载Pinyin4j库">下载<a href="http://mvnrepository.com/artifact/com.belerweb/pinyin4j/2.5.0">Pinyin4j</a>库</h3></li>
-<li><h3 id="封装排序Model">封装排序Model</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;   </span><br><span class="line">	<span class="keyword">private</span> String sortLetters;  </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">(String name, String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSortLetters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSortLetters</span><span class="params">(String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/09/pinyin4j/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/08/ffmpeg/" class="article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">2015-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
-<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
-<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>
