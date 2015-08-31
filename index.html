@@ -276,13 +276,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="jQuery中的事件和动画">jQuery中的事件和动画</h3><h4 id="jQuery中的事件">jQuery中的事件</h4><ul>
-<li>加载DOM<ul>
+        <h3 id="jQuery中的事件">jQuery中的事件</h3><h4 id="加载DOM">加载DOM</h4><ul>
 <li>JavaScript中使用<code>window.onload</code>方法,而在jQuery中使用<code>$(document).ready()</code>方法.<br>它们之间的区别:<br><code>window.onload</code>方法是在网页所有的元素(包括元素的所有关联文件)完全加载到浏览器后才执行,即JavaScript此时才可以访问网页中的任何元素.<br>而通过jQuery中的<code>$(document).ready()</code>方法注册的事件处理程序,在DOM完全就绪时就可以被调用.此时网页的所有元素对jQuery都是可以访问的,但是这并不意味着这些元素的所有关联文件都已经下载完毕.</li>
 <li>多次使用<code>window.onload</code>方法只会执行最后一个(相当于后面的函数会覆盖前面的函数).<br>而多次使用<code>$(document).ready()</code>方法则会根据注册的顺序依次执行.</li>
 <li>简写形式:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(document).ready(function()&#123;&#125;);</span><br><span class="line">$(function()&#123;&#125;);</span><br><span class="line">$().ready(function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 </ul>
       
