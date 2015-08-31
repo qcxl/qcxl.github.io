@@ -250,6 +250,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jquery_note_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/31/jquery_note_4/" class="article-date">
+  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">2015-08-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery中的事件和动画">jQuery中的事件和动画</h3><h4 id="jQuery中的事件">jQuery中的事件</h4><ul>
+<li>加载DOM<ul>
+<li>JavaScript中使用<code>window.onload</code>方法,而在jQuery中使用<code>$(document).ready()</code>方法.<br>它们之间的区别:<br><code>window.onload</code>方法是在网页所有的元素(包括元素的所有关联文件)完全加载到浏览器后才执行,即JavaScript此时才可以访问网页中的任何元素.<br>而通过jQuery中的<code>$(document).ready()</code>方法注册的事件处理程序,在DOM完全就绪时就可以被调用.此时网页的所有元素对jQuery都是可以访问的,但是这并不意味着这些元素的所有关联文件都已经下载完毕.</li>
+<li>多次使用<code>window.onload</code>方法只会执行最后一个(相当于后面的函数会覆盖前面的函数).<br>而多次使用<code>$(document).ready()</code>方法则会根据注册的顺序依次执行.</li>
+<li>简写形式:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(document).ready(function()&#123;&#125;);</span><br><span class="line">$(function()&#123;&#125;);</span><br><span class="line">$().ready(function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/31/jquery_note_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jquery_note_3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -765,63 +827,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/26/jQuery事件与应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery_DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery_DOM操作/" class="article-date">
-  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery_DOM操作/">jQuery DOM操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
-<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery_DOM操作/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
