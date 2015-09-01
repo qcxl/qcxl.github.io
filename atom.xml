@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-08-31T08:17:46.000Z</updated>
+  <updated>2015-09-01T03:21:41.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[《锋利的jQuery》--读书笔记五]]></title>
+    <link href="http://yoursite.com/2015/09/01/jquery_note_5/"/>
+    <id>http://yoursite.com/2015/09/01/jquery_note_5/</id>
+    <published>2015-09-01T02:50:41.000Z</published>
+    <updated>2015-09-01T03:21:41.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="单选框控制表格行高亮">单选框控制表格行高亮</h4><ul>
+<li>使用了<code>end()</code>方法<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("tbody&gt;tr").click(function()&#123;</span><br><span class="line">    $(this).addClass("selected")</span><br><span class="line">    .siblings().removeClass("selected")</span><br><span class="line">    .end()</span><br><span class="line">    .find(":radio").attr("checked",true);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<p>上面代码中使用了<code>end()</code>方法,当前对象是<code>$(this)</code>,当进行<code>addClass(&quot;selected&quot;)</code>操作时,对象并未发生变化,当执行<code>.siblings().removeClass(&quot;selected&quot;)</code>操作时,对象已经变为<code>$(this).siblings()</code>,因此后面操作都是针对这个对象的,如果需要重新返回到<code>$(this)</code>对象,就可以使用<code>end()</code>方法.</p>
+<h4 id="复选框控制表格高亮">复选框控制表格高亮</h4><ul>
+<li>使用到了三元运算符<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("tbody&gt;tr").click(function()&#123;</span><br><span class="line">    var hasSelected=$(this).hasClass("selected");</span><br><span class="line">    //三元运算符</span><br><span class="line">    $(this)[hasSelected?"removeClass":"addClass"]("selected");</span><br><span class="line">    $(this).find(":checkbox").attr("checked",!hasSelected);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>上面三元运算符其实代表2种情况:<br><code>$(this)[&quot;removeClass&quot;](&quot;selected&quot;);</code>或者<code>$(this)[&quot;addClass&quot;](&quot;selected&quot;);</code><br>它们等价于:<br><code>$(this).removeClass(&quot;selected&quot;);</code>或者<code>$(this).addClass(&quot;selected&quot;);</code> </p>
+</blockquote>
+<h4 id="表格内容筛选">表格内容筛选</h4><ul>
+<li>DOM加载完成立即执行某事件<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    $("#filterName").keyup(function()&#123;</span><br><span class="line">        $("table tbody tr").hide()</span><br><span class="line">        .filter(":contains('"+($(this).val())+"')").show();</span><br><span class="line">    &#125;).keyup();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="网页字体大小">网页字体大小</h4><ul>
+<li>获取字体大小值<br><code>var thisEle = $(#para).css(&quot;font-size&quot;);</code><br><code>var textFontSize = parseInt(thisEle,10);</code><br><code>var unit = thisEle.slice(-2);</code><br>获取id为”para”的元素的字体大小.获取的值是将返回的数字和单位.即16px.然后使用<code>parseInt()</code>方法去掉单位,因此16px就变成了16.<code>parseInt()</code>方法的第2个参数表示进制,代码中表示的是十进制.<br><code>slice()</code>方法返回字符串中从指定的字符开始的一个子字符串.</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="单选框控制表格行高亮">单选框控制表格行高亮</h4><ul>
+<li>使用了<code>end()</code>方法<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("tbody&gt;tr").click(function()&#123;</span><br><span class="line">    $(this).addClass("selected")</span><br><span class="line">    .siblings().removeClass("selected")</span><br><span class="line">    .end()</span><br><span class="line">    .find(":radio").attr("checked",true);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[《锋利的jQuery》--读书笔记四]]></title>
@@ -2089,60 +2126,6 @@
 <ul>
 <li>或者使用brew安装<ul>
 <li><code>brew install mongodb</code>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Mac下安装爬虫框架Scrapy]]></title>
-    <link href="http://yoursite.com/2015/08/10/scrapy/"/>
-    <id>http://yoursite.com/2015/08/10/scrapy/</id>
-    <published>2015-08-10T14:04:25.000Z</published>
-    <updated>2015-08-10T14:50:04.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4" target="_blank" rel="external">lxml</a>模块,当前版本是3.4.4</h3><ul>
-<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c" target="_blank" rel="external">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
-</ul>
-<ul>
-<li><p>安装lxml</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>解决方法有如下几种:<ul>
-<li>配置路径:CPATH<br><code>sudo CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2 CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install lxml</code></li>
-<li>终端执行命令安装或更新命令行开发工具:<br><code>xcode-select --install</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="安装w3lib">安装<a href="https://pypi.python.org/pypi/w3lib#downloads" target="_blank" rel="external">w3lib</a></h3><ul>
-<li>下载并解压<a href="https://pypi.python.org/packages/source/w/w3lib/w3lib-1.12.0.tar.gz#md5=c2545617229b3fc72d59afed85b18035" target="_blank" rel="external">w3lib-1.12.0.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/w3lib.png" alt="w3lib" title="w3lib"></li>
-<li>安装w3lib<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> w3lib-<span class="number">1.12</span>.<span class="number">0</span> <span class="comment">#进入w3lib目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="安装Scrapy">安装<a href="http://scrapy.org/" target="_blank" rel="external">Scrapy</a></h3><ul>
-<li>下载并解压Scrapy<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/scrapy.png" alt="scrapy" title="scrapy"></li>
-<li>Scrapy<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> scrapy-scrapy-<span class="number">8124</span>af9 <span class="comment">#进入scrapy目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>至此,整个Scrapy模块安装完成,接下来就是学习如何使用Scrapy.</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4">lxml</a>模块,当前版本是3.4.4</h3><ul>
-<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
-</ul>
-<ul>
-<li><p>安装lxml</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
-</li>
-</ul>]]>
     
     </summary>
     

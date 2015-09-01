@@ -250,6 +250,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jquery_note_5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/01/jquery_note_5/" class="article-date">
+  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">2015-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单选框控制表格行高亮">单选框控制表格行高亮</h4><ul>
+<li>使用了<code>end()</code>方法<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("tbody&gt;tr").click(function()&#123;</span><br><span class="line">    $(this).addClass("selected")</span><br><span class="line">    .siblings().removeClass("selected")</span><br><span class="line">    .end()</span><br><span class="line">    .find(":radio").attr("checked",true);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/01/jquery_note_5/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jquery_note_4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -766,64 +823,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/26/jQuery动画与特效/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery事件与应用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery事件与应用/" class="article-date">
-  	<time datetime="2015-08-26T01:14:51.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery事件与应用/">jQuery 事件与应用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_事件与应用">jQuery 事件与应用</h3><ul>
-<li>页面加载时触发<code>ready()</code>事件.<code>ready()</code>事件类似于<code>onLoad()</code>事件,但前者只要页面的DOM结构加载后便触发,而后者必须在页面全部元素加载成功才触发,<code>ready()</code>可以写多个,按顺序执行.此外,下列写法是相等的:<code>$(document).ready(function(){})</code>等价于<code>$(function(){});</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>页面载入时触发ready()事件<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"btntest"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"点下我"</span> /&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"document"</span>)</span>.ready<span class="params">(&#123;</span><br><span class="line">                $<span class="params">(<span class="string">"#btntest"</span>)</span>.bind<span class="params">(<span class="string">"click"</span>, function <span class="params">()</span> &#123;</span><br><span class="line">                    $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">(<span class="string">"我被点击了！"</span>)</span>;</span><br><span class="line">                &#125;)</span>;</span><br><span class="line">            &#125;)</span>;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52d227fa000171db03160136.jpg" alt="readyImg" title="readyImg"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery事件与应用/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
