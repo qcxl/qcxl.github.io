@@ -250,6 +250,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jquery_note_6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/01/jquery_note_6/" class="article-date">
+  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">2015-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery与Ajax的应用">jQuery与Ajax的应用</h3><h4 id="Ajax的优势与不足">Ajax的优势与不足</h4><ul>
+<li><p>Ajax的优势<br>1.不需要插件支持<br>2.优秀的用户体验<br>3.提高web程序的性能<br>4.减轻服务器和宽带的负担</p>
+</li>
+<li><p>Ajax的不足<br>1.浏览器对XMLHttpRequest对象的支持度不足<br>2.破坏浏览器前进、后退按钮的正常功能<br>3.对搜索引擎的支持不足<br>4.开发和调试工具的缺乏</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/01/jquery_note_6/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jquery_note_5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -765,64 +824,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/26/jQuery实现Ajax应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery动画与特效" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery动画与特效/" class="article-date">
-  	<time datetime="2015-08-26T01:16:05.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery动画与特效/">jQuery 动画特效</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_动画特效">jQuery 动画特效</h3><ul>
-<li>调用<code>show()</code>和<code>hide()</code>方法显示和隐藏元素.<code>$(selector).hide(speed,[callback])</code>和<code>$(selector).show(speed,[callback])</code>参数speed设置隐藏或显示时的速度值,可为”slow”、”fast”或毫秒数值,可选项参数callback为隐藏或显示动作执行完成后调用的函数名.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用show()和hide()方法显示和隐藏元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">h4</span>&gt;</span>我喜欢吃的水果<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>甘桔<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>梨<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"hidval"</span> <span class="attribute">type</span>=<span class="value">"hidden"</span> <span class="attribute">value</span>=<span class="value">"0"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(function <span class="params">()</span> &#123;</span><br><span class="line">                $<span class="params">(<span class="string">"h4"</span>)</span>.bind<span class="params">(<span class="string">"click"</span>, function <span class="params">()</span> &#123;</span><br><span class="line">                    if <span class="params">($<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">()</span> == <span class="number">0</span>)</span> &#123;</span><br><span class="line">                        $<span class="params">(<span class="string">"ul"</span>)</span>.show<span class="params">()</span>;</span><br><span class="line">                        $<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">(<span class="number">1</span>)</span>;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        $<span class="params">(<span class="string">"ul"</span>)</span>.hide<span class="params">()</span>;</span><br><span class="line">                        $<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">(<span class="number">0</span>)</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span>;</span><br><span class="line">            &#125;)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52dc9f250001508d03860257.jpg" alt="shImg" title="shImg"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery动画与特效/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

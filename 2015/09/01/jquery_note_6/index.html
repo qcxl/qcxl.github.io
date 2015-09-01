@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>《锋利的jQuery》--读书笔记六 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery与Ajax的应用Ajax的优势与不足
+Ajax的优势1.不需要插件支持2.优秀的用户体验3.提高web程序的性能4.减轻服务器和宽带的负担
+
+Ajax的不足1.浏览器对XMLHttpRequest对象的支持度不足2.破坏浏览器前进、后退按钮的正常功能3.对搜索引擎的支持不足4.开发和调试工具的缺乏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《锋利的jQuery》--读书笔记六">
+<meta property="og:url" content="http://yoursite.com/2015/09/01/jquery_note_6/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="jQuery与Ajax的应用Ajax的优势与不足
+Ajax的优势1.不需要插件支持2.优秀的用户体验3.提高web程序的性能4.减轻服务器和宽带的负担
+
+Ajax的不足1.浏览器对XMLHttpRequest对象的支持度不足2.破坏浏览器前进、后退按钮的正常功能3.对搜索引擎的支持不足4.开发和调试工具的缺乏">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_fun_1.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_fun_2.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_other_method.png">
+<meta property="og:updated_time" content="2015-09-01T08:14:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《锋利的jQuery》--读书笔记六">
+<meta name="twitter:description" content="jQuery与Ajax的应用Ajax的优势与不足
+Ajax的优势1.不需要插件支持2.优秀的用户体验3.提高web程序的性能4.减轻服务器和宽带的负担
+
+Ajax的不足1.浏览器对XMLHttpRequest对象的支持度不足2.破坏浏览器前进、后退按钮的正常功能3.对搜索引擎的支持不足4.开发和调试工具的缺乏">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-jquery_note_6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/01/jquery_note_6/" class="article-date">
+  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">2015-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《锋利的jQuery》--读书笔记六
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery与Ajax的应用">jQuery与Ajax的应用</h3><h4 id="Ajax的优势与不足">Ajax的优势与不足</h4><ul>
+<li><p>Ajax的优势<br>1.不需要插件支持<br>2.优秀的用户体验<br>3.提高web程序的性能<br>4.减轻服务器和宽带的负担</p>
+</li>
+<li><p>Ajax的不足<br>1.浏览器对XMLHttpRequest对象的支持度不足<br>2.破坏浏览器前进、后退按钮的正常功能<br>3.对搜索引擎的支持不足<br>4.开发和调试工具的缺乏</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>XMLHttpRequest对象<br>IE5、IE6是以ActiveXObject的方式<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var xmlHttpReq = null;</span><br><span class="line">if(window.ActiveXObject)&#123;</span><br><span class="line">    xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");</span><br><span class="line">&#125;else if(window.XMLHttpRequest)&#123;</span><br><span class="line">    xmlHttpReq = new XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line">xmlHttpReq.open("GET","test.php",true);//最后一个参数为是否设置为异步请求</span><br><span class="line">xmlHttpReq.onreadystatechange=RequestCallBack;//设置回调函数</span><br><span class="line">xmlHttpReq.send(null);//因为使用GET方法提交,所有可以使用null作为参数</span><br><span class="line">function RequestCallBack()&#123;</span><br><span class="line">    if(xmlHttpReq.readState == 4)&#123;//完成请求</span><br><span class="line">        if(xmlHttpReq.status == 200)&#123;//响应成功</span><br><span class="line">            document.getElementById("resText").innerHTML = xmlHttpReq.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="jQuery中的Ajax">jQuery中的Ajax</h4><blockquote>
+<p>jQuery对Ajax操作进行了封装,在jQuery中<code>$.ajax()</code>方法属于最底层的方法,第2层是<code>load()</code>、<code>$.get()</code>和<code>$.post()</code>方法,第3层是<code>$.getScript()</code>和<code>$.getJSON()</code>方法.</p>
+</blockquote>
+<h5 id="load()方法">load()方法</h5><ul>
+<li><p>载入HTML文档</p>
+<blockquote>
+<p>能载入远程HTML代码并插入DOM中,它的结构为:<br><code>load(url [,data] [,callback])</code><br>(1) 第一个参数url:请求HTML页面<br>(2) 第二个参数data:发送到服务器的key/value数据<br>(3) 第三个参数callback:请求完成时的回调函数,无论请求成功或者失败</p>
+</blockquote>
+</li>
+<li><p>筛选载入的HTML文档</p>
+<blockquote>
+<p><code>load()</code>方法的URL参数的语法结构为:<br>“url selector”.</p>
+</blockquote>
+</li>
+</ul>
+<p>例如:只需要加载test.html页面中class为”para”的内容:<code>$(&quot;#resText&quot;).load(&quot;test.html .para&quot;);</code></p>
+<ul>
+<li><p>传递方式<br>无参数传递,则是GET方式,否则为POST方式.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("#resText").load("test.php",function()&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;);</span><br><span class="line">$("#resText").load("test.php",&#123;name:"rain",age:"22"&#125;function()&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回调函数<br>回调函数有3个参数,分别代表请求返回的内容、请求状态和XMLHttpRequest对象</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("#resText").load("test.php",function(reponseText,textStatus,XMLHttpRequest)&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="$-get()方法和$-post()方法"><code>$.get()</code>方法和<code>$.post()</code>方法</h5><blockquote>
+<p>这2个方法是jQuery中的全局函数</p>
+</blockquote>
+<ul>
+<li><p><code>$.get()</code>方法(数据通常不能大于2KB)</p>
+<blockquote>
+<p>语法结构:<br><code>$.get(url [,data] [,callback] [,type])</code><br>(1) 第一个参数url:请求HTML页面的URL地址<br>(2) 第二个参数data:发送到服务器的key/value数据会作为QueryString附加到请求URL中<br>(3) 第三个参数callback(data,textStatus):请求完成时的回调函数(只有当Response的返回状态是success才调用该方法)自动将请求结果和状态传递给该方法.textStatus有4种请求状态:success、error、notmodified、timeout<br>(4) 第四个参数type:服务器返回内容的格式,包括xml、html、script、json、text和default</p>
+</blockquote>
+</li>
+<li><p><code>$.post()</code>方法与<code>$.get()</code>方法语法结构和使用方式都相同</p>
+</li>
+</ul>
+<h5 id="$-getScript()方法和$-getJson()方法"><code>$.getScript()</code>方法和<code>$.getJson()</code>方法</h5><ul>
+<li><p><code>$.getScript(&quot;xxx.js&quot;,function(){...})</code> (也有回调函数,它会在JavaScript文件成功载入后运行).<br>有时候,在页面初次加载时就取得所需的全部JavaScript文件是完全没有必要的.虽然可以在需要哪个JavaScript文件时,动态地创建<code>&lt;script&gt;</code>标签,jQuery代码如下:<br><code>$(document.createElement(&quot;script&quot;)).attr(&quot;src&quot;,&quot;test.js&quot;).appendTo(&quot;head&quot;);</code><br>或者<br>  <code>$(&quot;&lt;script type=&#39;text/javascript&#39; src=&#39;test.js&#39; /&gt;&quot;).appendTo(&quot;head&quot;);</code><br>但这种方式并不理想.为此,jQuery提供了<code>$.getScript()</code>方法来直接加载.js文件.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    $("#send").click(function()&#123;</span><br><span class="line">        $.getScript("test.js");</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>$.getJson(&quot;xxx.json&quot;,function(data){...})</code>方法用于加载JSON文件,与<code>$.getScript()</code>方法的用法相同(也有回调函数,在回调函数里处理返回的数据)</p>
+</li>
+<li><code>$.each()</code>函数<blockquote>
+<p>不同于jQuery对象的each()方法,它是一个全局函数,不操作jQuery对象。<br>(1) 第1个参数data:一个数组或者对象<br>(2) 第2个参数callback(对象的成员或数组的索引,对应变量或者内容):回调函数</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    $("#send").click(function()&#123;</span><br><span class="line">        $.getJson("test.json",function(data)&#123;</span><br><span class="line">            $("#resText").empty();</span><br><span class="line">            var html = "";</span><br><span class="line">            $.each(data,function(commentIndex,comment)&#123;</span><br><span class="line">                html +="<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"comment"</span>&gt;</span><span class="tag">&lt;<span class="title">h6</span>&gt;</span>"</span><br><span class="line">                +comment['username']+":<span class="tag">&lt;/<span class="title">h6</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"para"</span>&gt;</span>"+comment['content']+"<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>";</span><br><span class="line">            &#125;);</span><br><span class="line">            $("resText").html(html);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>$.ajax()</code>方法<blockquote>
+<p>语法结构:<code>$.ajax(options)</code></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_fun_1.png" alt="ajax_fun_1" title="ajax_fun_1"><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_fun_2.png" alt="ajax_fun_2" title="ajax_fun_2"></p>
+<h4 id="序列化元素">序列化元素</h4><ul>
+<li><p><code>serialize()</code>方法.<br>作用于一个jQuery对象,它能够将DOM元素内容序列化为字符串,用于Ajax请求.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("#send").click(function()&#123;</span><br><span class="line">    $.get("get1.php",$("#form1").serialize(),function(data,textStatus)&#123;</span><br><span class="line">        $("#resText").html(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">data也可以使用字符串形式:</span><br><span class="line">"username="+encodeURIComponent($("#username").val())</span><br><span class="line">+"&amp;content="+encodeURIComponent($("#content").val())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>serializeArray()方法<br>能够将DOM元素序列化后,返回JSON格式的数据.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var fields = $(":checkbox,:radio").serializeArray();</span><br><span class="line">console.log(fields);</span><br><span class="line">$.each(fields,function(i,field)&#123;</span><br><span class="line">    $("#results").append(field.value + " , ");</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>$.param()</code>方法<br>它是<code>serialize()</code>方法的核心,用来对一个数值或对象按照key/value进行序列化.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var obj = &#123;a:1,b:2,c:3&#125;;</span><br><span class="line">var k = $.param(obj);</span><br><span class="line">alert(k); //输出a=1&amp;b=2&amp;c=3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Ajax全局事件">Ajax全局事件</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"loading"</span>&gt;</span>加载中...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">$("#loading").ajaxStart(function()&#123;</span><br><span class="line">    $(this).show();</span><br><span class="line">&#125;);</span><br><span class="line">$("#loading").ajaxStop(function()&#123;</span><br><span class="line">    $(this).hide();</span><br><span class="line">&#125;);//也可以使用链式写法</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/ajax_other_method.png" alt="ajax_other_method" title="ajax_other_method"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/01/jquery_note_5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《锋利的jQuery》--读书笔记五</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jquery_note_6" data-title="《锋利的jQuery》--读书笔记六" data-url="http://yoursite.com/2015/09/01/jquery_note_6/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>
