@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-09-02T06:34:50.000Z</updated>
+  <updated>2015-09-07T06:21:55.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[JavaScript权威指南--类型、值和变量]]></title>
+    <link href="http://yoursite.com/2015/09/06/javascript_note_01/"/>
+    <id>http://yoursite.com/2015/09/06/javascript_note_01/</id>
+    <published>2015-09-06T09:36:50.000Z</published>
+    <updated>2015-09-07T06:21:55.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="类型、值">类型、值</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_capture_03.png" alt="js_capture_03" title="js_capture_03"><br><a id="more"></a></p>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_num_obj.png" alt="js_num_obj" title="js_num_obj"></p>
+<ul>
+<li>转换和相等性<blockquote>
+<p>if语句将undefined转换为false,但”==”运算符从不试图将其操作数转换为布尔值,如果将对象和一个原始值比较,则转换将会遵循对象到原始值的转换方式进行.和”==”一样,”&lt;”运算符以及其他关系运算符也会做对象到原始值的转换,但要出去日期对象的特殊情形:任何对象都会首选尝试调用<code>valueOf()</code>,然后调用<code>toString()</code>.不管得到的原始值是否直接使用,它都不会进一步被转换为数字或字符串.</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//这两值被认为相等</span></span><br><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">//在比较之前字符串转换为数字</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">//在比较之前布尔值转换为数字</span></span><br><span class="line"><span class="string">"0"</span> == <span class="literal">false</span> <span class="comment">//在比较之前字符串和布尔值都转换为数字</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//创建一个日期对象</span></span><br><span class="line"><span class="keyword">typeof</span>(now+<span class="number">1</span>) <span class="comment">// =&gt; "string": "+"将日期转换为字符串</span></span><br><span class="line"><span class="keyword">typeof</span>(now-<span class="number">1</span>) <span class="comment">// =&gt; "number": "-"使用对象到数字的转换</span></span><br><span class="line">now == now.toString(); <span class="comment">// =&gt;true:隐式的和显示的字符串转换</span></span><br><span class="line">now &gt; (now-<span class="number">1</span>) <span class="comment">// =&gt; true: "&gt;"将日期转换为数字</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示类型转换<blockquote>
+<p>使用Boolean()、Number()、String()或Object()函数,当不使用new运算符调用这些函数时,它们会作为类型转换函数.</p>
+</blockquote>
+</li>
+</ul>
+<p>除了<code>null</code>或<code>undefined</code>之外的任何值都具有<code>toString()</code>方法,这个方法的执行结果通常和<code>String()</code>方法的返回结果一致.</p>
+<p>JavaScript中的某些运算符会做隐式的类型转换,有时用于类型转换.<br>1.如果”+”运算符的一个操作数是字符串,它将会把另外一个操作数转换为字符串.如果它的其中一个操作数是对象,则JavaScript将使用特殊的方法将对象转换为原始值,而不是使用其他算数运算符的方法执行对象到数字的转换.</p>
+<p>2.一元”+”运算符将其操作数转换为数字.</p>
+<p>3.同样,一元”!”运算符将其操作数转换为布尔值并取反.</p>
+<p>4.减号运算符<code>-</code>会将它的两个操作数都转换为数字.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">x + <span class="string">""</span> <span class="comment">//等价于String(x)</span></span><br><span class="line">+x <span class="comment">//等价于 Number(x) 也可以写成x-0</span></span><br><span class="line">!!x <span class="comment">//等价于 Boolean(x). 注意是双叹号</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数字转字符串:<br><code>Number</code>类定义的<code>toString()</code>方法可以接收表示转换基数的可选参数,如果不指定此参数,转换规则将是基于十进制.同样,亦可以将数字转换为其他进制数,例如:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">17</span>;</span><br><span class="line">binary_string = n.toString(<span class="number">2</span>); <span class="comment">//转换为"10001"</span></span><br><span class="line">octal_string = <span class="string">"0"</span> + n.toString(<span class="number">8</span>); <span class="comment">//转换为"021";</span></span><br><span class="line">hex_string = <span class="string">"0x"</span> + n.toString(<span class="number">16</span>); <span class="comment">//转换为"0x11";</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当需要控制输出小数点位置和有效数字位数,或者决定是否需要指数计数法时 可以使用Number类提供的三个方法分别是:<br>1.<code>toFixed()</code>: 根据小数点后的指定位数将数字转换为字符串,它从不使用指数记数法<br>2.<code>toExponential()</code>: 使用指数记数法将数字转换为指数形式的字符串,其中小数点前只有一位,小数点后的位数则由参数指定.<br>3.<code>toPrecision()</code>: 根据指定的有效数字位数将数字转换成字符串.如果有效数字位数少于数字整数部分的位数,则转换成指数形式.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">123456.789</span>;</span><br><span class="line">n.toFixed(<span class="number">0</span>); <span class="comment">//"123456"</span></span><br><span class="line">n.toFixed(<span class="number">2</span>); <span class="comment">//"123456.79"</span></span><br><span class="line">n.toExponential(<span class="number">1</span>); <span class="comment">//"1.2e+5"</span></span><br><span class="line">n.toExponential(<span class="number">3</span>); <span class="comment">//"1.235e+5"</span></span><br><span class="line">n.toPrecision(<span class="number">4</span>); <span class="comment">//"1.235e+5"</span></span><br><span class="line">n.toPrecision(<span class="number">7</span>); <span class="comment">//"123456.8"</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>字符串转为整数或浮点数<br>1.<code>parseInt()</code>: 只解析整数.如果字符串前缀是”0x”或者”0X”则将其解释为十六进制数.可以接收第二个可选参数,这个参数指定数字转换的基数,合法的取值范围是2~36.<br>2.<code>parseFloat()</code>: 可以解析整数和浮点数<br>两者都会跳过任意数量的前导空格,尽可能解析更多数值字符,并忽略后面的内容.如果第一个非空字符是非法的数字直接量,将最终返回NaN:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"3 blind mice"</span>); <span class="comment">// =&gt; 3</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">" 3.14 meters"</span>); <span class="comment">// =&gt; 3.14</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"-12.34"</span>); <span class="comment">// =&gt; -12</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0xFF"</span>); <span class="comment">// =&gt; 255</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"-0XFF"</span>); <span class="comment">// =&gt; -255</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">".1"</span>); <span class="comment">// =&gt; 0.1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"0.1"</span>); <span class="comment">// =&gt; 0</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">".1"</span>); <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"$72.47"</span>); <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"11"</span>,<span class="number">2</span>); <span class="comment">// =&gt; 3 (1*2+1)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"ff"</span>,<span class="number">16</span>); <span class="comment">// =&gt; 255 (15*16+15)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象转换为布尔值<br>所有的对象(包括数组和函数)都转换为true.对于包装对象亦是如此:<code>new Boolean(false)</code>是一个对象而不是原始值,它将转换为true.</p>
+</li>
+<li><p>对象转换为字符串: 使用<code>toString()</code>,如果对象没有该方法则会调用<code>valueOf()</code>方法,否则会抛出一个类型错误异常.</p>
+</li>
+<li><p>对象转换为数字: 使用<code>valueOf()</code>,如果对象没有该方法则会调用<code>toString()</code>方法,否则会抛出一个类型错误异常.</p>
+</li>
+</ul>
+<p>数组、函数、正则表达式简单的继承了<code>valueOf()</code>方法,它们调用该方法只会返回对象本身.<br>日期类定义的<code>valueOf()</code>方法会返回它的一个内部表示:1970年1月1日以来的毫秒数.</p>
+<h3 id="变量">变量</h3><ul>
+<li>先声明再使用,使用关键词var来声明变量.</li>
+<li>可以通过一个var关键词来声明多个变量 <code>var i,sum;</code></li>
+<li>可以将变量的声明和初始赋值合写在一起 <code>var i=0,j=0,k=0;</code></li>
+<li>可以重复声明</li>
+<li>函数外声明的为全局变量,函数内的为局部变量.当2者声明的变量相同时,函数内部使用同名变量为局部变量,而不是全局变量</li>
+<li>函数内部没用使用var声明的变量为全局变量,因为全局变量可以省略var关键词</li>
+<li>当声明一个JavaScript全局变量时,实际上是定义了全局对象的一个属性.当使用var声明一个变量时,创建的这个属性是不可配置的,也就是说这个变量无法通过delete运算符删除.如果没用使用严格模式并给一个未声明的变量赋值的话,JavaScript会自动创建一个全局变量.以这种方式创建的变量是全局对象的正常的可配置属性.</li>
+<li>函数定义是可以嵌套的.变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是可见的,这意味着变量在声明之前甚至以及可用(被称为声明提前).<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>; <span class="comment">//i 在整个函数体内均是有定义的</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> o == <span class="string">"object"</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>;k&lt;<span class="number">10</span>;k++)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(k); <span class="comment">//k已经定义了,输出10</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(j); <span class="comment">//j已经定义了,但可能没有初始化</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(scope);<span class="comment">// 输出undefined</span></span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">"local"</span>;<span class="comment">//由于函数作用域的特性,局部变量在整个函数体始终是有定义的,也就是说,在函数体内局部变量遮盖了同名全局变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(scope);<span class="comment">// 输出local</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> truevar = <span class="number">1</span>; <span class="comment">//声明一个不可删除的全局变量</span></span><br><span class="line">fakevar = <span class="number">2</span>; <span class="comment">//创建全局对象的一个可删除的属性</span></span><br><span class="line"><span class="keyword">this</span>.fakevar2 = <span class="number">3</span>; <span class="comment">//同上</span></span><br><span class="line"><span class="keyword">delete</span> truevar <span class="comment">// =&gt;false:变量并没有被删除</span></span><br><span class="line"><span class="keyword">delete</span> fakevar <span class="comment">// =&gt;true:变量被删除</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.fakevar2 <span class="comment">// =&gt;true:变量被删除</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="类型、值">类型、值</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_capture_03.png" alt="js_capture_03" title="js_capture_03"><br>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HTML5基础学习--01]]></title>
@@ -1990,125 +2054,6 @@
 <li>input会假设用户输入的是合法的Python表达式(当中变量来查找)</li>
 <li>raw_input 它会把所用的输入当作原始数据,然后将其放入字符串中</li>
 </ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Django入门学习]]></title>
-    <link href="http://yoursite.com/2015/08/13/use-django-create-db/"/>
-    <id>http://yoursite.com/2015/08/13/use-django-create-db/</id>
-    <published>2015-08-13T09:20:50.000Z</published>
-    <updated>2015-08-14T09:55:16.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="Python连接并使用MySQL">Python连接并使用MySQL</h3><ul>
-<li>在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现<code>EnvironmentError: mysql_config not found</code>错误</li>
-<li><code>brew install mysql</code></li>
-<li>将MySQL添加到系统环境变量中去 <code>export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin</code> 或者 <code>export PATH=$PATH:/usr/local/opt/mysql/bin</code></li>
-<li>使用pip活着easy_install安装MySQL-Python <code>pip install MySQL-Python</code> 或者 <code>sudo easy_install MySQL-Python</code>.<a id="more"></a>
-<img src="http://7xk9ih.com1.z0.glb.clouddn.com/install_mysql.png" alt="MySQL" title="MySQL"></li>
-</ul>
-<h3 id="启动MySQL">启动MySQL</h3><ul>
-<li><code>mysql.server start</code></li>
-</ul>
-<h3 id="使用MySQL并创建数据库">使用MySQL并创建数据库</h3><ul>
-<li><code>mysql -uroot #以root用户身份登陆</code></li>
-<li>创建数据库并设置字符集 <code>create database 数据库名 default charset = utf8;</code></li>
-<li>显示所有数据库 <code>show databases;</code></li>
-<li>使用某个数据库 <code>use 数据库名;</code></li>
-<li>显示所有该数据库下的表 <code>show tables;</code></li>
-<li>显示某张表数据结构 <code>desc 表名;</code></li>
-</ul>
-<h3 id="创建项目和app">创建项目和app</h3><ul>
-<li><code>django-admin.py startproject 项目名</code></li>
-<li><code>django-admin.py startapp app名</code></li>
-<li><p>修改/项目名/项目名/settings.py和urls.py</p>
-<ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">   <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">   <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">   <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">   <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">   <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">   <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">   <span class="string">'blog'</span>,</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">   DATABASES = &#123;</span><br><span class="line">   <span class="string">'default'</span>: &#123;</span><br><span class="line">       <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>, <span class="comment">#如果使用sqlite3 则将mysql改为sqlite3</span></span><br><span class="line">       <span class="string">'NAME'</span>: <span class="string">'数据库名'</span>, <span class="comment">#如果使用的是sqlite3则NAME为数据库文件名例如:test.db 下面的几项就不用设定了</span></span><br><span class="line">       <span class="string">'USER'</span>: <span class="string">'root'</span>,</span><br><span class="line">       <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</span><br><span class="line">       <span class="string">'HOST'</span>: <span class="string">''</span>,</span><br><span class="line">       <span class="string">'PORT'</span>: <span class="string">''</span>,</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">       <span class="string">'DIRS'</span>: [BASE_DIR+<span class="string">"/templates"</span>],</span><br><span class="line">       <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">       <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">           <span class="string">'context_processors'</span>: [</span><br><span class="line">               <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">               <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">               <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">               <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">           	],</span><br><span class="line">       	&#125;,</span><br><span class="line">   	&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>urls.py 修改参见上篇blog</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="修改blog目录下models-py文件_创建django_employee表">修改blog目录下models.py文件 创建django_employee表</h3><ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/syncdb.png" alt="models" title="models"></p>
-<ul>
-<li><code>python manage.py makemigrations</code></li>
-<li><code>python manage.py migrate</code></li>
-<li>查看数据库是不是已经成功添加了django_employee表呢</li>
-</ul>
-<h3 id="插入数据的三种方式">插入数据的三种方式</h3><ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> blog.models <span class="keyword">import</span> Employee</span><br><span class="line">emp = Employee()</span><br><span class="line">emp.name = <span class="string">'Alen'</span></span><br><span class="line">emp.save()  <span class="comment">#第一种</span></span><br><span class="line"></span><br><span class="line">emp = Employee(name=<span class="string">'Tom'</span>)</span><br><span class="line">emp.save()  <span class="comment">#第二种</span></span><br><span class="line"></span><br><span class="line">Employee.objects.create(name=<span class="string">'Max'</span>)  <span class="comment">#第三种</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="查询数据">查询数据</h3><ul>
-<li><code>emps = Employee.objects.all()</code></li>
-</ul>
-<h3 id="多对一">多对一</h3><ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment">#one</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entry</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"><span class="comment">#many</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blog</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    entry = models.ForeigenKey(Entry)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#先将one创建出来,然后many对应的记录创建出来</span></span><br><span class="line"><span class="keyword">from</span> blog.models <span class="keyword">import</span> Entry,Blog</span><br><span class="line"></span><br><span class="line">entry1 = Entry.objects.create(name=<span class="string">'Max'</span>) </span><br><span class="line">entry2 = Entry.objects.create(name=<span class="string">'Alen'</span>) </span><br><span class="line">entry3 = Entry.objects.create(name=<span class="string">'Tom'</span>)</span><br><span class="line"></span><br><span class="line">blog1 =  Blog.objects.create(name=<span class="string">'Alen_blog'</span>,entry=entry1) </span><br><span class="line"><span class="comment">#检索</span></span><br><span class="line">blog1.entry <span class="comment">#&lt;Entry:Max&gt;</span></span><br><span class="line">blog1.entry_id <span class="comment">#1L</span></span><br><span class="line">entry1.blog_set.all() <span class="comment">#[&lt;Blog:Alen_blog&gt;]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Django_Admin_通过后台界面如何对数据库的基本管理和对用户的添加以及用户相应权限的基本操作">Django Admin 通过后台界面如何对数据库的基本管理和对用户的添加以及用户相应权限的基本操作</h3><ul>
-<li>创建项目 和 app 修改settings.py 数据库修改为sqlite3其它地方修改类似,修改urls.py 增加admin.autodiscover()其它地方修改类似</li>
-<li><p>修改models.py文件<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line">sex_choices = ((<span class="string">'f'</span>, <span class="string">'famale'</span>), (<span class="string">'m'</span>, <span class="string">'male'</span>))</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    sex = models.CharField(max_length=<span class="number">1</span>, choices=sex_choices)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>修改你创建的app目录下的admin.py文件注册相关的model <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> blog.models <span class="keyword">import</span> User</span><br><span class="line"></span><br><span class="line">admin.site.register(User)</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3 id="多对多">多对多</h3><ul>
-<li><p>会产生三张表分别为blog_author和blog_book以及blog_book_authors </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line">   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Author</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建Author和Book </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Author.objects.create(name=<span class="string">'Alen'</span>)</span><br><span class="line">Author.objects.create(name=<span class="string">'Ben'</span>)</span><br><span class="line">Author.objects.create(name=<span class="string">'Carl'</span>)</span><br><span class="line">Author.objects.create(name=<span class="string">'Dev'</span>)</span><br><span class="line"></span><br><span class="line">authors = Author.objects.all()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b1 = Book()</span><br><span class="line">b1.name = <span class="string">'python book1'</span></span><br><span class="line">b1.save()</span><br><span class="line">alen = Author.objects.get(name__exact=<span class="string">'Alen'</span>)</span><br><span class="line">b1.authors.add(alen) <span class="comment">#添加</span></span><br><span class="line">b1.authors.add(authors[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">alen.book_set.all() <span class="comment">#alen所写的所有书</span></span><br><span class="line"></span><br><span class="line">b1.authors.all() <span class="comment">#[&lt;Author:Alen&gt;, &lt;Author:Ben&gt;]</span></span><br><span class="line"></span><br><span class="line">b1.authors.remove(alen) <span class="comment">#删除Alen对象</span></span><br><span class="line">b1.authors.all() <span class="comment">#[&lt;Author:Ben&gt;]</span></span><br><span class="line"></span><br><span class="line">b1.authors.filter(name__exact=<span class="string">'Ben'</span>) <span class="comment">#根据name过滤 [&lt;Author:Ben&gt;]</span></span><br><span class="line"></span><br><span class="line">alen_book_set.all() <span class="comment">#[]</span></span><br><span class="line">alen_book_set.add(b1)</span><br><span class="line">alen_book_set_create(name=<span class="string">"python book2"</span>) <span class="comment">#添加一本书</span></span><br><span class="line">books = Book.objects.all() <span class="comment">#[&lt;Book:python book1&gt;, &lt;Book:python book2&gt;]</span></span><br><span class="line">alen_book_set_remove(books[<span class="number">0</span>]) <span class="comment">#移除一本书 [&lt;Book:python book2&gt;]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Django上传文件">Django上传文件</h3><ul>
-<li>第一种方式通过表单来上传文件 打开settings.py 注释掉MIDDLEWARE_CLASSES 中的 <code>&#39;django.middleware.csrf.CsrfViewMiddleware&#39;</code></li>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.shortcut <span class="keyword">import</span> render_to_response</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserForm</span><span class="params">(forms.Form)</span>:</span> <span class="comment">#创建form对象</span></span><br><span class="line">    name = forms.CharField()</span><br><span class="line">    headImg = forms.FileField() <span class="comment">#上传文件 form 表单上必须加上enctype="multipart/form-data"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reg</span><span class="params">(req)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> req.method == <span class="string">'POST'</span>:</span><br><span class="line">        form = UserForm(req.POST,req.FILES) <span class="comment">#数据的绑定</span></span><br><span class="line">        <span class="keyword">if</span> form.is_valid(): <span class="comment">#数据的验证 对字段验证是否存在是否正确</span></span><br><span class="line">            <span class="keyword">print</span> form.cleaned_data <span class="comment">#数据的保存  保存到cleaned_data字典中 print form.cleaned_data['name']</span></span><br><span class="line">            <span class="keyword">print</span> form.cleaned_data[<span class="string">'headImg'</span>].name  <span class="comment">#获取上传文件的文件名 req.FILES</span></span><br><span class="line">            <span class="keyword">print</span> form.cleaned_data[<span class="string">'headImg'</span>].size  <span class="comment">#获取上传文件的大小</span></span><br><span class="line">            fp = file(<span class="string">'/upload/'</span>+form.cleaned_data[<span class="string">'headImg'</span>].name, <span class="string">'wb'</span>)</span><br><span class="line">            content = form.cleaned_data[<span class="string">'headImg'</span>].read()</span><br><span class="line">            fp.write(content)</span><br><span class="line">            fp.close()</span><br><span class="line">            <span class="keyword">return</span> HttpResponse(<span class="string">'ok'</span>) <span class="comment">#返回数据</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            form = UserForm()</span><br><span class="line">        <span class="keyword">return</span> render_to_response(<span class="string">'register.html'</span>,&#123;<span class="string">'form'</span>:form&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二种方式通过后台来上传文件 修改models.py文件 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    username = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    headImg = models.FileField(upload_to=<span class="string">'./upload/'</span>) <span class="comment">#修改保存路径 settings.py 增加MEDIA_ROOT='/headImg'  这个是保持到了系统根目录下最终的路径是/headImg/upload/,如果没有修改则保持在工程目录upload下</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.username</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>第三种方式将上传数据保存到数据库 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.shortcut <span class="keyword">import</span> render_to_response</span><br><span class="line"><span class="keyword">from</span> blog.models <span class="keyword">import</span> User</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserForm</span><span class="params">(forms.Form)</span>:</span> <span class="comment">#创建form对象</span></span><br><span class="line">    name = forms.CharField()</span><br><span class="line">    password = forms.CharField(widget=forms.PasswordInput)</span><br><span class="line">    headImg = forms.FileField() <span class="comment">#上传文件 form 表单上必须加上enctype="multipart/form-data"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reg</span><span class="params">(req)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> req.method == <span class="string">'POST'</span>:</span><br><span class="line">        form = UserForm(req.POST,req.FILES) <span class="comment">#数据的绑定</span></span><br><span class="line">        <span class="keyword">if</span> form.is_valid(): <span class="comment">#数据的验证 对字段验证是否存在是否正确</span></span><br><span class="line">            username = form.cleaned_data[<span class="string">'name'</span>]</span><br><span class="line">            file = form.cleaned_data[<span class="string">'headImg'</span>]</span><br><span class="line">            user = User()</span><br><span class="line">            user.username = username</span><br><span class="line">            user.headImg = file</span><br><span class="line">            user.save()</span><br><span class="line">            <span class="keyword">return</span> HttpResponse(<span class="string">'ok'</span>) <span class="comment">#返回数据</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            form = UserForm()</span><br><span class="line">        <span class="keyword">return</span> render_to_response(<span class="string">'register.html'</span>,&#123;<span class="string">'form'</span>:form&#125;)</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3 id="Django会话">Django会话</h3><ul>
-<li>Cookie<ul>
-<li>跳转动作 <code>HttpResponseRedirect(&#39;/login/&#39;)</code></li>
-<li>response.set_cookie(‘username’,username,3600) ＃设置Cookie</li>
-<li>删除Cookie response.delete_cookie(‘username’) </li>
-<li>获取Cookie req.COOKIES.get(‘username’,’’)</li>
-</ul>
-</li>
-<li>Session<ul>
-<li>使用session需要中间件的支持 <code>MIDDLEWARE_CLASSES = (&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;)</code></li>
-<li>req.session[‘username’] = username #以字典的形式保存</li>
-<li>req.session.get(‘username’, ‘default’) #获取session值</li>
-<li>del req.session[‘username’] #删除指定的session</li>
-</ul>
-</li>
-</ul>
-<h3 id="用户管理_Auth系统使用">用户管理 Auth系统使用</h3><ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User</span><br><span class="line"></span><br><span class="line">User.objects.create_user(username=<span class="string">'ben'</span>, password=<span class="string">'123'</span>, email=<span class="string">'ben@qq.com'</span>) <span class="comment">#添加用户</span></span><br><span class="line"></span><br><span class="line">ben = User.objects.get(username__exact=<span class="string">'ben'</span>) <span class="comment">#获取指定名称的用户</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="Python连接并使用MySQL">Python连接并使用MySQL</h3><ul>
-<li>在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现<code>EnvironmentError: mysql_config not found</code>错误</li>
-<li><code>brew install mysql</code></li>
-<li>将MySQL添加到系统环境变量中去 <code>export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin</code> 或者 <code>export PATH=$PATH:/usr/local/opt/mysql/bin</code></li>
-<li>使用pip活着easy_install安装MySQL-Python <code>pip install MySQL-Python</code> 或者 <code>sudo easy_install MySQL-Python</code>.]]>
     
     </summary>
     
