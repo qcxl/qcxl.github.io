@@ -250,6 +250,147 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-html_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/18/html_study/" class="article-date">
+  	<time datetime="2015-08-18T02:43:04.000Z" itemprop="datePublished">2015-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/html_study/">HTML+CSS基础入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用CSS样式的方法">使用CSS样式的方法</h3><ul>
+<li><p>HTML&lt;!DOCTYPE&gt;</p>
+<ul>
+<li>&lt;!DOCTYPE&gt;声明必须是HTML文档的第一行,位于<html>标签之前.</li>
+<li>&lt;!DOCTYPE&gt;声明不是HTML标签,它是指示web浏览器关于页面使用哪个HTML版本进行编写的指令.</li>
+<li>在HTML 4.01中,&lt;!DOCTYPE&gt;声明引用DTD,因为HTML4.01是基于SGML,DTD规定了标记语言的规则,这样浏览器才能正确的呈现内容.</li>
+<li>HTML5不基于SGML,所以不需要一用DTD.</li>
+<li>HTML5 <ul>
+<li><code>&lt;!DOCTYPE html&gt; &lt;meta charset=&quot;utf-8&quot;&gt;</code></li>
+</ul>
+</li>
+<li><p>HTML4.01</p>
+<ul>
+<li><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></li>
+<li>该DTD包含所有HTML元素和属性,包括展示性和弃用的元素(比如font),不允许框架集(Framesets)</li>
+<li><p><code>&lt;meta http-equiv=Content-Type content=&quot;text/html;charset=utf-8&quot;&gt;</code></p>
+<blockquote>
+<p>meat标签的http-equiv属性语法格式是:<code>＜meta http-equiv=&quot;参数&quot; content=&quot;参数变量值&quot;＞</code>;其中http-equiv属性主要有以下几种参数:<br>1.Expires(期限):可以用于设定网页的到期时间.一旦网页过期,必须到服务器上重新传输.<br>必须使用GMT的时间格式 <code>＜meta http-equiv=&quot;expires&quot; content=&quot;Wed, 20 Jun 2015 22:33:00 GMT&quot;＞</code><br>2.Pragma(cache模式):是用于设定禁止浏览器从本地机的缓存中调阅页面内容,设定后一旦离开网页就无法从Cache中再调出<br><code>＜meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;＞</code><br>3.Refresh(刷新):自动刷新并指向新页面<br><code>＜meta http-equiv=&quot;Refresh&quot; content=&quot;2; URL=http://www.net.cn/&quot;＞</code> #其中的2是指停留2秒钟后自动刷新到URL网址<br>4.Set-Cookie(cookie设定):如果网页过期,那么存盘的cookie将被删除<br><code>＜meta http-equiv=&quot;Set-Cookie&quot; content=&quot;cookievalue=xxx;expires=Wednesday, 20-Jun-2007 22:33:00 GMT; path=/&quot;＞</code> #必须使用GMT的时间格式<br>5.Window-target(显示窗口的设定):强制页面在当前窗口以独立页面显示<br><code>＜meta http-equiv=&quot;Window-target&quot; content=&quot;_top&quot;＞</code> #用来防止别人在框架里调用自己的页面<br>6.content-Type(显示字符集的设定):设定页面使用的字符集<br><code>＜meta http-equiv=&quot;content-Type&quot; content=&quot;text/html; charset=gb2312&quot;＞</code><br>7.Pics-label(网页等级评定)<br><code>&lt;meta http-equiv=&quot;Pics-label&quot; contect=&quot;&quot;&gt;</code> #在IE的internet选项中有一项内容设置,可以防止浏览一些受限制的网站,而网站的限制级别就是通过meta属性来设置的<br>8.Page_Enter、Page_Exit:设定进入页面时的特殊效果、设定离开页面时的特殊效果<br><code>&lt;meta http-equiv=&quot;Page-Enter&quot;    contect=&quot;revealTrans(duration=1.0,transtion=12)&quot;&gt;</code><br><code>&lt;meta http-equiv=&quot;Page-Exit&quot;    contect=&quot;revealTrans(duration=1.0,transtion=12)&quot;&gt;</code><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/meta_anim.png" alt="meta_anim" title="meta_anim"><br>9.清除缓存（再访问这个网站要重新下载!) <code>&lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;</code><br>10.设定网页的到期时间 <code>&lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;</code><br>11.关键字,给搜索引擎用的 <code>&lt;meta http-equiv=&quot;keywords&quot; content=&quot;keyword1,keyword2,keyword3&quot;&gt;</code><br>12.页面描述 <code>&lt;meta http-equiv=&quot;description&quot; content=&quot;This is my page&quot;&gt;</code></p>
+</blockquote>
+</li>
+<li><p>注意的规则:</p>
+<ul>
+<li>单标记必须闭合 比如<code>&lt;br&gt;必须写为&lt;br/&gt; &lt;input/&gt;</code></li>
+<li>单属性必须添加属性值 <code>&lt;input type=&quot;radio&quot; checked&gt;</code> 必须写为 <code>&lt;input type=&quot;radio&quot; checked=&quot;checked&quot;&gt;</code></li>
+<li>标记和属性必须使用小写 <code>&lt;Body&gt; &lt;BODY&gt;是错的必须写为&lt;body&gt;</code></li>
+<li>属性的属性值必须使用”” 在HTML4.01之前可以使用<code>&lt;body bgcolor=red&gt;</code>,HTML4.01必须写为<code>&lt;body bgcolor=&quot;red&quot;&gt;</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/18/html_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-basic-python-knowledge" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/17/basic-python-knowledge/" class="article-date">
+  	<time datetime="2015-08-17T01:57:06.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/basic-python-knowledge/">Python 基础知识学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="将Python值转换为字符串的三种方式">将Python值转换为字符串的三种方式</h3><ul>
+<li>str 它会把值转换为合理形式的字符串,以便用户可以理解 <code>print str(&#39;Hello,World!&#39;)</code> #输出为 Hello,World!</li>
+<li>repr 会创建一个字符串,它以合法的Python表达式的形式来表示值 <code>print repr(&#39;Hello,World!&#39;)</code> #输出为 ‘Hello,World!’</li>
+<li>用2个反引号`,但是在Python3.0中,已经不再使用反引号了.   </li>
+</ul>
+<h3 id="input和raw_input的区别">input和raw_input的区别</h3><ul>
+<li>input会假设用户输入的是合法的Python表达式(当中变量来查找)</li>
+<li>raw_input 它会把所用的输入当作原始数据,然后将其放入字符串中</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/17/basic-python-knowledge/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-use-django-create-db" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -720,74 +861,9 @@
 
 
   
-    <article id="post-setup-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/07/setup-blog/" class="article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">2015-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
-<p>用到的工具:</p>
-<ul>
-<li>Mac mini</li>
-<li>Brew</li>
-<li>npm (包管理,类似于Python中的pip)</li>
-<li>Git</li>
-<li>Node.js</li>
-<li>Hexo</li>
-<li>SSH</li>
-<li>GitHub</li>
-<li>个人申请的域名
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/07/setup-blog/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

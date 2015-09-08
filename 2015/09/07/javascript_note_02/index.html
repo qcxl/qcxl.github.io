@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>JavaScript权威指南--表达式和运算符 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="恒等运算符与相等运算符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript权威指南--表达式和运算符">
+<meta property="og:url" content="http://yoursite.com/2015/09/07/javascript_note_02/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="恒等运算符与相等运算符">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/恒等.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/相等.png">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/compare.png">
+<meta property="og:updated_time" content="2015-09-07T13:12:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="JavaScript权威指南--表达式和运算符">
+<meta name="twitter:description" content="恒等运算符与相等运算符">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,296 +252,118 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-javascript_note_02" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/09/07/javascript_note_02/" class="article-date">
+  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">2015-09-07</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript权威指南--表达式和运算符
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/javascript_note_03/" class="archive-article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">9月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="恒等运算符与相等运算符">恒等运算符与相等运算符</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/恒等.png" alt="hd" title="hd"><br><a id="more"></a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/相等.png" alt="xd" title="xd"></p>
+<h3 id="比较运算符">比较运算符</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/compare.png" alt="compare" title="compare"></p>
+<ul>
+<li>字符串大小写转换 <code>String.toLowerCase()</code>,<code>String.toUpperCase()</code></li>
+<li>JavaScript字符串是一个由16位整数值组成的序列,字符串的比较也只是两个字符串中的字符的数值比较.由Unicode定义的字符编码顺序和任何特定语言或者本地语言字符集中的传统字符编码顺序不尽相同.</li>
+<li>对于数字和字符串操作符来说,<code>+</code>运算符和<code>比较</code>运算符的行为都有所不同,前者更偏爱字符串,如果它的其中一个操作数是字符串的话,则进行字符串连接操作.而比较运算符则更偏爱数字,只有在两个操作数都是字符串的时候,才会进行字符串的比较.</li>
+<li>所有4个比较运算符当其中一个操作数是(或者转换后是)<code>NaN</code>的时候,最后比较结果均返回<code>false</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">"1"</span>+<span class="string">"2"</span> <span class="comment">// "12"</span></span><br><span class="line"><span class="string">"1"</span>+<span class="number">2</span> <span class="comment">//"12"</span></span><br><span class="line"><span class="string">"11"</span> &lt; <span class="string">"3"</span> <span class="comment">//字符串比较,结果为true</span></span><br><span class="line"><span class="string">"11"</span> &lt; <span class="number">3</span> <span class="comment">//数字的比较,结果为false</span></span><br><span class="line"><span class="string">"one"</span> &lt; <span class="number">3</span> <span class="comment">//数字的比较,"one"转换为NaN,结果为false</span></span><br></pre></td></tr></table></figure>
+<h3 id="in运算符">in运算符</h3><p><code>in</code>运算符希望它的左操作数是一个字符串或可以转换为字符串,希望它的右操作数是一个对象.如果右侧的对象拥有一个名为左操作数值的属性名,那么表达式返回true.例如:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> point = &#123;x:<span class="number">1</span>,y:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> point <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="string">"z"</span> <span class="keyword">in</span> point <span class="comment">// =&gt; false:对象中不存在名为"z"的属性</span></span><br><span class="line"><span class="string">"toString"</span> <span class="keyword">in</span> point <span class="comment">// =&gt;true:对象继承了toString()方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="string">"0"</span> <span class="keyword">in</span> data <span class="comment">// =&gt; true:数组包含下标为0的元素</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> data <span class="comment">// =&gt; true:数组转为字符串,数组包含下标为1的元素</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">in</span> data <span class="comment">// =&gt; false:没有索引为3的元素</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="instanceof运算符">instanceof运算符</h3><p><code>instanceof</code>运算符希望它的左操作数是一个对象,右操作数标识对象的类.JavaScript中对象的类是通过初始化它们的构造函数来定义的.这样的话<code>instanceof</code>的右操作数应当是一个函数.例如:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d <span class="keyword">instanceof</span> <span class="built_in">Date</span>; <span class="comment">// true</span></span><br><span class="line">d <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true</span></span><br><span class="line">d <span class="keyword">instanceof</span> <span class="built_in">Number</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/08/javascript_note_03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript权威指南--对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/06/javascript_note_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript权威指南--类型、值和变量</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/07/javascript_note_02/" class="archive-article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">9月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/06/javascript_note_01/" class="archive-article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">9月 6</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/02/html5_study_01/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">9月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript_note_02" data-title="JavaScript权威指南--表达式和运算符" data-url="http://yoursite.com/2015/09/07/javascript_note_02/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_6/" class="archive-article-date">
-  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/jquery_note_4/" class="archive-article-date">
-  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">8月 31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/28/jquery_note_3/" class="archive-article-date">
-  	<time datetime="2015-08-28T01:46:21.000Z" itemprop="datePublished">8月 28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/28/jquery_note_3/">《锋利的jQuery》--读书笔记三</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/jquery_note_2/" class="archive-article-date">
-  	<time datetime="2015-08-27T06:02:21.000Z" itemprop="datePublished">8月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/jquery_note_2/">《锋利的jQuery》--读书笔记二</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/jquery_note_1/" class="archive-article-date">
-  	<time datetime="2015-08-27T01:57:47.000Z" itemprop="datePublished">8月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/jquery_note_1/">《锋利的jQuery》--读书笔记一</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -563,8 +389,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
