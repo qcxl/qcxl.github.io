@@ -6,19 +6,25 @@
   <title>JavaScript权威指南--对象 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对象对象的”属性特征”1.可写:表示是否可以设置该属性的值2.可枚举:表示是否可以通过for/in循环返回该属性3.可配置:表示是否可以删除或修改该属性
-对象的特性1.对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()var p = &amp;#123;x:1&amp;#">
+对象的特性
+对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()
+var p = &amp;#123;x:1&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript权威指南--对象">
 <meta property="og:url" content="http://yoursite.com/2015/09/08/javascript_note_03/index.html">
 <meta property="og:site_name" content="Mobile Development">
 <meta property="og:description" content="对象对象的”属性特征”1.可写:表示是否可以设置该属性的值2.可枚举:表示是否可以通过for/in循环返回该属性3.可配置:表示是否可以删除或修改该属性
-对象的特性1.对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()var p = &amp;#123;x:1&amp;#">
+对象的特性
+对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()
+var p = &amp;#123;x:1&amp;#">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/js_attr_tx.png">
-<meta property="og:updated_time" content="2015-09-08T12:47:22.000Z">
+<meta property="og:updated_time" content="2015-09-09T01:58:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript权威指南--对象">
 <meta name="twitter:description" content="对象对象的”属性特征”1.可写:表示是否可以设置该属性的值2.可枚举:表示是否可以通过for/in循环返回该属性3.可配置:表示是否可以删除或修改该属性
-对象的特性1.对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()var p = &amp;#123;x:1&amp;#">
+对象的特性
+对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.查询对象原型:Object.getPrototypeOf(对象)检测一个对象是否是另外一个对象的原型:isPrototypeOf()
+var p = &amp;#123;x:1&amp;#">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -287,9 +293,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="对象">对象</h3><h4 id="对象的”属性特征”">对象的”属性特征”</h4><p>1.可写:表示是否可以设置该属性的值<br>2.可枚举:表示是否可以通过for/in循环返回该属性<br>3.可配置:表示是否可以删除或修改该属性</p>
-<h4 id="对象的特性">对象的特性</h4><p>1.对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>2.对象的类:是一个标识对象类型的字符串.<br>获取对象的类属性:Object.prototype.toString.call(对象).slice(8,-1);<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">classof</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"Null"</span>;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"Undefined"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>,-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.对象的扩展标记:指明了是否可以向该对象添加新属性.</p>
+<h4 id="对象的特性">对象的特性</h4><ul>
+<li><p>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的类:是一个标识对象类型的字符串.<br>获取对象的类属性:Object.prototype.toString.call(对象).slice(8,-1);</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">classof</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"Null"</span>;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"Undefined"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>,-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的扩展标记:指明了是否可以向该对象添加新属性.</p>
+<ul>
+<li>所有内置对象和自定义对象都是显示可扩展的.</li>
+<li><code>Object.esExtensible()</code>:查询对象的可扩展性</li>
+<li><code>Object.seal()</code>和<code>Object.preventExtensions()</code>将对象转为不可扩展同时会将所有自有属性都设置为不可配置.也就是说不能给这个对象添加新属性,而且它已有属性也不能删除或配置,不过它已有的可写属性依然可以设置(转换之后就不能转回去了)</li>
+<li><code>Object.isSealed()</code>:检查对象是否封闭</li>
+<li><code>Object.freeze()</code>:将更严格地锁定对象—-“冻结”<br>除了将对象设置为不可扩展的和将其属性设置为不可配置的之外,还可以将它的自有的所有数据属性设置为只读(如果对象的存取器属性具有setter方法,存取器属性将不受影响,仍可以通过给属性赋值调用它们)</li>
+<li><code>Object.isFrozen()</code>:检测对象是否冻结</li>
+<li><code>Object.preventExtensions()、Object.seal()、Object.freeze()</code>都返回传人的对象<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个封闭对象,包括一个冻结的原型和一个不可枚举的属性</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.seal(<span class="built_in">Object</span>.create(<span class="built_in">Object</span>.freeze(&#123;x:<span class="number">1</span>&#125;),&#123;y:&#123;value:<span class="number">2</span>,writable:<span class="literal">true</span>&#125;&#125;));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <h4 id="原型">原型</h4><blockquote>
 <p>每一个JavaScript对象(null除外)都和另外一个对象(原型)相关联,每一个对象都从原型继承属性.</p>
 </blockquote>
@@ -341,6 +364,11 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">false</span>,configurable:<span class="literal">true</span>&#125;);</span><br><span class="line">o.x; <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">Object</span>.keys(o); <span class="comment">// =&gt; []</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;writable:<span class="literal">false</span>&#125;);</span><br><span class="line">o.x = <span class="number">2</span>; <span class="comment">//操作失败但是不会报错,在严格模式中抛出类型错误异常</span></span><br><span class="line">o.x <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//属性依然是可配置的</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;value:<span class="number">2</span>&#125;);</span><br><span class="line">o.x <span class="comment">// =&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//现在将x从数据属性修改为存取器属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">0</span>;&#125;&#125;);</span><br><span class="line">o.x <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.defineProperties(&#123;&#125;,&#123;</span><br><span class="line">    x:&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">true</span>,configurable:<span class="literal">true</span>&#125;,</span><br><span class="line">    y:&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">true</span>,configurable:<span class="literal">true</span>&#125;,</span><br><span class="line">    r:&#123;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x*<span class="keyword">this</span>.x + <span class="keyword">this</span>.y*<span class="keyword">this</span>.y)&#125;,</span><br><span class="line">        enumerable:<span class="literal">true</span>,</span><br><span class="line">        configurable:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_attr_tx.png" alt="js_attr_tx" title="js_attr_tx"></p>
+<h3 id="序列化对象">序列化对象</h3><ul>
+<li><code>JSON.stringify()</code></li>
+<li><code>JSON.parse()</code></li>
+<li><code>toJson()</code></li>
+</ul>
 
       
     </div>
