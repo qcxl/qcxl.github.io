@@ -278,82 +278,9 @@
       
         <h3 id="对象">对象</h3><h4 id="对象的”属性特征”">对象的”属性特征”</h4><p>1.可写:表示是否可以设置该属性的值<br>2.可枚举:表示是否可以通过for/in循环返回该属性<br>3.可配置:表示是否可以删除或修改该属性</p>
 <h4 id="对象的特性">对象的特性</h4><ul>
-<li><p>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象的类:是一个标识对象类型的字符串.<br>获取对象的类属性:Object.prototype.toString.call(对象).slice(8,-1);</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">classof</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"Null"</span>;</span><br><span class="line">    <span class="keyword">if</span>(o === <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="string">"Undefined"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>,-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象的扩展标记:指明了是否可以向该对象添加新属性.</p>
-<ul>
-<li>所有内置对象和自定义对象都是显示可扩展的.</li>
-<li><code>Object.esExtensible()</code>:查询对象的可扩展性</li>
-<li><code>Object.seal()</code>和<code>Object.preventExtensions()</code>将对象转为不可扩展同时会将所有自有属性都设置为不可配置.也就是说不能给这个对象添加新属性,而且它已有属性也不能删除或配置,不过它已有的可写属性依然可以设置(转换之后就不能转回去了)</li>
-<li><code>Object.isSealed()</code>:检查对象是否封闭</li>
-<li><code>Object.freeze()</code>:将更严格地锁定对象—-“冻结”<br>除了将对象设置为不可扩展的和将其属性设置为不可配置的之外,还可以将它的自有的所有数据属性设置为只读(如果对象的存取器属性具有setter方法,存取器属性将不受影响,仍可以通过给属性赋值调用它们)</li>
-<li><code>Object.isFrozen()</code>:检测对象是否冻结</li>
-<li><code>Object.preventExtensions()、Object.seal()、Object.freeze()</code>都返回传人的对象<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个封闭对象,包括一个冻结的原型和一个不可枚举的属性</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.seal(<span class="built_in">Object</span>.create(<span class="built_in">Object</span>.freeze(&#123;x:<span class="number">1</span>&#125;),&#123;y:&#123;value:<span class="number">2</span>,writable:<span class="literal">true</span>&#125;&#125;));</span><br></pre></td></tr></table></figure>
+<li>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-</ul>
-<h4 id="原型">原型</h4><blockquote>
-<p>每一个JavaScript对象(null除外)都和另外一个对象(原型)相关联,每一个对象都从原型继承属性.</p>
-</blockquote>
-<p>1.没有原型的对象:<code>Object.prototype</code>就是其中之一.它不继承任何属性.其它原型对象都具有原型.</p>
-<p>2.所有内置构造函数都具有一个继承自<code>Object.prototype</code>的原型.例如:<br><code>Date.prototype</code>的属性继承自<code>Object.prototype</code></p>
-<p>3.原型链:一系列链接的原型对象就是所谓的”原型链”.例如:<br><code>var d = new Date();</code>创建的Date对象的属性同时继承自<code>Date.prototype</code>和<code>Object.prototype</code>.</p>
-<h4 id="创建对象">创建对象</h4><p>1.通过对象直接量. 例如:<code>var point = {x:1,y:1}; 它的原型是Object.prototype</code><br>2.关键词new.它的原型就是构造函数的prototype属性的值 例如:<code>var a = new Array();它的原型是Array.prototype</code><br>3.Object.create(o [,attr_desc])函数: 第一个参数是这个对象的原型,第二个为可选参数用来对对象的属性进行进一步描述. 例如:<br><code>var o1 = Object.create({x:1,y:1});</code><br><code>var o2 = Object.create(null);</code> 创建了一个没有原型的新对象,不继承任何属性和方法<br><code>var o3 = Object.create(Object.prototype);</code> 和使用<code>{}</code>和<code>new Object()</code>一样</p>
-<h3 id="继承">继承</h3><p>JavaScript对象具有”自有属性”和从原型对象继承而来的属性,查询对象属性时先从自有属性中查找如果没找到则从该对象的原型上查找,直到找到该属性或者查询到一个原型是null的对象为止.(对象的原型链)</p>
-<blockquote>
-<p>如果允许属性赋值操作,它总是在原始对象上创建属性或对已有的属性赋值,而不会去修改原型链.<br>设置属性和继承无关.</p>
-</blockquote>
-<p>例如:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> unitcircle = &#123;r:<span class="number">1</span>&#125;; <span class="comment">//一个用来继承的对象</span></span><br><span class="line"><span class="keyword">var</span> c = inherit(unitcircle); <span class="comment">//c继承属性r</span></span><br><span class="line">c.x = <span class="number">1</span>;c.y = <span class="number">1</span>; <span class="comment">//定义2个属性</span></span><br><span class="line">c.r = <span class="number">2</span>; <span class="comment">//c覆盖继承来的属性</span></span><br><span class="line">unitcircle.r; <span class="comment">// =&gt; 1,原型对象没有修改</span></span><br></pre></td></tr></table></figure></p>
-<p>1.当访问不存在的对象属性时将返回<code>undefined</code><br>2.给null和undefined设置属性会报类型错误.<br>3.内置构造函数的原型是只读的  <code>Object.prototype = o;</code> 赋值失败 <code>Object.prototype</code>没有修改<br>4.不能给只读属性重新赋值(<code>defineProperty()</code>方法有一个例外,可以对可配置的只读属性重新赋值)<br>5.不能通过同名自有属性覆盖只读的继承属性</p>
-<h3 id="查询和设置属性">查询和设置属性</h3><blockquote>
-<p>object.property<br>object[“property”]<br>左侧为(表达式返回一个对象) 中间为(<code>.</code>或者<code>[计算结果为字符串的表达式]</code>) 右侧为(属性名称)</p>
-</blockquote>
-<p>例如:<br><code>var author = book.author;</code><br><code>var title = book[&quot;main title&quot;];</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">#遍历查询book中的属性</span><br><span class="line"><span class="keyword">for</span>(attr_name <span class="keyword">in</span> book)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(book.attr_name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#如果存在book并author已经有值.</span><br><span class="line"><span class="keyword">if</span>(book.author != <span class="literal">null</span>)&#123;</span><br><span class="line">    book.author = <span class="string">"weifeng"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="删除属性">删除属性</h3><blockquote>
-<p><code>delete</code>元算符,自能删除自有属性,不能删除继承属性,不能删除可配置属性为false的属性.<br>某些内置对象的属性是不可配置的,比如通过变量声明和函数声明创建的全局对象的属性.<br>当delete表达式删除成功、删除不存在的属性或者delete后不是一个属性访问表达式时它都将返回true.</p>
-</blockquote>
-<p>例如:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> book.author;</span><br><span class="line"><span class="keyword">delete</span> book[<span class="string">"main title"</span>];</span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Object</span>.prototype; <span class="comment">//不能删除,属性是不可以配置的</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>; <span class="comment">//声明一个全局变量</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.x <span class="comment">//不能删除这个属性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//声明一个全局函数</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.f; <span class="comment">//也不能删除全局函数</span></span><br><span class="line"></span><br><span class="line">o = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.x;</span><br><span class="line"><span class="keyword">delete</span> o.x; <span class="comment">//什么都没做(x已经不存在了),返回true</span></span><br><span class="line"><span class="keyword">delete</span> o.toString; <span class="comment">//什么都没做(toString是继承来的),返回true</span></span><br><span class="line"><span class="keyword">delete</span> <span class="number">1</span>; <span class="comment">//无意义,返回true</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="检测属性">检测属性</h3><ul>
-<li><code>in</code> 将自有属性和继承属性全部遍历出来,对象继承的内置方法不可枚举</li>
-<li><code>hasOwnPreperty()</code> 只能检测自有属性</li>
-<li><code>propertyIsEnumerable()</code> 是 <code>hasOwnPreperty()</code>的增强版,只有检测到是自有属性且这个属性的可枚举性为true时才返回true</li>
-<li><code>!==</code> 判断一个属性是否是<code>undefined</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line">o.hasOwnPreperty(<span class="string">"x"</span>); <span class="comment">//true</span></span><br><span class="line">o.hasOwnPreperty(<span class="string">"y"</span>); <span class="comment">//false</span></span><br><span class="line">o.propertyIsEnumerable(<span class="string">"y"</span>) <span class="comment">//false</span></span><br><span class="line">o.hasOwnPreperty(<span class="string">"toString"</span>); <span class="comment">//false</span></span><br><span class="line">o.x !== <span class="literal">undefined</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="枚举属性">枚举属性</h3><blockquote>
-<p><code>for(o in p)</code> 将自有属性和继承属性全部遍历出来,对象继承的内置方法不可枚举</p>
-</blockquote>
-<h3 id="get和set属性">get和set属性</h3><blockquote>
-<p>由get和set定义的属性称做”存取器属性”,存取器属性不具有可写性.读取只写属性总是返回undefined</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="comment">//普通的数据属性</span></span><br><span class="line">    data_prop: value,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//存取器属性都是成对定义的函数</span></span><br><span class="line">    get accessor_prop()&#123;<span class="comment">/*这里是函数体*/</span>&#125;,</span><br><span class="line">    set accessor_prop(value)&#123;<span class="comment">/*这里是函数体*/</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = &#123;</span><br><span class="line">    x:<span class="number">1.0</span>,</span><br><span class="line">    y:<span class="number">1.0</span>,</span><br><span class="line">    get r()&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x*<span class="keyword">this</span>.x + <span class="keyword">this</span>.y*<span class="keyword">this</span>.y);&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="属性的特性">属性的特性</h3><ul>
-<li><p>数据属性和存取器属性(一个属性包含一个名字和4个特性.)<br>数据属性:值(<code>value</code>)、可写性(<code>writable</code>)、可枚举性(<code>enumerable</code>)和可配置性(<code>configurable</code>)。<br>存取器属性:读取(<code>get</code>)、写入(<code>set</code>)、可枚举性和可配置性.</p>
-</li>
-<li><p>属性描述符对象(实现属性特性的查询和设置操作.属性描述符对象的属性和它们所描述的属性特性是同名的.)<br>数据属性的描述符对象为:value、writable、enumerable和configurable.其中后面三个都是布尔值<br>存取器属性的描述符对象为:get、set、enumerable和configurable</p>
-</li>
-<li><p>获取对象特定属性的属性描述符 <code>Object.getOwnPropertyDescriptor()</code> 只能获取自有属性</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// =&gt; &#123;value:1,writable:true,enumerable:true,configurable:true&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;x:<span class="number">1</span>&#125;,<span class="string">"x"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// =&gt; &#123;get: /*func*/,set:undefined,enumerable:true,configurable:true&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(random,<span class="string">"octet"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// =&gt; undefined 没有这个属性</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;&#125;,<span class="string">"x"</span>);</span><br><span class="line"><span class="comment">// =&gt; undefined 继承属性</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;&#125;,<span class="string">"toString"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置属性的特性 </p>
-<blockquote>
-<p><code>Object.defineProperty(待修改的对象,要创建或修改的属性名称,属性描述符对象)</code> 不必包含4个特性,对于新建的属性来说,默认的特性值是false或者undefined<br>这个方法只能修改已有属性或者新建自有属性,但不能修改继承属性<br>修改或创建多个属性:<code>Object.defineProperties(待修改的对象,映射表)</code> </p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">false</span>,configurable:<span class="literal">true</span>&#125;);</span><br><span class="line">o.x; <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">Object</span>.keys(o); <span class="comment">// =&gt; []</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;writable:<span class="literal">false</span>&#125;);</span><br><span class="line">o.x = <span class="number">2</span>; <span class="comment">//操作失败但是不会报错,在严格模式中抛出类型错误异常</span></span><br><span class="line">o.x <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//属性依然是可配置的</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;value:<span class="number">2</span>&#125;);</span><br><span class="line">o.x <span class="comment">// =&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//现在将x从数据属性修改为存取器属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"x"</span>,&#123;get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">0</span>;&#125;&#125;);</span><br><span class="line">o.x <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">Object</span>.defineProperties(&#123;&#125;,&#123;</span><br><span class="line">    x:&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">true</span>,configurable:<span class="literal">true</span>&#125;,</span><br><span class="line">    y:&#123;value:<span class="number">1</span>,writable:<span class="literal">true</span>,enumerable:<span class="literal">true</span>,configurable:<span class="literal">true</span>&#125;,</span><br><span class="line">    r:&#123;</span><br><span class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="keyword">this</span>.x*<span class="keyword">this</span>.x + <span class="keyword">this</span>.y*<span class="keyword">this</span>.y)&#125;,</span><br><span class="line">        enumerable:<span class="literal">true</span>,</span><br><span class="line">        configurable:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_attr_tx.png" alt="js_attr_tx" title="js_attr_tx"></p>
-<h3 id="序列化对象">序列化对象</h3><ul>
-<li><code>JSON.stringify()</code></li>
-<li><code>JSON.parse()</code></li>
-<li><code>toJson()</code></li>
-</ul>
-
       
     </div>
     
@@ -362,6 +289,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/08/javascript_note_03/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
