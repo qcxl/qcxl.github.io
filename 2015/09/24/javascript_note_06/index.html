@@ -3,17 +3,96 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Mobile Development</title>
+  <title>JavaScript权威指南--正则表达式模式匹配 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/2015/page/4/index.html">
+  <meta name="description" content="正则表达式的定义
+使用RegExp()构造函数来创建RegExp对象
+通过直接量定义为包含在一对斜杠(/)之间的字符//匹配所有以s结尾的字符串var pattern = /s$/; var pattern = RegExp(&quot;s$&quot;);
+
+
+直接量字符
+正则表达式中的直接量字符
+
+
+
+
+字符
+匹配
+
+
+
+
+字母和数字字符
+自身
+
+
+\o
+NULL字符(\u0000)
+
+
+\t
+制表符(\u000">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript权威指南--正则表达式模式匹配">
+<meta property="og:url" content="http://yoursite.com/2015/09/24/javascript_note_06/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="正则表达式的定义
+使用RegExp()构造函数来创建RegExp对象
+通过直接量定义为包含在一对斜杠(/)之间的字符//匹配所有以s结尾的字符串var pattern = /s$/; var pattern = RegExp(&quot;s$&quot;);
+
+
+直接量字符
+正则表达式中的直接量字符
+
+
+
+
+字符
+匹配
+
+
+
+
+字母和数字字符
+自身
+
+
+\o
+NULL字符(\u0000)
+
+
+\t
+制表符(\u000">
+<meta property="og:updated_time" content="2015-09-26T15:03:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="JavaScript权威指南--正则表达式模式匹配">
+<meta name="twitter:description" content="正则表达式的定义
+使用RegExp()构造函数来创建RegExp对象
+通过直接量定义为包含在一对斜杠(/)之间的字符//匹配所有以s结尾的字符串var pattern = /s$/; var pattern = RegExp(&quot;s$&quot;);
+
+
+直接量字符
+正则表达式中的直接量字符
+
+
+
+
+字符
+匹配
+
+
+
+
+字母和数字字符
+自身
+
+
+\o
+NULL字符(\u0000)
+
+
+\t
+制表符(\u000">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,134 +327,266 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-javascript_note_06" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/09/24/javascript_note_06/" class="article-date">
+  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">2015-09-24</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript权威指南--正则表达式模式匹配
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/10/android_view_position/" class="archive-article-date">
-  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">7月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/10/android_view_position/">Android自定义组件坐标详解</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
+<li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
+<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="直接量字符">直接量字符</h4><ul>
+<li>正则表达式中的直接量字符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th style="text-align:left">匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字母和数字字符</td>
+<td style="text-align:left">自身</td>
+</tr>
+<tr>
+<td>\o</td>
+<td style="text-align:left">NULL字符(\u0000)</td>
+</tr>
+<tr>
+<td>\t</td>
+<td style="text-align:left">制表符(\u0009)</td>
+</tr>
+<tr>
+<td>\n</td>
+<td style="text-align:left">换行符(\u000A)</td>
+</tr>
+<tr>
+<td>\v</td>
+<td style="text-align:left">垂直制表符(\u000B)</td>
+</tr>
+<tr>
+<td>\f</td>
+<td style="text-align:left">换页符(\u000C)</td>
+</tr>
+<tr>
+<td>\r</td>
+<td style="text-align:left">回车符(\u000D)</td>
+</tr>
+<tr>
+<td>\xnn</td>
+<td style="text-align:left">由十六进制数nn制定的拉丁字符,例如,\x0A等价于\n</td>
+</tr>
+<tr>
+<td>\uxxxx</td>
+<td style="text-align:left">由十六进制数xxxx制定的Unicode字符,例如\u0009等价于\t</td>
+</tr>
+<tr>
+<td>\cX</td>
+<td style="text-align:left">控制字符^X,例如,\cJ等价于换行符\n</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>具有特殊意义的标点符号<br><code>^ $ . * + ? = ! : | \ / () [] {}</code><br>当需要使用上面字符的直接量进行匹配时需要使用<code>\</code>进行转义</li>
+</ul>
+<h4 id="字符类">字符类</h4><ul>
+<li>将直接量字符单独放进<code>[]</code>内就组成来字符类.一个字符类可以匹配它所包含的任意字符.</li>
+<li>正则表达式的字符类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th style="text-align:left">匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[…]</td>
+<td style="text-align:left">方括号内的任意字符</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td style="text-align:left">不在方括号内的任意字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td style="text-align:left">除换行符和其他Unicode行终止符之外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td style="text-align:left">任何ASCII字符组成的单词,等价于[a-zA-Z0-9]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td style="text-align:left">任何不是ASCII字符组成的单词,等价于[^a-zA-Z0-9]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td style="text-align:left">任何Unicode空白符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td style="text-align:left">任何非Unicode空白符的字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td style="text-align:left">任何ASCII数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td style="text-align:left">除了ASCII数字之外的任何字符,等价于[^0-9]</td>
+</tr>
+<tr>
+<td>\b</td>
+<td style="text-align:left">退格直接量</td>
+</tr>
+</tbody>
+</table>
+<h4 id="重复">重复</h4><ul>
+<li>正则表达式的重复字符语法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{n,m}</td>
+<td style="text-align:left">匹配前一项至少n次,但不能超过m次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td style="text-align:left">匹配前一项n次或者更多次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td style="text-align:left">匹配前一项n次</td>
+</tr>
+<tr>
+<td>?</td>
+<td style="text-align:left">匹配前一项0次或者1次,也就是说前一项是可选的,等价于{0,1}</td>
+</tr>
+<tr>
+<td>+</td>
+<td style="text-align:left">匹配前一项1次或多次,等价于{1,}</td>
+</tr>
+<tr>
+<td>*</td>
+<td style="text-align:left">匹配前一项0次或多次,等价于{0,}</td>
+</tr>
+</tbody>
+</table>
+<p>例如:<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">/\d&#123;2,4&#125;/ //匹配2~4个数字</span><br><span class="line">/\w&#123;3&#125;\d?/ //精确匹配3个单词和一个可选的数字</span><br><span class="line">/\s+java\s+/ //匹配前后带有一个或多个空格的字符串"java"</span><br><span class="line">/[^(]*/ //匹配一个或多个非左括号的字符</span><br></pre></td></tr></table></figure></p>
+<h4 id="非贪婪的重复">非贪婪的重复</h4><ul>
+<li>尽可能的少匹配,只须在待匹配的字符后跟随一个问号:<code>??</code>、<code>+?</code>、<code>*?</code>或<code>{1,5}?</code></li>
+</ul>
+<h4 id="选择、分组和引用">选择、分组和引用</h4><ul>
+<li>选择:字符<code>|</code>用于分隔供选择的字符,选择项的尝试匹配次序是从左到右,直到发现了匹配项.如果左边<br>的选择项匹配,就忽略右边的匹配项,即使它产生更好的匹配.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/ab|cd|ef/   <span class="comment">//可以匹配字符串"ab"或者"cd"或者"ef"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>()</code>圆括号作用<ul>
+<li>第一个作用是单独的项组合成子表达式,以便可以像处理一个独立的单元那样用”|”、”*”、”+”或者”?”等来对单元内的项进行处理.</li>
+<li>第二个作用是在完整地模式中定义子模式.当一个正则表达式成功地和目标字符串相匹配时,可以从目标串中抽出和圆括号中的子模式相匹配的部分.</li>
+<li>第三个作用是允许在同一正则表达式的后部引用前面的子表达式.这通常在字符”\”后加一位或多位数字来实现的.这个数字指定了带圆括号的子表达式在正则表达式中的位置.</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/22/javascript_note_5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript权威指南--函数</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/09/pinyin4j/" class="archive-article-date">
-  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">7月 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/08/ffmpeg/" class="archive-article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">7月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/07/07/setup-blog/" class="archive-article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">7月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript_note_06" data-title="JavaScript权威指南--正则表达式模式匹配" data-url="http://yoursite.com/2015/09/24/javascript_note_06/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2015/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/2015/">1</a><a class="page-number" href="/archives/2015/page/2/">2</a><a class="page-number" href="/archives/2015/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-  
+
 
 </div>
       <footer id="footer">
@@ -401,8 +612,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
