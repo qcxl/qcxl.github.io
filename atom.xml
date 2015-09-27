@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-09-26T15:03:54.000Z</updated>
+  <updated>2015-09-27T08:03:29.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,12 +20,13 @@
     <link href="http://yoursite.com/2015/09/24/javascript_note_06/"/>
     <id>http://yoursite.com/2015/09/24/javascript_note_06/</id>
     <published>2015-09-24T07:43:18.000Z</published>
-    <updated>2015-09-26T15:03:54.000Z</updated>
+    <updated>2015-09-27T08:03:29.000Z</updated>
     <content type="html"><![CDATA[<h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
 <li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
 <li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h4 id="直接量字符">直接量字符</h4><ul>
 <li>正则表达式中的直接量字符</li>
 </ul>
@@ -185,15 +186,34 @@
 <li><code>()</code>圆括号作用<ul>
 <li>第一个作用是单独的项组合成子表达式,以便可以像处理一个独立的单元那样用”|”、”*”、”+”或者”?”等来对单元内的项进行处理.</li>
 <li>第二个作用是在完整地模式中定义子模式.当一个正则表达式成功地和目标字符串相匹配时,可以从目标串中抽出和圆括号中的子模式相匹配的部分.</li>
-<li>第三个作用是允许在同一正则表达式的后部引用前面的子表达式.这通常在字符”\”后加一位或多位数字来实现的.这个数字指定了带圆括号的子表达式在正则表达式中的位置.</li>
+<li>第三个作用是允许在同一正则表达式的后部引用前面的子表达式.这通常在字符”\”后加一位或多位数字来实现的.这个数字指定了带圆括号的子表达式在正则表达式中的位置.例如,<code>\1</code>引用的是第一个带圆括号的子表达式,<code>\3</code>引用的是第三个带圆括号的子表达式.注意,因为子表达式可以嵌套另一个子表达式,所以它的位置是参与计数的左括号的位置.嵌套的子表达式对正则表达式中前一个子表达式的引用,并不是指对子表达式模式的引用,而指的是与那个模式相匹配的文本的引用.</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>:</span><br><span class="line"><span class="regexp">/java(script)?/</span>   <span class="comment">//可以匹配"java",其后可以有"script"也可以没有.</span></span><br><span class="line">/(ab|cd)+|ef/ <span class="comment">//可以匹配字符串"ef",也可以匹配字符串"ab"或"cd"的一次或多次重复.</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>:</span><br><span class="line">(<span class="regexp">/[a-z]+(\d+)/</span>) <span class="comment">//从检索到得匹配中抽取数字</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>:</span><br><span class="line"><span class="comment">//左侧的引号必须和右侧的引号相匹配.</span></span><br><span class="line">/([<span class="string">'"])[^'</span><span class="string">"]*\1/ //匹配左侧和右侧的引号 \1 匹配的是第一个带圆括号的子表达式所匹配的模式</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>(?:</code>和<code>)</code>分组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/([Jj]ava(?:[Ss]cript)?)\sis\s(fun\w*)/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正则表达式的选择、分组和引用字符</li>
+</ul>
+<table><br><tr><br>    <th>字符</th><br>    <th>含义</th><br></tr><br><tr><br>    <td>|</td><br>    <td>选择,匹配的是该符号左边的子表达式或右边的子表达式</td><br></tr><br><tr><br>    <td>(…)</td><br>    <td>组合,将几个项组合为一个单元,这个单元可通过”*”、”+”、”?”和”|”等符号加以修饰,<br>而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td><br></tr><br></table>
+
+
+
+
+
+
+
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
 <li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
-<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight java]]>
+<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
