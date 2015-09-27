@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-09-27T14:33:16.000Z</updated>
+  <updated>2015-09-27T14:38:53.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2015/09/24/javascript_note_06/"/>
     <id>http://yoursite.com/2015/09/24/javascript_note_06/</id>
     <published>2015-09-24T07:43:18.000Z</published>
-    <updated>2015-09-27T14:33:16.000Z</updated>
+    <updated>2015-09-27T14:38:53.000Z</updated>
     <content type="html"><![CDATA[<h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
 <li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
 <li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
@@ -196,16 +196,8 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/([Jj]ava(?:[Ss]cript)?)\sis\s(fun\w*)/</span><br></pre></td></tr></table></figure>
 <ul>
-<li>正则表达式的选择、分组和引用字符</li>
+<li>正则表达式的选择、分组和引用字符<table><tr><th>字符</th><th>含义</th></tr><tr><td>|</td><td>选择,匹配的是该符号左边的子表达式或右边的子表达式</td></tr><br><tr><td>(…)</td><td>组合,将几个项组合为一个单元,这个单元可通过”*”、”+”、”?”和”|”等符号加以修饰,<br>而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td></tr></table></li>
 </ul>
-<table><tr><th>字符</th><th>含义</th></tr><tr><td>|</td><td>选择,匹配的是该符号左边的子表达式或右边的子表达式</td></tr><br><tr><td>(…)</td><td>组合,将几个项组合为一个单元,这个单元可通过”*”、”+”、”?”和”|”等符号加以修饰,<br>而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td></tr></table>
-
-
-
-
-
-
-
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
