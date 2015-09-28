@@ -15,7 +15,7 @@
 <meta property="og:description" content="正则表达式的定义
 使用RegExp()构造函数来创建RegExp对象
 通过直接量定义为包含在一对斜杠(/)之间的字符//匹配所有以s结尾的字符串var pattern = /s$/; var pattern = RegExp(&quot;s$&quot;);">
-<meta property="og:updated_time" content="2015-09-27T14:38:53.000Z">
+<meta property="og:updated_time" content="2015-09-28T15:34:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript权威指南--正则表达式模式匹配">
 <meta name="twitter:description" content="正则表达式的定义
@@ -463,9 +463,60 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/([Jj]ava(?:[Ss]cript)?)\sis\s(fun\w*)/</span><br></pre></td></tr></table></figure>
 <ul>
-<li>正则表达式的选择、分组和引用字符<table><tr><th>字符</th><th>含义</th></tr><tr><td>|</td><td>选择,匹配的是该符号左边的子表达式或右边的子表达式</td></tr><br><tr><td>(…)</td><td>组合,将几个项组合为一个单元,这个单元可通过”*”、”+”、”?”和”|”等符号加以修饰,<br>而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td></tr></table></li>
+<li>正则表达式的选择、分组和引用字符<table><tr><th>字符</th><th>含义</th></tr><tr><td>|</td><td>选择,匹配的是该符号左边的子表达式或右边的子表达式</td></tr><br>  <tr><td>(…)</td><td>组合,将几个项组合为一个单元,这个单元可通过”*”、”+”、”?”和”|”等符号加以修饰,<br>而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td></tr><tr><td>(?:…)</td><td>只组合,把项组合到一个单元,但不记忆与该组相匹配的字符</td></tr><tr><td>\n</td><td>和第n个分组第一次匹配的字符相匹配,组是圆括号中的子表达式(也有可能是嵌套的),组索引是从左到右的左括号数,”(?:”形式的分组不编码</td></tr></table></li>
 </ul>
-
+<ul>
+<li>指定匹配位置<br><code>\b</code>:匹配一个单词的边界,即位于<code>\w</code>和<code>\W</code>之间的边界,或位于字符<code>\w</code>和字符串的开头或结尾之间的边界(<code>[\b]</code>匹配的是退格符)<br><code>^</code>:匹配字符串的开头,在多行检索中,匹配一行的开头<br><code>$</code>:匹配字符串的结尾,在多行检索中,匹配一行的结尾<br><code>\B</code>:将匹配非单词边界的位置<br><code>(?=p)</code>:要求接下来的字符都与p匹配,但不能包括匹配p的那些字符<br><code>(?!p)</code>:要求接下来的字符都不与p匹配</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/Java(?! Script)([A-Z]\w*)/  <span class="comment">//匹配"Java"后跟随一个大写字母和任意多个单词,但Java后面不能跟随"Script"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修饰符<br>修饰符是放在”/“之外的,也就是说,它们不是出现在两条斜线之间,而是第二条斜线之后.</li>
+</ul>
+<p>正则表达式修饰符</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td style="text-align:left">执行不区分大小写的匹配</td>
+</tr>
+<tr>
+<td>g</td>
+<td style="text-align:left">执行一个全局匹配,简言之,即找到所有的匹配,而不是在找到第一个之后就停止</td>
+</tr>
+<tr>
+<td>m</td>
+<td style="text-align:left">多行匹配模式,^匹配一行的开头和字符串的开头,$匹配行的结束和字符串的结束</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/\bjava\b/i</span><br><span class="line">/\bjava\b/gi</span><br></pre></td></tr></table></figure>
+<h3 id="用于模式匹配的String方法">用于模式匹配的String方法</h3><p><code>String</code>支持4种使用正则表达式的方法:</p>
+<ul>
+<li><p><code>search()</code>:参数为正则表达式,如果不是正则表达式,则首先会通过RegExp构造函数将它转成正则表达式.此方法不支持全局搜索(<code>//g</code>).返回第一个与之匹配的子串的起始位置,如果找不到匹配的子串,它将返回-1.</p>
+</li>
+<li><p><code>replace()</code>:用以执行检索与替换操作.<br>第二个参数是要进行替换的字符串<br>第二个参数可以是函数,该函数能够动态地计算替换字符串<br>第一个参数是正则表达式时:如果正则表达式中设置了修饰符<code>g</code>,那么源字符串中所有与模式匹配的子串都将替换成第二个参数指定的字符串;如果不带修饰符<code>g</code>,则只替换所匹配的第一个子串.<br>第一个参数是字符串时: 则将直接搜索这个字符串<br>如果在替换字符串中出现了<code>$数字</code>,那么<code>replace()</code>将用与指定的子表达式相匹配的文本来替换这两个字符.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">"JavaScript"</span>.search(<span class="regexp">/script/i</span>);  <span class="comment">// =&gt;4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将所有不区分大小写的javascript都替换成大小写正确的JavaScript</span></span><br><span class="line">text.replace(<span class="regexp">/javascript/gi</span>,<span class="string">"JavaScript"</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//一段引用文本起始于引号,结束于引号</span></span><br><span class="line"><span class="comment">//中间的内容区域不能包含引号</span></span><br><span class="line"><span class="keyword">var</span> quote = <span class="regexp">/"([^"]*)"/g</span>;</span><br><span class="line"><span class="comment">//用中文半角引号替换英文引号,同时要保持引号之间的内容(存储在$1中)没有被修改</span></span><br><span class="line">text.replace(quote,<span class="string">' “$1” '</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>match()</code>:它的唯一参数就是一个正则表达式或通过<code>RegExp()</code>构造函数将其转换为正则表达式,返回的是一个由匹配结果组成的数组.如果正则表达式设置了修饰符<code>g</code>会进行全局检索,否则只会检索第一个匹配.但即使<code>match()</code>执行的不是全局检索,它也返回一个数组.在这种情况下,数组de第一个元素就是匹配的字符串,余下的元素则是正则表达式中用圆括号括起来的子表达式.因此,如果<code>match()</code>返回一个数组a,那么a[0]存放的是完整的匹配,a[1]存放的则是于第一个圆括号括起来的表达式相匹配的子串,以此类推.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="regexp">/(\w+):\/\/([\w.]+)\/(\S*)/</span>;</span><br><span class="line"><span class="keyword">var</span> text = <span class="string">"Visit my blog at http://www.example.com/~david"</span>;</span><br><span class="line"><span class="keyword">var</span> result = text.match(url);</span><br><span class="line"><span class="keyword">if</span>(result != <span class="literal">null</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> fullurl = result[<span class="number">0</span>]; <span class="comment">// =&gt;"http://www.example.com/~david"</span></span><br><span class="line">    <span class="keyword">var</span> protocol = result[<span class="number">1</span>]; <span class="comment">// =&gt;"http"</span></span><br><span class="line">    <span class="keyword">var</span> host = result[<span class="number">2</span>]; <span class="comment">// =&gt;"www.example.com"</span></span><br><span class="line">    <span class="keyword">var</span> path = result[<span class="number">3</span>]; <span class="comment">// =&gt;"~david"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>split()</code>: 这个方法用以将调用它的字符串拆分为一个子串组成的数组,使用的分隔符是<code>split()</code>的参数.参数也可以是一个正则表达式.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">"123,456,789"</span>.split(<span class="string">","</span>); <span class="comment">// =&gt;["123","456","789"]</span></span><br><span class="line"><span class="string">"1, 2, 3, 4, 5"</span>.split(<span class="regexp">/\s*,\s*/</span>); <span class="comment">// =&gt;["1","2","3","4","5"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="RegExp对象">RegExp对象</h3><ul>
+<li><code>exec()</code>:参数为一个字符串.如果它没有找到任何匹配,返回null,否则返回一个数组.结果与上面<code>math()</code>相似.</li>
+<li><code>test()</code>:参数为一个字符串.如果包含正则表达式的一个匹配结果,则返回true,否则返回false.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/Java/i</span>;</span><br><span class="line"><span class="keyword">var</span> text = <span class="string">"JavaScript is more fun than Java!"</span>;</span><br><span class="line"><span class="keyword">while</span>((result = pattern.exec(text))!=<span class="literal">null</span>)&#123;</span><br><span class="line">    alert(<span class="string">"Matched '"</span>+ result[<span class="number">0</span>] +<span class="string">"'"</span>+</span><br><span class="line">    <span class="string">" at postion "</span>+ result.index +</span><br><span class="line">    <span class="string">"; next search begins at "</span> + pattern.lastIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
