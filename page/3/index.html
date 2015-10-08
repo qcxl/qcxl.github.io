@@ -250,6 +250,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jQuery_DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery_DOM操作/" class="article-date">
+  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery_DOM操作/">jQuery DOM操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
+<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery_DOM操作/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jquery环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -800,64 +857,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/10/scrapy/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-install-python-plug" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/08/install-python-plug/" class="article-date">
-  	<time datetime="2015-08-08T01:13:07.000Z" itemprop="datePublished">2015-08-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/08/install-python-plug/">Python 安装第三方模块</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装easy_install">安装easy_install</h3><blockquote>
-<p>在Python中安装第三方模块是通过setuptools这个工具完成的。Python有两个封装了setuptools的包管理工具:<br>  easy_install 和 pip 。目前官方推荐使用pip 。如果你正在使用Mac或者Linux,安装pip本身这个步骤就可以跳过了.<br>  这里讲讲Mac下如何安装easy_install。</p>
-</blockquote>
-<ul>
-<li>目前<a href="https://pypi.python.org/pypi/setuptools">setuptools</a>版本是18.1<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/setuptools.png" alt="setuptools" title="setuptools">
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/08/install-python-plug/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

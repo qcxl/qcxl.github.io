@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mac下安装Node.js | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装XCode
+检测是否安装了XCode:xcode-select -p
+安装XCode:xcode-select --install
+
+安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下安装Node.js">
+<meta property="og:url" content="http://yoursite.com/2015/10/08/install_node_js/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="安装XCode
+检测是否安装了XCode:xcode-select -p
+安装XCode:xcode-select --install
+
+安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
+<meta property="og:updated_time" content="2015-10-08T11:04:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac下安装Node.js">
+<meta name="twitter:description" content="安装XCode
+检测是否安装了XCode:xcode-select -p
+安装XCode:xcode-select --install
+
+安装Homebrewruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-install_node_js" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/08/install_node_js/" class="article-date">
+  	<time datetime="2015-10-08T05:28:31.000Z" itemprop="datePublished">2015-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac下安装Node.js
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装XCode">安装XCode</h3><ul>
+<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
+<li>安装XCode:<code>xcode-select --install</code></li>
+</ul>
+<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="安装node">安装node</h3><h4 id="通过brew安装node">通过brew安装node</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<h4 id="通过nvm安装node">通过nvm安装node</h4><blockquote>
+<p>Node版本管理器,是一个简单的bash脚本,用来管理同一台电脑上的多个node.js版本,并可实现方便的版本间切换.</p>
+</blockquote>
+<ul>
+<li>首先安装nvm:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后配置nvm:</li>
+</ul>
+<p>选择官方的安装方法,就不用自己手动写<code>.bashrc</code>文件:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>这样配置之后,在Terminal输入nvm命令还是提示<code>command not found</code>,需要再次输入:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">. ~/.nvm/nvm.sh</span><br></pre></td></tr></table></figure>
+<p>或者手动配置:<br>1.打开<code>.bash_profile</code>文件(习惯把设置放在.bashrc的人可以把以下的.bash_profile改成.bashrc):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim <span class="variable">$HOME</span>/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>2.添加如下配置:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span> [ <span class="operator">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></span><br><span class="line"><span class="comment">#重新source你的 .bash_profile 来让设置生效</span></span><br><span class="line">. ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过nvm安装任意版本的node</li>
+</ul>
+<p>查看可安装的node版本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
+<p>安装node:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install node &amp;&amp; nvm <span class="built_in">alias</span> default node</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br><span class="line">nvm install <span class="number">4.1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>不过可能由于网络或者服务不稳定,实际上使用这个命令安装可能会失败,就算成功也会花费较长的时间,因此建议到Node.js官网去直接下载pkg包</p>
+<ul>
+<li>切换node版本</li>
+</ul>
+<p><code>nvm ls</code>:确认nvm目前可以管理的版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:    v0.<span class="number">11.10</span></span><br></pre></td></tr></table></figure>
+<p>由于透过nvm安裝node,会自动将最后安裝的版本设为目前使用中的版本,因此上述命令会看到current: v0.11.10,表示我們目前正在使用v0.11.10</p>
+<p>我们可以用<code>nvm use &lt;version&gt;</code>切换版本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v0.<span class="number">10.24</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
+<p>也可以偷懶一点,不用打完整的版号:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use <span class="number">0.10</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
+<p>不过问题来了,如果你另外开一个shell窗口,并输入nvm,会发现current version是空的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:</span><br></pre></td></tr></table></figure>
+<p>这是因为利用<code>nvm use</code>命令只会在当前的shell生效,当你开了新的shell就会发现<code>$PATH</code>的值已经不包含刚才设定的node目录了。要解决这个问题就是利用<code>nvm alias default &lt;version&gt;</code><br>来设定一个预设的node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm <span class="built_in">alias</span> default <span class="number">0.10</span></span><br><span class="line">default -&gt; <span class="number">0.10</span> (-&gt; v0.<span class="number">10.24</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="npm">npm</h3><blockquote>
+<p>NPM的全称是Node.js Package Manager, 是一个NodeJS包管理和分发工具,已经成为了非官方的发布Node模块(包)的标准<br>NPM可以自动管理包的依赖. 只需要安装你想要的包, 不必考虑这个包的依赖包.</p>
+</blockquote>
+<ul>
+<li><code>npm install</code>全局安装和本地安装的区别<br>npm的包安装分为本地安装(local)、全局安装(global)两种,从敲的命令行来看,差别只是有没有<code>-g</code>而已,比如安装n模块(用来安装管理切换不同到node版本):</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install n <span class="comment">#本地安装,将模块下载到当前命令行所在目录</span></span><br><span class="line">npm install -g n <span class="comment">#全局安装</span></span><br><span class="line">n <span class="number">4.1</span>.<span class="number">2</span> <span class="comment">#安装node v4.1.2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局目录通过 <code>npm config set prefix &quot;目录路径&quot;</code> 来设置</li>
+<li>通过 <code>npm config get prefix</code> 来获取当前设置的目录</li>
+<li>使用 cnpm 加速 npm<br>npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 <code>--registry</code> 参数, 使用国内的镜像 <a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install koa --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 10 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装cnpm cli:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install cnpm -g --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>通过 cnpm 命令行, 你可以快速同步任意模块:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm sync koa connect mocha</span><br></pre></td></tr></table></figure>
+<p><a href="http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html" target="_blank" rel="external">快速搭建 Node.js / io.js 开发环境以及加速 npm</a><br><a href="http://icarus4.logdown.com/posts/175092-nodejs-installation-guide" target="_blank" rel="external">Node.js 安裝與版本切換教學 (for MAC)</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/24/javascript_note_06/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript权威指南--正则表达式模式匹配</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="install_node_js" data-title="Mac下安装Node.js" data-url="http://yoursite.com/2015/10/08/install_node_js/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>

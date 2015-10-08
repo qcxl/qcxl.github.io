@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2015-09-28T15:34:24.000Z</updated>
+  <updated>2015-10-08T11:04:32.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Mac下安装Node.js]]></title>
+    <link href="http://yoursite.com/2015/10/08/install_node_js/"/>
+    <id>http://yoursite.com/2015/10/08/install_node_js/</id>
+    <published>2015-10-08T05:28:31.000Z</published>
+    <updated>2015-10-08T11:04:32.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="安装XCode">安装XCode</h3><ul>
+<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
+<li>安装XCode:<code>xcode-select --install</code></li>
+</ul>
+<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="安装node">安装node</h3><h4 id="通过brew安装node">通过brew安装node</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<h4 id="通过nvm安装node">通过nvm安装node</h4><blockquote>
+<p>Node版本管理器,是一个简单的bash脚本,用来管理同一台电脑上的多个node.js版本,并可实现方便的版本间切换.</p>
+</blockquote>
+<ul>
+<li>首先安装nvm:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后配置nvm:</li>
+</ul>
+<p>选择官方的安装方法,就不用自己手动写<code>.bashrc</code>文件:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>这样配置之后,在Terminal输入nvm命令还是提示<code>command not found</code>,需要再次输入:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">. ~/.nvm/nvm.sh</span><br></pre></td></tr></table></figure>
+<p>或者手动配置:<br>1.打开<code>.bash_profile</code>文件(习惯把设置放在.bashrc的人可以把以下的.bash_profile改成.bashrc):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim <span class="variable">$HOME</span>/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>2.添加如下配置:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span> [ <span class="operator">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></span><br><span class="line"><span class="comment">#重新source你的 .bash_profile 来让设置生效</span></span><br><span class="line">. ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过nvm安装任意版本的node</li>
+</ul>
+<p>查看可安装的node版本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
+<p>安装node:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install node &amp;&amp; nvm <span class="built_in">alias</span> default node</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br><span class="line">nvm install <span class="number">4.1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>不过可能由于网络或者服务不稳定,实际上使用这个命令安装可能会失败,就算成功也会花费较长的时间,因此建议到Node.js官网去直接下载pkg包</p>
+<ul>
+<li>切换node版本</li>
+</ul>
+<p><code>nvm ls</code>:确认nvm目前可以管理的版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:    v0.<span class="number">11.10</span></span><br></pre></td></tr></table></figure>
+<p>由于透过nvm安裝node,会自动将最后安裝的版本设为目前使用中的版本,因此上述命令会看到current: v0.11.10,表示我們目前正在使用v0.11.10</p>
+<p>我们可以用<code>nvm use &lt;version&gt;</code>切换版本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v0.<span class="number">10.24</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
+<p>也可以偷懶一点,不用打完整的版号:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use <span class="number">0.10</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
+<p>不过问题来了,如果你另外开一个shell窗口,并输入nvm,会发现current version是空的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:</span><br></pre></td></tr></table></figure>
+<p>这是因为利用<code>nvm use</code>命令只会在当前的shell生效,当你开了新的shell就会发现<code>$PATH</code>的值已经不包含刚才设定的node目录了。要解决这个问题就是利用<code>nvm alias default &lt;version&gt;</code><br>来设定一个预设的node版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm <span class="built_in">alias</span> default <span class="number">0.10</span></span><br><span class="line">default -&gt; <span class="number">0.10</span> (-&gt; v0.<span class="number">10.24</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="npm">npm</h3><blockquote>
+<p>NPM的全称是Node.js Package Manager, 是一个NodeJS包管理和分发工具,已经成为了非官方的发布Node模块(包)的标准<br>NPM可以自动管理包的依赖. 只需要安装你想要的包, 不必考虑这个包的依赖包.</p>
+</blockquote>
+<ul>
+<li><code>npm install</code>全局安装和本地安装的区别<br>npm的包安装分为本地安装(local)、全局安装(global)两种,从敲的命令行来看,差别只是有没有<code>-g</code>而已,比如安装n模块(用来安装管理切换不同到node版本):</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install n <span class="comment">#本地安装,将模块下载到当前命令行所在目录</span></span><br><span class="line">npm install -g n <span class="comment">#全局安装</span></span><br><span class="line">n <span class="number">4.1</span>.<span class="number">2</span> <span class="comment">#安装node v4.1.2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局目录通过 <code>npm config set prefix &quot;目录路径&quot;</code> 来设置</li>
+<li>通过 <code>npm config get prefix</code> 来获取当前设置的目录</li>
+<li>使用 cnpm 加速 npm<br>npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 <code>--registry</code> 参数, 使用国内的镜像 <a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install koa --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 10 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装cnpm cli:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install cnpm -g --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>通过 cnpm 命令行, 你可以快速同步任意模块:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm sync koa connect mocha</span><br></pre></td></tr></table></figure>
+<p><a href="http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html" target="_blank" rel="external">快速搭建 Node.js / io.js 开发环境以及加速 npm</a><br><a href="http://icarus4.logdown.com/posts/175092-nodejs-installation-guide" target="_blank" rel="external">Node.js 安裝與版本切換教學 (for MAC)</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="安装XCode">安装XCode</h3><ul>
+<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
+<li>安装XCode:<code>xcode-select --install</code></li>
+</ul>
+<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[JavaScript权威指南--正则表达式模式匹配]]></title>
@@ -1698,75 +1785,6 @@
 </li>
 </ul>
 <p><img src="http://img.mukewang.com/52d227fa000171db03160136.jpg" alt="readyImg" title="readyImg"><br>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[jQuery DOM操作]]></title>
-    <link href="http://yoursite.com/2015/08/26/jQuery_DOM%E6%93%8D%E4%BD%9C/"/>
-    <id>http://yoursite.com/2015/08/26/jQuery_DOM操作/</id>
-    <published>2015-08-26T01:12:56.000Z</published>
-    <updated>2015-08-26T03:06:02.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
-<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>操作元素的内容. 使用<code>html()</code>和<code>text()</code>方法操作元素的内容,当两个方法的参数为空时,表示获取该元素的内容,而如果方法中包含参数,则表示将参数值设置为元素内容.<code>html()</code>方法可以获取元素的HTML内容.而<code>text()</code>方法只是获取元素中的文本内容,并不包含HTML格式代码.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var $content = "<span class="tag">&lt;<span class="title">b</span>&gt;</span>唉，我又变胖了！<span class="tag">&lt;/<span class="title">b</span>&gt;</span>";</span><br><span class="line">$("#html").html($content);</span><br><span class="line">$("#text").text($content);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bb90400001a1eb03640193.jpg" alt="htmlImg" title="htmlImg"></p>
-<ul>
-<li>操作元素的样式. 通过<code>addClass()</code>和<code>css()</code>方法可以方便地操作元素中的样式,前者括号中的参数为增加元素的样式名称,后者直接将样式的属性内容写在括号中。增加多个样式名称时,要用空格隔开。<code>$(&quot;#content&quot;).css({&quot;background-color&quot;:&quot;red&quot;,&quot;color&quot;:&quot;white&quot;});</code><br><img src="http://img.mukewang.com/52bb94080001c89c03270369.jpg" alt="classImg" title="classImg"></li>
-<li>移除属性和样式 使用<code>removeAttr(name)</code>和<code>removeClass(class)</code>分别可以实现移除元素的属性和样式的功能,前者方法中参数表示移除属性名,后者方法中参数则表示移除的样式名.<br><code>$(&quot;#content&quot;).removeClass(&quot;blue&quot;,&quot;white&quot;);</code><br><img src="http://img.mukewang.com/52bb960c0001f4c603770161.jpg" alt="removeImg" title="removeImg"></li>
-<li>使用<code>append()</code>方法向元素内追加内容 方法的功能是向指定的元素中追加内容,被追加的content参数,可以是字符、HTML元素标记,还可以是一个返回字符串内容的函数。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>append()方法追加内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="php"></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">rethtml</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> <span class="variable">$html</span> = <span class="string">"&lt;div id='test' title='hi'&gt;我是调用函数创建的&lt;/div&gt;"</span></span><br><span class="line">                <span class="keyword">return</span> <span class="variable">$html</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $(<span class="string">"body"</span>).append(rethtml());</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bb980d0001c85804680122.jpg" alt="appendImg" title="appendImg"></p>
-<ul>
-<li>使用<code>appendTo()</code>方法向被选元素内插入内容 <code>appendTo()</code>方法也可以向指定的元素内插入内容,它的使用格式是:<code>$(content).appendTo(selector)</code> 参数content表示需要插入的内容,参数selector表示被选的元素,即把content内容插入selector元素内,默认是在尾部。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>appendTo()方法插入内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>小乌龟<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red'&gt;小青蛙&lt;/span&gt;"</span></span><br><span class="line">            <span class="variable">$(</span><span class="variable">$html</span>).appendTo(<span class="string">"div"</span>);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bcd7850001d30303360171.jpg" alt="appendToImg" title="appendToImg"></p>
-<ul>
-<li>使用<code>before()</code>和<code>after()</code>在元素前后插入内容 它们分别表示在整个元素的前面和后面插入指定的元素或内容,调用格式分别为:<br><code>$(selector).before(content)</code>和<code>$(selector).after(content)</code>其中参数content表示插入的内容,该内容可以是元素或HTML字符串.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>after()方法在元素之后插入内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>我们交个朋友吧！<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red'&gt;兄弟。&lt;/span&gt;"</span></span><br><span class="line">            <span class="variable">$(</span><span class="string">".green"</span>).after(<span class="variable">$html</span>);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bcd9cd0001645203820142.jpg" alt="baImage" title="baImage"></p>
-<ul>
-<li>使用<code>clone()</code>方法复制元素 调用<code>clone()</code>方法可以生成一个被选元素的副本,即复制了一个被选元素，包含它的节点、文本和属性,它的调用格式为:<code>$(selector).clone()</code><br>其中参数selector可以是一个元素或HTML内容.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用clone()方法复制元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"red"</span> <span class="attribute">title</span>=<span class="value">"hi"</span>&gt;</span>我是美猴王<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"body"</span>)</span>.append<span class="params">($<span class="params">(<span class="string">".red"</span>)</span>.clone<span class="params">()</span>)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bb9da80001fede03660123.jpg" alt="cloneImg" title="cloneImg"></p>
-<ul>
-<li>替换内容 <code>replaceWith()</code>和<code>replaceAll()</code>方法都可以用于替换元素或元素中的内容,但它们调用时,内容和被替换元素所在的位置不同,分别为如下所示:<br><code>$(selector).replaceWith(content)</code>和<code>$(content).replaceAll(selector)</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用replaceAll()方法替换元素内容<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span> <span class="attribute">title</span>=<span class="value">"hi"</span>&gt;</span>我是屌丝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="elixir"></span><br><span class="line">            var <span class="variable">$html</span> = <span class="string">"&lt;span class='red' title='hi'&gt;我是土豪&lt;/span&gt;"</span>;</span><br><span class="line">            <span class="variable">$(</span><span class="variable">$html</span>).replaceAll(<span class="variable">$(</span><span class="string">".green"</span>));</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bcdc2c0001b69c04750130.jpg" alt="replaceImg" title="replaceImg"></p>
-<ul>
-<li>使用<code>wrap()</code>和<code>wrapInner()</code>方法包裹元素和内容.但前者用于包裹元素本身,后者则用于包裹元素中的内容,它们的调用格式分别为:<br><code>$(selector).wrap(wrapper)</code>和<code>$(selector).wrapInner(wrapper)</code><br>参数selector为被包裹的元素,wrapper参数为包裹元素的格式。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用wrapInner()方法包裹元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"red"</span> <span class="attribute">title</span>=<span class="value">'hi'</span>&gt;</span>我的身体有点歪<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">".red"</span>)</span>.wrapInner<span class="params">(<span class="string">"&lt;i&gt;&lt;/i&gt;"</span>)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bcdea700016dbf03980120.jpg" alt="wrapImg" title="wrapImg"></p>
-<ul>
-<li>使用<code>each()</code>方法可以遍历指定的元素集合,在遍历时,通过回调函数返回遍历元素的序列号,它的调用格式为:<code>$(selector).each(function(index))</code>参数function为遍历时的回调函数,index为遍历元素的序列号,它从0开始.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用each()方法遍历元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>桃子<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>葡萄<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>荔枝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="string">"span"</span>).?(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (index == <span class="number">1</span>) &#123;</span><br><span class="line">                    $(<span class="string">"span"</span>).attr(<span class="string">"class"</span>, <span class="string">"red"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bba3720001175203180227.jpg" alt="eachImg" title="eachImg"></p>
-<ul>
-<li>使用<code>remove()</code>和<code>empty()</code>方法删除元素.remove()方法删除所选元素本身和子元素,该方法可以通过添加过滤参数指定需要删除的某些元素,而empty()方法则只删除所选元素的子元素。<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用empty()方法删除元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>桃子<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>葡萄<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"green"</span>&gt;</span>荔枝<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"span"</span>)</span>.empty<span class="params">(<span class="string">".green"</span>)</span>?</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52bceff500018e0702910171.jpg" alt="removeImg" title="removeImg"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
-<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>]]>
     
     </summary>
     
