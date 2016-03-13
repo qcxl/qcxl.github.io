@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/9 | Mobile Development</title>
+  <title>iOS之UIWindow | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/2015/09/index.html">
+  <meta name="description" content="UIWindow
+UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow
+iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了
+一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow
+也就说,没有UIWindow,就看不见任何UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS之UIWindow">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/uiwindow/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="UIWindow
+UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow
+iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了
+一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow
+也就说,没有UIWindow,就看不见任何UI">
+<meta property="og:updated_time" content="2016-03-13T14:12:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="iOS之UIWindow">
+<meta name="twitter:description" content="UIWindow
+UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow
+iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了
+一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow
+也就说,没有UIWindow,就看不见任何UI">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,265 +261,130 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-uiwindow" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/03/12/uiwindow/" class="article-date">
+  	<time datetime="2016-03-12T02:00:00.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS之UIWindow
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/24/javascript_note_06/" class="archive-article-date">
-  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">9月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UIWindow">UIWindow</h3><ul>
+<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
+<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
+<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
+<li>也就说,没有UIWindow,就看不见任何UI界面</li>
+<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
+<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
+</ul>
+<a id="more"></a>
+<h3 id="iOS_App启动加载过程">iOS App启动加载过程</h3><p>main函数是程序的主入口,调用UIApplicationMain函数做的事情:</p>
+<ul>
+<li>创建UIApplication</li>
+<li>创建UIApplicationDelegate,并且成为UIApplication代理</li>
+<li>开启主运行循环,保持程序一直在运行</li>
+<li>加载info.plist,判断有没有指定main.stroyboard,指定了就加载 </li>
+<li>加载main.stroyboard做的事情:<ul>
+<li>创建窗口</li>
+<li>加载main.storyboard,并且加载main.storyboard指定的控制器</li>
+<li>把新创建的控制器作为窗口的跟控制器,让窗口显示出来</li>
+</ul>
+</li>
+<li>如果info.plist没有指定’Main storyboard file base name’,则不会创建窗口<br>需要在app启动完成方法中创建窗口然后创建窗口的根控制器最后再显示窗口</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 1.创建窗口,注意窗口必须要有尺寸,尺寸跟屏幕一样大的尺寸,窗口不要被释放</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// application.windows:只要一给delegate的window属性赋值,就会添加到windows数组</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,application<span class="variable">.windows</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line"></span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> yellowColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果设置窗口的根控制器,默认就会把控制器的view添加到窗口上</span></span><br><span class="line"><span class="comment">//设置窗口的根控制器,默认就有旋转功能</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;<span class="comment">//底层相当于[self.window addSubview:vc.view];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.显示窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible]; <span class="comment">//makeKeyAndVisible 相当于 成为App的主窗口([UIApplication sharedApplication].keyWindow)并显示 设置self.window.hidden = NO;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/13/create_viewcontroller/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS创建控制器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/28/node_oauth/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js 使用OAuth2.0教程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/22/javascript_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-22T05:26:55.000Z" itemprop="datePublished">9月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/22/javascript_note_5/">JavaScript权威指南--函数</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/13/javascript_note_04/" class="archive-article-date">
-  	<time datetime="2015-09-13T08:31:07.000Z" itemprop="datePublished">9月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/13/javascript_note_04/">JavaScript权威指南--数组</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/javascript_note_03/" class="archive-article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">9月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="uiwindow" data-title="iOS之UIWindow" data-url="http://yoursite.com/2016/03/12/uiwindow/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/07/javascript_note_02/" class="archive-article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">9月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/06/javascript_note_01/" class="archive-article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">9月 6</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/02/html5_study_01/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">9月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_6/" class="archive-article-date">
-  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -532,8 +410,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
