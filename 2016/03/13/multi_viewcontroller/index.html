@@ -27,7 +27,7 @@ UINavigationController的使用步骤
 初始化UINavigationController
 设置UIWindow的rootViewController为UINavigationController
 根据具体情况,通过push方法添加">
-<meta property="og:updated_time" content="2016-03-13T14:05:30.000Z">
+<meta property="og:updated_time" content="2016-03-13T14:38:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS多控制器">
 <meta name="twitter:description" content="多控制器
@@ -343,7 +343,22 @@ animated:(BOOL)animated;</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="控制器View的生命周期顺序">控制器View的生命周期顺序</h3>
+<h3 id="控制器View的生命周期顺序">控制器View的生命周期顺序</h3><ul>
+<li><code>- (void)viewDidLoad</code></li>
+<li><code>- (void)viewWillAppear:(BOOL)animated</code></li>
+<li><code>- (void)viewWillLayoutSubviews</code></li>
+<li><code>- (void)viewDidLayoutSubviews</code></li>
+<li><code>- (void)viewDidAppear:(BOOL)animated</code></li>
+<li><code>- (void)viewWillDisappear:(BOOL)animated</code></li>
+<li><code>- (void)viewDidDisappear:(BOOL)animated</code></li>
+<li>当控制器的view旋转的时候调用 <code>- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id&lt;UIViewControllerTransitionCoordinator&gt;)coordinator</code></li>
+<li>在非ARC中<ul>
+<li>view即将销毁 <code>- (void)viewWillUnload</code></li>
+<li>view完全销毁 <code>- (void)viewDidUnload</code> 在这个方法中管理内存,清空界面的数据.</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     

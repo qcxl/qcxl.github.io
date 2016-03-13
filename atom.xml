@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-03-13T14:05:30.000Z</updated>
+  <updated>2016-03-13T14:38:37.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/03/13/multi_viewcontroller/"/>
     <id>http://yoursite.com/2016/03/13/multi_viewcontroller/</id>
     <published>2016-03-13T14:05:07.000Z</published>
-    <updated>2016-03-13T14:05:30.000Z</updated>
+    <updated>2016-03-13T14:38:37.000Z</updated>
     <content type="html"><![CDATA[<h3 id="多控制器">多控制器</h3><ul>
 <li>UINavigationController</li>
 <li>UITabBarController</li>
@@ -58,7 +58,22 @@ animated:(BOOL)animated;</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="控制器View的生命周期顺序">控制器View的生命周期顺序</h3>]]></content>
+<h3 id="控制器View的生命周期顺序">控制器View的生命周期顺序</h3><ul>
+<li><code>- (void)viewDidLoad</code></li>
+<li><code>- (void)viewWillAppear:(BOOL)animated</code></li>
+<li><code>- (void)viewWillLayoutSubviews</code></li>
+<li><code>- (void)viewDidLayoutSubviews</code></li>
+<li><code>- (void)viewDidAppear:(BOOL)animated</code></li>
+<li><code>- (void)viewWillDisappear:(BOOL)animated</code></li>
+<li><code>- (void)viewDidDisappear:(BOOL)animated</code></li>
+<li>当控制器的view旋转的时候调用 <code>- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id&lt;UIViewControllerTransitionCoordinator&gt;)coordinator</code></li>
+<li>在非ARC中<ul>
+<li>view即将销毁 <code>- (void)viewWillUnload</code></li>
+<li>view完全销毁 <code>- (void)viewDidUnload</code> 在这个方法中管理内存,清空界面的数据.</li>
+</ul>
+</li>
+</ul>
+]]></content>
     <summary type="html">
     <![CDATA[<h3 id="多控制器">多控制器</h3><ul>
 <li>UINavigationController</li>
