@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-03-14T15:36:43.000Z</updated>
+  <updated>2016-03-14T15:39:47.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/03/14/contact/"/>
     <id>http://yoursite.com/2016/03/14/contact/</id>
     <published>2016-03-14T14:00:00.000Z</published>
-    <updated>2016-03-14T15:36:43.000Z</updated>
+    <updated>2016-03-14T15:39:47.000Z</updated>
     <content type="html"><![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
 <li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
 </ul>
@@ -57,16 +57,17 @@
 <li>利用<code>performSegueWithIdentifier:sender:</code>方法可以执行某个Segue,完成界面跳转</li>
 <li><p>接下来研究<code>performSegueWithIdentifier:sender:</code>方法的完整执行过程</p>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个self是来源控制器</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-<ol>
-<li>根据identifier去storyboard中找到对应的线,新建UIStoryboardSegue对象<br>设置Segue对象的sourceViewController(来源控制器)<br>新建并且设置Segue对象的destinationViewController(目标控制器)</li>
-<li>调用sourceViewController的下面方法,做一些跳转前的准备工作并且传人创建好的Segue对象<br><code>- (void)prepareForSegue:(UIStoryboard *)segue sender:(id)sender;</code><br>这个sender是当初<code>performSegueWithIdentifier:sender:</code>中传人的sender</li>
-<li>调用Segue对象的<code>- (void)perform</code>方法开始执行界面跳转操作<br>(1)如果segue的style是push<ul>
-<li>取得sourceViewController所在的UINavigationController</li>
-<li>调用UINavigationController的push方法将destinationViewController压人栈中,完成跳转</li>
-</ul>
-</li>
-</ol>
-</li>
+<p>   根据identifier去storyboard中找到对应的线,新建UIStoryboardSegue对象</p>
+<pre><code>设置Segue对象的<span class="function"><span class="title">sourceViewController</span><span class="params">(来源控制器)</span></span>
+新建并且设置Segue对象的<span class="function"><span class="title">destinationViewController</span><span class="params">(目标控制器)</span></span>
+</code></pre><p>   调用sourceViewController的下面方法,做一些跳转前的准备工作并且传人创建好的Segue对象</p>
+<pre><code>`- (<span class="typename">void</span>)<span class="string">prepareForSegue:</span>(UIStoryboard *)segue <span class="string">sender:</span>(id)sender;`
+这个sender是当初`<span class="string">performSegueWithIdentifier:</span><span class="string">sender:</span>`中传人的sender
+</code></pre><p>   调用Segue对象的<code>- (void)perform</code>方法开始执行界面跳转操作</p>
+<pre><code>(<span class="number">1</span>)如果segue的style是<span class="keyword">push</span>
+   * 取得sourceViewController所在的UINavigationController
+   * 调用UINavigationController的<span class="keyword">push</span>方法将destinationViewController压人栈中,完成跳转
+</code></pre></li>
 </ul>
 ]]></content>
     <summary type="html">
