@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-03-14T15:41:14.000Z</updated>
+  <updated>2016-03-19T10:17:33.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[iOS数据存储]]></title>
+    <link href="http://yoursite.com/2016/03/17/ios_save_data/"/>
+    <id>http://yoursite.com/2016/03/17/ios_save_data/</id>
+    <published>2016-03-17T12:00:00.000Z</published>
+    <updated>2016-03-19T10:17:33.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="如何定义block">如何定义block</h3><ul>
+<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="iOS应用数据存储的常用方式">iOS应用数据存储的常用方式</h3><ul>
+<li>XML属性列表(plist)归档</li>
+<li>Preference(偏好设置)</li>
+<li>NSKeyedArchiver归档(NSCoding)</li>
+<li>SQLite3</li>
+<li>Core Data</li>
+</ul>
+<h3 id="应用沙盒">应用沙盒</h3><p>应用沙盒的文件系统目录</p>
+<ul>
+<li>应用程序包:包含了所有的资源文件和可执行文件</li>
+<li>Documents:保持应用运行时生成的需要持久化的数据,iTunes同步设备时会备份该目录.</li>
+<li>Library<ul>
+<li>Caches:保存应用运行时生成的需要持久化的数据,iTunes同步设备时不会备份该目录.一般存储体积大、不需要备份的非重要数据</li>
+<li>Preferences:保存应用的所有偏好设置,iOS的Settings(设置)应用会在该目录中查找应用的设置信息.iTunes同步设备时会备份该目录</li>
+</ul>
+</li>
+<li>tmp:保存应用运行时所需要的临时数据,使用完毕后再将相应的文件从该目录删除.应用没有运行时,系统也可能会清除该目录下的文件,iTunes同步设备时不会备份该目录</li>
+</ul>
+<h5 id="模拟器应用沙盒的根路径在:(apple是用户名,8-0是模拟器版本)">模拟器应用沙盒的根路径在:(apple是用户名,8.0是模拟器版本)</h5><p><code>/Users/apple/Library/Application Support/iPhone Simulator/8.0/Applications</code></p>
+<h5 id="获取应用的文件夹(应用沙盒)">获取应用的文件夹(应用沙盒)</h5><p><code>NSString *homePath = NSHomeDirectory();</code></p>
+<h5 id="获取沙盒中的文件夹">获取沙盒中的文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory directory,NSSearchPathDomainMask domainMask,BOOL expandTilde);</code></p>
+<p>NSSearchPathDirectory:搜索的目录 <code>NSCacheDirectory</code><br>NSSearchPathDomainMask:搜索的范围 <code>NSUserDomainMask</code>:表示在用户的手机上查找<br>expandTilde:是否展开全路径,如果没展开,应用的沙盒路径就是~</p>
+<h5 id="获取Cache文件夹">获取Cache文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSCacheDirectory,NSUserDomainMask,YES)</code></p>
+<h5 id="获取Documents文件夹">获取Documents文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)</code></p>
+<h5 id="获取tmp临时文件夹">获取tmp临时文件夹</h5><p><code>NSTemporaryDirectory()</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"arr.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSArray</span> *arr = @[<span class="string">@"A"</span>,<span class="string">@"123"</span>];</span><br><span class="line"><span class="comment">//写入plist文件</span></span><br><span class="line">[arr writeToFile:filePath atomically:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取plist中的内容</span></span><br><span class="line">[<span class="built_in">NSArray</span> arrayWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">//plist 不能存储自定义对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="偏好设置存储">偏好设置存储</h3><ul>
+<li>存放在<code>Library/Preferences/xxx.plist</code><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> *userDefaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">[userDefaults setObject:<span class="string">@"value"</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line">[userDefaults setBOOL:<span class="literal">YES</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在iOS7之前,默认不会马上将数据写到文件中</span></span><br><span class="line"><span class="comment">// 这个方法会立即将缓存中的数据写入到文件中</span></span><br><span class="line">[userDefaults synchronize];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从偏好设置中读取数据</span></span><br><span class="line"><span class="built_in">NSString</span> *value = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] objectForKey:<span class="string">@"key"</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="NSKeyedArchiver归档和NSKeyedUnarchiver解档">NSKeyedArchiver归档和NSKeyedUnarchiver解档</h3><ul>
+<li><p>归档(<code>NSKeyedArchiver</code>)</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"person.data"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要归档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (void)encodeWithCoder:(NSCoder *)aCoder : 用来描述当前对象的哪些属性需要归档</span></span><br><span class="line"><span class="comment">//[aCoder encodeObject:(id) forKey:(NSString *)];</span></span><br><span class="line"><span class="comment">//[aCoder encodeInt:(int) forKey:(NSString *)];</span></span><br><span class="line"></span><br><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//将自定义对象归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:p toFile:filePath];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解档(<code>NSKeyedUnarchiver</code>)</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:(<span class="built_in">NSString</span> *)];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要解档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (id)initWithCoder:(NSCoder *)aDecoder: 用来描述当前对象的哪些属性需要解档,当解档对象的时候调用</span></span><br><span class="line"><span class="comment">//解析文件会调用这个方法</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init])&#123;</span><br><span class="line">		<span class="comment">//一定要给成员变量赋值</span></span><br><span class="line">		_xxx = [aCoder decodeObjectForKey:(<span class="built_in">NSString</span> *)];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义View,从xib加载的时候系统会自动调用initWithCoder方法</span></span><br><span class="line"><span class="comment">//只要父类遵守了NSCoding协议就要调用initWithCoder</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过代码初始化的时候,调用init方法,底层会调用initWithFrame</span></span><br><span class="line">- (instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span>=[<span class="keyword">super</span> initWithFrame:frame])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="如何定义block">如何定义block</h3><ul>
+<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[iOS界面跳转传值]]></title>
@@ -1757,91 +1817,6 @@ animated:(BOOL)animated;</code></li>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="常用的CSS选择器">常用的CSS选择器</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/css_select_img.png" alt="css_select_img" title="css_select_img"><br>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[《锋利的jQuery》--读书笔记一]]></title>
-    <link href="http://yoursite.com/2015/08/27/jquery_note_1/"/>
-    <id>http://yoursite.com/2015/08/27/jquery_note_1/</id>
-    <published>2015-08-27T01:57:47.000Z</published>
-    <updated>2015-08-27T09:57:53.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="认识jQuery">认识jQuery</h3><ul>
-<li>jQuery 的优势:<ul>
-<li>轻量级  采用<a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="external">UglifyJS</a>压缩</li>
-<li>强大的选择器</li>
-<li>出色的DOM操作的封装</li>
-<li>可靠的事件处理机制</li>
-<li>完善的Ajax</li>
-<li>不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名<code>$</code>也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲突.</li>
-<li>出色的浏览器兼容性</li>
-<li>链式操作方式</li>
-<li>隐式迭代</li>
-<li>行为层与结构层的分离</li>
-<li>丰富的插件支持</li>
-<li>完善的文档</li>
-<li>开源</li>
-</ul>
-</li>
-<li>jquery.js和jquery.mini.js区别. 前者为完整无压缩开发版,主要用于测试、学习和开发,而后者是经过工具压缩或经过服务器开启Gzip压缩主要应用于产品和项目.<a id="more"></a>
-</li>
-</ul>
-<h3 id="jQuery对象和DOM对象的互相转换">jQuery对象和DOM对象的互相转换</h3><ul>
-<li>在jQuery库中,<code>$</code>就是jQuery的一个简写形式,例如:<code>$(&quot;#foo&quot;)</code>和<code>jQuery(&quot;#foo&quot;)</code>是等价的,<code>$.ajax</code>和<code>jQuery.ajax</code>是等价的.程序中的$符号都是jQuery的一个简写形式.</li>
-<li><code>window.onload</code>与<code>$(document).ready();</code>区别<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/jq_ready_img.png" alt="jq_ready_img" title="jq_ready_img"></li>
-<li><code>$(&quot;#foo&quot;).html</code> 等同于 <code>document.getElementById(&quot;foo&quot;).innerHTML;</code></li>
-<li>jQuery对象和DOM对象的互相转换<ul>
-<li>如果获得的对象是jQuery对象,那么在变量前面加上<code>$</code>例如:<code>var $variable = jQuery对象;</code></li>
-<li>如果获取的是DOM对象,则定义如下:<code>var variable = DOM对象;</code></li>
-<li>jQuery提供了两种方法将一个jQuery对象转换成DOM对象,即[index]和get(index)<blockquote>
-<p>jQuery对象是一个类似数组的对象,可以通过[index]的方法得到相应的DOM对象.例如: var $cr = $(“#cr”);  var cr = $cr[0];(或者通过var cr = $cr.get(0);) alert(cr.checked);</p>
-</blockquote>
-</li>
-<li>DOM对象转为jQuery对象.只需要用<code>$()</code>把DOM对象包装起来,就可以获得一个jQuery对象了.方式为$(DOM对象)。例如:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var cr = document.getElementById("cr"); //DOM对象</span><br><span class="line">var $cr = $(cr); //jQuery对象</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="解决_jQuery和其他库的冲突">解决 jQuery和其他库的冲突</h3><ul>
-<li><p>jQuery 库在其他库之后导入</p>
-<ul>
-<li>第一种方式:<code>jQuery.noConflict();</code> 将变量<code>$</code>的控制权移交给其他js库.然后使用jQuery的时候<code>jQuery(function(){});</code></li>
-<li>第二种方式: 自定义快捷方式<code>var $jq = jQuery.noConflict(); $jq(function(){})</code></li>
-<li><p>第三种方式:如果不想给jQuery自定义这些设备名称,还想使用<code>$</code>而不管其它库的<code>$()</code>方法,同时又不想与其他库相冲突,那么可以使用以下两种解决方法:<br>其一:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">jQuery.noConflict(); //将变量$的控制权让渡给其他库</span><br><span class="line">jQuery(function($)&#123; //使用jQuery设定页面加载时执行的函数</span><br><span class="line">    $("p").click(function()&#123; //在函数内部继续使用$()</span><br><span class="line">        alert($(this).text());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p>其二:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">jQuery.noConflict(); //将变量$的控制权让渡给其他库</span><br><span class="line">(function($)&#123; //定义匿名函数并设置行参为$</span><br><span class="line">    $(function()&#123; //在函数内部$均为jQuery</span><br><span class="line">        $("p").click(function()&#123; //继续使用$()方法</span><br><span class="line">                alert($(this).text());</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)(jQuery); //执行匿名函数且传递实参 jQuery</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>jQuery 库在其他库之前导入</p>
-<ul>
-<li>可以直接使用”jQuery”来做一些jQuery的工作.同时,可以使用<code>$()</code>方法作为其他库的快捷方式.这里无需调用jQuery.noConflict()函数.<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/conflictImg.png" alt="conflictImg" title="conflictImg"></li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="认识jQuery">认识jQuery</h3><ul>
-<li>jQuery 的优势:<ul>
-<li>轻量级  采用<a href="https://github.com/mishoo/UglifyJS">UglifyJS</a>压缩</li>
-<li>强大的选择器</li>
-<li>出色的DOM操作的封装</li>
-<li>可靠的事件处理机制</li>
-<li>完善的Ajax</li>
-<li>不污染顶级变量 jQuery只建立一个名为jQuery的对象,其所有的函数都在这个对象之下.其别名<code>$</code>也可以随时交出控制权,绝对不会污染其它的对象.该特性使jQuery可以与其它JavaScript库共存,在项目中放心的引用而不需要考虑到后期可能的冲突.</li>
-<li>出色的浏览器兼容性</li>
-<li>链式操作方式</li>
-<li>隐式迭代</li>
-<li>行为层与结构层的分离</li>
-<li>丰富的插件支持</li>
-<li>完善的文档</li>
-<li>开源</li>
-</ul>
-</li>
-<li>jquery.js和jquery.mini.js区别. 前者为完整无压缩开发版,主要用于测试、学习和开发,而后者是经过工具压缩或经过服务器开启Gzip压缩主要应用于产品和项目.]]>
     
     </summary>
     

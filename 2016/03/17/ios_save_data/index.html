@@ -3,30 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS界面跳转传值 | Mobile Development</title>
+  <title>iOS数据存储 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="监听文本框内容改变
-[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
-
-什么是Segue
-Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)">
+  <meta name="description" content="如何定义block
+快捷键inlinereturnType(^blockName)(parameterTypes) = ^(parameters) &amp;#123;        statements&amp;#125;;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS界面跳转传值">
-<meta property="og:url" content="http://yoursite.com/2016/03/14/contact/index.html">
+<meta property="og:title" content="iOS数据存储">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/ios_save_data/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="监听文本框内容改变
-[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
-
-什么是Segue
-Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)">
-<meta property="og:updated_time" content="2016-03-14T15:41:14.000Z">
+<meta property="og:description" content="如何定义block
+快捷键inlinereturnType(^blockName)(parameterTypes) = ^(parameters) &amp;#123;        statements&amp;#125;;">
+<meta property="og:updated_time" content="2016-03-19T10:17:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS界面跳转传值">
-<meta name="twitter:description" content="监听文本框内容改变
-[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
-
-什么是Segue
-Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)">
+<meta name="twitter:title" content="iOS数据存储">
+<meta name="twitter:description" content="如何定义block
+快捷键inlinereturnType(^blockName)(parameterTypes) = ^(parameters) &amp;#123;        statements&amp;#125;;">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -261,11 +252,11 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-contact" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ios_save_data" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/14/contact/" class="article-date">
-  	<time datetime="2016-03-14T14:00:00.000Z" itemprop="datePublished">2016-03-14</time>
+      <a href="/2016/03/17/ios_save_data/" class="article-date">
+  	<time datetime="2016-03-17T12:00:00.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -278,7 +269,7 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
         
   
     <h1 class="article-title" itemprop="name">
-      iOS界面跳转传值
+      iOS数据存储
     </h1>
   
 
@@ -294,51 +285,47 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
-<li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
-</ul>
-<h3 id="什么是Segue">什么是Segue</h3><ul>
-<li>Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)</li>
+        <h3 id="如何定义block">如何定义block</h3><ul>
+<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <a id="more"></a>
-<h3 id="Segue的属性">Segue的属性</h3><ul>
-<li>每一个Segue对象都有3个属性<ul>
-<li>唯一标识 <code>@property (nonatomic, readonly) NSString *identifier;</code></li>
-<li>来源控制器 <code>@property (nonatomic, readonly) id sourceViewController;</code></li>
-<li>目的控制器 <code>@property (nonatomic, readonly) id destinationViewController;</code></li>
+<h3 id="iOS应用数据存储的常用方式">iOS应用数据存储的常用方式</h3><ul>
+<li>XML属性列表(plist)归档</li>
+<li>Preference(偏好设置)</li>
+<li>NSKeyedArchiver归档(NSCoding)</li>
+<li>SQLite3</li>
+<li>Core Data</li>
 </ul>
-</li>
-</ul>
-<h3 id="Segue的类型">Segue的类型</h3><ul>
-<li>根据Segue的执行(跳转)时刻,Segue可以分为2大类型<ul>
-<li>自动型:点击某个控件后(比如按钮),自动执行Segue,自动完成界面跳转</li>
-<li>手动型:需要通过写代码手动执行Segue,才能完成界面跳转</li>
-</ul>
-</li>
-</ul>
-<h3 id="自动型">自动型</h3><ul>
-<li>按住Control键,直接从控件拖线到目标控制器</li>
-<li>如果点击某个控件后,不需要做任何判断,一定要跳转到下一个界面,建议使用”自动型Segue”</li>
-</ul>
-<h3 id="手动型Segue">手动型Segue</h3><ul>
-<li>按住Control键,从来源控制器拖线到目标控制器</li>
-<li>手动型的Segue需要设置一个标识</li>
-<li>在恰当的时刻,使用perform方法执行对应的Segue<br><code>[self performSegueWithIdentifier:@&quot;login2contacts&quot; sender:nil];</code><br><code>Segue必须由来源控制器来执行,也就是说,这个perform方法必须由来源控制器来调用</code></li>
-<li>如果点击某个控件后,需要做一些判断,也就是说,满足一定条件后才能跳转到下一个界面,建议使用”手动型Segue”</li>
-</ul>
-<h3 id="performSegueWithIdentifier:sender:"><code>performSegueWithIdentifier:sender:</code></h3><ul>
-<li>利用<code>performSegueWithIdentifier:sender:</code>方法可以执行某个Segue,完成界面跳转</li>
-<li><p>接下来研究<code>performSegueWithIdentifier:sender:</code>方法的完整执行过程</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个self是来源控制器</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="应用沙盒">应用沙盒</h3><p>应用沙盒的文件系统目录</p>
 <ul>
-<li>根据identifier去storyboard中找到对应的线,新建UIStoryboardSegue对象<br>设置Segue对象的sourceViewController(来源控制器)<br>新建并且设置Segue对象的destinationViewController(目标控制器)</li>
-<li>调用sourceViewController的下面方法,做一些跳转前的准备工作并且传人创建好的Segue对象<br><code>- (void)prepareForSegue:(UIStoryboard *)segue sender:(id)sender;</code><br>这个sender是当初<code>performSegueWithIdentifier:sender:</code>中传人的sender</li>
-<li>调用Segue对象的<code>- (void)perform</code>方法开始执行界面跳转操作<br>(1)如果segue的style是push<ul>
-<li>取得sourceViewController所在的UINavigationController</li>
-<li>调用UINavigationController的push方法将destinationViewController压人栈中,完成跳转</li>
+<li>应用程序包:包含了所有的资源文件和可执行文件</li>
+<li>Documents:保持应用运行时生成的需要持久化的数据,iTunes同步设备时会备份该目录.</li>
+<li>Library<ul>
+<li>Caches:保存应用运行时生成的需要持久化的数据,iTunes同步设备时不会备份该目录.一般存储体积大、不需要备份的非重要数据</li>
+<li>Preferences:保存应用的所有偏好设置,iOS的Settings(设置)应用会在该目录中查找应用的设置信息.iTunes同步设备时会备份该目录</li>
 </ul>
 </li>
+<li>tmp:保存应用运行时所需要的临时数据,使用完毕后再将相应的文件从该目录删除.应用没有运行时,系统也可能会清除该目录下的文件,iTunes同步设备时不会备份该目录</li>
 </ul>
+<h5 id="模拟器应用沙盒的根路径在:(apple是用户名,8-0是模拟器版本)">模拟器应用沙盒的根路径在:(apple是用户名,8.0是模拟器版本)</h5><p><code>/Users/apple/Library/Application Support/iPhone Simulator/8.0/Applications</code></p>
+<h5 id="获取应用的文件夹(应用沙盒)">获取应用的文件夹(应用沙盒)</h5><p><code>NSString *homePath = NSHomeDirectory();</code></p>
+<h5 id="获取沙盒中的文件夹">获取沙盒中的文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory directory,NSSearchPathDomainMask domainMask,BOOL expandTilde);</code></p>
+<p>NSSearchPathDirectory:搜索的目录 <code>NSCacheDirectory</code><br>NSSearchPathDomainMask:搜索的范围 <code>NSUserDomainMask</code>:表示在用户的手机上查找<br>expandTilde:是否展开全路径,如果没展开,应用的沙盒路径就是~</p>
+<h5 id="获取Cache文件夹">获取Cache文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSCacheDirectory,NSUserDomainMask,YES)</code></p>
+<h5 id="获取Documents文件夹">获取Documents文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)</code></p>
+<h5 id="获取tmp临时文件夹">获取tmp临时文件夹</h5><p><code>NSTemporaryDirectory()</code></p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"arr.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSArray</span> *arr = @[<span class="string">@"A"</span>,<span class="string">@"123"</span>];</span><br><span class="line"><span class="comment">//写入plist文件</span></span><br><span class="line">[arr writeToFile:filePath atomically:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取plist中的内容</span></span><br><span class="line">[<span class="built_in">NSArray</span> arrayWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">//plist 不能存储自定义对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="偏好设置存储">偏好设置存储</h3><ul>
+<li>存放在<code>Library/Preferences/xxx.plist</code><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> *userDefaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">[userDefaults setObject:<span class="string">@"value"</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line">[userDefaults setBOOL:<span class="literal">YES</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在iOS7之前,默认不会马上将数据写到文件中</span></span><br><span class="line"><span class="comment">// 这个方法会立即将缓存中的数据写入到文件中</span></span><br><span class="line">[userDefaults synchronize];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从偏好设置中读取数据</span></span><br><span class="line"><span class="built_in">NSString</span> *value = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] objectForKey:<span class="string">@"key"</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="NSKeyedArchiver归档和NSKeyedUnarchiver解档">NSKeyedArchiver归档和NSKeyedUnarchiver解档</h3><ul>
+<li><p>归档(<code>NSKeyedArchiver</code>)</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"person.data"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要归档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (void)encodeWithCoder:(NSCoder *)aCoder : 用来描述当前对象的哪些属性需要归档</span></span><br><span class="line"><span class="comment">//[aCoder encodeObject:(id) forKey:(NSString *)];</span></span><br><span class="line"><span class="comment">//[aCoder encodeInt:(int) forKey:(NSString *)];</span></span><br><span class="line"></span><br><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//将自定义对象归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:p toFile:filePath];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解档(<code>NSKeyedUnarchiver</code>)</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:(<span class="built_in">NSString</span> *)];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要解档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (id)initWithCoder:(NSCoder *)aDecoder: 用来描述当前对象的哪些属性需要解档,当解档对象的时候调用</span></span><br><span class="line"><span class="comment">//解析文件会调用这个方法</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init])&#123;</span><br><span class="line">		<span class="comment">//一定要给成员变量赋值</span></span><br><span class="line">		_xxx = [aCoder decodeObjectForKey:(<span class="built_in">NSString</span> *)];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义View,从xib加载的时候系统会自动调用initWithCoder方法</span></span><br><span class="line"><span class="comment">//只要父类遵守了NSCoding协议就要调用initWithCoder</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过代码初始化的时候,调用init方法,底层会调用initWithFrame</span></span><br><span class="line">- (instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span>=[<span class="keyword">super</span> initWithFrame:frame])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -350,18 +337,9 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/ios_save_data/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          iOS数据存储
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/13/multi_viewcontroller/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS多控制器</div>
+    <a href="/2016/03/14/contact/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS界面跳转传值</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -390,7 +368,7 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="contact" data-title="iOS界面跳转传值" data-url="http://yoursite.com/2016/03/14/contact/"></div>
+	<div class="ds-thread" data-thread-key="ios_save_data" data-title="iOS数据存储" data-url="http://yoursite.com/2016/03/17/ios_save_data/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
