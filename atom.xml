@@ -80,7 +80,7 @@
     <link href="http://yoursite.com/2016/03/14/contact/"/>
     <id>http://yoursite.com/2016/03/14/contact/</id>
     <published>2016-03-14T14:00:00.000Z</published>
-    <updated>2016-03-19T14:16:36.000Z</updated>
+    <updated>2016-03-20T06:28:30.000Z</updated>
     <content type="html"><![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
 <li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
 </ul>
@@ -122,7 +122,10 @@
 <li>调用sourceViewController的下面方法,做一些跳转前的准备工作并且传人创建好的Segue对象<br><code>- (void)prepareForSegue:(UIStoryboard *)segue sender:(id)sender;</code><br>这个sender是当初<code>performSegueWithIdentifier:sender:</code>中传人的sender</li>
 <li>调用Segue对象的<code>- (void)perform</code>方法开始执行界面跳转操作<br>(1)如果segue的style是push<ul>
 <li>取得sourceViewController所在的UINavigationController</li>
-<li>调用UINavigationController的push方法将destinationViewController压人栈中,完成跳转</li>
+<li>调用UINavigationController的push方法将destinationViewController压人栈中,完成跳转<br>(2)如果segue的style是modal<ul>
+<li>调用sourceViewController的presentViewController方法将destinationViewController展示出来</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
