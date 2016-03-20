@@ -19,7 +19,7 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
 
 什么是Segue
 Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)">
-<meta property="og:updated_time" content="2016-03-14T15:41:14.000Z">
+<meta property="og:updated_time" content="2016-03-19T14:16:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS界面跳转传值">
 <meta name="twitter:description" content="监听文本框内容改变
@@ -340,6 +340,20 @@ Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对�
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="Modal">Modal</h3><ul>
+<li>除了push之外,还有另外一种控制器的切换方式,那就是Modal</li>
+<li>任何控制器都能通过Modal的形式展示出来</li>
+<li>Modal的默认效果: 新控制器从屏幕的最底部网上钻,直到盖住之前的控制器为止</li>
+<li>以Modal的形式展示控制器<br><code>- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^)(void))completion</code></li>
+<li>取消modal出的控制器<br><code>- (void)dismissViewControllerAnimated:(BOOL) completion:(void (^)(void))completion</code></li>
+</ul>
+<h5 id="modal的过程和原理:">modal的过程和原理:</h5><ul>
+<li>在iOS8之后modal出来的控制器view加到的是UITransitionView上,之前是加在UIWindow上</li>
+<li>UIWindow的rootViewController 强引用了 ViewController 而 ViewController的视图被自身的view属性强引用了</li>
+<li>被modal出来的View controller会被来源控制器中的 presentedViewController属性强引用保存起来</li>
+<li>当modal出View controller时,来源控制器的view会从UIWindow中移出</li>
+<li>View controller中的 presentedViewController 与 presentingViewController属性</li>
 </ul>
 
       

@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/03/17/ios_save_data/</loc>
-    <lastmod>2016-03-19T10:17:33.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2016/03/14/contact/</loc>
-    <lastmod>2016-03-14T15:41:14.000Z</lastmod>
+    <lastmod>2016-03-19T14:16:36.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/03/13/multi_viewcontroller/</loc>
-    <lastmod>2016-03-13T14:38:37.000Z</lastmod>
+    <lastmod>2016-03-19T12:23:23.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/03/17/ios_save_data/</loc>
+    <lastmod>2016-03-19T10:17:33.000Z</lastmod>
   </url>
   
   <url>

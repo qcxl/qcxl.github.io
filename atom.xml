@@ -80,7 +80,7 @@
     <link href="http://yoursite.com/2016/03/14/contact/"/>
     <id>http://yoursite.com/2016/03/14/contact/</id>
     <published>2016-03-14T14:00:00.000Z</published>
-    <updated>2016-03-14T15:41:14.000Z</updated>
+    <updated>2016-03-19T14:16:36.000Z</updated>
     <content type="html"><![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
 <li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
 </ul>
@@ -128,6 +128,20 @@
 </ul>
 </li>
 </ul>
+<h3 id="Modal">Modal</h3><ul>
+<li>除了push之外,还有另外一种控制器的切换方式,那就是Modal</li>
+<li>任何控制器都能通过Modal的形式展示出来</li>
+<li>Modal的默认效果: 新控制器从屏幕的最底部网上钻,直到盖住之前的控制器为止</li>
+<li>以Modal的形式展示控制器<br><code>- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^)(void))completion</code></li>
+<li>取消modal出的控制器<br><code>- (void)dismissViewControllerAnimated:(BOOL) completion:(void (^)(void))completion</code></li>
+</ul>
+<h5 id="modal的过程和原理:">modal的过程和原理:</h5><ul>
+<li>在iOS8之后modal出来的控制器view加到的是UITransitionView上,之前是加在UIWindow上</li>
+<li>UIWindow的rootViewController 强引用了 ViewController 而 ViewController的视图被自身的view属性强引用了</li>
+<li>被modal出来的View controller会被来源控制器中的 presentedViewController属性强引用保存起来</li>
+<li>当modal出View controller时,来源控制器的view会从UIWindow中移出</li>
+<li>View controller中的 presentedViewController 与 presentingViewController属性</li>
+</ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
@@ -146,7 +160,7 @@
     <link href="http://yoursite.com/2016/03/13/multi_viewcontroller/"/>
     <id>http://yoursite.com/2016/03/13/multi_viewcontroller/</id>
     <published>2016-03-13T14:05:07.000Z</published>
-    <updated>2016-03-13T14:38:37.000Z</updated>
+    <updated>2016-03-19T12:23:23.000Z</updated>
     <content type="html"><![CDATA[<h3 id="多控制器">多控制器</h3><ul>
 <li>UINavigationController</li>
 <li>UITabBarController</li>
@@ -196,6 +210,30 @@ animated:(BOOL)animated;</code></li>
 <li>在非ARC中<ul>
 <li>view即将销毁 <code>- (void)viewWillUnload</code></li>
 <li>view完全销毁 <code>- (void)viewDidUnload</code> 在这个方法中管理内存,清空界面的数据.</li>
+</ul>
+</li>
+</ul>
+<h3 id="UITabBarController的view结构">UITabBarController的view结构</h3><ul>
+<li>UITabBar 高度为49</li>
+<li>存放子控制器的view</li>
+</ul>
+<h4 id="UITabBarController的简单使用">UITabBarController的简单使用</h4><ul>
+<li>初始化UITabBarController</li>
+<li>设置UIWindow的rootViewController为UITabBarController</li>
+<li><p>根据具体情况,通过addChildViewController方法添加对应个数的子控制器</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建窗口</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"><span class="built_in">UITabBarController</span> *tabBarVC = [[<span class="built_in">UITabBarController</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = tabBarVC;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置按钮上面的内容</span></span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.title</span> = <span class="string">@"消息"</span>;</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.selectedImage</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.badgeValue</span> = <span class="string">@"10"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加子控制器</span></span><br><span class="line">[tabBarVC addChildViewController:vc];</span><br><span class="line"></span><br><span class="line"><span class="comment">//显示窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UITabBar</p>
+<ul>
+<li>如果UITabBarController有N个子控制器,那么UITabBar内部就会有N个UITabBarButton作为子控件</li>
+<li>UITabBarButton里面显示什么内容,由对应子控制器的tabBarItem属性决定</li>
+<li>UITabBarItem有以下属性影响着UITabBarButton的内容<ul>
+<li>标题文字<br><code>@property(nonatomic,copy)NSString *title;</code></li>
+<li>图标<br><code>@property(nonatomic,retain)UIImage *image;</code></li>
+<li>选中时的图标<br><code>@property(nonatomic,retain)UIImage *selectedImage;</code></li>
+<li>提醒数字<br><code>@property(nonatomic,copy)NSString *badgeValue;</code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

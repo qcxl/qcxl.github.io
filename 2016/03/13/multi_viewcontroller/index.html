@@ -27,7 +27,7 @@ UINavigationController的使用步骤
 初始化UINavigationController
 设置UIWindow的rootViewController为UINavigationController
 根据具体情况,通过push方法添加">
-<meta property="og:updated_time" content="2016-03-13T14:38:37.000Z">
+<meta property="og:updated_time" content="2016-03-19T12:23:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS多控制器">
 <meta name="twitter:description" content="多控制器
@@ -355,6 +355,30 @@ animated:(BOOL)animated;</code></li>
 <li>在非ARC中<ul>
 <li>view即将销毁 <code>- (void)viewWillUnload</code></li>
 <li>view完全销毁 <code>- (void)viewDidUnload</code> 在这个方法中管理内存,清空界面的数据.</li>
+</ul>
+</li>
+</ul>
+<h3 id="UITabBarController的view结构">UITabBarController的view结构</h3><ul>
+<li>UITabBar 高度为49</li>
+<li>存放子控制器的view</li>
+</ul>
+<h4 id="UITabBarController的简单使用">UITabBarController的简单使用</h4><ul>
+<li>初始化UITabBarController</li>
+<li>设置UIWindow的rootViewController为UITabBarController</li>
+<li><p>根据具体情况,通过addChildViewController方法添加对应个数的子控制器</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建窗口</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"><span class="built_in">UITabBarController</span> *tabBarVC = [[<span class="built_in">UITabBarController</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = tabBarVC;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置按钮上面的内容</span></span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.title</span> = <span class="string">@"消息"</span>;</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.selectedImage</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.badgeValue</span> = <span class="string">@"10"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加子控制器</span></span><br><span class="line">[tabBarVC addChildViewController:vc];</span><br><span class="line"></span><br><span class="line"><span class="comment">//显示窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UITabBar</p>
+<ul>
+<li>如果UITabBarController有N个子控制器,那么UITabBar内部就会有N个UITabBarButton作为子控件</li>
+<li>UITabBarButton里面显示什么内容,由对应子控制器的tabBarItem属性决定</li>
+<li>UITabBarItem有以下属性影响着UITabBarButton的内容<ul>
+<li>标题文字<br><code>@property(nonatomic,copy)NSString *title;</code></li>
+<li>图标<br><code>@property(nonatomic,retain)UIImage *image;</code></li>
+<li>选中时的图标<br><code>@property(nonatomic,retain)UIImage *selectedImage;</code></li>
+<li>提醒数字<br><code>@property(nonatomic,copy)NSString *badgeValue;</code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
