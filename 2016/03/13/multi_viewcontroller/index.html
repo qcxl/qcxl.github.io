@@ -27,7 +27,7 @@ UINavigationController的使用步骤
 初始化UINavigationController
 设置UIWindow的rootViewController为UINavigationController
 根据具体情况,通过push方法添加">
-<meta property="og:updated_time" content="2016-03-19T12:23:23.000Z">
+<meta property="og:updated_time" content="2016-03-22T14:33:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS多控制器">
 <meta name="twitter:description" content="多控制器
@@ -340,6 +340,7 @@ animated:(BOOL)animated;</code></li>
 <li>中间的标题文字<br><code>@property(nonatomic,copy) NSString *title;</code></li>
 <li>左上角的视图<br><code>@property(nonatomic,retain) UIBarButtonItem *leftBarButtonItem;</code></li>
 <li>UIBarButtonItem <em>rightBarButtonItem 右上角的视图<br>`@property(nonatomic,retain) UIBarButtonItem </em>rightBarButtonItem;`</li>
+<li>自定义<br><code>[[UIBarButtonItem alloc] initWithCustomView:(UIView *)]</code></li>
 </ul>
 </li>
 </ul>
@@ -361,6 +362,7 @@ animated:(BOOL)animated;</code></li>
 <h3 id="UITabBarController的view结构">UITabBarController的view结构</h3><ul>
 <li>UITabBar 高度为49</li>
 <li>存放子控制器的view</li>
+<li>UITabBarController控制器的view不是懒加载,在创建控制器的时候就会加载</li>
 </ul>
 <h4 id="UITabBarController的简单使用">UITabBarController的简单使用</h4><ul>
 <li>初始化UITabBarController</li>

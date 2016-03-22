@@ -250,6 +250,60 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-color_card" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/22/color_card/" class="article-date">
+  	<time datetime="2016-03-22T01:00:00.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/color_card/">彩票项目主要知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="自定义UITabBar">自定义UITabBar</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpTabBar</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    MCTabBar *tabBar = [[MCTabBar alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储UITabBarItem</span></span><br><span class="line">    tabBar<span class="variable">.items</span> = <span class="keyword">self</span><span class="variable">.items</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//移除系统的tabBar,相当于将tabBar上的所有按钮移除</span></span><br><span class="line">	<span class="comment">//将一个控件从父控件中移除并不会马上销毁,一般在下一次运行循环的时候,就会判断这个对象有没有强引用,如果没有,才会销毁</span></span><br><span class="line">	<span class="comment">//[self.tabBar removeFromSuperview];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//tabBar.frame = self.tabBar.frame;</span></span><br><span class="line"></span><br><span class="line">    tabBar<span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.bounds</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tabBar</span> addSubview:tabBar];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把系统的tabBar上的按钮干掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *childView <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![childView isKindOfClass:[MCTabBar class]]) &#123;</span><br><span class="line">            [childView removeFromSuperview];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/22/color_card/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ios_save_data" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -800,66 +854,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/24/javascript_note_06/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/22/javascript_note_5/" class="article-date">
-  	<time datetime="2015-09-22T05:26:55.000Z" itemprop="datePublished">2015-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/22/javascript_note_5/">JavaScript权威指南--函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="函数调用方式">函数调用方式</h3><ul>
-<li>作为函数</li>
-<li>作为方法(该函数是一个对象的属性或数组中的一个元素)</li>
-<li>作为构造函数</li>
-<li>通过它们的<code>call()</code>和<code>apply()</code>方法间接调用</li>
-</ul>
-<h4 id="函数和方法调用">函数和方法调用</h4><p>以函数形式调用的函数通常不使用this关键字.作为方法调用时可以使用关键字this引用对象,<br>对象可以使用<code>.</code>符号或者<code>[]</code>的属性访问表达式来进行属性(方法)访问操作.<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/22/javascript_note_5/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
