@@ -250,6 +250,122 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-install_node_js" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/08/install_node_js/" class="article-date">
+  	<time datetime="2015-10-08T05:28:31.000Z" itemprop="datePublished">2015-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/08/install_node_js/">Mac下安装Node.js</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装XCode">安装XCode</h3><ul>
+<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
+<li>安装XCode:<code>xcode-select --install</code></li>
+</ul>
+<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/08/install_node_js/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-javascript_note_06" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/24/javascript_note_06/" class="article-date">
+  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">2015-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
+<li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
+<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/24/javascript_note_06/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-javascript_note_5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -693,122 +809,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/01/jquery_note_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jquery_note_4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/31/jquery_note_4/" class="article-date">
-  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">2015-08-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery中的事件">jQuery中的事件</h3><h4 id="加载DOM">加载DOM</h4><ul>
-<li>JavaScript中使用<code>window.onload</code>方法,而在jQuery中使用<code>$(document).ready()</code>方法.<br>它们之间的区别:<br><code>window.onload</code>方法是在网页所有的元素(包括元素的所有关联文件)完全加载到浏览器后才执行,即JavaScript此时才可以访问网页中的任何元素.<br>而通过jQuery中的<code>$(document).ready()</code>方法注册的事件处理程序,在DOM完全就绪时就可以被调用.此时网页的所有元素对jQuery都是可以访问的,但是这并不意味着这些元素的所有关联文件都已经下载完毕.</li>
-<li>多次使用<code>window.onload</code>方法只会执行最后一个(相当于后面的函数会覆盖前面的函数).<br>而多次使用<code>$(document).ready()</code>方法则会根据注册的顺序依次执行.</li>
-<li>简写形式:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(document).ready(function()&#123;&#125;);</span><br><span class="line">$(function()&#123;&#125;);</span><br><span class="line">$().ready(function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/31/jquery_note_4/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jquery_note_3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/28/jquery_note_3/" class="article-date">
-  	<time datetime="2015-08-28T01:46:21.000Z" itemprop="datePublished">2015-08-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/28/jquery_note_3/">《锋利的jQuery》--读书笔记三</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_中的DOM操作">jQuery 中的DOM操作</h3><h4 id="DOM操作分类">DOM操作分类</h4><ul>
-<li>DOM Core<br>使用DOM Core来获取表单对象的方法:<code>document.getElementsByTagName(&quot;form&quot;);</code><br>使用DOM Core来获取某元素的src属性的方法:<code>element.getAttribute(&quot;src&quot;);</code></li>
-<li>HTML-DOM<br>使用HTML-DOM来获取表单对象的方法:<code>document.forms;</code><br>使用HTML-DOM来获取某元素的src属性的方法:<code>element.src;</code></li>
-<li>CSS-DOM<br>CSS-DOM 是针对CSS的操作,例如设置某元素style对象字体颜色的方法:<code>element.style.color = &quot;red&quot;;</code>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/28/jquery_note_3/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

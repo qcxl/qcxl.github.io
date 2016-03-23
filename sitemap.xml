@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/03/23/parent_childs_vc/</loc>
+    <lastmod>2016-03-23T07:58:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/03/23/static_copy/</loc>
+    <lastmod>2016-03-23T07:57:12.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/03/22/color_card/</loc>
     <lastmod>2016-03-22T14:38:13.000Z</lastmod>
   </url>

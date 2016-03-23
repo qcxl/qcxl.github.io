@@ -250,6 +250,170 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-static_copy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/23/static_copy/" class="article-date">
+  	<time datetime="2016-03-23T06:55:35.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/static_copy/">static</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
+<li>让局部变量只初始化一次</li>
+<li>局部变量在程序中只有一份内存</li>
+<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
+</ul>
+<h4 id="static修饰全局变量">static修饰全局变量</h4><ul>
+<li>全局变量的作用域仅限于当前文件</li>
+</ul>
+<h4 id="全局变量">全局变量</h4><ul>
+<li>作用范围:整个程序</li>
+<li>外部通过extern来访问全局变量(例如:<code>extern int age;</code>)</li>
+<li>任何全局变量是不安全的,随时都可能被外部修改</li>
+</ul>
+<h3 id="实现拷贝的方法">实现拷贝的方法</h3><ul>
+<li><p>copy</p>
+<ul>
+<li>只会产生不可变的副本对象(比如NSString),如果对不可变对象调用copy,不会产生新对象(浅拷贝-指针拷贝),反之会产生新对象(深度拷贝-内容拷贝)</li>
+</ul>
+</li>
+<li><p>mutableCopy</p>
+<ul>
+<li>只会产生可变的副本对象(比如NSMutableString),都会产生新对象(深度拷贝-内容拷贝)</li>
+</ul>
+</li>
+<li><p>自定义对象的copy</p>
+<ul>
+<li>自定义对象需要遵守NSCopying协议实现下面的方法<br><code>- (id)copyWithZone:(nullable NSZone *)zone;</code><br><code>- (id)mutableCopyWithZone:(nullable NSZone *)zone;</code></li>
+<li>copy 会调用自定义对象的 copyWithZone</li>
+<li><p>mutableCopy 会调用自定义对象的 mutableCopyWithZone</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCPerson</span>() &lt;<span class="title">NSCopying</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCPerson</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    MCPerson *person = [[MCPerson allocWithZone:zone] init];</span><br><span class="line">    person<span class="variable">.age</span> = <span class="keyword">self</span><span class="variable">.age</span>;</span><br><span class="line">    person<span class="variable">.money</span> = <span class="keyword">self</span><span class="variable">.money</span>;</span><br><span class="line">    <span class="keyword">return</span> person;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@property中的copy</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是strong则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是copy则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = [name <span class="keyword">copy</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> copyProperty()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"jack"</span>];</span><br><span class="line">    </span><br><span class="line">    MCPerson *p = [[MCPerson alloc] init];</span><br><span class="line">    p<span class="variable">.name</span> = string;</span><br><span class="line">    <span class="comment">//[p setName:string];</span></span><br><span class="line">    </span><br><span class="line">    [string appendString:<span class="string">@" rose"</span>];</span><br><span class="line">    <span class="comment">//如果property中是strong 则输出是"jack rose",copy则输出"jack"</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, p<span class="variable">.name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** name属性值永远是不可变，所以定义为NSMutableString是不合理的 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSMutableString</span> *name;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-parent_childs_vc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/23/parent_childs_vc/" class="article-date">
+  	<time datetime="2016-03-23T02:09:28.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/parent_childs_vc/">iOS父子控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="父子控制器">父子控制器</h3><ul>
+<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
+</li>
+<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
+</li>
+<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
+</li>
+<li><p>获取当前控制器的父控制器<br><code>@property(nullable,nonatomic,weak,readonly) UIViewController *parentViewController;</code></p>
+</li>
+<li><p>获取当前控制器的所属导航控制器<br>系统会通过父子关系的链条来找到它的导航控制器,如果找不到则<code>self.navigationController</code>的值为nil<br><code>@property(nullable, nonatomic,readonly,strong) UINavigationController *navigationController;</code></p>
+</li>
+<li><p><code>[self dismissViewControllerAnimated:YES completion:nil];</code> 系统会检测当前控制器是不是被Modal出来的,如果不是则会检测它的父控制器,如果都不是则不能dismiss.</p>
+</li>
+<li><p>默认情况下,所有控制器view的autoresizingMask属性都包含了UIViewAutoresizingFlexibleWidth和UIViewAutoresizingFlexibleHeight两个值.如果从xib中加载控制器 尺寸是600*600,往控制器里面添加子控制器或者view的时候可能导致看不见,这个时候需要关掉子控制器的自动伸缩功能<br><code>vc.view.autoresizingMask = UIViewAutoresizingNone;</code></p>
+</li>
+<li><p>当前控制器已经被添加到某个父控制器上或者从父控制器上移除的时候就会调用这个方法,如果是通过addChildViewController方式添加的子控制器是不会调用didMoveToParentViewController,但是可以在addChildViewController之后手动调用didMoveToParentViewController<br><code>- (void)didMoveToParentViewController:(nullable UIViewController *)parent</code></p>
+</li>
+<li><p>控制器automaticallyAdjustsScrollViewInsets属性默认值为YES,如果当前控制器是导航控制器并且第一个子View是UIScrollView则会自动调整第一个UIScrollView内边距,但是不会自动调整后面的UIScrollView内边距.如果第一个View不是UIScrollView则不会调整后面UIScrollView的内边距<br><code>self.automaticallyAdjustsScrollViewInsets = NO;//不会自动去调整uiscrollView的contentInset属性</code></p>
+</li>
+</ul>
+<h3 id="转场动画">转场动画</h3><ul>
+<li><p>动画效果:<br>@”cube” @”moveIn” @”reveal” @”fade”(default) @”pageCurl” @”pageUnCurl” @”suckEffect” @”rippleEffect” @”oglFlip” @”push”</p>
+</li>
+<li><p>动画方向:<br>kCATransitionFromRight;<br>kCATransitionFromLeft;<br>kCATransitionFromTop;<br>kCATransitionFromBottom;</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">CATransition</span> *animation = [<span class="built_in">CATransition</span> animation];</span><br><span class="line">animation<span class="variable">.type</span> = <span class="string">@"cube"</span>;</span><br><span class="line">animation<span class="variable">.subtype</span> = index &gt; oldIndex ? k<span class="built_in">CATransitionFromRight</span> : k<span class="built_in">CATransitionFromLeft</span>;</span><br><span class="line">animation<span class="variable">.duration</span> = <span class="number">0.5</span>;</span><br><span class="line"><span class="comment">//动画的开始与结束的快慢</span></span><br><span class="line">animation<span class="variable">.timingFunction</span> = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:k<span class="built_in">CAMediaTimingFunctionEaseInEaseOut</span>];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.view</span><span class="variable">.layer</span> addAnimation:animation forKey:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-color_card" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -738,122 +902,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/22/mongoose/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-install_node_js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/08/install_node_js/" class="article-date">
-  	<time datetime="2015-10-08T05:28:31.000Z" itemprop="datePublished">2015-10-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/08/install_node_js/">Mac下安装Node.js</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装XCode">安装XCode</h3><ul>
-<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
-<li>安装XCode:<code>xcode-select --install</code></li>
-</ul>
-<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/08/install_node_js/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_06" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/24/javascript_note_06/" class="article-date">
-  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">2015-09-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
-<li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
-<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/24/javascript_note_06/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
