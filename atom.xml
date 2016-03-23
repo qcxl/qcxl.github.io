@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-03-23T07:57:12.000Z</updated>
+  <updated>2016-03-23T13:46:02.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -16,16 +16,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[static]]></title>
+    <title><![CDATA[static关键字]]></title>
     <link href="http://yoursite.com/2016/03/23/static_copy/"/>
     <id>http://yoursite.com/2016/03/23/static_copy/</id>
     <published>2016-03-23T06:55:35.000Z</published>
-    <updated>2016-03-23T07:57:12.000Z</updated>
+    <updated>2016-03-23T13:46:02.000Z</updated>
     <content type="html"><![CDATA[<h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
 <li>让局部变量只初始化一次</li>
 <li>局部变量在程序中只有一份内存</li>
 <li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
 </ul>
+<a id="more"></a>
 <h4 id="static修饰全局变量">static修饰全局变量</h4><ul>
 <li>全局变量的作用域仅限于当前文件</li>
 </ul>
@@ -63,7 +64,9 @@
     <![CDATA[<h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
 <li>让局部变量只初始化一次</li>
 <li>局部变量在程序中只有一份内存</li>
-<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生]]>
+<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
@@ -73,7 +76,7 @@
     <link href="http://yoursite.com/2016/03/23/parent_childs_vc/"/>
     <id>http://yoursite.com/2016/03/23/parent_childs_vc/</id>
     <published>2016-03-23T02:09:28.000Z</published>
-    <updated>2016-03-23T07:58:04.000Z</updated>
+    <updated>2016-03-23T13:46:23.000Z</updated>
     <content type="html"><![CDATA[<h3 id="父子控制器">父子控制器</h3><ul>
 <li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
 </li>
@@ -81,6 +84,9 @@
 </li>
 <li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>获取当前控制器的父控制器<br><code>@property(nullable,nonatomic,weak,readonly) UIViewController *parentViewController;</code></p>
 </li>
 <li><p>获取当前控制器的所属导航控制器<br>系统会通过父子关系的链条来找到它的导航控制器,如果找不到则<code>self.navigationController</code>的值为nil<br><code>@property(nullable, nonatomic,readonly,strong) UINavigationController *navigationController;</code></p>
@@ -104,7 +110,14 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="父子控制器">父子控制器</h3><ul>
-<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</co]]>
+<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
+</li>
+<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
+</li>
+<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
+</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
