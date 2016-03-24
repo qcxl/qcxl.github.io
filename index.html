@@ -307,6 +307,79 @@
 
 
   
+    <article id="post-const_point" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/24/const_point/" class="article-date">
+  	<time datetime="2016-03-24T05:44:56.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/24/const_point/">const和指针</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="const和宏的区别">const和宏的区别</h3><ul>
+<li><p>相同点:</p>
+<ul>
+<li>值是常量,不能动态更改 </li>
+<li>更改后,其它使用到的地方会自动更改</li>
+</ul>
+</li>
+<li><p>不同点:</p>
+<ul>
+<li>宏:会产生很多临时空间</li>
+<li>const:<ul>
+<li>只有一份内存</li>
+<li>写在外面是全局常量</li>
+<li>不能运行时修改常量值</li>
+<li>加上static之后只能在本文件访问</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/24/const_point/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ios_news" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -770,67 +843,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/13/create_viewcontroller/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-uiwindow" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/12/uiwindow/" class="article-date">
-  	<time datetime="2016-03-12T02:00:00.000Z" itemprop="datePublished">2016-03-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/12/uiwindow/">iOS之UIWindow</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="UIWindow">UIWindow</h3><ul>
-<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
-<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
-<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
-<li>也就说,没有UIWindow,就看不见任何UI界面</li>
-<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
-<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/12/uiwindow/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

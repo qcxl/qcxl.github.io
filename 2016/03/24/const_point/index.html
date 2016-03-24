@@ -3,17 +3,60 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>const和指针 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="const和宏的区别
+相同点:
+
+值是常量,不能动态更改 
+更改后,其它使用到的地方会自动更改
+
+
+不同点:
+
+宏:会产生很多临时空间
+const:
+只有一份内存
+写在外面是全局常量
+不能运行时修改常量值
+加上static之后只能在本文件访问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="const和指针">
+<meta property="og:url" content="http://yoursite.com/2016/03/24/const_point/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="const和宏的区别
+相同点:
+
+值是常量,不能动态更改 
+更改后,其它使用到的地方会自动更改
+
+
+不同点:
+
+宏:会产生很多临时空间
+const:
+只有一份内存
+写在外面是全局常量
+不能运行时修改常量值
+加上static之后只能在本文件访问">
+<meta property="og:updated_time" content="2016-03-24T13:37:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="const和指针">
+<meta name="twitter:description" content="const和宏的区别
+相同点:
+
+值是常量,不能动态更改 
+更改后,其它使用到的地方会自动更改
+
+
+不同点:
+
+宏:会产生很多临时空间
+const:
+只有一份内存
+写在外面是全局常量
+不能运行时修改常量值
+加上static之后只能在本文件访问">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,296 +291,132 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-const_point" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/03/24/const_point/" class="article-date">
+  	<time datetime="2016-03-24T05:44:56.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      const和指针
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery实现Ajax应用/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:16:44.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery实现Ajax应用/">jQuery 实现Ajax应用</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="const和宏的区别">const和宏的区别</h3><ul>
+<li><p>相同点:</p>
+<ul>
+<li>值是常量,不能动态更改 </li>
+<li>更改后,其它使用到的地方会自动更改</li>
+</ul>
+</li>
+<li><p>不同点:</p>
+<ul>
+<li>宏:会产生很多临时空间</li>
+<li>const:<ul>
+<li>只有一份内存</li>
+<li>写在外面是全局常量</li>
+<li>不能运行时修改常量值</li>
+<li>加上static之后只能在本文件访问</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="const与指针">const与指针</h3><ul>
+<li>看const右边整体是什么,什么就不能修改.<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p1;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p2;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 定义一个指针变量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = <span class="literal">NULL</span>;(等同于 <span class="keyword">int</span> <span class="keyword">const</span> *p = <span class="literal">NULL</span>;)</span><br><span class="line"><span class="comment">// p指向a</span></span><br><span class="line">p = &amp;a;(可以修改)</span><br><span class="line"><span class="comment">//*p = 20;(*p不能改,const后面是*p所以不能改)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;c;(p不能被修改,一开始指向什么,以后都不能更改)</span><br><span class="line">*p = <span class="number">30</span>;(但是可以修改它指向的变量c的值)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 值传递比较有用,想让别人不更改你的值可以通过这种方式使用</span></span><br><span class="line"><span class="keyword">void</span> test(<span class="keyword">const</span> <span class="keyword">int</span> *p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//*p = 100;(不能修改*p的值)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修饰指针,指针不能更改</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> NAME = <span class="string">@""</span>;</span><br><span class="line"><span class="comment">//不能修改</span></span><br><span class="line"><span class="comment">//NAME = @"123";</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/24/gcd/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS中的线程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/24/ios_news/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网易新闻项目</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery动画与特效/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:16:05.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery动画与特效/">jQuery 动画特效</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery事件与应用/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:14:51.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery事件与应用/">jQuery 事件与应用</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/26/jQuery_DOM操作/" class="archive-article-date">
-  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">8月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/26/jQuery_DOM操作/">jQuery DOM操作</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="const_point" data-title="const和指针" data-url="http://yoursite.com/2016/03/24/const_point/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/23/jquery环境搭建/" class="archive-article-date">
-  	<time datetime="2015-08-23T03:52:26.000Z" itemprop="datePublished">8月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/23/jquery环境搭建/">jQuery环境搭建与三种选择器</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/21/sublime_text_use/" class="archive-article-date">
-  	<time datetime="2015-08-21T04:57:50.000Z" itemprop="datePublished">8月 21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/21/sublime_text_use/">Sublime Text使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/19/javascript_study/" class="archive-article-date">
-  	<time datetime="2015-08-19T09:14:07.000Z" itemprop="datePublished">8月 19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/19/javascript_study/">JavaScript学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/18/html_study/" class="archive-article-date">
-  	<time datetime="2015-08-18T02:43:04.000Z" itemprop="datePublished">8月 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/18/html_study/">HTML+CSS基础入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/basic-python-knowledge/" class="archive-article-date">
-  	<time datetime="2015-08-17T01:57:06.000Z" itemprop="datePublished">8月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/basic-python-knowledge/">Python 基础知识学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/13/use-django-create-db/" class="archive-article-date">
-  	<time datetime="2015-08-13T09:20:50.000Z" itemprop="datePublished">8月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/13/use-django-create-db/">Django入门学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -563,8 +442,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
