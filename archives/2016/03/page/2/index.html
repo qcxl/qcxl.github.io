@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>static关键字 | Mobile Development</title>
+  <title>Archives: 2016/3 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="static的作用修饰局部变量
-让局部变量只初始化一次
-局部变量在程序中只有一份内存
-并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)">
-<meta property="og:type" content="article">
-<meta property="og:title" content="static关键字">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/static_copy/index.html">
+  <meta name="description" content="移动开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mobile Development">
+<meta property="og:url" content="http://yoursite.com/archives/2016/03/page/2/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="static的作用修饰局部变量
-让局部变量只初始化一次
-局部变量在程序中只有一份内存
-并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)">
-<meta property="og:updated_time" content="2016-03-23T13:46:02.000Z">
+<meta property="og:description" content="移动开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="static关键字">
-<meta name="twitter:description" content="static的作用修饰局部变量
-让局部变量只初始化一次
-局部变量在程序中只有一份内存
-并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)">
+<meta name="twitter:title" content="Mobile Development">
+<meta name="twitter:description" content="移动开发">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -258,145 +248,53 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-static_copy" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/03/23/static_copy/" class="article-date">
-  	<time datetime="2016-03-23T06:55:35.000Z" itemprop="datePublished">2016-03-23</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/03/12/uiwindow/" class="archive-article-date">
+  	<time datetime="2016-03-12T02:00:00.000Z" itemprop="datePublished">3月 12</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      static关键字
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/03/12/uiwindow/">iOS之UIWindow</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-        
+        <div class="article-info info-on-right">
+          
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
-<li>让局部变量只初始化一次</li>
-<li>局部变量在程序中只有一份内存</li>
-<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
-</ul>
-<a id="more"></a>
-<h4 id="static修饰全局变量">static修饰全局变量</h4><ul>
-<li>全局变量的作用域仅限于当前文件</li>
-</ul>
-<h4 id="全局变量">全局变量</h4><ul>
-<li>作用范围:整个程序</li>
-<li>外部通过extern来访问全局变量(例如:<code>extern int age;</code>)</li>
-<li>任何全局变量是不安全的,随时都可能被外部修改</li>
-</ul>
-<h3 id="实现拷贝的方法">实现拷贝的方法</h3><ul>
-<li><p>copy</p>
-<ul>
-<li>只会产生不可变的副本对象(比如NSString),如果对不可变对象调用copy,不会产生新对象(浅拷贝-指针拷贝),反之会产生新对象(深度拷贝-内容拷贝)</li>
-</ul>
-</li>
-<li><p>mutableCopy</p>
-<ul>
-<li>只会产生可变的副本对象(比如NSMutableString),都会产生新对象(深度拷贝-内容拷贝)</li>
-</ul>
-</li>
-<li><p>自定义对象的copy</p>
-<ul>
-<li>自定义对象需要遵守NSCopying协议实现下面的方法<br><code>- (id)copyWithZone:(nullable NSZone *)zone;</code><br><code>- (id)mutableCopyWithZone:(nullable NSZone *)zone;</code></li>
-<li>copy 会调用自定义对象的 copyWithZone</li>
-<li><p>mutableCopy 会调用自定义对象的 mutableCopyWithZone</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCPerson</span>() &lt;<span class="title">NSCopying</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCPerson</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    MCPerson *person = [[MCPerson allocWithZone:zone] init];</span><br><span class="line">    person<span class="variable">.age</span> = <span class="keyword">self</span><span class="variable">.age</span>;</span><br><span class="line">    person<span class="variable">.money</span> = <span class="keyword">self</span><span class="variable">.money</span>;</span><br><span class="line">    <span class="keyword">return</span> person;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@property中的copy</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是strong则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是copy则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = [name <span class="keyword">copy</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> copyProperty()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"jack"</span>];</span><br><span class="line">    </span><br><span class="line">    MCPerson *p = [[MCPerson alloc] init];</span><br><span class="line">    p<span class="variable">.name</span> = string;</span><br><span class="line">    <span class="comment">//[p setName:string];</span></span><br><span class="line">    </span><br><span class="line">    [string appendString:<span class="string">@" rose"</span>];</span><br><span class="line">    <span class="comment">//如果property中是strong 则输出是"jack rose",copy则输出"jack"</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, p<span class="variable">.name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** name属性值永远是不可变，所以定义为NSMutableString是不合理的 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSMutableString</span> *name;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/03/24/ios_news/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          网易新闻项目
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/03/23/parent_childs_vc/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS父子控制器</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="static_copy" data-title="static关键字" data-url="http://yoursite.com/2016/03/23/static_copy/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2016/03/">&laquo; Prev</a><a class="page-number" href="/archives/2016/03/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
@@ -422,8 +320,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
