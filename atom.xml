@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-03-24T13:41:04.000Z</updated>
+  <updated>2016-03-24T14:20:12.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/03/24/gcd/"/>
     <id>http://yoursite.com/2016/03/24/gcd/</id>
     <published>2016-03-24T06:37:39.000Z</published>
-    <updated>2016-03-24T13:41:04.000Z</updated>
+    <updated>2016-03-24T14:20:12.000Z</updated>
     <content type="html"><![CDATA[<h3 id="多线程的基本概念">多线程的基本概念</h3><ul>
 <li>创建线程是有开销的,iOS下主要成本包括:内核数据结构（大约1KB）、栈空间(子线程512KB、主线程1MB,也可以使用-setStackSize:设置,但必须是4K的倍数,而且最小是16K),创建线程大约需要90毫秒的创建时间</li>
 </ul>
@@ -96,20 +96,7 @@ dispatch_get_global_queue(long identifier, unsigned long flags);//identifier队�
 </ul>
 </li>
 </ul>
-<pre><code class="objc"><span class="comment">/**
- * 延迟执行
- */</span>
-- (<span class="keyword">void</span>)delay
-{
-    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> afterDelay:<span class="number">2.0</span>];
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^{
-            <span class="built_in">NSLog</span>(<span class="string">@"run-----"</span>);
-        });
-
-    [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">NO</span>];
-}
-</code></pre>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 延迟执行</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)delay</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> afterDelay:<span class="number">2.0</span>];</span><br><span class="line">    </span><br><span class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"run-----"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">NO</span>];</span><br><span class="line">&#125;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">* 一次性代码</span><br><span class="line">    * 使用<span class="built_in">dispatch_once</span>函数能保证某代码在程序运行过程中只被执行<span class="number">1</span>次</span><br><span class="line">```objc</span><br><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">    <span class="comment">//只执行1次的代码(这里是线程安全的)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="多线程的基本概念">多线程的基本概念</h3><ul>
