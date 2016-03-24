@@ -250,64 +250,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-jQuery实现Ajax应用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery实现Ajax应用/" class="article-date">
-  	<time datetime="2015-08-26T01:16:44.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery实现Ajax应用/">jQuery 实现Ajax应用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_实现Ajax应用">jQuery 实现Ajax应用</h3><ul>
-<li>使用<code>load()</code>方法异步请求数据.使用<code>load()</code>方法通过Ajax请求加载服务器中的数据,并把返回的数据放置到指定的元素中,它的调用格式为:<code>load(url,[data],[callback])</code><br>参数url为加载服务器地址,可选项data参数为请求时发送的数据,callback参数为数据请求成功后,执行的回调函数.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divtest"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>我最爱吃的水果<span class="tag">&lt;/<span class="title">span</span>&gt;</span> </span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fr"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"btnShow"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"加载"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ul</span>&gt;</span><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"#btnShow"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">                    $(<span class="string">"ul"</span>)</span><br><span class="line">                    .html(<span class="string">"&lt;img src='Images/Loading.gif' alt=''/&gt;"</span>)</span><br><span class="line">                    .load(<span class="string">"http://www.imooc.com/data/fruit_part.html"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                        $<span class="keyword">this</span>.attr(<span class="string">"disabled"</span>, <span class="string">"true"</span>);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52dccb920001d2d505970337.jpg" alt="loadImg" title="loadImg"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery实现Ajax应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-jQuery动画与特效" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -848,6 +790,67 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/13/use-django-create-db/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-django" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/13/install-django/" class="article-date">
+  	<time datetime="2015-08-13T01:37:17.000Z" itemprop="datePublished">2015-08-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/13/install-django/">Mac 下安装Django</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先讲讲Mac_命令行中如何用sublime打开指定文件">首先讲讲Mac 命令行中如何用sublime打开指定文件</h3><ul>
+<li>其实打开文本文件有很多方式,比如命令行下<code>open -e xxx.txt</code>,或者使用vim,今天我们讲讲命令行中使用sublime打开文本文件<ul>
+<li>下载Sublime Text</li>
+<li>打开终端敲入以下命令 <code>ln -s /Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</code></li>
+<li>最后我们就可以直接在终端下敲入 <code>subl xxx.txt</code> 就可以打开指定的文本文件了</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/13/install-django/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
