@@ -128,11 +128,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[GCD实现单例模式]]></title>
+    <title><![CDATA[iOS单例模式]]></title>
     <link href="http://yoursite.com/2016/03/25/single_instance/"/>
     <id>http://yoursite.com/2016/03/25/single_instance/</id>
     <published>2016-03-25T02:32:46.000Z</published>
-    <updated>2016-03-25T13:07:53.000Z</updated>
+    <updated>2016-03-25T13:17:22.000Z</updated>
     <content type="html"><![CDATA[<h3 id="单例模式">单例模式</h3><ul>
 <li>单例模式的作用<ul>
 <li>可以保证在程序运行过程,一个类只有一个实例,而且该实例易于供外界访问</li>
@@ -466,11 +466,11 @@ dispatch_get_global_queue(long identifier, unsigned long flags);//identifier队�
   </entry>
   
   <entry>
-    <title><![CDATA[static关键字]]></title>
+    <title><![CDATA[static与copy关键字]]></title>
     <link href="http://yoursite.com/2016/03/23/static_copy/"/>
     <id>http://yoursite.com/2016/03/23/static_copy/</id>
     <published>2016-03-23T06:55:35.000Z</published>
-    <updated>2016-03-23T13:46:02.000Z</updated>
+    <updated>2016-03-25T13:16:53.000Z</updated>
     <content type="html"><![CDATA[<h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
 <li>让局部变量只初始化一次</li>
 <li>局部变量在程序中只有一份内存</li>
