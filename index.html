@@ -289,79 +289,6 @@
 </ul>
 </li>
 </ul>
-<h4 id="main函数中的RunLoop">main函数中的RunLoop</h4><ul>
-<li>UIApplicationMain函数内部就启动了一个RunLoop</li>
-<li>所以UIApplicationMain函数一直没有返回,保持程序的持续运行</li>
-<li>这个默认启动的RunLoop是跟主线程相关联的</li>
-</ul>
-<h4 id="RunLoop对象">RunLoop对象</h4><ul>
-<li><p>iOS中有2套API来访问和使用RunLoop</p>
-<ul>
-<li>Foundation <ul>
-<li>NSRunLoop</li>
-</ul>
-</li>
-<li>Core Foundation <ul>
-<li>CFRunLoopRef</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NSRunLoop和CFRunLoopRef都代表着RunLoop对象</p>
-</li>
-<li><p>NSRunLoop是基于CFRunLoopRef的一层OC包装,所以要了解RunLoop内部结构,需要多研究CFRunLoopRef层面的API</p>
-</li>
-</ul>
-<h4 id="RunLoop与线程">RunLoop与线程</h4><ul>
-<li><p>每条线程都有唯一的一个与之对应的RunLoop对象</p>
-</li>
-<li><p>主线程的RunLoop已经创建好了,子线程的RunLoop需要主动创建</p>
-</li>
-<li><p>RunLoop在第一次获取的时候创建,在线程结束的时候销毁</p>
-</li>
-</ul>
-<h4 id="获取RunLoop">获取RunLoop</h4><ul>
-<li>获取当前线程的RunLoop:<code>+ (NSRunLoop *)currentRunLoop;</code></li>
-<li>获取主线程的RunLoop:<code>+ (NSRunLoop *)mainRunLoop;</code></li>
-<li>获取当前线程的RunLoop:<code>CFRunLoopGetCurrent();</code></li>
-<li>获取主线程的RunLoop:<code>CFRunLoopGetMain();</code></li>
-</ul>
-<h4 id="RunLoop相关类">RunLoop相关类</h4><ul>
-<li>Core Foundation中关于RunLoop的5个类<ul>
-<li>CFRunLoopRef</li>
-<li>CFRunLoopModeRef</li>
-<li>CFRunLoopSourceRef</li>
-<li>CFRunLoopTimerRef</li>
-<li>CFRunLoopObserverRef</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/runloop.png" alt=""></p>
-<h4 id="CFRunLoopModeRef">CFRunLoopModeRef</h4><ul>
-<li><p>CFRunLoopModeRef代表RunLoop的运行模式</p>
-</li>
-<li><p>一个RunLoop包含若干个Mode,每个Mode又包含若干个Source/Timer/Observer</p>
-</li>
-<li><p>每次RunLoop启动时,只能指定其中一个Mode,这个Mode被称作CurrentMode<br><code>[[NSRunLoop currentRunLoop] currentMode];</code></p>
-</li>
-<li><p>如果需要切换Mode,只能退出Loop,再重新指定一个Mode进入</p>
-</li>
-<li><p>这样做主要是为了分隔开不同组Source/Timer/Observer,让其互不影响</p>
-</li>
-<li><p>系统默认注册了5个Mode:</p>
-<ul>
-<li>kCFRunLoopDefaultMode:App的默认Mode,通常主线程是这个Mode下运行</li>
-<li>UITrackingRunLoop:界面跟踪Mode,用于ScrollView追踪触摸滑动,保证界面滑动时不受其他Mode影响</li>
-<li>UIInitializationRunLoopMode:在刚启动App时进入的第一个Mode,启动完成后就不再使用</li>
-<li>GSEventReceiverRunLoopMode:接收系统事件的内部Mode,通常用不到</li>
-<li>kCFRunLoopCommonModes:这是一个占位用的Mode,不是一种真正的Mode</li>
-</ul>
-</li>
-<li><p>子线程中需要手动创建并启动NSRunLoop</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    [<span class="built_in">NSRunLoop</span> mainRunLoop];</span><br><span class="line">    [<span class="built_in">NSRunLoop</span> currentRunLoop];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRunLoopGetCurrent</span>();</span><br><span class="line">    <span class="built_in">CFRunLoopGetMain</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) object:<span class="literal">nil</span>];</span><br><span class="line">	[thread start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)run</span><br><span class="line">&#123;</span><br><span class="line">	[[<span class="built_in">NSRunLoop</span> currentRunLoop] runMode:&lt;<span class="preprocessor">#(NSString *)#&gt; beforeDate:<span class="title">&lt;#(NSDate *)#&gt;</span>];</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -370,6 +297,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/25/nsrunloop/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
