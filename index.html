@@ -250,6 +250,201 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-nsrunloop" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/25/nsrunloop/" class="article-date">
+  	<time datetime="2016-03-25T07:52:46.000Z" itemprop="datePublished">2016-03-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/25/nsrunloop/">RunLoop的基本使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是RunLoop">什么是RunLoop</h3><ul>
+<li>从字面意思看<ul>
+<li>运行循环</li>
+<li>跑圈</li>
+</ul>
+</li>
+<li>基本作用<ul>
+<li>保持程序的持续运行</li>
+<li>处理App中的各种事件(比如触摸事件、定时器事件、Selector事件)</li>
+<li>节省CPU资源,提高程序性能:该做事情时做事情,该休息时休息</li>
+</ul>
+</li>
+</ul>
+<h4 id="main函数中的RunLoop">main函数中的RunLoop</h4><ul>
+<li>UIApplicationMain函数内部就启动了一个RunLoop</li>
+<li>所以UIApplicationMain函数一直没有返回,保持程序的持续运行</li>
+<li>这个默认启动的RunLoop是跟主线程相关联的</li>
+</ul>
+<h4 id="RunLoop对象">RunLoop对象</h4><ul>
+<li><p>iOS中有2套API来访问和使用RunLoop</p>
+<ul>
+<li>Foundation <ul>
+<li>NSRunLoop</li>
+</ul>
+</li>
+<li>Core Foundation <ul>
+<li>CFRunLoopRef</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NSRunLoop和CFRunLoopRef都代表着RunLoop对象</p>
+</li>
+<li><p>NSRunLoop是基于CFRunLoopRef的一层OC包装,所以要了解RunLoop内部结构,需要多研究CFRunLoopRef层面的API</p>
+</li>
+</ul>
+<h4 id="RunLoop与线程">RunLoop与线程</h4><ul>
+<li><p>每条线程都有唯一的一个与之对应的RunLoop对象</p>
+</li>
+<li><p>主线程的RunLoop已经创建好了,子线程的RunLoop需要主动创建</p>
+</li>
+<li><p>RunLoop在第一次获取的时候创建,在线程结束的时候销毁</p>
+</li>
+</ul>
+<h4 id="获取RunLoop">获取RunLoop</h4><ul>
+<li>获取当前线程的RunLoop:<code>+ (NSRunLoop *)currentRunLoop;</code></li>
+<li>获取主线程的RunLoop:<code>+ (NSRunLoop *)mainRunLoop;</code></li>
+<li>获取当前线程的RunLoop:<code>CFRunLoopGetCurrent();</code></li>
+<li>获取主线程的RunLoop:<code>CFRunLoopGetMain();</code></li>
+</ul>
+<h4 id="RunLoop相关类">RunLoop相关类</h4><ul>
+<li>Core Foundation中关于RunLoop的5个类<ul>
+<li>CFRunLoopRef</li>
+<li>CFRunLoopModeRef</li>
+<li>CFRunLoopSourceRef</li>
+<li>CFRunLoopTimerRef</li>
+<li>CFRunLoopObserverRef</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/runloop.png" alt=""></p>
+<h4 id="CFRunLoopModeRef">CFRunLoopModeRef</h4><ul>
+<li><p>CFRunLoopModeRef代表RunLoop的运行模式</p>
+</li>
+<li><p>一个RunLoop包含若干个Mode,每个Mode又包含若干个Source/Timer/Observer</p>
+</li>
+<li><p>每次RunLoop启动时,只能指定其中一个Mode,这个Mode被称作CurrentMode<br><code>[[NSRunLoop currentRunLoop] currentMode];</code></p>
+</li>
+<li><p>如果需要切换Mode,只能退出Loop,再重新指定一个Mode进入</p>
+</li>
+<li><p>这样做主要是为了分隔开不同组Source/Timer/Observer,让其互不影响</p>
+</li>
+<li><p>系统默认注册了5个Mode:</p>
+<ul>
+<li>kCFRunLoopDefaultMode:App的默认Mode,通常主线程是这个Mode下运行</li>
+<li>UITrackingRunLoop:界面跟踪Mode,用于ScrollView追踪触摸滑动,保证界面滑动时不受其他Mode影响</li>
+<li>UIInitializationRunLoopMode:在刚启动App时进入的第一个Mode,启动完成后就不再使用</li>
+<li>GSEventReceiverRunLoopMode:接收系统事件的内部Mode,通常用不到</li>
+<li>kCFRunLoopCommonModes:这是一个占位用的Mode,不是一种真正的Mode</li>
+</ul>
+</li>
+<li><p>子线程中需要手动创建并启动NSRunLoop</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    [<span class="built_in">NSRunLoop</span> mainRunLoop];</span><br><span class="line">    [<span class="built_in">NSRunLoop</span> currentRunLoop];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRunLoopGetCurrent</span>();</span><br><span class="line">    <span class="built_in">CFRunLoopGetMain</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) object:<span class="literal">nil</span>];</span><br><span class="line">	[thread start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)run</span><br><span class="line">&#123;</span><br><span class="line">	[[<span class="built_in">NSRunLoop</span> currentRunLoop] runMode:&lt;<span class="preprocessor">#(NSString *)#&gt; beforeDate:<span class="title">&lt;#(NSDate *)#&gt;</span>];</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-single_instance" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/25/single_instance/" class="article-date">
+  	<time datetime="2016-03-25T02:32:46.000Z" itemprop="datePublished">2016-03-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/25/single_instance/">GCD实现单例模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="单例模式">单例模式</h3><ul>
+<li>单例模式的作用<ul>
+<li>可以保证在程序运行过程,一个类只有一个实例,而且该实例易于供外界访问</li>
+<li>从而方便地控制了实例个数,并节约系统资源</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/25/single_instance/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-gcd" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -712,137 +907,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/14/contact/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-multi_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/13/multi_viewcontroller/" class="article-date">
-  	<time datetime="2016-03-13T14:05:07.000Z" itemprop="datePublished">2016-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/13/multi_viewcontroller/">iOS多控制器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多控制器">多控制器</h3><ul>
-<li>UINavigationController</li>
-<li>UITabBarController</li>
-</ul>
-<h3 id="UINavigationController的简单使用">UINavigationController的简单使用</h3><ul>
-<li>UINavigationController的使用步骤<ul>
-<li>初始化UINavigationController</li>
-<li>设置UIWindow的rootViewController为UINavigationController</li>
-<li>根据具体情况,通过push方法添加对应个数的子控制器</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/13/multi_viewcontroller/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-create_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/13/create_viewcontroller/" class="article-date">
-  	<time datetime="2016-03-13T02:00:07.000Z" itemprop="datePublished">2016-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/13/create_viewcontroller/">iOS创建控制器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="如何创建一个控制器">如何创建一个控制器</h3><ul>
-<li><p>控制器常见的创建方式有以下几种</p>
-<ul>
-<li><p>通过storyboard创建</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建窗口</span></span><br><span class="line">   <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载storyboard</span></span><br><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过storyboard实例化控制器</span></span><br><span class="line"><span class="comment">// instantiateInitialViewController: 加载箭头指向的控制器</span></span><br><span class="line"><span class="comment">// instantiateViewControllerWithIdentifier:(NSString *)identifier:通过Storyboard ID标识符来创建控制器</span></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将控制器设置为窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示主窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接创建<br><code>UIViewController *vc = [[UIViewController alloc] init];</code></p>
-</li>
-<li>指定xib文件创建<figure class="highlight"><table><tr><td class="code"><pre><span class="line">创建xib并添加一个view</span><br><span class="line">为文件的拥有者绑定Class(即设置File's Owner的Class类型 MCViewController)</span><br><span class="line">设置文件的拥有者Outlets view</span><br><span class="line">MCViewController *vc = [[MCViewController alloc] initWithNibName:@"MCViewController" bundle:nil];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/13/create_viewcontroller/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

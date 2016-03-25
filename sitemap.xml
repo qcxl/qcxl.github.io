@@ -2,8 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/03/25/single_instance/</loc>
+    <lastmod>2016-03-25T13:07:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/03/25/nsrunloop/</loc>
+    <lastmod>2016-03-25T13:07:41.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/03/24/gcd/</loc>
-    <lastmod>2016-03-24T14:50:36.000Z</lastmod>
+    <lastmod>2016-03-25T13:05:23.000Z</lastmod>
   </url>
   
   <url>
