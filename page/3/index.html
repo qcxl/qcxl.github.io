@@ -250,6 +250,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-javascript_note_03" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/08/javascript_note_03/" class="article-date">
+  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">2015-09-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="对象">对象</h3><h4 id="对象的”属性特征”">对象的”属性特征”</h4><p>1.可写:表示是否可以设置该属性的值<br>2.可枚举:表示是否可以通过for/in循环返回该属性<br>3.可配置:表示是否可以删除或修改该属性</p>
+<h4 id="对象的特性">对象的特性</h4><ul>
+<li>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/08/javascript_note_03/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-javascript_note_02" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -769,67 +827,9 @@
 
 
   
-    <article id="post-jQuery工具类函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery工具类函数/" class="article-date">
-  	<time datetime="2015-08-26T01:18:42.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery工具类函数/">jQuery 工具类函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_工具类函数">jQuery 工具类函数</h3><ul>
-<li>获取浏览器的名称与版本信息.在jQuery中，通过<code>$.browser</code>对象可以获取浏览器的名称和版本信息,如<code>$.browser.chrome</code>为true,表示当前为Chrome浏览器,<code>$.browser.mozilla</code>为true,表示当前为火狐浏览器,还可以通过<code>$.browser.version</code>方式获取浏览器版本信息.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divtest"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>获取浏览器名称和版本号<span class="tag">&lt;/<span class="title">span</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> strTmp = <span class="string">"您的浏览器名称是："</span>;</span><br><span class="line">                <span class="keyword">if</span> ($.browser.chrome) &#123; <span class="comment">//谷歌浏览器</span></span><br><span class="line">                    strTmp += <span class="string">"Chrome"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> ($.browser.mozilla) &#123; <span class="comment">//火狐相关浏览器</span></span><br><span class="line">                    strTmp += <span class="string">"Mozilla FireFox"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                strTmp += <span class="string">"&lt;br /&gt;&lt;br /&gt; 版本号是："</span> <span class="comment">//获取版本号</span></span><br><span class="line">                       +$.browser.version;</span><br><span class="line">                $(<span class="string">".content"</span>).html(strTmp);</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://img.mukewang.com/52e4cf7f0001d48b03770322.jpg" alt="browserImg" title="browserImg"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery工具类函数/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

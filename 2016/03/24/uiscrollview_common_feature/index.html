@@ -3,60 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>const和指针 | Mobile Development</title>
+  <title>UIScrollView常见功能 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="const和宏的区别
-相同点:
+  <meta name="description" content="子控件悬停
+获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上
 
-值是常量,不能动态更改 
-更改后,其它使用到的地方会自动更改
-
-
-不同点:
-
-宏:会产生很多临时空间
-const:
-只有一份内存
-写在外面是全局常量
-不能运行时修改常量值
-加上static之后只能在本文件访问">
+下拉放大
+获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放">
 <meta property="og:type" content="article">
-<meta property="og:title" content="const和指针">
-<meta property="og:url" content="http://yoursite.com/2016/03/24/const_point/index.html">
+<meta property="og:title" content="UIScrollView常见功能">
+<meta property="og:url" content="http://yoursite.com/2016/03/24/uiscrollview_common_feature/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="const和宏的区别
-相同点:
+<meta property="og:description" content="子控件悬停
+获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上
 
-值是常量,不能动态更改 
-更改后,其它使用到的地方会自动更改
-
-
-不同点:
-
-宏:会产生很多临时空间
-const:
-只有一份内存
-写在外面是全局常量
-不能运行时修改常量值
-加上static之后只能在本文件访问">
-<meta property="og:updated_time" content="2016-03-24T13:37:21.000Z">
+下拉放大
+获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放">
+<meta property="og:updated_time" content="2016-03-28T13:21:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="const和指针">
-<meta name="twitter:description" content="const和宏的区别
-相同点:
+<meta name="twitter:title" content="UIScrollView常见功能">
+<meta name="twitter:description" content="子控件悬停
+获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上
 
-值是常量,不能动态更改 
-更改后,其它使用到的地方会自动更改
-
-
-不同点:
-
-宏:会产生很多临时空间
-const:
-只有一份内存
-写在外面是全局常量
-不能运行时修改常量值
-加上static之后只能在本文件访问">
+下拉放大
+获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -291,11 +261,11 @@ const:
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-const_point" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-uiscrollview_common_feature" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/24/const_point/" class="article-date">
-  	<time datetime="2016-03-24T05:44:56.000Z" itemprop="datePublished">2016-03-24</time>
+      <a href="/2016/03/24/uiscrollview_common_feature/" class="article-date">
+  	<time datetime="2016-03-24T05:25:49.000Z" itemprop="datePublished">2016-03-24</time>
 </a>
     </div>
   
@@ -308,7 +278,7 @@ const:
         
   
     <h1 class="article-title" itemprop="name">
-      const和指针
+      UIScrollView常见功能
     </h1>
   
 
@@ -324,29 +294,27 @@ const:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="const和宏的区别">const和宏的区别</h3><ul>
-<li><p>相同点:</p>
-<ul>
-<li>值是常量,不能动态更改 </li>
-<li>更改后,其它使用到的地方会自动更改</li>
+        <h3 id="子控件悬停">子控件悬停</h3><ul>
+<li>获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上</li>
 </ul>
-</li>
-<li><p>不同点:</p>
-<ul>
-<li>宏:会产生很多临时空间</li>
-<li>const:<ul>
-<li>只有一份内存</li>
-<li>写在外面是全局常量</li>
-<li>不能运行时修改常量值</li>
-<li>加上static之后只能在本文件访问</li>
-</ul>
-</li>
-</ul>
-</li>
+<h3 id="下拉放大">下拉放大</h3><ul>
+<li>获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放 </li>
 </ul>
 <a id="more"></a>
-<h3 id="const与指针">const与指针</h3><ul>
-<li>看const右边整体是什么,什么就不能修改.<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p1;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p2;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 定义一个指针变量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = <span class="literal">NULL</span>;(等同于 <span class="keyword">int</span> <span class="keyword">const</span> *p = <span class="literal">NULL</span>;)</span><br><span class="line"><span class="comment">// p指向a</span></span><br><span class="line">p = &amp;a;(可以修改)</span><br><span class="line"><span class="comment">//*p = 20;(*p不能改,const后面是*p所以不能改)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;c;(p不能被修改,一开始指向什么,以后都不能更改)</span><br><span class="line">*p = <span class="number">30</span>;(但是可以修改它指向的变量c的值)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 值传递比较有用,想让别人不更改你的值可以通过这种方式使用</span></span><br><span class="line"><span class="keyword">void</span> test(<span class="keyword">const</span> <span class="keyword">int</span> *p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//*p = 100;(不能修改*p的值)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修饰指针,指针不能更改</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> NAME = <span class="string">@""</span>;</span><br><span class="line"><span class="comment">//不能修改</span></span><br><span class="line"><span class="comment">//NAME = @"123";</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">UIScrollViewDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *redView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imageView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *blueView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIScrollView</span> *scrollView;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.scrollView</span><span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.blueView</span><span class="variable">.frame</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - <span class="title">&lt;UIScrollViewDelegate&gt;</span></span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageH = <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = scrollView<span class="variable">.contentOffset</span><span class="variable">.y</span>;</span><br><span class="line">    <span class="keyword">if</span> (offsetY &gt;= imageH) &#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到控制器的view中,设置Y值为0</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span>;</span><br><span class="line">        redF<span class="variable">.origin</span><span class="variable">.y</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span> = redF;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.redView</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到scrollView中,设置Y值为图片的高度</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span>;</span><br><span class="line">        redF<span class="variable">.origin</span><span class="variable">.y</span> = <span class="number">140</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span> = redF;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.scrollView</span> addSubview:<span class="keyword">self</span><span class="variable">.redView</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> scale = <span class="number">1</span> - (offsetY / <span class="number">70</span>);</span><br><span class="line">    scale = (scale &gt;= <span class="number">1</span>) ? scale : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformMakeScale</span>(scale, scale);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h3 id="UIScrollView内部子控件添加约束的注意点">UIScrollView内部子控件添加约束的注意点</h3><ul>
+<li><p>子控件的尺寸不能通过UIScrollView来计算,可以考虑通过以下方式计算</p>
+<ul>
+<li>可以设置固定值（width==100,height==300）</li>
+<li>可以相对于UIScrollView以外的其他控件来计算尺寸</li>
+</ul>
+</li>
+<li><p>UIScrollView的frame应该通过子控件以外的其他控件来计算</p>
+</li>
+<li><p>UIScrollView的contentSize通过子控件来计算</p>
+<ul>
+<li>根据子控件的尺寸以及子控件与UIScrollView之间的间距</li>
+</ul>
 </li>
 </ul>
 
@@ -358,18 +326,18 @@ const:
     
 <nav id="article-nav">
   
-    <a href="/2016/03/24/gcd/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/24/const_point/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          iOS中的线程
+          const和指针
         
       </div>
     </a>
   
   
-    <a href="/2016/03/24/uiscrollview_common_feature/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UIScrollView常见功能</div>
+    <a href="/2016/03/24/ios_news/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网易新闻项目</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -398,7 +366,7 @@ const:
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="const_point" data-title="const和指针" data-url="http://yoursite.com/2016/03/24/const_point/"></div>
+	<div class="ds-thread" data-thread-key="uiscrollview_common_feature" data-title="UIScrollView常见功能" data-url="http://yoursite.com/2016/03/24/uiscrollview_common_feature/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

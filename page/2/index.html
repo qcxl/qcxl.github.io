@@ -250,6 +250,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-contact" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/14/contact/" class="article-date">
+  	<time datetime="2016-03-14T14:00:00.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/contact/">iOS界面跳转传值</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
+<li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
+</ul>
+<h3 id="什么是Segue">什么是Segue</h3><ul>
+<li>Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/14/contact/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-multi_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -823,67 +882,9 @@
 
 
   
-    <article id="post-javascript_note_03" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/08/javascript_note_03/" class="article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">2015-09-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="对象">对象</h3><h4 id="对象的”属性特征”">对象的”属性特征”</h4><p>1.可写:表示是否可以设置该属性的值<br>2.可枚举:表示是否可以通过for/in循环返回该属性<br>3.可配置:表示是否可以删除或修改该属性</p>
-<h4 id="对象的特性">对象的特性</h4><ul>
-<li>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/08/javascript_note_03/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
