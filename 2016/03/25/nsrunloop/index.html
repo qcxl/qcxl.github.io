@@ -31,7 +31,7 @@
 节省CPU资源,提高程序性能:该做事情时做事情,该休息时休息">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/runloop.png">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/runloop_1.png">
-<meta property="og:updated_time" content="2016-03-27T14:10:18.000Z">
+<meta property="og:updated_time" content="2016-04-03T10:13:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RunLoop的基本使用">
 <meta name="twitter:description" content="什么是RunLoop
@@ -437,11 +437,11 @@
 <li>自动释放池</li>
 </ul>
 <h4 id="RunLoop面试题">RunLoop面试题</h4><ul>
-<li>什么事RunLoop?<ul>
+<li>什么是RunLoop?<ul>
 <li>从字面意思看:运行循环、跑圈</li>
 <li>其实它内部就是do-while循环,在这个循环内部不断地处理各种任务(比如Source、Timer、Observer)</li>
 <li>一个线程对应一个RunLoop,主线程的RunLoop默认已经启动,子线程的RunLoop得手动启动(调用Run方法)</li>
-<li>RunLoop只能选择一个Mode启动,如果当前Mode中没有任何Source、Timer、Observer,那么久直接退出RunLoop</li>
+<li>RunLoop只能选择一个Mode启动,如果当前Mode中没有任何Source(Sources0、Sources1)、Timer,那么久直接退出RunLoop</li>
 </ul>
 </li>
 </ul>
@@ -460,7 +460,8 @@
 </ul>
 <ul>
 <li>自动释放池什么时候释放?<ul>
-<li>在RunLoop睡眠之前释放(kCFRunLoopBeforeWaiting)</li>
+<li>通过Observer监听RunLoop的状态,一旦监听到RunLoop即将进入睡眠等待状态,就释放自动释放池(kCFRunLoopBeforeWaiting)</li>
+<li>监听了3个地方activity = 0x1(kCFRunLoopEntry) 、 0xa0(kCFRunLoopBeforeWaiting | kCFRunLoopExit ) -&gt;(kCFRunLoopEntry创建一个自动释放池、kCFRunLoopBeforeWaiting销毁自动释放池,创建一个新的自动释放池、kCFRunLoopExit 销毁自动释放池)</li>
 </ul>
 </li>
 </ul>
