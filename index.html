@@ -250,6 +250,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-image_switch" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/image_switch/" class="article-date">
+  	<time datetime="2016-04-03T03:04:43.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/03/image_switch/">iOS实现图片轮播</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用2个UIImageView实现图片轮播">使用2个UIImageView实现图片轮播</h3><h4 id="轮播原理">轮播原理</h4><ul>
+<li>假设轮播控件的宽度为x高度为y,我们设置UIScrollView的contentSize.width为3x,并让UIScrollView的水平偏移量为x,既显示最中间内容<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">scrollView<span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">3</span>x, y);</span><br><span class="line">scrollView<span class="variable">.contentOffset</span> = <span class="built_in">CGPointMake</span>(x, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/03/image_switch/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ios_network" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -792,60 +849,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/23/parent_childs_vc/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-color_card" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/22/color_card/" class="article-date">
-  	<time datetime="2016-03-22T01:00:00.000Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/color_card/">彩票项目主要知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自定义UITabBar">自定义UITabBar</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpTabBar</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    MCTabBar *tabBar = [[MCTabBar alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储UITabBarItem</span></span><br><span class="line">    tabBar<span class="variable">.items</span> = <span class="keyword">self</span><span class="variable">.items</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//移除系统的tabBar,相当于将tabBar上的所有按钮移除</span></span><br><span class="line">	<span class="comment">//将一个控件从父控件中移除并不会马上销毁,一般在下一次运行循环的时候,就会判断这个对象有没有强引用,如果没有,才会销毁</span></span><br><span class="line">	<span class="comment">//[self.tabBar removeFromSuperview];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//tabBar.frame = self.tabBar.frame;</span></span><br><span class="line"></span><br><span class="line">    tabBar<span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.bounds</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tabBar</span> addSubview:tabBar];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把系统的tabBar上的按钮干掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *childView <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![childView isKindOfClass:[MCTabBar class]]) &#123;</span><br><span class="line">            [childView removeFromSuperview];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/22/color_card/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

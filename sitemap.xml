@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/04/03/image_switch/</loc>
+    <lastmod>2016-04-03T09:40:19.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/03/28/ios_network/</loc>
     <lastmod>2016-03-29T12:16:34.000Z</lastmod>
   </url>
