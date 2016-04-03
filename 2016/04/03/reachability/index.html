@@ -3,17 +3,69 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016 | Mobile Development</title>
+  <title>iOS使用Reachability实时检测网络连接状况 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="Reachability能做什么
+监测网络是否可用
+
+判断当前处于什么网络环境(2G/3G,WIFI)
+
+监测连接方式的变更
+
+
+下载
+苹果官方:点击下载
+
+Git:点击下载
+
+
+安装
+下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
+
+使用@property (nonatomic) Rea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS使用Reachability实时检测网络连接状况">
+<meta property="og:url" content="http://yoursite.com/2016/04/03/reachability/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="Reachability能做什么
+监测网络是否可用
+
+判断当前处于什么网络环境(2G/3G,WIFI)
+
+监测连接方式的变更
+
+
+下载
+苹果官方:点击下载
+
+Git:点击下载
+
+
+安装
+下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
+
+使用@property (nonatomic) Rea">
+<meta property="og:updated_time" content="2016-04-03T12:57:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="iOS使用Reachability实时检测网络连接状况">
+<meta name="twitter:description" content="Reachability能做什么
+监测网络是否可用
+
+判断当前处于什么网络环境(2G/3G,WIFI)
+
+监测连接方式的变更
+
+
+下载
+苹果官方:点击下载
+
+Git:点击下载
+
+
+安装
+下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
+
+使用@property (nonatomic) Rea">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,296 +300,115 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-reachability" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/04/03/reachability/" class="article-date">
+  	<time datetime="2016-04-03T10:22:04.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS使用Reachability实时检测网络连接状况
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/03/reachability/" class="archive-article-date">
-  	<time datetime="2016-04-03T10:22:04.000Z" itemprop="datePublished">4月 3</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/03/reachability/">iOS使用Reachability实时检测网络连接状况</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Reachability能做什么">Reachability能做什么</h3><ul>
+<li><p>监测网络是否可用</p>
+</li>
+<li><p>判断当前处于什么网络环境(2G/3G,WIFI)</p>
+</li>
+<li><p>监测连接方式的变更</p>
+</li>
+</ul>
+<h3 id="下载">下载</h3><ul>
+<li><p>苹果官方:<a href="https://developer.apple.com/library/ios/samplecode/Reachability/Introduction/Intro.html" target="_blank" rel="external">点击下载</a></p>
+</li>
+<li><p>Git:<a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">点击下载</a></p>
+</li>
+</ul>
+<h3 id="安装">安装</h3><ul>
+<li>下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可</li>
+</ul>
+<h3 id="使用">使用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) Reachability  *hostReach;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在程序的启动处,开启通知</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)applicationdidFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 开启网络状况的监听</span></span><br><span class="line">	[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reachabilityChanged:) name:kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.hostReach</span> = [Reachability reachabilityWithHostName:<span class="string">@"www.apple.com"</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 开始监听,会启动一个RunLoop</span></span><br><span class="line">	[<span class="keyword">self</span><span class="variable">.hostReach</span> startNotifier]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * Called by Reachability whenever status changes.</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>) reachabilityChanged:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">     Reachability* curReach = [note object];</span><br><span class="line"></span><br><span class="line">     <span class="built_in">NSParameterAssert</span>([curReach isKindOfClass:[Reachability class]]);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 更新用户界面,或者在当前状态实现你想要的处理</span></span><br><span class="line">     [<span class="keyword">self</span> updateInterfaceWithReachability:curReach];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理连接改变后的情况</span></span><br><span class="line">- (<span class="keyword">void</span>)updateInterfaceWithReachability: (Reachability*)curReach</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 对连接改变做出响应的处理动作</span></span><br><span class="line">	NetworkStatus status=[curReach currentReachabilityStatus];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(status)&#123;</span><br><span class="line">		<span class="keyword">case</span> NotReachable: <span class="comment">// 没有连接到网络</span></span><br><span class="line">			<span class="built_in">UIAlertView</span> *alert= [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"xxxx"</span> message:<span class="string">@"NotReachable"</span></span><br><span class="line">                         delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"YES"</span> otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">        	alert show];</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWWAN: <span class="comment">// 使用3G网络</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWiFi:  <span class="comment">// 使用WiFi网络 </span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否wifi</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnableWIFI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否3G</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnable3G</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/03/image_switch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS实现图片轮播</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/03/image_switch/" class="archive-article-date">
-  	<time datetime="2016-04-03T03:04:43.000Z" itemprop="datePublished">4月 3</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/03/image_switch/">iOS实现图片轮播</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/28/ios_network/" class="archive-article-date">
-  	<time datetime="2016-03-28T03:08:14.000Z" itemprop="datePublished">3月 28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/28/ios_network/">iOS网络</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/25/nsrunloop/" class="archive-article-date">
-  	<time datetime="2016-03-25T07:52:46.000Z" itemprop="datePublished">3月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/25/nsrunloop/">RunLoop的基本使用</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="reachability" data-title="iOS使用Reachability实时检测网络连接状况" data-url="http://yoursite.com/2016/04/03/reachability/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/25/single_instance/" class="archive-article-date">
-  	<time datetime="2016-03-25T02:32:46.000Z" itemprop="datePublished">3月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/25/single_instance/">iOS单例模式</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/24/gcd/" class="archive-article-date">
-  	<time datetime="2016-03-24T06:37:39.000Z" itemprop="datePublished">3月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/24/gcd/">iOS中的线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/24/const_point/" class="archive-article-date">
-  	<time datetime="2016-03-24T05:44:56.000Z" itemprop="datePublished">3月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/24/const_point/">const和指针</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/24/uiscrollview_common_feature/" class="archive-article-date">
-  	<time datetime="2016-03-24T05:25:49.000Z" itemprop="datePublished">3月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/24/uiscrollview_common_feature/">UIScrollView常见功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/24/ios_news/" class="archive-article-date">
-  	<time datetime="2016-03-24T02:08:49.000Z" itemprop="datePublished">3月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/24/ios_news/">网易新闻项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/23/static_copy/" class="archive-article-date">
-  	<time datetime="2016-03-23T06:55:35.000Z" itemprop="datePublished">3月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/23/static_copy/">static与copy关键字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -563,8 +434,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
