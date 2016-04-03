@@ -10,19 +10,7 @@
 
 判断当前处于什么网络环境(2G/3G,WIFI)
 
-监测连接方式的变更
-
-
-下载
-苹果官方:点击下载
-
-Git:点击下载
-
-
-安装
-下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
-
-使用@property (nonatomic) Rea">
+监测连接方式的变更">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS使用Reachability实时检测网络连接状况">
 <meta property="og:url" content="http://yoursite.com/2016/04/03/reachability/index.html">
@@ -32,20 +20,8 @@ Git:点击下载
 
 判断当前处于什么网络环境(2G/3G,WIFI)
 
-监测连接方式的变更
-
-
-下载
-苹果官方:点击下载
-
-Git:点击下载
-
-
-安装
-下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
-
-使用@property (nonatomic) Rea">
-<meta property="og:updated_time" content="2016-04-03T12:57:40.000Z">
+监测连接方式的变更">
+<meta property="og:updated_time" content="2016-04-03T13:24:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS使用Reachability实时检测网络连接状况">
 <meta name="twitter:description" content="Reachability能做什么
@@ -53,19 +29,7 @@ Git:点击下载
 
 判断当前处于什么网络环境(2G/3G,WIFI)
 
-监测连接方式的变更
-
-
-下载
-苹果官方:点击下载
-
-Git:点击下载
-
-
-安装
-下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可
-
-使用@property (nonatomic) Rea">
+监测连接方式的变更">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -341,6 +305,7 @@ Git:点击下载
 <li><p>监测连接方式的变更</p>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="下载">下载</h3><ul>
 <li><p>苹果官方:<a href="https://developer.apple.com/library/ios/samplecode/Reachability/Introduction/Intro.html" target="_blank" rel="external">点击下载</a></p>
 </li>
@@ -350,7 +315,7 @@ Git:点击下载
 <h3 id="安装">安装</h3><ul>
 <li>下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可</li>
 </ul>
-<h3 id="使用">使用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) Reachability  *hostReach;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在程序的启动处,开启通知</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)applicationdidFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 开启网络状况的监听</span></span><br><span class="line">	[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reachabilityChanged:) name:kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.hostReach</span> = [Reachability reachabilityWithHostName:<span class="string">@"www.apple.com"</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 开始监听,会启动一个RunLoop</span></span><br><span class="line">	[<span class="keyword">self</span><span class="variable">.hostReach</span> startNotifier]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * Called by Reachability whenever status changes.</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>) reachabilityChanged:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">     Reachability* curReach = [note object];</span><br><span class="line"></span><br><span class="line">     <span class="built_in">NSParameterAssert</span>([curReach isKindOfClass:[Reachability class]]);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 更新用户界面,或者在当前状态实现你想要的处理</span></span><br><span class="line">     [<span class="keyword">self</span> updateInterfaceWithReachability:curReach];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理连接改变后的情况</span></span><br><span class="line">- (<span class="keyword">void</span>)updateInterfaceWithReachability: (Reachability*)curReach</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 对连接改变做出响应的处理动作</span></span><br><span class="line">	NetworkStatus status=[curReach currentReachabilityStatus];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(status)&#123;</span><br><span class="line">		<span class="keyword">case</span> NotReachable: <span class="comment">// 没有连接到网络</span></span><br><span class="line">			<span class="built_in">UIAlertView</span> *alert= [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"xxxx"</span> message:<span class="string">@"NotReachable"</span></span><br><span class="line">                         delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"YES"</span> otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">        	alert show];</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWWAN: <span class="comment">// 使用3G网络</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWiFi:  <span class="comment">// 使用WiFi网络 </span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否wifi</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnableWIFI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否3G</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnable3G</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用">使用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) Reachability  *hostReach;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在程序的启动处,开启通知</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)applicationdidFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 开启网络状况的监听</span></span><br><span class="line">	[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reachabilityChanged:) name:kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//self.hostReach = [Reachability reachabilityWithHostName:@"www.apple.com"];</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.hostReach</span> = Reachability reachabilityForInternetConnection];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 开始监听,会启动一个RunLoop</span></span><br><span class="line">	[<span class="keyword">self</span><span class="variable">.hostReach</span> startNotifier]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * Called by Reachability whenever status changes.</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>) reachabilityChanged:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">     Reachability* curReach = [note object];</span><br><span class="line"></span><br><span class="line">     <span class="built_in">NSParameterAssert</span>([curReach isKindOfClass:[Reachability class]]);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 更新用户界面,或者在当前状态实现你想要的处理</span></span><br><span class="line">     [<span class="keyword">self</span> updateInterfaceWithReachability:curReach];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理连接改变后的情况</span></span><br><span class="line">- (<span class="keyword">void</span>)updateInterfaceWithReachability: (Reachability*)curReach</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 对连接改变做出响应的处理动作</span></span><br><span class="line">	NetworkStatus status=[curReach currentReachabilityStatus];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(status)&#123;</span><br><span class="line">		<span class="keyword">case</span> NotReachable: <span class="comment">// 没有连接到网络</span></span><br><span class="line">			<span class="built_in">UIAlertView</span> *alert= [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"xxxx"</span> message:<span class="string">@"NotReachable"</span></span><br><span class="line">                         delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"YES"</span> otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">        	alert show];</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWWAN: <span class="comment">// 使用3G网络</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWiFi:  <span class="comment">// 使用WiFi网络 </span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否wifi</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnableWIFI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否3G</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnable3G</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
