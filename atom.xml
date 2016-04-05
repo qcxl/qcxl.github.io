@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-04-03T14:11:25.000Z</updated>
+  <updated>2016-04-05T12:42:50.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[NSInvocation的使用]]></title>
+    <link href="http://yoursite.com/2016/04/04/nsinvocation/"/>
+    <id>http://yoursite.com/2016/04/04/nsinvocation/</id>
+    <published>2016-04-04T12:43:37.000Z</published>
+    <updated>2016-04-05T12:42:50.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
+<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>NSMethodSignature常用的只读属性<ul>
+<li>numberOfArguments:方法参数的个数</li>
+<li>methodReturnLength:方法返回值类型的长度,大于0表示有返回值</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用方法的签名来创建一个NSInvocation对象">使用方法的签名来创建一个NSInvocation对象</h4><p><code>NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];</code></p>
+<h4 id="给invocation对象的两个属性赋值">给invocation对象的两个属性赋值</h4><ul>
+<li>要执行谁的(target)的哪个方法(selector)<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">invocation<span class="variable">.target</span> = <span class="keyword">self</span>;</span><br><span class="line">invocation<span class="variable">.selector</span> = <span class="keyword">@selector</span>(test:withArg2:andArg3:);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="给要执行的方法设置参数">给要执行的方法设置参数</h4><ul>
+<li>使用setArgument:atIndex:方法给要执行的方法设置参数,注意下标从2开始,因为0、1已经被target与selector占用.设置参数,必须传递参数的地址,不能直接传值<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *arg1 = <span class="string">@"a"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *arg2 = <span class="string">@"b"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *arg3 = <span class="string">@"c"</span>;</span><br><span class="line">[invocation setArgument:&amp;arg1 atIndex:<span class="number">2</span>];</span><br><span class="line">[invocation setArgument:&amp;arg2 atIndex:<span class="number">3</span>];</span><br><span class="line">[invocation setArgument:&amp;arg3 atIndex:<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="执行方法">执行方法</h4><p><code>[invocation invoke];</code></p>
+<h4 id="获取执行方法的返回值">获取执行方法的返回值</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以在invoke方法前添加,也可以在invoke方法后添加</span></span><br><span class="line"><span class="comment">// 通过方法签名的methodReturnLength判断是否有返回值</span></span><br><span class="line"><span class="keyword">if</span> (signature<span class="variable">.methodReturnLength</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">id</span> *result = <span class="literal">nil</span>;</span><br><span class="line">    [invocation getReturnValue:&amp;result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为NSObject添加分类封装多个参数的方法调用">为NSObject添加分类封装多个参数的方法调用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">Extension</span>)</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObjects:(<span class="built_in">NSArray</span> *)objects</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法签名(方法的描述)-哪个对象的哪个方法</span></span><br><span class="line">    <span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(signature == <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="comment">//@throw [NSException exceptionWithName:@"调用错误" reason:@"方法找不到" userInfo:nil];</span></span><br><span class="line">        [<span class="built_in">NSException</span> raise:<span class="string">@"调用错误"</span> format:<span class="string">@"%@方法找不到"</span>,<span class="built_in">NSStringFromSelector</span>(selector)];</span><br><span class="line">        <span class="comment">//return nil;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// NSInvocation: 利用一个NSInvocation对象包装一次方法调用(方法调用者、方法名、方法参数、方法返回值)</span></span><br><span class="line">    <span class="built_in">NSInvocation</span> *invocation = [<span class="built_in">NSInvocation</span> invocationWithMethodSignature:signature];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置参数</span></span><br><span class="line">    <span class="comment">// 除self、_cmd(方法本身)之外的参数个数</span></span><br><span class="line">    <span class="built_in">NSInteger</span> paramsCount = signature<span class="variable">.numberOfArguments</span>-<span class="number">2</span>;</span><br><span class="line">    paramsCount = MIN(paramsCount, objects<span class="variable">.count</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i=<span class="number">0</span>; i&lt;paramsCount; i++) &#123;</span><br><span class="line">        <span class="keyword">id</span> object = objects[i];</span><br><span class="line">        <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSNull</span> class]]) <span class="keyword">continue</span>;</span><br><span class="line">        [invocation setArgument:&amp;object atIndex:i+<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 谁来调用</span></span><br><span class="line">    invocation<span class="variable">.target</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用哪个方法</span></span><br><span class="line">    invocation<span class="variable">.selector</span> = selector;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用方法</span></span><br><span class="line">    [invocation invoke];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取返回值</span></span><br><span class="line">    <span class="keyword">id</span> returnValue = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 有返回值类型,才去获取返回值</span></span><br><span class="line">    <span class="keyword">if</span>(signature<span class="variable">.methodReturnLength</span>)&#123;</span><br><span class="line">        [invocation getReturnValue:&amp;returnValue];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> returnValue;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
+<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[iOS使用Reachability实时检测网络连接状况]]></title>
@@ -1604,93 +1645,6 @@ animated:(BOOL)animated;</code></li>
 <li>第二种方式: <code>mongoose.createConnection(&#39;url&#39;, options);</code></li>
 <li><a href="http://mongoosejs.com/docs/connections.html">参考地址</a></li>
 </ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Mac下安装Node.js]]></title>
-    <link href="http://yoursite.com/2015/10/08/install_node_js/"/>
-    <id>http://yoursite.com/2015/10/08/install_node_js/</id>
-    <published>2015-10-08T05:28:31.000Z</published>
-    <updated>2015-10-08T11:04:32.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="安装XCode">安装XCode</h3><ul>
-<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
-<li>安装XCode:<code>xcode-select --install</code></li>
-</ul>
-<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="安装node">安装node</h3><h4 id="通过brew安装node">通过brew安装node</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<h4 id="通过nvm安装node">通过nvm安装node</h4><blockquote>
-<p>Node版本管理器,是一个简单的bash脚本,用来管理同一台电脑上的多个node.js版本,并可实现方便的版本间切换.</p>
-</blockquote>
-<ul>
-<li>首先安装nvm:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后配置nvm:</li>
-</ul>
-<p>选择官方的安装方法,就不用自己手动写<code>.bashrc</code>文件:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">26.1</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>这样配置之后,在Terminal输入nvm命令还是提示<code>command not found</code>,需要再次输入:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">. ~/.nvm/nvm.sh</span><br></pre></td></tr></table></figure>
-<p>或者手动配置:<br>1.打开<code>.bash_profile</code>文件(习惯把设置放在.bashrc的人可以把以下的.bash_profile改成.bashrc):</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim <span class="variable">$HOME</span>/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>2.添加如下配置:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span> [ <span class="operator">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></span><br><span class="line"><span class="comment">#重新source你的 .bash_profile 来让设置生效</span></span><br><span class="line">. ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通过nvm安装任意版本的node</li>
-</ul>
-<p>查看可安装的node版本:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
-<p>安装node:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install node &amp;&amp; nvm <span class="built_in">alias</span> default node</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br><span class="line">nvm install <span class="number">4.1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>不过可能由于网络或者服务不稳定,实际上使用这个命令安装可能会失败,就算成功也会花费较长的时间,因此建议到Node.js官网去直接下载pkg包</p>
-<ul>
-<li>切换node版本</li>
-</ul>
-<p><code>nvm ls</code>:确认nvm目前可以管理的版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:    v0.<span class="number">11.10</span></span><br></pre></td></tr></table></figure>
-<p>由于透过nvm安裝node,会自动将最后安裝的版本设为目前使用中的版本,因此上述命令会看到current: v0.11.10,表示我們目前正在使用v0.11.10</p>
-<p>我们可以用<code>nvm use &lt;version&gt;</code>切换版本:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use v0.<span class="number">10.24</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
-<p>也可以偷懶一点,不用打完整的版号:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use <span class="number">0.10</span></span><br><span class="line">Now using node v0.<span class="number">10.24</span></span><br></pre></td></tr></table></figure>
-<p>不过问题来了,如果你另外开一个shell窗口,并输入nvm,会发现current version是空的</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm ls</span><br><span class="line"></span><br><span class="line">  v0.<span class="number">10.24</span></span><br><span class="line">  v0.<span class="number">11.10</span></span><br><span class="line">current:</span><br></pre></td></tr></table></figure>
-<p>这是因为利用<code>nvm use</code>命令只会在当前的shell生效,当你开了新的shell就会发现<code>$PATH</code>的值已经不包含刚才设定的node目录了。要解决这个问题就是利用<code>nvm alias default &lt;version&gt;</code><br>来设定一个预设的node版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm <span class="built_in">alias</span> default <span class="number">0.10</span></span><br><span class="line">default -&gt; <span class="number">0.10</span> (-&gt; v0.<span class="number">10.24</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="npm">npm</h3><blockquote>
-<p>NPM的全称是Node.js Package Manager, 是一个NodeJS包管理和分发工具,已经成为了非官方的发布Node模块(包)的标准<br>NPM可以自动管理包的依赖. 只需要安装你想要的包, 不必考虑这个包的依赖包.</p>
-</blockquote>
-<ul>
-<li><code>npm install</code>全局安装和本地安装的区别<br>npm的包安装分为本地安装(local)、全局安装(global)两种,从敲的命令行来看,差别只是有没有<code>-g</code>而已,比如安装n模块(用来安装管理切换不同到node版本):</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install n <span class="comment">#本地安装,将模块下载到当前命令行所在目录</span></span><br><span class="line">npm install -g n <span class="comment">#全局安装</span></span><br><span class="line">n <span class="number">4.1</span>.<span class="number">2</span> <span class="comment">#安装node v4.1.2</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>全局目录通过 <code>npm config set prefix &quot;目录路径&quot;</code> 来设置</li>
-<li>通过 <code>npm config get prefix</code> 来获取当前设置的目录</li>
-<li>使用 cnpm 加速 npm<br>npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 <code>--registry</code> 参数, 使用国内的镜像 <a href="http://registry.npm.taobao.org" target="_blank" rel="external">http://registry.npm.taobao.org</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install koa --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 10 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装cnpm cli:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install cnpm -g --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>通过 cnpm 命令行, 你可以快速同步任意模块:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cnpm sync koa connect mocha</span><br></pre></td></tr></table></figure>
-<p><a href="http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html" target="_blank" rel="external">快速搭建 Node.js / io.js 开发环境以及加速 npm</a><br><a href="http://icarus4.logdown.com/posts/175092-nodejs-installation-guide" target="_blank" rel="external">Node.js 安裝與版本切換教學 (for MAC)</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="安装XCode">安装XCode</h3><ul>
-<li>检测是否安装了XCode:<code>xcode-select -p</code></li>
-<li>安装XCode:<code>xcode-select --install</code></li>
-</ul>
-<h3 id="安装Homebrew">安装Homebrew</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>]]>
     
     </summary>
     

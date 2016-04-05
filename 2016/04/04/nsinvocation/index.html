@@ -3,33 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS使用Reachability实时检测网络连接状况 | Mobile Development</title>
+  <title>NSInvocation的使用 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Reachability能做什么
-监测网络是否可用
-
-判断当前处于什么网络环境(2G/3G,WIFI)
-
-监测连接方式的变更">
+  <meta name="description" content="NSInvocation的简单使用创建方法签名
+使用NSObject的对象方法或者类方法来创建NSMethodSignature// NSObject的对象方法,任何继承自NSObject的对象都可以调用- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector// NSObject的类方法,任何继承自NSObject的类都可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS使用Reachability实时检测网络连接状况">
-<meta property="og:url" content="http://yoursite.com/2016/04/03/reachability/index.html">
+<meta property="og:title" content="NSInvocation的使用">
+<meta property="og:url" content="http://yoursite.com/2016/04/04/nsinvocation/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="Reachability能做什么
-监测网络是否可用
-
-判断当前处于什么网络环境(2G/3G,WIFI)
-
-监测连接方式的变更">
-<meta property="og:updated_time" content="2016-04-03T14:11:25.000Z">
+<meta property="og:description" content="NSInvocation的简单使用创建方法签名
+使用NSObject的对象方法或者类方法来创建NSMethodSignature// NSObject的对象方法,任何继承自NSObject的对象都可以调用- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector// NSObject的类方法,任何继承自NSObject的类都可以">
+<meta property="og:updated_time" content="2016-04-05T12:42:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS使用Reachability实时检测网络连接状况">
-<meta name="twitter:description" content="Reachability能做什么
-监测网络是否可用
-
-判断当前处于什么网络环境(2G/3G,WIFI)
-
-监测连接方式的变更">
+<meta name="twitter:title" content="NSInvocation的使用">
+<meta name="twitter:description" content="NSInvocation的简单使用创建方法签名
+使用NSObject的对象方法或者类方法来创建NSMethodSignature// NSObject的对象方法,任何继承自NSObject的对象都可以调用- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector// NSObject的类方法,任何继承自NSObject的类都可以">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -264,11 +252,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-reachability" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-nsinvocation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/03/reachability/" class="article-date">
-  	<time datetime="2016-04-03T10:22:04.000Z" itemprop="datePublished">2016-04-03</time>
+      <a href="/2016/04/04/nsinvocation/" class="article-date">
+  	<time datetime="2016-04-04T12:43:37.000Z" itemprop="datePublished">2016-04-04</time>
 </a>
     </div>
   
@@ -281,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS使用Reachability实时检测网络连接状况
+      NSInvocation的使用
     </h1>
   
 
@@ -297,25 +285,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Reachability能做什么">Reachability能做什么</h3><ul>
-<li><p>监测网络是否可用</p>
-</li>
-<li><p>判断当前处于什么网络环境(2G/3G,WIFI)</p>
-</li>
-<li><p>监测连接方式的变更</p>
+        <h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
+<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
-<h3 id="下载">下载</h3><ul>
-<li><p>苹果官方:<a href="https://developer.apple.com/library/ios/samplecode/Reachability/Introduction/Intro.html" target="_blank" rel="external">点击下载</a></p>
-</li>
-<li><p>Git:<a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">点击下载</a></p>
+<ul>
+<li>NSMethodSignature常用的只读属性<ul>
+<li>numberOfArguments:方法参数的个数</li>
+<li>methodReturnLength:方法返回值类型的长度,大于0表示有返回值</li>
+</ul>
 </li>
 </ul>
-<h3 id="安装">安装</h3><ul>
-<li>下载Reachability.h和Reachability.m文件,拽入你的工程中,然后添加SystemConfiguration.framework库即可</li>
+<h4 id="使用方法的签名来创建一个NSInvocation对象">使用方法的签名来创建一个NSInvocation对象</h4><p><code>NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];</code></p>
+<h4 id="给invocation对象的两个属性赋值">给invocation对象的两个属性赋值</h4><ul>
+<li>要执行谁的(target)的哪个方法(selector)<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">invocation<span class="variable">.target</span> = <span class="keyword">self</span>;</span><br><span class="line">invocation<span class="variable">.selector</span> = <span class="keyword">@selector</span>(test:withArg2:andArg3:);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="使用">使用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) Reachability  *reachability;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在程序的启动处,开启通知</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)applicationdidFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 开启网络状况的监听</span></span><br><span class="line">	[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reachabilityChanged:) name:kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//self.reachability = [Reachability reachabilityWithHostName:@"www.apple.com"];</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.reachability</span> = [Reachability reachabilityForInternetConnection];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 开始监听,会启动一个RunLoop</span></span><br><span class="line">	[<span class="keyword">self</span><span class="variable">.reachability</span> startNotifier]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * Called by Reachability whenever status changes.</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>) reachabilityChanged:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">     Reachability* curReach = [note object];</span><br><span class="line"></span><br><span class="line">     <span class="built_in">NSParameterAssert</span>([curReach isKindOfClass:[Reachability class]]);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 更新用户界面,或者在当前状态实现你想要的处理</span></span><br><span class="line">     [<span class="keyword">self</span> updateInterfaceWithReachability:curReach];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理连接改变后的情况</span></span><br><span class="line">- (<span class="keyword">void</span>)updateInterfaceWithReachability: (Reachability*)curReach</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 对连接改变做出响应的处理动作</span></span><br><span class="line">	NetworkStatus status=[curReach currentReachabilityStatus];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(status)&#123;</span><br><span class="line">		<span class="keyword">case</span> NotReachable: <span class="comment">// 没有连接到网络</span></span><br><span class="line">			<span class="built_in">UIAlertView</span> *alert= [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"xxxx"</span> message:<span class="string">@"NotReachable"</span></span><br><span class="line">                         delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"YES"</span> otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">        	alert show];</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWWAN: <span class="comment">// 使用3G网络</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> ReachableViaWiFi:  <span class="comment">// 使用WiFi网络 </span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否wifi</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnableWIFI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否3G</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>) IsEnable3G</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">	[[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</span><br><span class="line">	[<span class="keyword">self</span><span class="variable">.reachability</span> stopNotifier];</span><br><span class="line">	<span class="keyword">self</span><span class="variable">.reachability</span> = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="给要执行的方法设置参数">给要执行的方法设置参数</h4><ul>
+<li>使用setArgument:atIndex:方法给要执行的方法设置参数,注意下标从2开始,因为0、1已经被target与selector占用.设置参数,必须传递参数的地址,不能直接传值<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *arg1 = <span class="string">@"a"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *arg2 = <span class="string">@"b"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *arg3 = <span class="string">@"c"</span>;</span><br><span class="line">[invocation setArgument:&amp;arg1 atIndex:<span class="number">2</span>];</span><br><span class="line">[invocation setArgument:&amp;arg2 atIndex:<span class="number">3</span>];</span><br><span class="line">[invocation setArgument:&amp;arg3 atIndex:<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="执行方法">执行方法</h4><p><code>[invocation invoke];</code></p>
+<h4 id="获取执行方法的返回值">获取执行方法的返回值</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以在invoke方法前添加,也可以在invoke方法后添加</span></span><br><span class="line"><span class="comment">// 通过方法签名的methodReturnLength判断是否有返回值</span></span><br><span class="line"><span class="keyword">if</span> (signature<span class="variable">.methodReturnLength</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">id</span> *result = <span class="literal">nil</span>;</span><br><span class="line">    [invocation getReturnValue:&amp;result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为NSObject添加分类封装多个参数的方法调用">为NSObject添加分类封装多个参数的方法调用</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">Extension</span>)</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObjects:(<span class="built_in">NSArray</span> *)objects</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法签名(方法的描述)-哪个对象的哪个方法</span></span><br><span class="line">    <span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(signature == <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="comment">//@throw [NSException exceptionWithName:@"调用错误" reason:@"方法找不到" userInfo:nil];</span></span><br><span class="line">        [<span class="built_in">NSException</span> raise:<span class="string">@"调用错误"</span> format:<span class="string">@"%@方法找不到"</span>,<span class="built_in">NSStringFromSelector</span>(selector)];</span><br><span class="line">        <span class="comment">//return nil;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// NSInvocation: 利用一个NSInvocation对象包装一次方法调用(方法调用者、方法名、方法参数、方法返回值)</span></span><br><span class="line">    <span class="built_in">NSInvocation</span> *invocation = [<span class="built_in">NSInvocation</span> invocationWithMethodSignature:signature];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置参数</span></span><br><span class="line">    <span class="comment">// 除self、_cmd(方法本身)之外的参数个数</span></span><br><span class="line">    <span class="built_in">NSInteger</span> paramsCount = signature<span class="variable">.numberOfArguments</span>-<span class="number">2</span>;</span><br><span class="line">    paramsCount = MIN(paramsCount, objects<span class="variable">.count</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i=<span class="number">0</span>; i&lt;paramsCount; i++) &#123;</span><br><span class="line">        <span class="keyword">id</span> object = objects[i];</span><br><span class="line">        <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSNull</span> class]]) <span class="keyword">continue</span>;</span><br><span class="line">        [invocation setArgument:&amp;object atIndex:i+<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 谁来调用</span></span><br><span class="line">    invocation<span class="variable">.target</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用哪个方法</span></span><br><span class="line">    invocation<span class="variable">.selector</span> = selector;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用方法</span></span><br><span class="line">    [invocation invoke];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取返回值</span></span><br><span class="line">    <span class="keyword">id</span> returnValue = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 有返回值类型,才去获取返回值</span></span><br><span class="line">    <span class="keyword">if</span>(signature<span class="variable">.methodReturnLength</span>)&#123;</span><br><span class="line">        [invocation getReturnValue:&amp;returnValue];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> returnValue;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -324,18 +318,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/04/nsinvocation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          NSInvocation的使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/03/image_switch/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS实现图片轮播</div>
+    <a href="/2016/04/03/reachability/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS使用Reachability实时检测网络连接状况</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -364,7 +349,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="reachability" data-title="iOS使用Reachability实时检测网络连接状况" data-url="http://yoursite.com/2016/04/03/reachability/"></div>
+	<div class="ds-thread" data-thread-key="nsinvocation" data-title="NSInvocation的使用" data-url="http://yoursite.com/2016/04/04/nsinvocation/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
