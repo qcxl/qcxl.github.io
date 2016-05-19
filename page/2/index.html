@@ -250,6 +250,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-uiscrollview_common_feature" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/24/uiscrollview_common_feature/" class="article-date">
+  	<time datetime="2016-03-24T05:25:49.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/24/uiscrollview_common_feature/">UIScrollView常见功能</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="子控件悬停">子控件悬停</h3><ul>
+<li>获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上</li>
+</ul>
+<h3 id="下拉放大">下拉放大</h3><ul>
+<li>获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放 </li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/24/uiscrollview_common_feature/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ios_news" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -775,90 +834,6 @@
         <p class="article-more-link">
           <a  href="/2016/03/12/uiwindow/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-node_oauth" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/28/node_oauth/" class="article-date">
-  	<time datetime="2015-10-28T01:29:34.000Z" itemprop="datePublished">2015-10-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/28/node_oauth/">Node.js 使用OAuth2.0教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用第三方中间件实现OAuth2-0认证授权">使用第三方中间件实现OAuth2.0认证授权</h3><p><a href="https://github.com/thomseddon/node-oauth2-server" target="_blank" rel="external">node-oauth2-server</a></p>
-<ul>
-<li>使用Express构建项目<br><code>express -e OAuth2 &amp;&amp; cd OAuth2 &amp;&amp; npm install</code></li>
-<li>安装node-oauth2-server<br><code>npm install oauth2-server --save</code></li>
-<li>安装mongoose<br><code>npm install mongoose --save</code></li>
-<li>安装crypto<br><code>npm install crypto --save</code></li>
-</ul>
-<h3 id="复制model到项目models文件夹下">复制model到项目models文件夹下</h3><ul>
-<li>在项目目录下新建models文件夹</li>
-<li>复制<code>node-oauth2-server-master/examples/mongodb/model.js到OAuth2/models/</code> 下</li>
-<li>修改<code>model.js</code>文件,添加如下内容:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">model.OAuthUsersEntity = OAuthUsersModel;</span><br><span class="line">model.OAuthClientsEntity = OAuthClientsModel;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="插入测试数据">插入测试数据</h3><ul>
-<li>先将用户数据插入到OAuthUsers</li>
-<li>然后将client_id、client_secret、redirectUri(需要后端人员算法自行生成)插入到OAuthClients. 例如:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用户数据</span></span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> OAuthUsers(&#123;</span><br><span class="line">    username: req.body.name,</span><br><span class="line">    password: req.body.password,</span><br><span class="line">    firstname: req.body.firstname,</span><br><span class="line">    lastname: req.body.lastname,</span><br><span class="line">    email: req.body.email</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端数据</span></span><br><span class="line"><span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime().toString();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> md5 = crypto.createHash(<span class="string">'md5'</span>),</span><br><span class="line">    client_secret = md5.update(time).digest(<span class="string">'hex'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> OAuthClients(&#123;</span><br><span class="line">    clientId: client_id,</span><br><span class="line">    clientSecret: client_secret,</span><br><span class="line">    redirectUri: redirectUri</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//保存数据到mongodb</span></span><br><span class="line">user.save(callback);</span><br><span class="line">client.save(callback);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="处理授权请求">处理授权请求</h3><ul>
-<li><p>打开app.js添加如下内容</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oauthserver = <span class="built_in">require</span>(<span class="string">'oauth2-server'</span>);</span><br><span class="line">app.oauth = oauthserver(&#123;</span><br><span class="line">  model: <span class="built_in">require</span>(<span class="string">'./models/model'</span>),</span><br><span class="line">  grants: [<span class="string">'auth_code'</span>,<span class="string">'password'</span>,<span class="string">'refresh_token'</span>],</span><br><span class="line">  debug: <span class="literal">true</span>,</span><br><span class="line">  accessTokenLifetime: <span class="number">360</span>,</span><br><span class="line">  refreshTokenLifetime: <span class="number">3600</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.all(<span class="string">'/oauth/token'</span>, app.oauth.grant());</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>以提交表单的方式post数据到后台</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">请求头:</span><br><span class="line">Authorization: ("Basic " + client_id:client_secret base64'd) </span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">表单内容:</span><br><span class="line">grant_type=password&amp;username=johndoe&amp;password=A3ddj3w</span><br><span class="line"></span><br><span class="line">提交后:</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json;charset=UTF-8</span><br><span class="line">Cache-Control: no-store</span><br><span class="line">Pragma: no-cache</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  "access_token":"2YotnFZFEjr1zCsicMWpAA",</span><br><span class="line">  "token_type":"bearer",</span><br><span class="line">  "expires_in":3600,</span><br><span class="line">  "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="验证AccessToken">验证AccessToken</h3><ul>
-<li>在需要验证的路由上添加<code>app.oauth.authorise()</code>,例如评论接口:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">router.post(<span class="string">'/post_comments'</span>,app.oauth.authorise(),<span class="function"><span class="keyword">function</span>(<span class="params">error, req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">        <span class="comment">//处理错误</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="错误处理">错误处理</h3><ul>
-<li>可以使用<code>node-oauth2-server</code>提供的错误处理方法<br><code>app.use(app.oauth.errorHandler());</code></li>
-<li>或者自己在callback中处理</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>
