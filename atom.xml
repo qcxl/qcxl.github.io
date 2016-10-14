@@ -479,7 +479,7 @@ mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>�
     <link href="http://yoursite.com/2016/08/23/SDWebImage%20%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>http://yoursite.com/2016/08/23/SDWebImage 框架知识点/</id>
     <published>2016-08-23T02:57:36.000Z</published>
-    <updated>2016-10-14T12:15:02.000Z</updated>
+    <updated>2016-10-14T12:28:33.000Z</updated>
     <content type="html"><![CDATA[<h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
 <li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
 </ul>
@@ -487,6 +487,7 @@ mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>�
 <li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="检查图片是否有Alpha值">检查图片是否有Alpha值</h3><ul>
 <li><code>CGImageGetAlphaInfo</code><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageHasAlpha:(<span class="built_in">UIImage</span> *)image&#123;</span><br><span class="line">	<span class="keyword">int</span> alphaInfo = <span class="built_in">CGImageGetAlphaInfo</span>(image<span class="variable">.CGImage</span>);</span><br><span class="line">    <span class="built_in">BOOL</span> hasAlpha = !(alphaInfo == k<span class="built_in">CGImageAlphaNone</span> ||</span><br><span class="line">                      alphaInfo == k<span class="built_in">CGImageAlphaNoneSkipFirst</span> ||</span><br><span class="line">                      alphaInfo == k<span class="built_in">CGImageAlphaNoneSkipLast</span>);</span><br><span class="line">    <span class="keyword">return</span> hasAlpha;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -553,7 +554,11 @@ mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>�
     <![CDATA[<h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
 <li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
 </ul>
-<h3 id="检查缓]]>
+<h3 id="检查缓存文件是否是PNG图片">检查缓存文件是否是PNG图片</h3><ul>
+<li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
