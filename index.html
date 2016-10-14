@@ -430,102 +430,6 @@
 
 
   
-    <article id="post-AFNetworking 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/01/AFNetworking 框架知识点/" class="article-date">
-  	<time datetime="2016-09-01T06:18:12.000Z" itemprop="datePublished">2016-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: AFNetworking 框架知识点<br>date: 2016-07-21 09:16:36<br>tags:</p>
-<h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
-<ul>
-<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
-</li>
-<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
-</li>
-<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
-</li>
-<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount parent:(NSProgress *)parent pendingUnitCount:(int64_t)portionOfParentTotalUnitCount;</code> iOS9之后的新方法 创建某个进度指示器节点的子节点</p>
-</li>
-<li><p><code>- (instancetype)initWithParent:(nullable NSProgress *)parentProgressOrNil userInfo:(nullable NSDictionary *)userInfoOrNil;</code> NSProgress实例的初始化方法 自父节点参数可以为nil</p>
-</li>
-<li><p><code>- (void)becomeCurrentWithPendingUnitCount:(int64_t)unitCount</code> 注册为当前线程根节点</p>
-</li>
-<li><p><code>- (void)resignCurrent</code> 取消注册 与注册方法必须同步出现</p>
-</li>
-<li><p><code>- (void)addChild:(NSProgress *)child withPendingUnitCount:(int64_t)inUnitCount</code> iOS9新方法 向一个节点中添加一个子节点</p>
-</li>
-<li><p><code>@property int64_t totalUnitCount</code> 进度单元总数</p>
-</li>
-<li><p><code>@property int64_t completedUnitCount</code> 已完成的进度单元数</p>
-</li>
-<li><p><code>@property (readonly) double fractionCompleted</code> 为0-1之间的浮点值,为任务的完成比例 <code>[progress addObserver:self forKeyPath:@&quot;fractionCompleted&quot; options:NSKeyValueObservingOptionNew context:nil];</code></p>
-</li>
-<li><p><code>@property (null_resettable, copy) NSString *localizedDescription</code> 显示完后比例 如:10% completed</p>
-</li>
-<li><p><code>@property (null_resettable, copy) NSString *localizedAdditionalDescription</code> 完成数量 如:1 of 10</p>
-</li>
-<li><p><code>@property (getter=isCancellable) BOOL cancellable</code> 是否可取消</p>
-</li>
-<li><p><code>@property (getter=isPausable) BOOL pausable</code> 是否可暂停</p>
-</li>
-<li><p><code>- (void)cancel</code> 取消</p>
-</li>
-<li><p><code>- (void)pause</code> 暂停</p>
-</li>
-<li><p><code>- (void)resume</code> 恢复</p>
-</li>
-</ul>
-<h3 id="关于NSProgress对象的用户配置字典">关于NSProgress对象的用户配置字典</h3><hr>
-<ul>
-<li><p><code>[progress setUserInfoObject:@10 forKey:NSProgressEstimatedTimeRemainingKey];</code> 设置剩余时间 会影响localizedAdditionalDescription的值 例如:0 of 10 — About 10 seconds remaining</p>
-</li>
-<li><p><code>[progress setUserInfoObject:@15 forKey:NSProgressThroughputKey];</code> 设置完成速度信息 会影响localizedAdditionalDescription的值 例如:Zero KB of 10 bytes (15 bytes/sec)</p>
-</li>
-<li><p>NSProgressFileOperationKindKey键对应的是提示文字类型 会影响localizedDescription的值<br>下面这些键值的生效 必须将NSProgress对象的kind属性设置为 NSProgressKindFile<br>NSProgressFileOperationKindKey可选的对应值如下:<br>NSProgressFileOperationKindDownloading: 显示Downloading files…<br>NSProgressFileOperationKindDecompressingAfterDownloading： 显示Decompressing files…<br>NSProgressFileOperationKindReceiving: 显示Receiving files…<br>NSProgressFileOperationKindCopying: 显示Copying files…<br><code>[progress setUserInfoObject:NSProgressFileOperationKindDownloading forKey:NSProgressFileOperationKindKey];</code></p>
-</li>
-<li><p><code>NSString *const NSProgressFileTotalCountKey</code> 键设置显示的文件总数 例如: Copying 100 files… <code>[progress setUserInfoObject:@100 forKey:NSProgressFileTotalCountKey];</code></p>
-</li>
-<li><p><code>NSString *const NSProgressFileCompletedCountKey</code> 键设置显示的文件已完成的数量 <code>[progress setUserInfoObject:@1 forKey:NSProgressFileCompletedCountKey];</code></p>
-</li>
-</ul>
-<blockquote>
-<p><a href="http://my.oschina.net/u/2340880/blog/679367" target="_blank" rel="external">备注来源</a></p>
-</blockquote>
-<h3 id="NSSortDescriptor排序">NSSortDescriptor排序</h3><p>NSSortDescriptor可以实现按照对象的属性进行排序。比如我们有一个对象（People）。People有两个属性分别是名字（name）和年龄（age）。现在我们要按照People的年龄（age）来进行排序。<br><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按年龄排序</span></span><br><span class="line"><span class="comment">//这样是按照年龄的降序进行排序。如果想升序的话将NO改为YES即可</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptor = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_age"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptor, <span class="literal">nil</span>];</span><br><span class="line">[arrayPeople sortUsingDescriptors:sortDescriptors];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//按姓名排序</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptorName = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_name"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptorName, <span class="literal">nil</span>];</span><br><span class="line">[arrayPeople sortUsingDescriptors:sortDescriptors];</span><br><span class="line"></span><br><span class="line"><span class="comment">//按年龄和名字排序</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptor = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_age"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptorName = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_name"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptor, sortDescriptorName, <span class="literal">nil</span>];</span><br><span class="line">[_mutArrVideo sortUsingDescriptors:sortDescriptors];</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-MJRefresh框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -688,6 +592,68 @@
       
       
 
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-AFNetworking 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/21/AFNetworking 框架知识点/" class="article-date">
+  	<time datetime="2016-07-21T01:16:36.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/21/AFNetworking 框架知识点/">AFNetworking 框架知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
+<ul>
+<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
+</li>
+<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
+</li>
+<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/21/AFNetworking 框架知识点/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
