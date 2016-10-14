@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-05-18T14:42:50.000Z</updated>
+  <updated>2016-10-14T12:17:02.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -16,11 +16,627 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Python包管理工具的安装和爬虫学习]]></title>
+    <link href="http://yoursite.com/2016/09/25/python_scrapy_study/"/>
+    <id>http://yoursite.com/2016/09/25/python_scrapy_study/</id>
+    <published>2016-09-25T01:28:11.000Z</published>
+    <updated>2016-10-14T12:17:02.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="pip简介"><a href="https://pypi.python.org/pypi/pip" target="_blank" rel="external">pip</a>简介</h4><ul>
+<li><code>pip</code>是一个安装和管理Python包的工具,是<code>easy_install</code>的一个替换品.<code>pip</code>的目标非常明确 – 取代<code>easy_install</code>. easy_install有很多不足:<ul>
+<li>安装事务是非原子操作</li>
+<li>只支持svn</li>
+<li>没有提供卸载命令</li>
+<li>安装一系列包时需要写脚本</li>
+</ul>
+</li>
+<li>pip使用<a href="http://pip.readthedocs.io/en/latest/" target="_blank" rel="external">帮助文档</a></li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>pip使用<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">pip install Scrapy</span><br><span class="line"><span class="comment"># 通过使用==, &gt;=, &lt;=, &gt;, &lt;来指定一个版本号。</span></span><br><span class="line">$ pip install <span class="string">'Markdown&lt;2.0'</span></span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">pip uninstall Scrapy</span><br><span class="line"><span class="comment"># 升级包</span></span><br><span class="line">pip install --upgrade Scrapy</span><br><span class="line">pip install -U Scrapy</span><br><span class="line"><span class="comment"># 查询包</span></span><br><span class="line">pip search <span class="string">"Markdown"</span></span><br><span class="line"><span class="comment"># 列出已安装包</span></span><br><span class="line">pip freeze</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="卸载pip">卸载<a href="https://pypi.python.org/pypi/pip" target="_blank" rel="external">pip</a></h4><ul>
+<li>如果是通过<code>easy_install pip</code> 安装的pip 有可能会提示你更新pip,然后使用<code>pip install --upgrade pip</code>或者<code>pip install -U pip</code>会出现安装失败,提示你先卸载pip,这个时候可以使用下面的命令<code>sudo pip uninstall pip</code>先卸载pip然后再安装</li>
+</ul>
+<h4 id="安装pip">安装<a href="https://pypi.python.org/pypi/pip" target="_blank" rel="external">pip</a></h4><ul>
+<li>下载<a href="https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz#md5=87083c0b9867963b29f7aba3613e8f4a" target="_blank" rel="external">pip-8.1.2.tar.gz (md5, pgp)</a>源码包,然后解压文件并进入<code>pip-8.1.2</code>目录,使用<code>sudo python setup.py install</code>安装.</li>
+</ul>
+<h4 id="安装setuptool">安装<a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">setuptool</a></h4><blockquote>
+<p>easy_install是setuptools自带的安装脚本,也就是一旦setuptools安装完毕,easy_install也便可用.最大的特点是自动查找Python 官方维护的包源PyPI,安装第三方Python包非常方便</p>
+<ul>
+<li>通过curl下载安装<code>curl https://bootstrap.pypa.io/ez_setup.py -o - | python</code></li>
+<li>easy_install 使用<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">easy_install Scrapy</span><br><span class="line"><span class="comment"># 卸载包</span></span><br><span class="line">easy_install -m Scrapy</span><br><span class="line"><span class="comment"># 升级包</span></span><br><span class="line">easy_install --upgrade Scrapy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h4 id="安装BeautifulSoup">安装<a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank" rel="external">BeautifulSoup</a></h4><ul>
+<li>通过<code>pip install beautifulsoup4</code>来安装</li>
+</ul>
+<h4 id="安装PhantomJS">安装<a href="http://phantomjs.org/quick-start.html" target="_blank" rel="external">PhantomJS</a></h4><blockquote>
+<p>PhantomJS 是一个基于 WebKit 的服务器端 JavaScript API。它全面支持web而不需浏览器支持，其快速、原生支持各种Web标准：DOM 处理、CSS 选择器、JSON、Canvas 和 SVG。 PhantomJS 可以用于页面自动化、网络监测、网页截屏以及无界面测试等。</p>
+</blockquote>
+<ul>
+<li>brew install phantomjs</li>
+</ul>
+<h4 id="安装PySpider">安装<a href="http://docs.pyspider.org/en/latest/" target="_blank" rel="external">PySpider</a></h4><blockquote>
+<p><a href="http://www.pyspider.cn/" target="_blank" rel="external">pyspider中文网</a></p>
+</blockquote>
+<ul>
+<li>直接利用 pip 安装即可 <code>sudo pip install pyspider</code></li>
+<li>如果安装过程中出现<code>error: could not create &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/share&#39;: Operation not permitted</code> 有一个方法,关机.开机前按着 <code>cmd键 + R</code> ,会进入一个 恢复模式. 在菜单栏 有一个选项:”终端”.进入终端后,输入 <code>csrutil disable</code> . 这样就关闭了OSX10.11的目录写入权限验证. 重启电脑,你会发现上述目录不再提示权限不足.剩下按照报错提示操作.要回复安全机制,同理回到之前的模式,然后输入 <code>csrutil enable</code></li>
+<li>安装过程中可能缺少一些包,<a href="https://pypi.python.org/pypi" target="_blank" rel="external">打开</a>并搜索安装需要的包</li>
+<li>最后执行<code>pyspider all</code>如果没有出错说明运行成功了,然后浏览器访问<code>http://localhost:5000</code>.</li>
+</ul>
+<h4 id="运行PySpider可能出现的问题">运行<a href="http://docs.pyspider.org/en/latest/" target="_blank" rel="external">PySpider</a>可能出现的问题</h4><ul>
+<li>在终端中输入<code>pyspider all</code> 有可能会出现 <code>ImportError: No module named xmlrpc_server</code> 这个是因为你使用的是Python 2.7的问题,six 中的xmlrpc_server模块需要 Python3才能使用,解决办法:将Python切换到Python3之后,重新运行就不会报这个错了.如果当前已经是Python3还是存在这个问题可以尝试升级一下six库: <code>pip install -U six</code></li>
+</ul>
+<h4 id="Mac_OS_X_下_Python多版本共存">Mac OS X 下 Python多版本共存</h4><ul>
+<li>安装pyenv.<code>brew install pyenv</code></li>
+<li>然后使用<code>open -e ~/.bash_profile</code>打开.bash_profile文件,加入<code>eval &quot;$(pyenv init -)&quot;</code></li>
+<li>最后执行<code>source ~/.bash_profile</code></li>
+<li>查看 Python 安装路径: <code>which python</code></li>
+</ul>
+<h5 id="使用_pyenv_安装_Python_的其他版本">使用 pyenv 安装 Python 的其他版本</h5><ul>
+<li>查看能安裝的版本 <code>pyenv install --list</code></li>
+<li>使用 pyenv 安装 Python 3.5.2:<code>pyenv install 3.5.2 -v</code></li>
+<li>安装完成后,更新数据库 <code>pyenv rehash</code></li>
+<li>查看目前系统已安装的 Python 版本: <code>pyenv versions</code>.其中显示的<code>*</code>表示系统当前正在使用的版本</li>
+<li>切换 Python 版本:<code>pyenv global 3.5.2</code></li>
+<li>运行 Python,确认 Python 版本:<code>python --version</code></li>
+<li>将 Python 切换回 2.7.10:<code>pyenv global 2.7.10</code></li>
+<li>设置局部 Python 版本:<code>pyenv local &lt;python版本&gt;</code></li>
+</ul>
+<h5 id="查看路径">查看路径</h5><ul>
+<li>在终端中输入:<code>echo $PATH</code> 接下來就会看到一串类似这样的東西 <code>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</code> , 分号 (:) 是分隔的意思,所以當你在 terminal 裡面輸入 brew 时系统就会开始从 /usr/bin 找起,如果在 /usr/bin 里面找不到的话<br>就会往下一个 /bin 去搜寻,以此类推</li>
+<li><p>我们可以使用命令调整搜寻顺序: <code>sudo emacs /etc/paths</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">control + k：把一行字剪下來</span><br><span class="line">control + y：粘贴</span><br><span class="line">control + x + s：保存</span><br><span class="line">control + x + c：关掉 emacs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整好后,再打一次<code>echo $PATH</code>发现没有变更,需要开一个新的terminal才会看到调整后的内容</p>
+</li>
+</ul>
+<h4 id="安装Scrapy">安装Scrapy</h4><ul>
+<li><code>sudo -H pip install -U Scrapy</code></li>
+</ul>
+<h4 id="Scrapy的简单使用">Scrapy的简单使用</h4><ul>
+<li>新建Scrapy项目: <code>scrapy startproject 项目名称</code></li>
+<li><p>在当前项目中创建Spider: <code>cd 项目名称</code>、<code>scrapy genspider [-t template] &lt;name&gt; &lt;domain&gt;</code></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">-t 为使用的模板名称</span><br><span class="line">name spider名称</span><br><span class="line">domain 要爬取的网站域名</span><br><span class="line"></span><br><span class="line">查看可供使用的模板:</span><br><span class="line">scrapy genspider -l</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line">Available templates:</span><br><span class="line">  basic</span><br><span class="line">  crawl</span><br><span class="line">  csvfeed</span><br><span class="line">  xmlfeed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看使用指定模板生成的spider:</span><br><span class="line">scrapy genspider -d basic</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line">class $classname(scrapy.Spider):</span><br><span class="line">    name = "$name"</span><br><span class="line">    allowed_domains = ["$domain"]</span><br><span class="line">    start_urls = (</span><br><span class="line">        'http://www.$domain/',</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">scrapy genspider -t basic example example.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前项目有哪些spider: <code>scrapy list</code></p>
+</li>
+<li>运行某个spider: <code>scrapy crawl name_spider</code></li>
+<li>将爬取到的内容以json格式保存到文件: <code>scrapy crawl name_spider -o name.json -t json</code></li>
+<li>查看scrapy中的组件版本: <code>scrapy version -v</code></li>
+<li>查看页面源码在浏览器中显示的样子: <code>scrapy view 网址</code></li>
+<li>用来测试在工程中使用固定的parse函数解析某个页面是否存在问题: <code>scrapy parse 网址</code></li>
+<li>用shell来调试数据、检测xpath、查看页面源码,等等: <code>scrapy shell 网址</code></li>
+<li>运行自包含的爬虫: <code>scrapy runspider stackoverflow_spider.py</code></li>
+<li>执行一个基准测试: <code>scrapy bench</code> 可用来检测scrapy是否安装成功</li>
+</ul>
+<h5 id="基类(scrapy-Spider)介绍">基类(scrapy.Spider)介绍</h5><ul>
+<li>属性:<ul>
+<li>name: spider的名称,要求唯一 </li>
+<li>allowed_domains: 允许的域名</li>
+<li>start_urls: 初始urls</li>
+<li>custom_settings: 个性化配置,会覆盖全局的设置</li>
+<li>crawler: 抓取器,spider将绑定在它上面</li>
+<li>settings: 配置实例,包含工程中所有的配置变量</li>
+<li>logger: 日志实例</li>
+</ul>
+</li>
+<li>方法:<ul>
+<li>from_crawler(cls, crawler, <em>args, *</em>kwargs): 类方法,用来创建spiders</li>
+<li>start_requests(): 生成初始化的requests</li>
+<li>make_requests_from_url(url): 根据url生成一个request</li>
+<li>parse(response): 用来解析网页内容</li>
+<li>log(self, message, level=logging.DEBUG, **kw): 用来记录日志,这里请使用logger属性来记录日志self.logger.info(“xxx”)</li>
+<li>close(spider, reason): 当spider关闭的时候调用的方法</li>
+</ul>
+</li>
+</ul>
+<h5 id="Spider子类介绍">Spider子类介绍</h5><ul>
+<li>CrawlSpider: 最常用的spider,用于抓取普通的网页.增加了两个成员:<ul>
+<li>rules: 定义了一些抓取的规则—连接怎么跟踪、使用哪一个parse函数解析此连接</li>
+<li>parse_start_url(response): 解析初始化url的响应</li>
+</ul>
+</li>
+<li>XMLFeedSpider</li>
+<li>CSVFeedSpider</li>
+<li>SitemapSpider</li>
+</ul>
+<h5 id="网页内容抽取器Selector">网页内容抽取器Selector</h5><ul>
+<li>用来解析网页的库有很多,比如beautifulsoup、lxml,但在scrapy里面默认使用的是selector,相对来说也是最好用的</li>
+<li><p>基本使用:</p>
+<ul>
+<li><p>实例化: </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.selector <span class="keyword">import</span> Selector</span><br><span class="line"><span class="keyword">from</span> scrapy.http <span class="keyword">import</span> HtmlResponse</span><br><span class="line"></span><br><span class="line">方式一:</span><br><span class="line">body = <span class="string">'&lt;html&gt;&lt;body&gt;&lt;span&gt;good&lt;/span&gt;&lt;/body&gt;&lt;/html&gt;'</span> </span><br><span class="line">Selector(text=body).xpath(<span class="string">'//span/text()'</span>).extract()</span><br><span class="line"></span><br><span class="line">方式二:</span><br><span class="line">response = HtmlResponse(url=<span class="string">'http://example.com'</span>,body=body)</span><br><span class="line">Selector(response=response).xpath(<span class="string">'//span/text()'</span>).extract()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法: xpath、css、re、extract</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="XPath知识点">XPath知识点</h4><ul>
+<li>对于要一次同时提取几个标签里的文本,可以采用如下形式:<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;div id="test-1"&gt;需要的内容1&lt;/div&gt;</span><br><span class="line">&lt;div id="test-2"&gt;需要的内容2&lt;/div&gt;</span><br><span class="line">&lt;div id="testfault"&gt;需要的内容3&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">contents = Selector(response).xpath('//div[start-with(@id,'test')]/text()').extract()</span><br><span class="line">for content in contents:</span><br><span class="line">	print(content)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="pip简介"><a href="https://pypi.python.org/pypi/pip">pip</a>简介</h4><ul>
+<li><code>pip</code>是一个安装和管理Python包的工具,是<code>easy_install</code>的一个替换品.<code>pip</code>的目标非常明确 – 取代<code>easy_install</code>. easy_install有很多不足:<ul>
+<li>安装事务是非原子操作</li>
+<li>只支持svn</li>
+<li>没有提供卸载命令</li>
+<li>安装一系列包时需要写脚本</li>
+</ul>
+</li>
+<li>pip使用<a href="http://pip.readthedocs.io/en/latest/">帮助文档</a></li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[汇编语言学习]]></title>
+    <link href="http://yoursite.com/2016/09/10/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2016/09/10/汇编语言学习/</id>
+    <published>2016-09-10T01:28:11.000Z</published>
+    <updated>2016-10-14T12:16:36.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
+<li>下载<a href="https://www.dosbox.com/" target="_blank" rel="external">DOSBOX</a></li>
+<li>下载debug.exe程序到Mac</li>
+<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
+</ul>
+<a id="more"></a>
+<h4 id="寄存器">寄存器</h4><ul>
+<li>AX、BX、CX、DX是通用寄存器</li>
+<li>它们有分成AH、AL…</li>
+<li>它们是用来存储数据的</li>
+</ul>
+<h5 id="地址加法器工作原理">地址加法器工作原理</h5><ul>
+<li>8086CPU外部提供了20根地址总线,而CPU内部由于技术的问题只能提供16位的地址那怎么办呢? 它提供了血汗工厂:地址加法器,将2个16位的地址最后合成一个20位的地址.</li>
+<li>地址加法器合成物理地址的方法:<code>物理地址 = 段地址 * 16 + 偏移地址</code> 其中段地址存储在段寄存器中,8086CPU有4个段寄存器:CS、DS、SS、ES.</li>
+<li>段地址乘以16相当于向左移一位.例如对于十进制数:<code>3 * 10 = 30</code> 向左移一位</li>
+<li>1个16进制的数代表4个二进制的位</li>
+<li><code>段地址 * 16</code> 有一个更为常用的说法就是数据左移4位.(二进制位)</li>
+<li>一个数据的二进制形式左移1位,相当于该数乘以2;</li>
+<li>一个数据的二进制形式左移N位,相当于该数据乘以2的N次方;</li>
+<li>一个数据的十六进制形式左移1位,相当于乘以16;</li>
+<li>一个数据的十进制形式左移1位,相当于乘以10;</li>
+<li>一个数据的X进制形式左移1位,相当于乘以X;</li>
+</ul>
+<!--more-->
+<h4 id="段的概念">段的概念</h4><ul>
+<li>内存并没有分段,段的划分来自于CPU,由于8086CPU用<code>物理地址 = 段地址 * 16 + 偏移地址</code>的方式给出内存单元的物理地址,使得我们可以用分段的方式来管理内存.</li>
+<li><code>段地址 *  16</code>必然是16的倍数,所以一个段的起始地址也一定是16的倍数;</li>
+<li>偏移地址为16位,16位地址的寻址能力为64K,所以一个段的长度最大为64K.</li>
+<li>CPU可以用不同的段地址和偏移地址形成同一个物理地址</li>
+<li>偏移地址16位,变化范围为0~FFFFH,仅用偏移地址来寻址最多可寻64K个内存单元</li>
+<li>比如:给定段地址1000H,用偏移地址寻址,CPU的寻址范围为:10000H~1FFFFH.</li>
+<li>在8086PC机中,存储单元的地址用两个元素来描述.即段地址和偏移地址.</li>
+<li>可根据需要,将地址连续、起始地址为16的倍数的一组内存单元定义为一个段</li>
+</ul>
+<h4 id="段寄存器">段寄存器</h4><ul>
+<li>段寄存器就是提供段地址的.<br>8086CPU有4个段寄存器:CS、DS、SS、ES</li>
+<li>当有8086CPU需要访问内存时,由这4个段寄存器提供内存单元的段地址.</li>
+<li>CS是Code Segement是代码段地址寄存器</li>
+<li>DS是Data Segement是数据段地址寄存器</li>
+<li>SS是Stack Segement是堆栈段地址寄存器</li>
+<li>ES是附加段地址寄存器</li>
+<li>CS和IP是8086CPU中最关键的寄存器,它们指示了CPU当前要读取指令的地址</li>
+<li>IP为指令指针寄存器</li>
+</ul>
+<h4 id="8086CPU工作过程的简要描述">8086CPU工作过程的简要描述</h4><ul>
+<li>从CS:IP指向内存单元读取指令,读取的指令进入指令缓冲器;</li>
+<li>IP = IP + 所读取指令的长度,从而指向下一条指令;</li>
+<li>执行指令.转到步骤 1 ,重复这个过程.</li>
+</ul>
+<h4 id="8086CPU工作过程的简要描述-1">8086CPU工作过程的简要描述</h4><ul>
+<li>在8086CPU加电启动或复位后(即CPU刚开始工作时)CS和IP被设置为CS = FFFFH,IP = 0000H.</li>
+<li>即在8086PC机刚启动时,CPU从内存FFFF0H单元中读取指令执行.</li>
+<li>FFFF0H单元中的指令是8086PC机开机后执行的第一条指令.</li>
+</ul>
+<h4 id="CS和IP">CS和IP</h4><ul>
+<li>在任何时候,CPU将CS、IP的内容当作指令的段地址和偏移地址,用它们合成指令的物理地址,到内存中读取指令码,执行.</li>
+<li>如果说,内存中的一段信息曾被CPU执行过的话,那么,它所在的内存单元必然被CS:IP指向过.</li>
+</ul>
+<h4 id="修改CS、IP的指令">修改CS、IP的指令</h4><ul>
+<li>在CPU中,程序员能够用指令读写的部件只有寄存器,程序员可以通过改变寄存器中的内容实现对CPU的控制</li>
+<li>CPU从何处执行指令是有CS、IP中的内容来控制CPU执行目标指令.</li>
+</ul>
+<h4 id="如何修改AX中的值">如何修改AX中的值</h4><ul>
+<li>mov 指令</li>
+<li>如: mov ax,123</li>
+<li>mov 指令可以改变8086CPU大部分寄存器的值,被称为传送指令</li>
+</ul>
+<h4 id="修改CS、IP的指令-1">修改CS、IP的指令</h4><ul>
+<li>mov指令不能用于设置CS、IP的值,8086CPU没有提供这样的功能</li>
+<li>8086CPU为CS、IP提供了另外的指令来改变它们的值:转移指令</li>
+<li>同时修改CS、IP的内容:jmp 段地址 : 偏移地址</li>
+<li>jmp 2AE3:3 (最后的地址为2AE33H)   jmp 3:0B16 (最后的地址为00B46H)</li>
+<li>功能:用指令中给出的段地址修改CS,偏移地址修改IP</li>
+<li>仅修改IP的内容: jmp 某一合法寄存器  </li>
+<li>jmp ax (类似于 mov IP,ax) 、jmp bx</li>
+<li>功能:用寄存器中的值修改IP</li>
+</ul>
+<h4 id="代码段">代码段</h4><ul>
+<li>对于8086PC机,在编程时,可以根据需要,将一组内存单元定义为一个段.</li>
+<li>可以将长度为N(N&lt;=64KB)的一组代码,存在一组地址连续、起始地址为16的倍数的内存单元中,这段内存是用来存放代码的,从而定义了一个代码段</li>
+<li>CPU只能被CS:IP指向的内存单元中的内容为指令</li>
+<li>所以要将CS:IP指向所定义的代码段中的第一条指令的首地址.</li>
+</ul>
+<h4 id="DEBUG">DEBUG</h4><ul>
+<li>R命令查看、改变CPU寄存器的内容</li>
+<li>D命令查看内存中的内容</li>
+<li>E命令改写内存中的内容</li>
+<li>U命令将内存中的机器指令翻译成汇编指令</li>
+<li>T命令执行一条机器指令</li>
+<li>A命令以汇编指令的格式在内存中写入一条机器指令<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">e <span class="number">1000</span>:<span class="number">0</span> <span class="number">23</span> <span class="number">11</span> <span class="number">22</span> <span class="number">66</span> -&gt; 向<span class="number">10000</span>H内存单元地址中写入 <span class="number">23</span> <span class="number">11</span> <span class="number">22</span> <span class="number">66</span></span><br><span class="line">d <span class="number">1000</span>:<span class="number">0</span> -&gt; 查看<span class="number">10000</span>H内存单元地址中写入的数据</span><br><span class="line">r 查看CPU寄存器的内容</span><br><span class="line">a <span class="number">073</span>f:<span class="number">011</span>a -&gt; 开始往<span class="number">0750</span>a中写入代码</span><br><span class="line">mov ax,<span class="number">1000</span></span><br><span class="line">mov ds,ax</span><br><span class="line">mov ax,[<span class="number">0</span>]</span><br><span class="line">mov bx,[<span class="number">2</span>]</span><br><span class="line">mov cx,[<span class="number">1</span>]</span><br><span class="line">add bx,[<span class="number">1</span>]</span><br><span class="line">add cx,[<span class="number">2</span>]</span><br><span class="line">t 单步执行汇编指令直到执行结束查看每一步执行时 ax、ds等的变化</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="DS和[address]">DS和[address]</h4><ul>
+<li>mov 指令的格式: mov 寄存器名,内存单元地址</li>
+<li>“[…]” 表示一个内存单元,”[…]”中的0表示内存单元的偏移地址.</li>
+<li>执行指令时,8086CPU自动取DS中的数据为内存单元的段地址.</li>
+<li>如何用mov指令从10000H中读取数据?<ul>
+<li>mov bx,1000H -&gt; mov ds,bx -&gt; mov al,[0]</li>
+<li>10000H表示为1000:0(段地址:偏移地址)</li>
+<li>将段地址1000H放入ds</li>
+<li>用mov al,[0]完成传送(mov指令中的[]说明操作对象是一个内存单元,[]中的0说明这个内存单元的偏移地址是0,它的段地址默认放在ds中)</li>
+</ul>
+</li>
+<li>如何把1000H送入ds?    </li>
+<li>8086CPU不支持将数据直接送入段寄存器的操作,ds是一个段寄存器.</li>
+<li>mov ds,1000H是非法的.</li>
+<li>数据 -&gt; 通用寄存器 -&gt; 段寄存器</li>
+<li>怎样将数据从寄存器送入内存单元?<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">move bx,<span class="number">1000</span>H</span><br><span class="line">move ds,bx</span><br><span class="line">move [<span class="number">0</span>],a1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="值的传送">值的传送</h4><ul>
+<li>因为8086CPU是16位结构,有16根数据线,所以,可以一次性传送16位的数据,也就是一次性传送一个字.</li>
+<li>比如:<pre><code class="objc">mov bx,<span class="number">1000</span>H
+mov ds,bx
+mov ax,[<span class="number">0</span>]  <span class="number">1000</span>:<span class="number">0</span>处的字型数据送入ax
+mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>位数据送到<span class="number">1000</span>:<span class="number">0</span>处
+</code></pre>
+</li>
+</ul>
+<h4 id="CPU提供的栈机制">CPU提供的栈机制</h4><ul>
+<li>8086CPU提供入栈和出栈指令:<ul>
+<li>PUSH (入栈)</li>
+<li>POP (出栈)</li>
+</ul>
+</li>
+<li>push ax: 将寄存器ax中的数据送人栈中</li>
+<li>pop ax: 从栈顶取出数据送人ax</li>
+<li>8086CPU的入栈和出栈操作都是以字为单位进行的</li>
+<li>8086CPU中,有两个寄存器:<ul>
+<li>段寄存器SS 存放栈顶的段地址</li>
+<li>寄存器SP 存放栈顶的偏移地址</li>
+</ul>
+</li>
+<li>任意时刻,SS:SP指向栈顶元素.</li>
+</ul>
+<h4 id="push指令的执行过程">push指令的执行过程</h4><ul>
+<li>push ax<ul>
+<li>SP = SP - 2</li>
+<li>将ax中的内容送人SS:SP指向的内存单元处,SS:SP此时指向新栈顶.</li>
+</ul>
+</li>
+<li>任意时刻,SS:SP指向栈顶元素,当栈为空的时候,栈中没有元素,也就不存在栈顶元素</li>
+<li>所以SS:SP只能指向栈的最底部单元下面的单元,该单元的偏移地址为栈最底部的字单元的偏移地址+2</li>
+<li>栈最底部字单元的地址为1000:000E,所以栈空时,SP=0010H。</li>
+</ul>
+<h4 id="pop指令的执行过程">pop指令的执行过程</h4><ul>
+<li>pop ax<ul>
+<li>将SS:SP指向的内存单元处的数据送人ax中</li>
+<li>SP = SP + 2, SS:SP指向当前栈顶下面的单元,以当前栈顶下面的单元为新的栈顶</li>
+</ul>
+</li>
+</ul>
+<h4 id="push、pop指令">push、pop指令</h4><ul>
+<li>push和pop指令是可以在寄存器和内存之间传送数据的</li>
+<li>push 寄存器 : 将一个寄存器中的数据入栈</li>
+<li>pop 寄存器  : 用一个寄存器接收出栈的数据</li>
+<li>push 段寄存器 : 将一个段寄存器中的数据入栈</li>
+<li>pop 段寄存器 : 出栈,用一个段寄存器接收出栈的数据</li>
+<li>push 内存单元 : 讲一个内存单元处的字入栈(栈操作都是以字为单位)</li>
+<li>pop 内存单元 : 出栈,用一个内存字单元接收出栈的数据</li>
+<li>指令执行时,CPU要知道内存单元的地址,可以在push、pop指令中给出内存单元的偏移地址,段地址在指令执行时,CPU从ds中取得.</li>
+</ul>
+<h4 id="栈与内存">栈与内存</h4><ul>
+<li>栈空间当然也是内存空间的一部分,它只是一段可以以一种特殊的方式进行访问的内存空间</li>
+<li>push、pop实质上就是一种内存传送指令,可以在寄存器和内存之间传送数据,与mov指令不同的是,push和pop指令访问的内存单元的地址不是指令中给出的,而是由SS:SP指出的.</li>
+<li>同时,push和pop指令还要改变SP中的内容</li>
+<li>执行push时 先改变SP,然后向SS:SP处传送.</li>
+<li>执行pop时    先读取SS:SP处的数据,然后改变SP.</li>
+<li>push、pop等栈操作指令,修改的只是SP也就是说,栈顶的变化范围最大为:0~FFFFH.因为SP存放的也是16位,所以最大值是FFFFH,2的16次方 = 65536,65536/1024 = 64KB,最大存储64KB的数据</li>
+</ul>
+<h4 id="定义一个段">定义一个段</h4>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
+<li>下载<a href="https://www.dosbox.com/">DOSBOX</a></li>
+<li>下载debug.exe程序到Mac</li>
+<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS逆向学习]]></title>
+    <link href="http://yoursite.com/2016/09/05/iOS%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2016/09/05/iOS逆向学习/</id>
+    <published>2016-09-05T01:28:11.000Z</published>
+    <updated>2016-10-14T12:18:34.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="当Mac_OSX_10-11的/usr/bin目录不可写之后,class-dump应该何处安家?">当Mac OSX 10.11的/usr/bin目录不可写之后,class-dump应该何处安家?</h4><ul>
+<li>打开Terminal,输入mkdir ~/bin,在当前用户根目录下创建一个bin目录;</li>
+<li>把class-dump给拷贝到这个目录里,并赋予其可执行权限:mv /path/to/class-dump ~/bin; chmod +x ~/bin/class-dump;</li>
+<li>打开~/.bash_profile文件:vi ~/.bash_profile,在文件最上方加一行:export PATH=$HOME/bin/:$PATH,然后保存并退出,然后输入wq,回车即可;</li>
+<li>在Terminal中执行source ~/.bash_profile;</li>
+</ul>
+<a id="more"></a>
+<h4 id="使用方法">使用方法</h4><ul>
+<li>class-dump -H 要破解的可执行文件路径 -o 破解后的头文件存放路径</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="当Mac_OSX_10-11的/usr/bin目录不可写之后,class-dump应该何处安家?">当Mac OSX 10.11的/usr/bin目录不可写之后,class-dump应该何处安家?</h4><ul>
+<li>打开Terminal,输入mkdir ~/bin,在当前用户根目录下创建一个bin目录;</li>
+<li>把class-dump给拷贝到这个目录里,并赋予其可执行权限:mv /path/to/class-dump ~/bin; chmod +x ~/bin/class-dump;</li>
+<li>打开~/.bash_profile文件:vi ~/.bash_profile,在文件最上方加一行:export PATH=$HOME/bin/:$PATH,然后保存并退出,然后输入wq,回车即可;</li>
+<li>在Terminal中执行source ~/.bash_profile;</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/09/01/AFNetworking%20%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/2016/09/01/AFNetworking 框架知识点/</id>
+    <published>2016-09-01T06:18:12.000Z</published>
+    <updated>2016-09-01T06:18:12.000Z</updated>
+    <content type="html"><![CDATA[<p>title: AFNetworking 框架知识点<br>date: 2016-07-21 09:16:36<br>tags:</p>
+<h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
+<ul>
+<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
+</li>
+<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
+</li>
+<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
+</li>
+<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount parent:(NSProgress *)parent pendingUnitCount:(int64_t)portionOfParentTotalUnitCount;</code> iOS9之后的新方法 创建某个进度指示器节点的子节点</p>
+</li>
+<li><p><code>- (instancetype)initWithParent:(nullable NSProgress *)parentProgressOrNil userInfo:(nullable NSDictionary *)userInfoOrNil;</code> NSProgress实例的初始化方法 自父节点参数可以为nil</p>
+</li>
+<li><p><code>- (void)becomeCurrentWithPendingUnitCount:(int64_t)unitCount</code> 注册为当前线程根节点</p>
+</li>
+<li><p><code>- (void)resignCurrent</code> 取消注册 与注册方法必须同步出现</p>
+</li>
+<li><p><code>- (void)addChild:(NSProgress *)child withPendingUnitCount:(int64_t)inUnitCount</code> iOS9新方法 向一个节点中添加一个子节点</p>
+</li>
+<li><p><code>@property int64_t totalUnitCount</code> 进度单元总数</p>
+</li>
+<li><p><code>@property int64_t completedUnitCount</code> 已完成的进度单元数</p>
+</li>
+<li><p><code>@property (readonly) double fractionCompleted</code> 为0-1之间的浮点值,为任务的完成比例 <code>[progress addObserver:self forKeyPath:@&quot;fractionCompleted&quot; options:NSKeyValueObservingOptionNew context:nil];</code></p>
+</li>
+<li><p><code>@property (null_resettable, copy) NSString *localizedDescription</code> 显示完后比例 如:10% completed</p>
+</li>
+<li><p><code>@property (null_resettable, copy) NSString *localizedAdditionalDescription</code> 完成数量 如:1 of 10</p>
+</li>
+<li><p><code>@property (getter=isCancellable) BOOL cancellable</code> 是否可取消</p>
+</li>
+<li><p><code>@property (getter=isPausable) BOOL pausable</code> 是否可暂停</p>
+</li>
+<li><p><code>- (void)cancel</code> 取消</p>
+</li>
+<li><p><code>- (void)pause</code> 暂停</p>
+</li>
+<li><p><code>- (void)resume</code> 恢复</p>
+</li>
+</ul>
+<h3 id="关于NSProgress对象的用户配置字典">关于NSProgress对象的用户配置字典</h3><hr>
+<ul>
+<li><p><code>[progress setUserInfoObject:@10 forKey:NSProgressEstimatedTimeRemainingKey];</code> 设置剩余时间 会影响localizedAdditionalDescription的值 例如:0 of 10 — About 10 seconds remaining</p>
+</li>
+<li><p><code>[progress setUserInfoObject:@15 forKey:NSProgressThroughputKey];</code> 设置完成速度信息 会影响localizedAdditionalDescription的值 例如:Zero KB of 10 bytes (15 bytes/sec)</p>
+</li>
+<li><p>NSProgressFileOperationKindKey键对应的是提示文字类型 会影响localizedDescription的值<br>下面这些键值的生效 必须将NSProgress对象的kind属性设置为 NSProgressKindFile<br>NSProgressFileOperationKindKey可选的对应值如下:<br>NSProgressFileOperationKindDownloading: 显示Downloading files…<br>NSProgressFileOperationKindDecompressingAfterDownloading： 显示Decompressing files…<br>NSProgressFileOperationKindReceiving: 显示Receiving files…<br>NSProgressFileOperationKindCopying: 显示Copying files…<br><code>[progress setUserInfoObject:NSProgressFileOperationKindDownloading forKey:NSProgressFileOperationKindKey];</code></p>
+</li>
+<li><p><code>NSString *const NSProgressFileTotalCountKey</code> 键设置显示的文件总数 例如: Copying 100 files… <code>[progress setUserInfoObject:@100 forKey:NSProgressFileTotalCountKey];</code></p>
+</li>
+<li><p><code>NSString *const NSProgressFileCompletedCountKey</code> 键设置显示的文件已完成的数量 <code>[progress setUserInfoObject:@1 forKey:NSProgressFileCompletedCountKey];</code></p>
+</li>
+</ul>
+<blockquote>
+<p><a href="http://my.oschina.net/u/2340880/blog/679367" target="_blank" rel="external">备注来源</a></p>
+</blockquote>
+<h3 id="NSSortDescriptor排序">NSSortDescriptor排序</h3><p>NSSortDescriptor可以实现按照对象的属性进行排序。比如我们有一个对象（People）。People有两个属性分别是名字（name）和年龄（age）。现在我们要按照People的年龄（age）来进行排序。<br><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按年龄排序</span></span><br><span class="line"><span class="comment">//这样是按照年龄的降序进行排序。如果想升序的话将NO改为YES即可</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptor = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_age"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptor, <span class="literal">nil</span>];</span><br><span class="line">[arrayPeople sortUsingDescriptors:sortDescriptors];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//按姓名排序</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptorName = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_name"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptorName, <span class="literal">nil</span>];</span><br><span class="line">[arrayPeople sortUsingDescriptors:sortDescriptors];</span><br><span class="line"></span><br><span class="line"><span class="comment">//按年龄和名字排序</span></span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptor = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_age"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSSortDescriptor</span> *sortDescriptorName = [[<span class="built_in">NSSortDescriptor</span> alloc] initWithKey:<span class="string">@"_name"</span> ascending:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSArray</span> *sortDescriptors = [<span class="built_in">NSArray</span> arrayWithObjects:sortDescriptor, sortDescriptorName, <span class="literal">nil</span>];</span><br><span class="line">[_mutArrVideo sortUsingDescriptors:sortDescriptors];</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>title: AFNetworking 框架知识点<br>date: 2016-07-21 09:16:36<br>tags:</p>
+<h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
+<ul>
+<li>]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[MJRefresh 框架知识点]]></title>
+    <link href="http://yoursite.com/2016/08/26/MJRefresh%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/2016/08/26/MJRefresh框架知识点/</id>
+    <published>2016-08-26T02:11:36.000Z</published>
+    <updated>2016-10-14T12:12:31.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="UIScrollView的几个属性">UIScrollView的几个属性</h4><ul>
+<li>frame: 是指UIScrollView的可视范围</li>
+<li>contentSize: 是其滚动范围,内容视图的大小</li>
+<li>contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置</li>
+<li>contentOffset: 是个CGpoint类型的结构体,用来记录ScrollView的滚动位置.垂直往下滚动时contentOffset的Y值越来越小,当偏离UIScrollView左上角时,contentOffset的Y值为负值。垂直往上滚动时contentOffset的Y值越来越大。</li>
+</ul>
+<a id="more"></a>
+<h4 id="MJRefreshComponent刷新视图的基类。刷新头部和尾部视图都继承自该类">MJRefreshComponent刷新视图的基类。刷新头部和尾部视图都继承自该类</h4><ul>
+<li><code>- (instancetype)initWithFrame:(CGRect)frame</code> 初始化刷新视图,并将刷新状态置为空闲状态. 内部会调用<code>- (void)prepare</code> 做一些初始化刷新视图的准备工作。 </li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 当刷新视图即将添加到父视图(UITableView、UICollectionView)中的时候会调用。这个方法中设置刷新视图的宽和X坐标、记录UIScrollView、设置UIScrollView永远支持垂直弹簧效果、记录UIScrollView最开始的contentInset、添加UIScrollView的ContentOffset和ContentSize以及pan手势状态的监听</li>
+<li><code>- (void)placeSubviews</code> 调用子类的placeSubviews重新布局刷新视图的子控件</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新刷新视图状态 并刷新布局</li>
+<li><code>- (void)beginRefreshing</code> 进入刷新状态. 将刷新视图的透明度和拉拽的百分比值都置为1.0并更新刷新状态为正在刷新</li>
+<li><code>- (void)endRefreshing</code> 结束刷新状态. 更新刷新状态为结束刷新</li>
+<li><code>- (void)setAutomaticallyChangeAlpha:(BOOL)automaticallyChangeAlpha</code> 根据拖拽比例自动切换透明度</li>
+<li><code>- (void)setPullingPercent:(CGFloat)pullingPercent</code> 根据拖拽进度设置透明度</li>
+</ul>
+<h4 id="MJRefreshHeader刷新头部视图的基类继承自MJRefreshComponent">MJRefreshHeader刷新头部视图的基类继承自MJRefreshComponent</h4><ul>
+<li><code>+ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock</code> 和 <code>+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action</code> 通过设置正在刷新的回调来初始化刷新头部视图</li>
+<li><code>- (void)prepare</code> 在初始化视图的时候设置刷新头部视图高度为MJRefreshHeaderHeight(默认值为54)</li>
+<li><code>- (void)placeSubviews</code> 设置刷新头部视图的Y值。<code>Y = - MJRefreshHeaderHeight - 忽略多少scrollView的contentInset的top;</code> 刷新头部会移到UIScrollView顶部之外</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 当监听到UIScrollView的ContentOffset发生变化的时候会调用这个方法。记录当前UIScrollView的ContentInset、offsetY值、下拉刷新头刚好出现的offsetY、普通 和 即将刷新 的临界点,如果UIScrollView正在拖拽记录拖拽进度并通过比较offsetY与刷新 的临界点之间的大小来判断刷新状态是否即将刷新还是空闲状态并更新刷新头部状态,如果用户松开手指并且刷新状态为即将刷新 则执行<code>- (void)beginRefreshing</code>开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新刷新状态。如果当前是空闲状态并且上次为正在刷新状态(即当前刷新完毕)则保存刷新时间,恢复inset和offset,拖拽进度重置为0。如果当前是正在刷新状态设置UIScrollView的上边距为刷新头部视图高度加上原来上边距并设置ContentOffset为负的ContentInset.Top最后调用内部方法<code>- (void)executeRefreshingCallback</code>执行刷新回调</li>
+</ul>
+<h4 id="MJRefreshStateHeader带刷新状态和时间的刷新头部视图继承自MJRefreshHeader">MJRefreshStateHeader带刷新状态和时间的刷新头部视图继承自MJRefreshHeader</h4><ul>
+<li><code>- (void)prepare</code> 初始化文字距离圈圈、箭头的距离 与 初始化不同刷新状态下的文字 </li>
+<li><code>- (void)placeSubviews</code> 布局刷新状态和刷新时间UILabel</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 记录刷新状态、设置状态文字并重新显示时间</li>
+</ul>
+<h4 id="MJRefreshNormalHeader带刷新箭头和菊花样式的刷新头部视图继承自MJRefreshStateHeader">MJRefreshNormalHeader带刷新箭头和菊花样式的刷新头部视图继承自MJRefreshStateHeader</h4><ul>
+<li><code>- (void)prepare</code> 设置活动指示器的样式</li>
+<li><code>- (void)placeSubviews</code> 布局 刷新箭头和圈圈</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 记录刷新状态。如果当前是空闲状态隐藏圈圈重置并显示箭头,如果当前刷新状态是正在下拉刷新则隐藏圈圈显示箭头并将箭头逆时针旋转180°,如果当前刷新状态为正在刷新则显示圈圈隐藏箭头</li>
+</ul>
+<h4 id="MJRefreshGifHeader带Gif动画的刷新头部视图继承自MJRefreshStateHeader">MJRefreshGifHeader带Gif动画的刷新头部视图继承自MJRefreshStateHeader</h4><ul>
+<li><code>- (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(MJRefreshState)state</code> 设置不同刷新状态下的显示图片和动画时长</li>
+<li><code>- (void)prepare</code>初始化间距</li>
+<li><code>- (void)setPullingPercent:(CGFloat)pullingPercent</code> 如果当前状态为空闲状态即还没变成松开刷新和正在刷新状态时,根据拖拽进度显示对应的图片</li>
+<li><code>- (void)placeSubviews</code> 根据刷新状态Label和更新时间Label的显示状态来布局UIImageView Gif视图</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新对象刷新状态下显示的图片</li>
+</ul>
+<h4 id="MJRefreshFooter刷新尾部视图继承自MJRefreshComponent(根据ContentSize来布局尾部刷新视图)">MJRefreshFooter刷新尾部视图继承自MJRefreshComponent(根据ContentSize来布局尾部刷新视图)</h4><ul>
+<li><code>+ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock</code> 和 <code>+ (instancetype)footerWithRefreshingTarget:(id)target refreshingAction:(SEL)action</code> 通过设置正在刷新的回调来初始化刷新尾部视图</li>
+<li><code>- (void)prepare</code> 设置刷新尾部视图的高度 当无数据时默认不隐藏尾部刷新视图</li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 监听scrollView数据的变化来显示或隐藏刷新尾部视图</li>
+</ul>
+<h4 id="MJRefreshBackFooter继承自MJRefreshFooter">MJRefreshBackFooter继承自MJRefreshFooter</h4><ul>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 调用父类的该方法同时会调用<code>scrollViewContentSizeDidChange</code></li>
+<li><code>- (void)scrollViewContentSizeDidChange:(NSDictionary *)change</code> 根据内容的高度和表格的高度来设置尾部刷新视图的Y坐标</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 当监听到UIScrollView的ContentOffset发生变化的时候会调用这个方法。记录UIScrollView的contentInset、当前的contentOffset、尾部控件刚好出现的offsetY、拖拽进度值。如果UIScrollView正在拖拽 保存拖拽进度、获取普通 和 即将刷新 的临界点,如果当前刷新状态为空闲状态并且offsetY大于普通 和 即将刷新 的临界点值则更新为即将刷新状态,如果当前刷新状态为松开就可以进行刷新的状态并且offsetY小于普通 和 即将刷新 的临界点值则更新为空闲刷新状态。如果用户松开了手指并且当前刷新状态为松开就可以进行刷新的状态则调用<code>beginRefreshing</code>开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 根据状态来设置属性。如果当前刷新状态为正在刷新则更新UIScrollView的contentInset.bottom和contentOffset.y最后调用内部的<code>executeRefreshingCallback</code>执行刷新,如果当前刷新状态为所有数据加载完毕没有更多的数据或者普通闲置状态则调整contentInset.bottomcontentOffset.y重置拖拽进度值最后调用block结束刷新</li>
+</ul>
+<h4 id="MJRefreshAutoFooter继承自MJRefreshFooter">MJRefreshAutoFooter继承自MJRefreshFooter</h4><ul>
+<li><code>- (void)prepare</code> 初始化并设置默认底部控件100%出现时才会自动刷新</li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 监听刷新尾部视图是否添加到UIScollView或者从其移除。如果添加到UIScrollView 将尾部刷新视图的Y坐标设置为contentSize.height 如果尾部刷新视图没被隐藏则添加底部间距为一个底部刷新视图的高度。如果被移除了底部间距要基于原来的基础上减去一个底部刷新视图的高度</li>
+<li><code>- (void)scrollViewContentSizeDidChange:(NSDictionary *)change</code> 当ContentSize变化时更新底部刷新控件的Y坐标为contentSize.height</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 如果内容超过一个屏幕并且<code>offsetY&gt;contentSize.height+contentInset.bottom-scrollView.height-刷新尾部视图高度+自动触发刷新的尾部视图高度比例</code> 则调用开始刷新</li>
+<li><code>- (void)scrollViewPanStateDidChange:(NSDictionary *)change</code> 监听手势 当手松开的时候如果不够一个屏幕 并且向上拽 则调用刷新。如果手松开内容超出一个屏幕并且<code>offsetY&gt;contentSize.height+contentInset.bottom-scrollView高度</code>则开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 如果是正在刷新状态则执行内部的开始刷新,如果是所有数据加载完毕没有更多的数据了或者为普通空闲状态则调用结束刷新block</li>
+</ul>
+<h4 id="其它尾部视图刷新类的实现类似刷新头部视图">其它尾部视图刷新类的实现类似刷新头部视图</h4><h4 id="为UIScrollView做分类添加刷新头部和尾部视图供外部访问">为UIScrollView做分类添加刷新头部和尾部视图供外部访问</h4><h4 id="为UITableView和UICollectionView做分类_交换reloadData_和_mj_reloadData的实现">为UITableView和UICollectionView做分类 交换reloadData 和 mj_reloadData的实现</h4>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="UIScrollView的几个属性">UIScrollView的几个属性</h4><ul>
+<li>frame: 是指UIScrollView的可视范围</li>
+<li>contentSize: 是其滚动范围,内容视图的大小</li>
+<li>contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置</li>
+<li>contentOffset: 是个CGpoint类型的结构体,用来记录ScrollView的滚动位置.垂直往下滚动时contentOffset的Y值越来越小,当偏离UIScrollView左上角时,contentOffset的Y值为负值。垂直往上滚动时contentOffset的Y值越来越大。</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[SDWebImage 框架知识点]]></title>
+    <link href="http://yoursite.com/2016/08/23/SDWebImage%20%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/2016/08/23/SDWebImage 框架知识点/</id>
+    <published>2016-08-23T02:57:36.000Z</published>
+    <updated>2016-10-14T12:15:02.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
+<li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
+</ul>
+<h3 id="检查缓存文件是否是PNG图片">检查缓存文件是否是PNG图片</h3><ul>
+<li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="检查图片是否有Alpha值">检查图片是否有Alpha值</h3><ul>
+<li><code>CGImageGetAlphaInfo</code><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageHasAlpha:(<span class="built_in">UIImage</span> *)image&#123;</span><br><span class="line">	<span class="keyword">int</span> alphaInfo = <span class="built_in">CGImageGetAlphaInfo</span>(image<span class="variable">.CGImage</span>);</span><br><span class="line">    <span class="built_in">BOOL</span> hasAlpha = !(alphaInfo == k<span class="built_in">CGImageAlphaNone</span> ||</span><br><span class="line">                      alphaInfo == k<span class="built_in">CGImageAlphaNoneSkipFirst</span> ||</span><br><span class="line">                      alphaInfo == k<span class="built_in">CGImageAlphaNoneSkipLast</span>);</span><br><span class="line">    <span class="keyword">return</span> hasAlpha;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="检查图片的类型">检查图片的类型</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span> *)contentTypeForImageData:(<span class="built_in">NSData</span> *)data &#123;</span><br><span class="line">    uint8_t c;</span><br><span class="line">    [data getBytes:&amp;c length:<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">switch</span> (c) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0xFF</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">@"image/jpeg"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x89</span>:<span class="comment">//137 80 78 71 13 10 26 10</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">@"image/png"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x47</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">@"image/gif"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x49</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x4D</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">@"image/tiff"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0x52</span>:</span><br><span class="line">            <span class="comment">// R as RIFF for WEBP</span></span><br><span class="line">            <span class="keyword">if</span> ([data length] &lt; <span class="number">12</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">NSString</span> *testString = [[<span class="built_in">NSString</span> alloc] initWithData:[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">12</span>)] encoding:<span class="built_in">NSASCIIStringEncoding</span>];</span><br><span class="line">            <span class="keyword">if</span> ([testString hasPrefix:<span class="string">@"RIFF"</span>] &amp;&amp; [testString hasSuffix:<span class="string">@"WEBP"</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">@"image/webp"</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解析GIF图片">解析GIF图片</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">UIImage</span> *)animatedGIFWithData:(<span class="built_in">NSData</span> *)data &#123;</span><br><span class="line">	<span class="keyword">if</span> (!data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGImageSourceRef</span> source = <span class="built_in">CGImageSourceCreateWithData</span>((__bridge <span class="built_in">CFDataRef</span>)data, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    size_t count = <span class="built_in">CGImageSourceGetCount</span>(source);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIImage</span> *animatedImage;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (count &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        animatedImage = [[<span class="built_in">UIImage</span> alloc] initWithData:data];</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    	<span class="built_in">NSMutableArray</span> *images = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSTimeInterval</span> duration = <span class="number">0.0</span>f;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (size_t i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            <span class="built_in">CGImageRef</span> image = <span class="built_in">CGImageSourceCreateImageAtIndex</span>(source, i, <span class="literal">NULL</span>);</span><br><span class="line">            <span class="keyword">if</span> (!image) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            duration += [<span class="keyword">self</span> frameDurationAtIndex:i source:source];</span><br><span class="line"></span><br><span class="line">            [images addObject:[<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:image scale:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.scale</span> orientation:<span class="built_in">UIImageOrientationUp</span>]];</span><br><span class="line"></span><br><span class="line">            <span class="built_in">CGImageRelease</span>(image);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!duration) &#123;</span><br><span class="line">            duration = (<span class="number">1.0</span>f / <span class="number">10.0</span>f) * count;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        animatedImage = [<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRelease</span>(source);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> animatedImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">float</span>)frameDurationAtIndex:(<span class="built_in">NSUInteger</span>)index source:(<span class="built_in">CGImageSourceRef</span>)source &#123;</span><br><span class="line">    <span class="keyword">float</span> frameDuration = <span class="number">0.1</span>f;</span><br><span class="line">    <span class="built_in">CFDictionaryRef</span> cfFrameProperties = <span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(source, index, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">NSDictionary</span> *frameProperties = (__bridge <span class="built_in">NSDictionary</span> *)cfFrameProperties;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *gifProperties = frameProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFDictionary</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSNumber</span> *delayTimeUnclampedProp = gifProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFUnclampedDelayTime</span>];</span><br><span class="line">    <span class="keyword">if</span> (delayTimeUnclampedProp) &#123;</span><br><span class="line">        frameDuration = [delayTimeUnclampedProp floatValue];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">    	<span class="comment">//The amount of time, in hundredths of a second(0.01s), to wait before displaying the next image in an animated sequence.</span></span><br><span class="line">        <span class="built_in">NSNumber</span> *delayTimeProp = gifProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFDelayTime</span>];</span><br><span class="line">        <span class="keyword">if</span> (delayTimeProp) &#123;</span><br><span class="line">            frameDuration = [delayTimeProp floatValue];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Many annoying ads specify a 0 duration to make an image flash as quickly as possible.</span></span><br><span class="line">    <span class="comment">// We follow Firefox's behavior and use a duration of 100 ms for any frames that specify</span></span><br><span class="line">    <span class="comment">// a duration of &lt;= 10 ms. See &lt;rdar://problem/7689300&gt; and &lt;http://webkit.org/b/36082&gt;</span></span><br><span class="line">    <span class="comment">// for more information.</span></span><br><span class="line">    <span class="keyword">if</span> (frameDuration &lt; <span class="number">0.011</span>f) &#123;</span><br><span class="line">        frameDuration = <span class="number">0.100</span>f;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRelease</span>(cfFrameProperties);</span><br><span class="line">    <span class="keyword">return</span> frameDuration;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解析WebP图片">解析WebP图片</h3><ul>
+<li>使用Google的WebP.framework框架 <a href="http://seanooi.github.io/iOS-WebP/" target="_blank" rel="external">地址</a></li>
+<li>SDWebImage中支持WebP格式的,可以完成UIImage -&gt; Webp和WebP -&gt; UIImage的转换。直接通过CocoaPods的Podfile文件中加入pod ‘SDWebImage/WebP’即可。</li>
+<li>WebP转换 Google提供了一套完整的工具集方便我们使用WebP.<a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank" rel="external">点此下载</a></li>
+<li>创建一张图片:<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">CGImageRef</span> <span class="built_in">CGImageCreate</span> (</span><br><span class="line">   size_t width, <span class="comment">//图片的宽度</span></span><br><span class="line">   size_t height, <span class="comment">//图片的高度</span></span><br><span class="line">   size_t bitsPerComponent, <span class="comment">//图片每个颜色的位数,比如rgb颜色空间,有可能是5 或者 8等等</span></span><br><span class="line">   size_t bitsPerPixel, <span class="comment">//每一个像素占用的位数,15 位24位 32位等等</span></span><br><span class="line">   size_t bytesPerRow, <span class="comment">//每一行占用多少字节</span></span><br><span class="line">   <span class="built_in">CGColorSpaceRef</span> space, <span class="comment">//颜色空间,比如rgb</span></span><br><span class="line">   <span class="built_in">CGBitmapInfo</span> bitmapInfo, <span class="comment">//layout,像素中bit的布局,是rgba还是argb</span></span><br><span class="line">   <span class="built_in">CGDataProviderRef</span> provider, <span class="comment">//数据源提供者,url或者内存等等</span></span><br><span class="line">   <span class="keyword">const</span> <span class="built_in">CGFloat</span> *decode, <span class="comment">//一个解码数组</span></span><br><span class="line">   <span class="keyword">bool</span> shouldInterpolate, <span class="comment">//抗锯齿参数</span></span><br><span class="line">   <span class="built_in">CGColorRenderingIntent</span> intent <span class="comment">//图片渲染相关参数</span></span><br><span class="line">);</span><br><span class="line">Color Spaces and Bitmap Layout,这里需要提供的几个东西:</span><br><span class="line"><span class="number">1.</span>位图是否包含alpha通道</span><br><span class="line"><span class="number">2.</span>color components是否已经乘以alpha value</span><br><span class="line"><span class="number">3.</span>数据格式是浮点数还是整型</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)imageWithWebPData:(<span class="built_in">NSData</span> *)data &#123;</span><br><span class="line">    WebPDecoderConfig config;</span><br><span class="line">    <span class="keyword">if</span> (!WebPInitDecoderConfig(&amp;config)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (WebPGetFeatures(data<span class="variable">.bytes</span>, data<span class="variable">.length</span>, &amp;config<span class="variable">.input</span>) != VP8_STATUS_OK) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    config<span class="variable">.output</span><span class="variable">.colorspace</span> = config<span class="variable">.input</span><span class="variable">.has_alpha</span> ? MODE_rgbA : MODE_RGB;</span><br><span class="line">    config<span class="variable">.options</span><span class="variable">.use_threads</span> = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decode the WebP image data into a RGBA value array.</span></span><br><span class="line">    <span class="keyword">if</span> (WebPDecode(data<span class="variable">.bytes</span>, data<span class="variable">.length</span>, &amp;config) != VP8_STATUS_OK) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> width = config<span class="variable">.input</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="keyword">int</span> height = config<span class="variable">.input</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="keyword">if</span> (config<span class="variable">.options</span><span class="variable">.use_scaling</span>) &#123;</span><br><span class="line">        width = config<span class="variable">.options</span><span class="variable">.scaled_width</span>;</span><br><span class="line">        height = config<span class="variable">.options</span><span class="variable">.scaled_height</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Construct a UIImage from the decoded RGBA value array.</span></span><br><span class="line">    <span class="built_in">CGDataProviderRef</span> provider =</span><br><span class="line">    <span class="built_in">CGDataProviderCreateWithData</span>(<span class="literal">NULL</span>, config<span class="variable">.output</span><span class="variable">.u</span><span class="variable">.RGBA</span><span class="variable">.rgba</span>, config<span class="variable">.output</span><span class="variable">.u</span><span class="variable">.RGBA</span><span class="variable">.size</span>, FreeImageData);</span><br><span class="line">    <span class="built_in">CGColorSpaceRef</span> colorSpaceRef = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</span><br><span class="line">    <span class="built_in">CGBitmapInfo</span> bitmapInfo = config<span class="variable">.input</span><span class="variable">.has_alpha</span> ? k<span class="built_in">CGBitmapByteOrder32Big</span> | k<span class="built_in">CGImageAlphaPremultipliedLast</span> : <span class="number">0</span>;</span><br><span class="line">    size_t components = config<span class="variable">.input</span><span class="variable">.has_alpha</span> ? <span class="number">4</span> : <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">CGColorRenderingIntent</span> renderingIntent = k<span class="built_in">CGRenderingIntentDefault</span>;</span><br><span class="line">    <span class="built_in">CGImageRef</span> imageRef = <span class="built_in">CGImageCreate</span>(width, height, <span class="number">8</span>, components * <span class="number">8</span>, components * width, colorSpaceRef, bitmapInfo, provider, <span class="literal">NULL</span>, <span class="literal">NO</span>, renderingIntent);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGColorSpaceRelease</span>(colorSpaceRef);</span><br><span class="line">    <span class="built_in">CGDataProviderRelease</span>(provider);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIImage</span> *image = [[<span class="built_in">UIImage</span> alloc] initWith<span class="built_in">CGImage</span>:imageRef];</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(imageRef);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">###获取Image方向</span></span><br><span class="line">```objc</span><br><span class="line">+(<span class="built_in">UIImageOrientation</span>)imageOrientationFromImageData:(<span class="built_in">NSData</span> *)imageData &#123;</span><br><span class="line">    <span class="built_in">UIImageOrientation</span> result = <span class="built_in">UIImageOrientationUp</span>;</span><br><span class="line">    <span class="built_in">CGImageSourceRef</span> imageSource = <span class="built_in">CGImageSourceCreateWithData</span>((__bridge <span class="built_in">CFDataRef</span>)imageData, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (imageSource) &#123;</span><br><span class="line">        <span class="built_in">CFDictionaryRef</span> properties = <span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(imageSource, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">if</span> (properties) &#123;</span><br><span class="line">            <span class="built_in">CFTypeRef</span> val;</span><br><span class="line">            <span class="keyword">int</span> exifOrientation;</span><br><span class="line">            val = <span class="built_in">CFDictionaryGetValue</span>(properties, k<span class="built_in">CGImagePropertyOrientation</span>);</span><br><span class="line">            <span class="keyword">if</span> (val) &#123;</span><br><span class="line">                <span class="built_in">CFNumberGetValue</span>(val, k<span class="built_in">CFNumberIntType</span>, &amp;exifOrientation);</span><br><span class="line">                result = [<span class="keyword">self</span> exifOrientationToiOSOrientation:exifOrientation];</span><br><span class="line">            &#125; <span class="comment">// else - if it's not set it remains at up</span></span><br><span class="line">            <span class="built_in">CFRelease</span>((<span class="built_in">CFTypeRef</span>) properties);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//NSLog(@"NO PROPERTIES, FAIL");</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">CFRelease</span>(imageSource);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark EXIF orientation tag converter</span></span><br><span class="line"><span class="comment">// Convert an EXIF image orientation to an iOS one.</span></span><br><span class="line"><span class="comment">// reference see here: http://sylvana.net/jpegcrop/exif_orientation.html</span></span><br><span class="line">+ (<span class="built_in">UIImageOrientation</span>) exifOrientationToiOSOrientation:(<span class="keyword">int</span>)exifOrientation &#123;</span><br><span class="line">    <span class="built_in">UIImageOrientation</span> orientation = <span class="built_in">UIImageOrientationUp</span>;</span><br><span class="line">    <span class="keyword">switch</span> (exifOrientation) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationUp</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationDown</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationLeft</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationRight</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationUpMirrored</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationDownMirrored</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationLeftMirrored</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">            orientation = <span class="built_in">UIImageOrientationRightMirrored</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> orientation;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">生成对应方向的图片:</span><br><span class="line"><span class="built_in">UIImage</span> image = [[<span class="built_in">UIImage</span> alloc] initWithData:data];</span><br><span class="line"><span class="built_in">UIImageOrientation</span> orientation = [<span class="keyword">self</span> imageOrientationFromImageData:data];</span><br><span class="line"><span class="keyword">if</span> (orientation != <span class="built_in">UIImageOrientationUp</span>) &#123;</span><br><span class="line">    image = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:image<span class="variable">.CGImage</span></span><br><span class="line">                     scale:image<span class="variable">.scale</span></span><br><span class="line">                     orientation:orientation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="对UIImage进行解码">对UIImage进行解码</h3><ul>
+<li>为什么需要解码图片?<br>因为当显示或者绘制的时候,UIKit 只做了额外的延迟初始化和消耗很高解码。而下面的代码片段,从后台线程解压缩成合适的格式,从而让系统不必做额外的转换。然后在主线程上显示</li>
+<li>如果UIImage是空 或者 UIImage有Alpha值则不解码<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">UIImage</span> *)decodedImageWithImage:(<span class="built_in">UIImage</span> *)image &#123;</span><br><span class="line">    <span class="comment">// while downloading huge amount of images</span></span><br><span class="line">    <span class="comment">// autorelease the bitmap context</span></span><br><span class="line">    <span class="comment">// and all vars to help system to free memory</span></span><br><span class="line">    <span class="comment">// when there are memory warning.</span></span><br><span class="line">    <span class="comment">// on iOS7, do not forget to call</span></span><br><span class="line">    <span class="comment">// [[SDImageCache sharedImageCache] clearMemory];</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (image == <span class="literal">nil</span>) &#123; <span class="comment">// Prevent "CGBitmapContextCreateImage: invalid context 0x0" error</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line">        <span class="comment">// do not decode animated images</span></span><br><span class="line">        <span class="keyword">if</span> (image<span class="variable">.images</span> != <span class="literal">nil</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> image;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGImageRef</span> imageRef = image<span class="variable">.CGImage</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGImageAlphaInfo</span> alpha = <span class="built_in">CGImageGetAlphaInfo</span>(imageRef);</span><br><span class="line">        <span class="built_in">BOOL</span> anyAlpha = (alpha == k<span class="built_in">CGImageAlphaFirst</span> ||</span><br><span class="line">                         alpha == k<span class="built_in">CGImageAlphaLast</span> ||</span><br><span class="line">                         alpha == k<span class="built_in">CGImageAlphaPremultipliedFirst</span> ||</span><br><span class="line">                         alpha == k<span class="built_in">CGImageAlphaPremultipliedLast</span>);</span><br><span class="line">        <span class="keyword">if</span> (anyAlpha) &#123;</span><br><span class="line">            <span class="keyword">return</span> image;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// current</span></span><br><span class="line">        <span class="built_in">CGColorSpaceModel</span> imageColorSpaceModel = <span class="built_in">CGColorSpaceGetModel</span>(<span class="built_in">CGImageGetColorSpace</span>(imageRef));</span><br><span class="line">        <span class="built_in">CGColorSpaceRef</span> colorspaceRef = <span class="built_in">CGImageGetColorSpace</span>(imageRef);</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">BOOL</span> unsupportedColorSpace = (imageColorSpaceModel == k<span class="built_in">CGColorSpaceModelUnknown</span> ||</span><br><span class="line">                                      imageColorSpaceModel == k<span class="built_in">CGColorSpaceModelMonochrome</span> ||</span><br><span class="line">                                      imageColorSpaceModel == k<span class="built_in">CGColorSpaceModelCMYK</span> ||</span><br><span class="line">                                      imageColorSpaceModel == k<span class="built_in">CGColorSpaceModelIndexed</span>);</span><br><span class="line">        <span class="keyword">if</span> (unsupportedColorSpace) &#123;</span><br><span class="line">            colorspaceRef = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        size_t width = <span class="built_in">CGImageGetWidth</span>(imageRef);</span><br><span class="line">        size_t height = <span class="built_in">CGImageGetHeight</span>(imageRef);</span><br><span class="line">        <span class="built_in">NSUInteger</span> bytesPerPixel = <span class="number">4</span>;</span><br><span class="line">        <span class="built_in">NSUInteger</span> bytesPerRow = bytesPerPixel * width;</span><br><span class="line">        <span class="built_in">NSUInteger</span> bitsPerComponent = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// kCGImageAlphaNone is not supported in CGBitmapContextCreate.</span></span><br><span class="line">        <span class="comment">// Since the original image here has no alpha info, use kCGImageAlphaNoneSkipLast</span></span><br><span class="line">        <span class="comment">// to create bitmap graphics contexts without alpha info.</span></span><br><span class="line">        <span class="comment">// 如果是加载高分辨率图片的话,有可能造成上G的内存消耗</span></span><br><span class="line">        <span class="comment">// 解压缩操作中,每一个像素点都会分配一个空间来存储相关值,那么分辨率越高的图片,就意味着更多数量的像素点,也就意味着需要分配更多的空间！所以对于高分辨率图来说,解压缩操作的确会造成内存飙升,即使是几M的图片,解压缩过程中也是有可能消耗上G的内存！</span></span><br><span class="line">        <span class="comment">// 解决办法 [[SDImageCache sharedImageCache] setShouldDecompressImages:NO];</span></span><br><span class="line">				  [[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:<span class="literal">NO</span>];</span><br><span class="line">        <span class="built_in">CGContextRef</span> context = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>,</span><br><span class="line">                                                     width,</span><br><span class="line">                                                     height,</span><br><span class="line">                                                     bitsPerComponent,</span><br><span class="line">                                                     bytesPerRow,</span><br><span class="line">                                                     colorspaceRef,</span><br><span class="line">                                                     k<span class="built_in">CGBitmapByteOrderDefault</span>|k<span class="built_in">CGImageAlphaNoneSkipLast</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Draw the image into the context and retrieve the new bitmap image without alpha</span></span><br><span class="line">        <span class="built_in">CGContextDrawImage</span>(context, <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, width, height), imageRef);</span><br><span class="line">        <span class="built_in">CGImageRef</span> imageRefWithoutAlpha = <span class="built_in">CGBitmapContextCreateImage</span>(context);</span><br><span class="line">        <span class="built_in">UIImage</span> *imageWithoutAlpha = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:imageRefWithoutAlpha</span><br><span class="line">                                                         scale:image<span class="variable">.scale</span></span><br><span class="line">                                                   orientation:image<span class="variable">.imageOrientation</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (unsupportedColorSpace) &#123;</span><br><span class="line">            <span class="built_in">CGColorSpaceRelease</span>(colorspaceRef);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGContextRelease</span>(context);</span><br><span class="line">        <span class="built_in">CGImageRelease</span>(imageRefWithoutAlpha);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> imageWithoutAlpha;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="下载图片-NSOperation">下载图片-NSOperation</h3><h4 id="第一种方式:">第一种方式:</h4><ul>
+<li>先将需要执行的操作封装到一个NSOperation对象中</li>
+<li>NSOperation对象的start方法</li>
+<li>这里要注意:默认情况下,调用了start方法后并不会开一条新线程去执行操作,而是在当前线程同步执行操作.只有将operation放到一个NSOperationQueue中,才会异步执行操作.<h4 id="第二种方式:">第二种方式:</h4></li>
+<li>先将需要执行的操作封装到一个NSOperation对象中</li>
+<li>然后将NSOperation对象添加到NSOperationQueue中</li>
+<li>系统会自动将NSOperation中封装的操作放到一条新线程中执行<br>在此过程中,我们根本不用考虑线程的生命周期、同步、加锁等问题</li>
+</ul>
+<h5 id="相关属性:">相关属性:</h5><ul>
+<li><code>@property (readonly, getter=isReady) BOOL ready;</code> //operation是否现在可以执行了</li>
+<li><code>@property (readonly, getter=isExecuting) BOOL executing;</code> //operation是否正在执行</li>
+<li><code>@property (readonly, getter=isFinished) BOOL finished;</code> //operation执行是否结束了</li>
+<li><code>@property (readonly, getter=isCancelled) BOOL cancelled;</code> //operation是否被取消了</li>
+<li><code>@property (readonly, getter=isConcurrent) BOOL concurrent;</code> //operation是否是异步执行</li>
+<li><code>@property NSOperationQueuePriority queuePriority;</code></li>
+<li><code>@property (nullable, copy) void (^completionBlock)(void);</code> //operation主任务执行结束之后会执行这个block</li>
+</ul>
+<h5 id="相关方法:">相关方法:</h5><ul>
+<li><code>- (void)start;</code> //开始执行operation 自定义NSOperation 可以重写这个方法将要执行的任务封装在这个方法内部去执行.</li>
+<li><code>- (void)main;</code> //自定义NSOperation 可以重写这个方法将要执行的任务封装在这个方法内部去执行.注意:子类重新该方法时需要调用super方法,这个方法会在NSOperation提供的自动释放池中执行所以在重写该方法时你不需要自己创建自动释放池,如果你需要异步执行operation时你不需要重新该方法而应该重写start方法 </li>
+<li><code>- (void)cancel;</code> //取消operation</li>
+<li><code>- (void)addDependency:(NSOperation *)op;</code> //添加依赖的operation</li>
+<li><code>- (void)removeDependency:(NSOperation *)op;</code> //移除依赖的operation</li>
+</ul>
+<h5 id="默认情况下,NSOperation并不具备封装操作的能力,必须使用它的子类NSBlockOperation和NSInvocationOperation">默认情况下,NSOperation并不具备封装操作的能力,必须使用它的子类NSBlockOperation和NSInvocationOperation</h5><h6 id="NSBlockOperation的相关属性和方法:">NSBlockOperation的相关属性和方法:</h6><ul>
+<li><code>+ (instancetype)blockOperationWithBlock:(void (^)(void))block;</code></li>
+<li><code>- (void)addExecutionBlock:(void (^)(void))block;</code></li>
+<li><code>@property (readonly, copy) NSArray&lt;void (^)(void)&gt; *executionBlocks;</code></li>
+<li>注意:调用start方法执行的时候是在当前线程同步执行操作,只有将operation放到一个NSOperationQueue中,才会异步执行操作。</li>
+</ul>
+<h6 id="NSInvocationOperation的相关属性和方法:">NSInvocationOperation的相关属性和方法:</h6><ul>
+<li><code>- (nullable instancetype)initWithTarget:(id)target selector:(SEL)sel object:(nullable id)arg;</code></li>
+<li><code>- (instancetype)initWithInvocation:(NSInvocation *)inv;</code></li>
+<li><code>@property (readonly, retain) NSInvocation *invocation;</code></li>
+<li><code>@property (nullable, readonly, retain) id result;</code></li>
+<li>注意:调用start方法执行的时候是在当前线程同步执行操作,只有将operation放到一个NSOperationQueue中,才会异步执行操作。</li>
+</ul>
+<h5 id="NSOperationQueue">NSOperationQueue</h5><ul>
+<li>创建任务队列<br><code>+ (nullable NSOperationQueue *)currentQueue;</code><br><code>+ (NSOperationQueue *)mainQueue;</code></li>
+<li>将operation添加到任务队列中异步执行<br><code>- (void)addOperation:(NSOperation *)op;</code><br><code>- (void)addOperations:(NSArray&lt;NSOperation *&gt; *)ops waitUntilFinished:(BOOL)wait;</code><br><code>- (void)addOperationWithBlock:(void (^)(void))block;</code></li>
+<li>取消所有任务<br><code>- (void)cancelAllOperations;</code></li>
+<li>相关属性<br><code>@property (nullable, copy) NSString *name;</code> //队列名称<br><code>@property (getter=isSuspended) BOOL suspended;</code> //队列是否挂起了<br><code>@property NSInteger maxConcurrentOperationCount;</code> //任务最大并发数量<br><code>@property (readonly) NSUInteger operationCount;</code> //当前任务总数<br><code>@property (readonly, copy) NSArray&lt;__kindof NSOperation *&gt; *operations;</code> //所有任务</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
+<li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
+</ul>
+<h3 id="检查缓]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Swift]]></title>
     <link href="http://yoursite.com/2016/05/01/swift_note/"/>
     <id>http://yoursite.com/2016/05/01/swift_note/</id>
     <published>2016-05-01T14:28:11.000Z</published>
-    <updated>2016-05-18T14:42:50.000Z</updated>
+    <updated>2016-05-21T03:01:46.000Z</updated>
     <content type="html"><![CDATA[<h3 id="常量&amp;变量">常量&amp;变量</h3><ul>
 <li>let 定义常量,设置之后不可以修改</li>
 <li>var 定义变量,设置之后可以修改</li>
@@ -115,7 +731,7 @@
 <li>作用:避免重复,不同项目中的命名空间是不一样的,默认情况下命名空间的名称就是当前项目的名称</li>
 <li>Swift中如果想通过类名来创建一个类必须加上命名空间</li>
 <li>由于字典/数组中只能存储对象,所以通过一个key从字典中获取值,取出来是一个AnyObject类型,并且如果key写错或者没有对应的值,那么就娶不到值,所以返回值可能有值也可能没值,所以最终的类型是AnyObject?</li>
-<li>动态获取命名空间<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">  * guard 可以有效的解决可选绑定容易形成&#123;&#125;嵌套问题</span><br><span class="line">  *	guard 条件表达式 else&#123;</span><br><span class="line">  *		需要执行的语句</span><br><span class="line">  *		只有条件为假才会执行&#123;&#125;中的内容</span><br><span class="line">  *		并且 guard的&#123;&#125;结尾一定要返回 return</span><br><span class="line">  * &#125;</span><br><span class="line">*/</span></span><br><span class="line"><span class="comment">//可选绑定</span></span><br><span class="line"><span class="comment">//as?是因为前面可能有值也可能没值</span></span><br><span class="line"><span class="keyword">if</span> let name = <span class="built_in">NSBundle</span><span class="variable">.mainBundle</span>()<span class="variable">.infoDictionary</span>![<span class="string">"CFBundleExecutable"</span>] as? String</span><br><span class="line">&#123;</span><br><span class="line">	let cls: AnyClass? = <span class="built_in">NSClassFromString</span>(name + <span class="string">"."</span> +childControllerName) </span><br><span class="line"></span><br><span class="line">	<span class="comment">// Swift中如果想通过一个Class来创建一个对象,必须告诉系统这个Class的确切类型</span></span><br><span class="line">	<span class="keyword">if</span> let typeCls = cls as? <span class="built_in">UITableViewController</span><span class="variable">.Type</span>&#123;</span><br><span class="line">		<span class="comment">// 通过Class创建对象</span></span><br><span class="line">		let childController = tyoeCls!<span class="variable">.init</span>()</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>动态获取命名空间<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">  * guard 可以有效的解决可选绑定容易形成&#123;&#125;嵌套问题</span><br><span class="line">  *	guard 条件表达式 else&#123;</span><br><span class="line">  *		需要执行的语句</span><br><span class="line">  *		只有条件为假才会执行&#123;&#125;中的内容</span><br><span class="line">  *		并且 guard的&#123;&#125;结尾一定要返回 return</span><br><span class="line">  * &#125;</span><br><span class="line">*/</span></span><br><span class="line"><span class="comment">//可选绑定</span></span><br><span class="line"><span class="comment">//as?是因为前面可能有值也可能没值</span></span><br><span class="line"><span class="keyword">if</span> let name = <span class="built_in">NSBundle</span><span class="variable">.mainBundle</span>()<span class="variable">.infoDictionary</span>![<span class="string">"CFBundleExecutable"</span>] as? String</span><br><span class="line">&#123;</span><br><span class="line">	let cls: AnyClass? = <span class="built_in">NSClassFromString</span>(name + <span class="string">"."</span> +childControllerName) </span><br><span class="line"></span><br><span class="line">	<span class="comment">// Swift中如果想通过一个Class来创建一个对象,必须告诉系统这个Class的确切类型</span></span><br><span class="line">	<span class="keyword">if</span> let typeCls = cls as? <span class="built_in">UITableViewController</span><span class="variable">.Type</span>&#123;</span><br><span class="line">		<span class="comment">// 通过Class创建对象</span></span><br><span class="line">		let childController = tyoeCls!<span class="variable">.init</span>()</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addChildViewController(childControllerName: String?, title: String?, imageName: String?)&#123;</span><br><span class="line"></span><br><span class="line">	guard let name = <span class="built_in">NSBundle</span><span class="variable">.mainBundle</span>()<span class="variable">.infoDictionary</span>![<span class="string">"CFBundleExecutable"</span>] as? String <span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		MCLog(<span class="string">"获取命名空间失败"</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var cls: AnyClass? = <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">if</span> let vcName = childControllerName</span><br><span class="line">	&#123;</span><br><span class="line">		cls = <span class="built_in">NSClassFromString</span>(name + <span class="string">"."</span> + childControllerName)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	guard let typeCls = cls as? <span class="built_in">UITableViewController</span><span class="variable">.Type</span> <span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		MCLog(<span class="string">"cls不能当做UITableViewController"</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	let childController = typeCls<span class="variable">.init</span>()</span><br><span class="line"></span><br><span class="line">	childController<span class="variable">.title</span> = title</span><br><span class="line">	<span class="keyword">if</span> let ivName = imageName&#123;</span><br><span class="line">		childController<span class="variable">.tabBarItem</span><span class="variable">.image</span> = <span class="built_in">UIImage</span>(named: imageName)</span><br><span class="line">		childController<span class="variable">.tabBarItem</span><span class="variable">.selectedImage</span> = <span class="built_in">UIImage</span>(named: imageName + <span class="string">"_highlighted"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	let nav = <span class="built_in">UINavigationController</span>(rootViewController: childController)</span><br><span class="line">	addChildViewController(nav)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addChildViewControllers()</span><br><span class="line">&#123;</span><br><span class="line">	guard let filePath = <span class="built_in">NSBundle</span><span class="variable">.mainBundle</span>()<span class="variable">.pathForResource</span>(<span class="string">"MainVCSettings.json"</span>, ofType: <span class="literal">nil</span>) <span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		MCLog(<span class="string">"JSON文件不存在"</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	guard let data = <span class="built_in">NSData</span>(contentsOfFile: filePath) <span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		MCLog(<span class="string">"加载二进制数据失败"</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//Swift和OC不太一样,OC中一般情况如果发生错误会给传人的指针赋值,而在Swift中使用的是异常处理机制</span></span><br><span class="line">	<span class="comment">//1.以后但凡看到throws的方法,那么就必须进行try处理,而只要看到try,就需要写上do catch</span></span><br><span class="line">	<span class="comment">//2.do&#123;&#125;catch&#123;&#125;,只有do中的代码发生了错误,才会执行catch&#123;&#125;中的代码</span></span><br><span class="line">	<span class="comment">//3.try  正常处理异常,也就是通过do catch来处理</span></span><br><span class="line">	<span class="comment">//  try! 告诉系统一定不会有异常,也就是说可以不通过do catch来处理 但是需要注意,开发中不推荐这样写,一旦发生异常程序就会崩溃 如果没有异常那么会返回一个确定的值给我们</span></span><br><span class="line">	<span class="comment">//  try? 告诉系统可能有错也可能没错,如果没错系统会自动将结果包装成一个可选类型给我们,如果有错系统会返回nil,如果使用try?那么可以不通过do catch来处理</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span>&#123;</span><br><span class="line">		let objc = try</span><br><span class="line">		<span class="built_in">NSJSONSerialization</span><span class="variable">.JSONObjectWithData</span>(data, options:<span class="built_in">NSJSONReadingOptions</span><span class="variable">.MutableContainers</span>) as! [[String:AnyObject]]</span><br><span class="line"></span><br><span class="line">		<span class="comment">//遍历数组字典取出每一个字典</span></span><br><span class="line">		<span class="keyword">for</span> dict <span class="keyword">in</span> objc</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//根据遍历到的字典创建控制器</span></span><br><span class="line">			let title = dict[<span class="string">"title"</span>] as? String</span><br><span class="line">			let vcName = dict[<span class="string">"vcName"</span>] as? String</span><br><span class="line">			let imageName = dict[<span class="string">"imageName"</span>] as? String</span><br><span class="line">			addChildViewController(vcName, title: title, imageName: imageName)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;catch&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//public   :最大权限,可以在当前framework和其它framework中访问</span></span><br><span class="line"><span class="comment">//internal :默认权限,可以在当前framework中随意访问</span></span><br><span class="line"><span class="comment">//private  :私有权限,只能在当前文件中方访问  </span></span><br><span class="line"><span class="comment">//以上权限可以修饰属性/方法/类</span></span><br><span class="line"><span class="comment">//如果给按钮的点击方法加上private就会报错,报错的原因是因为监听事件是由运行循环出发的,而如果该方法是私有的只能在当前类中访问</span></span><br><span class="line"><span class="comment">//而相同的情况在OC中是没有问题的,因为OC是动态派发的,而Swift不一样,Swift中所有的东西都是编译时确定的</span></span><br><span class="line"><span class="comment">//加上 @objc就代表告诉系统需要动态派发</span></span><br><span class="line">@objc private func compseBtnClick(btn: <span class="built_in">UIButton</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//为UIButton添加分类</span></span><br><span class="line">import <span class="built_in">UIKit</span></span><br><span class="line"></span><br><span class="line">extension <span class="built_in">UIButton</span></span><br><span class="line">&#123;</span><br><span class="line">	convenience init(imageName: String, backgroundImageName: String)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">self</span><span class="variable">.init</span>()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 ]]></content>
@@ -221,6 +837,52 @@
 <li>自定义UI控件</li>
 </ul>
 </li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[UICollectionView的使用]]></title>
+    <link href="http://yoursite.com/2016/04/13/uicollectionview/"/>
+    <id>http://yoursite.com/2016/04/13/uicollectionview/</id>
+    <published>2016-04-13T05:54:05.000Z</published>
+    <updated>2016-10-14T12:20:31.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="自定义布局_-_继承UICollectionViewFlowLayout">自定义布局 - 继承UICollectionViewFlowLayout</h3><h4 id="重写prepareLayout方法">重写prepareLayout方法</h4><ul>
+<li>作用:在这个方法中做一些初始化操作</li>
+<li>注意:一定要调用[super prepareLayout]</li>
+</ul>
+<a id="more"></a>
+<h4 id="重写layoutAttributesForElementsInRect:方法">重写layoutAttributesForElementsInRect:方法</h4><ul>
+<li>作用:<ul>
+<li>这个方法的返回值是个数组</li>
+<li>这个数组中存放的都是UICollectionViewLayoutAttributes对象</li>
+<li>UICollectionViewLayoutAttributes对象决定了cell的排布方式(frame等)</li>
+</ul>
+</li>
+</ul>
+<h4 id="重写shouldInvalidateLayoutForBoundsChange:方法">重写shouldInvalidateLayoutForBoundsChange:方法</h4><ul>
+<li>作用:如果返回YES,那么collectionView显示的范围发生改变时,就会重新刷新布局</li>
+<li>一旦重新刷新布局,就会按顺序调用下面的方法:<ul>
+<li>prepareLayout</li>
+<li>layoutAttributesForElementsInRect:</li>
+</ul>
+</li>
+</ul>
+<h4 id="重写targetContentOffsetForProposedContentOffset:withScrollingVelocity:方法">重写targetContentOffsetForProposedContentOffset:withScrollingVelocity:方法</h4><ul>
+<li>作用:返回值决定了collectionView停止滚动时最终的偏移量(contentOffset)</li>
+<li>参数:<ul>
+<li>proposedContentOffset:原本情况下,collectionView停止滚动时最终的偏移量</li>
+<li>velocity:滚动速率,通过这个参数可以了解滚动的方向</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="自定义布局_-_继承UICollectionViewFlowLayout">自定义布局 - 继承UICollectionViewFlowLayout</h3><h4 id="重写prepareLayout方法">重写prepareLayout方法</h4><ul>
+<li>作用:在这个方法中做一些初始化操作</li>
+<li>注意:一定要调用[super prepareLayout]</li>
 </ul>]]>
     
     </summary>
@@ -1177,526 +1839,6 @@ dispatch_get_global_queue(long identifier, unsigned long flags);//identifier队�
 <li>让局部变量只初始化一次</li>
 <li>局部变量在程序中只有一份内存</li>
 <li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS父子控制器]]></title>
-    <link href="http://yoursite.com/2016/03/23/parent_childs_vc/"/>
-    <id>http://yoursite.com/2016/03/23/parent_childs_vc/</id>
-    <published>2016-03-23T02:09:28.000Z</published>
-    <updated>2016-03-23T13:46:23.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="父子控制器">父子控制器</h3><ul>
-<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
-</li>
-<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
-</li>
-<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>获取当前控制器的父控制器<br><code>@property(nullable,nonatomic,weak,readonly) UIViewController *parentViewController;</code></p>
-</li>
-<li><p>获取当前控制器的所属导航控制器<br>系统会通过父子关系的链条来找到它的导航控制器,如果找不到则<code>self.navigationController</code>的值为nil<br><code>@property(nullable, nonatomic,readonly,strong) UINavigationController *navigationController;</code></p>
-</li>
-<li><p><code>[self dismissViewControllerAnimated:YES completion:nil];</code> 系统会检测当前控制器是不是被Modal出来的,如果不是则会检测它的父控制器,如果都不是则不能dismiss.</p>
-</li>
-<li><p>默认情况下,所有控制器view的autoresizingMask属性都包含了UIViewAutoresizingFlexibleWidth和UIViewAutoresizingFlexibleHeight两个值.如果从xib中加载控制器 尺寸是600*600,往控制器里面添加子控制器或者view的时候可能导致看不见,这个时候需要关掉子控制器的自动伸缩功能<br><code>vc.view.autoresizingMask = UIViewAutoresizingNone;</code></p>
-</li>
-<li><p>当前控制器已经被添加到某个父控制器上或者从父控制器上移除的时候就会调用这个方法,如果是通过addChildViewController方式添加的子控制器是不会调用didMoveToParentViewController,但是可以在addChildViewController之后手动调用didMoveToParentViewController<br><code>- (void)didMoveToParentViewController:(nullable UIViewController *)parent</code></p>
-</li>
-<li><p>控制器automaticallyAdjustsScrollViewInsets属性默认值为YES,如果当前控制器是导航控制器并且第一个子View是UIScrollView则会自动调整第一个UIScrollView内边距,但是不会自动调整后面的UIScrollView内边距.如果第一个View不是UIScrollView则不会调整后面UIScrollView的内边距<br><code>self.automaticallyAdjustsScrollViewInsets = NO;//不会自动去调整uiscrollView的contentInset属性</code></p>
-</li>
-</ul>
-<h3 id="转场动画">转场动画</h3><ul>
-<li><p>动画效果:<br>@”cube” @”moveIn” @”reveal” @”fade”(default) @”pageCurl” @”pageUnCurl” @”suckEffect” @”rippleEffect” @”oglFlip” @”push”</p>
-</li>
-<li><p>动画方向:<br>kCATransitionFromRight;<br>kCATransitionFromLeft;<br>kCATransitionFromTop;<br>kCATransitionFromBottom;</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">CATransition</span> *animation = [<span class="built_in">CATransition</span> animation];</span><br><span class="line">animation<span class="variable">.type</span> = <span class="string">@"cube"</span>;</span><br><span class="line">animation<span class="variable">.subtype</span> = index &gt; oldIndex ? k<span class="built_in">CATransitionFromRight</span> : k<span class="built_in">CATransitionFromLeft</span>;</span><br><span class="line">animation<span class="variable">.duration</span> = <span class="number">0.5</span>;</span><br><span class="line"><span class="comment">//动画的开始与结束的快慢</span></span><br><span class="line">animation<span class="variable">.timingFunction</span> = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:k<span class="built_in">CAMediaTimingFunctionEaseInEaseOut</span>];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.view</span><span class="variable">.layer</span> addAnimation:animation forKey:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="父子控制器">父子控制器</h3><ul>
-<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
-</li>
-<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
-</li>
-<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[彩票项目主要知识点]]></title>
-    <link href="http://yoursite.com/2016/03/22/color_card/"/>
-    <id>http://yoursite.com/2016/03/22/color_card/</id>
-    <published>2016-03-22T01:00:00.000Z</published>
-    <updated>2016-03-22T14:38:13.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="自定义UITabBar">自定义UITabBar</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpTabBar</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    MCTabBar *tabBar = [[MCTabBar alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储UITabBarItem</span></span><br><span class="line">    tabBar<span class="variable">.items</span> = <span class="keyword">self</span><span class="variable">.items</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//移除系统的tabBar,相当于将tabBar上的所有按钮移除</span></span><br><span class="line">	<span class="comment">//将一个控件从父控件中移除并不会马上销毁,一般在下一次运行循环的时候,就会判断这个对象有没有强引用,如果没有,才会销毁</span></span><br><span class="line">	<span class="comment">//[self.tabBar removeFromSuperview];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//tabBar.frame = self.tabBar.frame;</span></span><br><span class="line"></span><br><span class="line">    tabBar<span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.bounds</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tabBar</span> addSubview:tabBar];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把系统的tabBar上的按钮干掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *childView <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![childView isKindOfClass:[MCTabBar class]]) &#123;</span><br><span class="line">            [childView removeFromSuperview];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="自定义导航控制器">自定义导航控制器</h3><ul>
-<li><p>处理目标控制器滑动返回(整个页面都可以滑动返回)方式一</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用运行时机制获取某个类里面的属性</span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCNavigationController</span> ()&lt;<span class="title">UIGestureRecognizerDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCNavigationController</span></span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 防止手势冲突</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.enabled</span> = <span class="literal">NO</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历某个类里面所有属性 Ivar:表示成员属性</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//copyIvarList:只能获取哪个类下面的属性,并不会越界（不会把它的父类的属性给遍历出来）</span></span><br><span class="line">    <span class="comment">//Class:获取哪个类的成员属性</span></span><br><span class="line">    <span class="comment">//count:告诉你当前类里面成员属性的总数</span></span><br><span class="line">    <span class="comment">//返回成员属性的数组</span></span><br><span class="line">    Ivar *ivars = class_copyIvarList([<span class="built_in">UIGestureRecognizer</span> class], &amp;count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">       <span class="comment">// 取出成员变量</span></span><br><span class="line">       Ivar ivar = ivars[i];</span><br><span class="line">            </span><br><span class="line">       <span class="comment">// 获取属性名</span></span><br><span class="line">       <span class="built_in">NSString</span> *ivarName = @(ivar_getName(ivar));</span><br><span class="line">            </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,ivarName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//_targets:属性名 value</span></span><br><span class="line">    <span class="built_in">NSArray</span> *targets = [<span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span> valueForKeyPath:<span class="string">@"_targets"</span>];</span><br><span class="line">    <span class="keyword">id</span> objc = [targets firstObject];</span><br><span class="line">    <span class="keyword">id</span> target = [objc valueForKeyPath:<span class="string">@"_target"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//其实target就是self.interactivePopGestureRecognizer.delegate</span></span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:target action:<span class="keyword">@selector</span>(handleNavigationTransition:)];</span><br><span class="line">    </span><br><span class="line">    pan<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addGestureRecognizer:pan];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 手势代理方法</span></span><br><span class="line"><span class="comment">// 是否开始触发手势</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizerShouldBegin:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 判断下当前控制器是否是根控制器</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">self</span><span class="variable">.topViewController</span> != [<span class="keyword">self</span><span class="variable">.viewControllers</span> firstObject]);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.viewControllers</span><span class="variable">.count</span> != <span class="number">0</span>) &#123; <span class="comment">// 非根控制器</span></span><br><span class="line">        viewController<span class="variable">.hidesBottomBarWhenPushed</span> = <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置导航条左边按钮的内容,把系统的返回按钮给覆盖,导航控制器的滑动返回功能就木有啦</span></span><br><span class="line">        viewController<span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"NavBack"</span>] style:<span class="built_in">UIBarButtonItemStyleBordered</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(back)];</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">super</span> pushViewController:viewController animated:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)back</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span> popViewControllerAnimated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理目标控制器滑动返回(从左边沿滑动返回)方式二</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCNavigationController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span> popDelegate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCNavigationController</span></span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//代理做了一些滑动返回功能,而且做了一系列的判断</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.popDelegate</span> = <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.delegate</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 导航控制器的代理方法</span></span><br><span class="line"><span class="comment">// 完全展示完调用</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController didShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 如果展示的控制器是根控制器，就还原pop手势代理</span></span><br><span class="line">    <span class="keyword">if</span> (viewController == [<span class="keyword">self</span><span class="variable">.viewControllers</span> firstObject]) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.delegate</span> = <span class="keyword">self</span><span class="variable">.popDelegate</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//复写导航控制器方法,push的时候隐藏底部UITabBar</span></span><br><span class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.viewControllers</span><span class="variable">.count</span> != <span class="number">0</span>) &#123; <span class="comment">// 非根控制器</span></span><br><span class="line">        viewController<span class="variable">.hidesBottomBarWhenPushed</span> = <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置导航条左边按钮的内容,把系统的返回按钮给覆盖,导航控制器的滑动返回功能就木有啦</span></span><br><span class="line">        viewController<span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"NavBack"</span>] style:<span class="built_in">UIBarButtonItemStyleBordered</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(back)];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 就有滑动返回功能</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.delegate</span> = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">super</span> pushViewController:viewController animated:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)back</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> popViewControllerAnimated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="自定义导航条样式">自定义导航条样式</h3><ul>
-<li>修改导航条背景图片、文字颜色、标题、返回按钮<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果要设置导航条背景图片,必须使用UIBarMetricsDefault,默认导航控制器的子控制器的view尺寸会变化</span></span><br><span class="line"><span class="comment">//设置导航条背景图片一定要在导航条显示之前设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当前类或者他的子类第一次使用的时候才会调用</span></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//设置导航条的内容</span></span><br><span class="line">    <span class="comment">//获取当前应用下所有的导航条,可能会修改系统相册的导航条,因此推荐使用下面的那种方式修改导航条样式</span></span><br><span class="line">    <span class="built_in">UINavigationBar</span> *bar = [<span class="built_in">UINavigationBar</span> appearance];</span><br><span class="line">    <span class="comment">//获取哪个类下的导航条</span></span><br><span class="line">    <span class="built_in">UINavigationBar</span> *bar = [<span class="built_in">UINavigationBar</span> appearanceWhenContainedIn:<span class="keyword">self</span>,<span class="literal">nil</span>];</span><br><span class="line">    [bar setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过setTintColor设置导航条文字的颜色</span></span><br><span class="line">    [bar setTintColor:[<span class="built_in">UIColor</span> whiteColor]];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置导航条标题的颜色</span></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *titleAttr = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    titleAttr[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    <span class="comment">//titleAttr[NSFontAttributeName] = [NSFont systemFontOfSize:20];</span></span><br><span class="line">    titleAttr[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">NSFont</span> boldSystemFontOfSize:<span class="number">20</span>];</span><br><span class="line">    [bar setTitleTextAttributes:(<span class="built_in">NSDictonary</span> *)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//可以调整返回按钮文字的偏移量</span></span><br><span class="line">    <span class="comment">//[[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="我的彩票模块">我的彩票模块</h3><ul>
-<li>设置导航条左右2边的按钮<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//加载类的时候调用</span></span><br><span class="line"><span class="comment">//当程序一启动的时候就会调用</span></span><br><span class="line">+ (<span class="keyword">void</span>)load</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setUpNav</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//设置导航条左右2边的按钮</span></span><br><span class="line">	<span class="built_in">UIButton</span> *btn = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeCustom</span>];</span><br><span class="line">	[btn setTitle:<span class="string">@"客服"</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">	[btn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//自适应尺寸</span></span><br><span class="line">	[btn sizeToFit];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">UIBarButtonItem</span> *lefItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithCustomView:(<span class="built_in">UIView</span> *)];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//设置左边</span></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = leftItem;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">	image = [image imageWithRenderingMode:<span class="built_in">UIImageRenderingModeAlwaysOriginal</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//设置右边</span></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.rightBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>] style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(settings)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//@property 如果在分类里面只会生成get,set方法的声明,并不会生成成员属性和方法实现.</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="使用pch">使用pch</h3><ul>
-<li>配置.pch文件路径:配置预编译文件路径:Build Settings-&gt;Prefix Header-&gt;填写.pch文件的路径<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#ifdef __OBJC__</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#endif</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="购彩大厅模块">购彩大厅模块</h3><ul>
-<li><p>自定义活动菜单</p>
-<ul>
-<li>添加蒙版-自定义半透明CoverView:<br>  1.设置frame为[UIScreen mainScreen].bounds;<br>  2.设置背景颜色为黑色<br>  3.透明度为0.7<br>  4.最后将其加到主窗口上</li>
-<li>自定义ActiveMenuView<br>  1.使用xib设置宽高各位200<br>  2.添加ImageView为其添加相对于父控件上下左右为0的约束<br>  3.右上角加入取消按钮<br>  4.从xib加载自定义view<br>  5.修改形变  <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">1</span> animations:^&#123;</span><br><span class="line">	<span class="built_in">CGAffineTransform</span> transform = <span class="built_in">CGAffineTransformIdentity</span>;</span><br><span class="line">	transform = <span class="built_in">CGAffineTransformTranslate</span>(transform,<span class="keyword">self</span><span class="variable">.center</span><span class="variable">.x</span>+<span class="number">44</span>,-<span class="keyword">self</span><span class="variable">.center</span><span class="variable">.y</span>+<span class="number">44</span>);</span><br><span class="line">	transform = <span class="built_in">CGAffineTransformScale</span>(transform,<span class="number">0.01</span>,<span class="number">0.01</span>);</span><br><span class="line">	<span class="keyword">self</span><span class="variable">.transform</span> = transform;</span><br><span class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished)&#123;</span><br><span class="line">	[<span class="keyword">self</span> removeFromSuperview];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>自定义pop菜单</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">rows = (count-<span class="number">1</span>) / cols + <span class="number">1</span>;</span><br><span class="line">menu<span class="variable">.transform</span> = <span class="built_in">CGAffineformMakeTranslation</span>(<span class="number">0</span>,-menu<span class="variable">.height</span>);</span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.5</span> delay:<span class="number">0</span> usingSpringWithDamping:<span class="number">0.3</span> initialSpringVelocity:<span class="number">0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</span><br><span class="line">	menu<span class="variable">.transform</span> = <span class="built_in">CGAffineTransformIdentity</span>;</span><br><span class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//将menu添加到控制器view上</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//隐藏menu</span></span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">1</span> animations:^&#123;</span><br><span class="line">	<span class="keyword">self</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformMakeTranslate</span>(<span class="number">0</span>,-<span class="keyword">self</span><span class="variable">.height</span>);</span><br><span class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished)&#123;</span><br><span class="line">	[<span class="keyword">self</span> removeFromSuperview];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="竞技场模块">竞技场模块</h3><ul>
-<li>修改导航条背景图片和自定义标题视图<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">UISegmentedControl</span> *seg = [[<span class="built_in">UISegmentedControl</span> alloc] initWithItems:@[<span class="string">@"足球"</span>,<span class="string">@"篮球"</span>]];</span><br><span class="line">    seg<span class="variable">.width</span> += <span class="number">40</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 设置UISegmentedControl背景图片</span></span><br><span class="line">[seg setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"CPArenaSegmentBG"</span>] forState:<span class="built_in">UIControlStateNormal</span> barMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line">[seg setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"CPArenaSegmentSelectedBG"</span>] forState:<span class="built_in">UIControlStateSelected</span> barMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line">seg<span class="variable">.selectedSegmentIndex</span> = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 设置边框颜色</span></span><br><span class="line">seg<span class="variable">.tintColor</span> = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">0</span>/<span class="number">255.0</span> green:<span class="number">142</span>/<span class="number">255.0</span> blue:<span class="number">143</span>/<span class="number">255.0</span> alpha:<span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">dict[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">[seg setTitleTextAttributes:dict forState:<span class="built_in">UIControlStateSelected</span>];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.titleView</span> = seg;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置导航条背景图片并处理图片拉伸</span></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取当前类下面的所有导航条去设置</span></span><br><span class="line">    <span class="built_in">UINavigationBar</span> *bar = [<span class="built_in">UINavigationBar</span> appearanceWhenContainedIn:<span class="keyword">self</span>, <span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    [bar setBackgroundImage:[<span class="built_in">UIImage</span> imageWithStretchableImageName:<span class="string">@"NLArenaNavBar64"</span>] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line">&#125;</span><br><span class="line">+ (instancetype)imageWithStretchableImageName:(<span class="built_in">NSString</span> *)imageName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:imageName];</span><br><span class="line">    <span class="keyword">return</span> [image stretchableImageWithLeftCapWidth:image<span class="variable">.size</span><span class="variable">.width</span> * <span class="number">0.5</span> topCapHeight:image<span class="variable">.size</span><span class="variable">.height</span> * <span class="number">0.5</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="发现模块">发现模块</h3><ul>
-<li><p>从storyboard加载控制器</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"MCDiscoverViewController"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">MCDiscoverViewController *discover = [storyboard instantiateInitialViewController];</span><br><span class="line"><span class="comment">//MCDiscoverViewController *discover = [storyboard instantiateViewControllerWithIdentifier:(NSString *)identifier];</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当push目标控制器之前隐藏底部UITabBar</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)prepareForSegue:(<span class="built_in">UIStoryboardSegue</span> *)segue sender:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIViewController</span> *vc = segue<span class="variable">.destinationViewController</span>;</span><br><span class="line">    </span><br><span class="line">    vc<span class="variable">.hidesBottomBarWhenPushed</span> = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>为UIImageView加载多张图片动画</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imageView = [[<span class="built_in">UIImageView</span> alloc] initWithImage:(nullable <span class="built_in">UIImage</span> *)image];</span><br><span class="line">imageView<span class="variable">.animationImages</span> = @[<span class="built_in">UIImage</span>,<span class="built_in">UIImage</span>];</span><br><span class="line">imageView<span class="variable">.animationDuration</span> = <span class="number">1</span>;</span><br><span class="line">[imageView startAnimating];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>xib中图片拉伸处理<br>选中图片,修改XCode右侧属性栏中Stretching<br>x:0.5 y:0.5 width:0 height:0<br>x为图片左边一半不拉伸,y为图片上边一半不拉伸,只拉伸中间1像素点.</p>
-</li>
-<li>处理按钮图片拉伸<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">image = [image stretchableImageWithLeftCapWidth:image<span class="variable">.size</span><span class="variable">.width</span> * <span class="number">0.5</span> topCapHeight:image<span class="variable">.size</span><span class="variable">.height</span> * <span class="number">0.5</span>];</span><br><span class="line">[btn setBackgroundImage:image forState:<span class="built_in">UIControlStateNormal</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="比较APP版本">比较APP版本</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//从info.plist获取用户最新的版本号</span></span><br><span class="line"><span class="built_in">NSString</span> *curVersion = [<span class="built_in">NSBundle</span> mainBundle]<span class="variable">.infoDictionary</span>[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line"><span class="comment">// 获取上一次版本号</span></span><br><span class="line"><span class="built_in">NSString</span> *oldVersion = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] objectForKey:MCVersionKey];</span><br></pre></td></tr></table></figure>
-<h3 id="自定义引导页">自定义引导页</h3><ul>
-<li>继承UICollectionViewController</li>
-<li>初始化的时候必须设置布局参数,通常使用系统提供的流水布局UICollectionViewFlowLayout</li>
-<li>cell必须通过注册</li>
-<li>自定义cell</li>
-<li>实现UICollectionView数据源方法</li>
-<li>封装Guide工具类,比较版本号,跳转到不同的页面</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 流水布局对象,设置cell的尺寸和位置</span></span><br><span class="line">    <span class="built_in">UICollectionViewFlowLayout</span> *layout  = [[<span class="built_in">UICollectionViewFlowLayout</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置滚动的方向</span></span><br><span class="line">    layout<span class="variable">.scrollDirection</span> = <span class="built_in">UICollectionViewScrollDirectionHorizontal</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置cell的尺寸</span></span><br><span class="line">    layout<span class="variable">.itemSize</span> = [<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span><span class="variable">.size</span>;</span><br><span class="line">    <span class="comment">// 设置cell之间间距</span></span><br><span class="line">    layout<span class="variable">.minimumInteritemSpacing</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 设置行距</span></span><br><span class="line">    layout<span class="variable">.minimumLineSpacing</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置每一组的内间距</span></span><br><span class="line">    <span class="comment">//layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span>  [<span class="keyword">super</span> initWithCollectionViewLayout:layout];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.collectionView</span><span class="variable">.bounces</span> = <span class="literal">NO</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.collectionView</span><span class="variable">.showsHorizontalScrollIndicator</span> = <span class="literal">NO</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.collectionView</span><span class="variable">.pagingEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注册cell</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.collectionView</span> registerClass:[MCNewFeatureCell class] forCellWithReuseIdentifier:ID];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> setUpAllChildView];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - UICollectionView有多少组</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInCollectionView:(<span class="built_in">UICollectionView</span> *)collectionView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 返回第section组有多少个cell</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView numberOfItemsInSection:(<span class="built_in">NSInteger</span>)section</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 返回每个cell长什么样</span></span><br><span class="line">- (<span class="built_in">UICollectionViewCell</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    MCNewFeatureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];</span><br><span class="line">    <span class="built_in">NSString</span> *imageName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"guide%ldBackground"</span>,indexPath<span class="variable">.item</span> + <span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">    cell<span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:imageName];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 添加所有子控件</span></span><br><span class="line">- (<span class="keyword">void</span>)setUpAllChildView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// guide1</span></span><br><span class="line">    <span class="built_in">UIImageView</span> *guide = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"guide1"</span>]];</span><br><span class="line">    _guideView = guide;</span><br><span class="line">    guide<span class="variable">.centetX</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.centetX</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.collectionView</span> addSubview:guide];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// guideLine</span></span><br><span class="line">    <span class="built_in">UIImageView</span> *guideLine = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"guideLine"</span>]];</span><br><span class="line">    guideLine<span class="variable">.x</span> -= <span class="number">170</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.collectionView</span> addSubview:guideLine];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// largerText</span></span><br><span class="line">    <span class="built_in">UIImageView</span> *largerText = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"guideLargeText1"</span>]];</span><br><span class="line">    largerText<span class="variable">.centetX</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.centetX</span>;</span><br><span class="line">    largerText<span class="variable">.centetY</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.height</span> * <span class="number">0.7</span>;</span><br><span class="line">    _guideLargetView = largerText;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.collectionView</span> addSubview:largerText];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// smallText</span></span><br><span class="line">    <span class="built_in">UIImageView</span> *smallText = [[<span class="built_in">UIImageView</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"guideSmallText1"</span>]];</span><br><span class="line">    _guideSmallView = smallText;</span><br><span class="line">    smallText<span class="variable">.centetX</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.centetX</span>;</span><br><span class="line">    smallText<span class="variable">.centetY</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.height</span> * <span class="number">0.8</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.collectionView</span> addSubview:smallText];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 减速完成</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView&#123;</span><br><span class="line">    <span class="comment">// 获取当前x偏移量</span></span><br><span class="line">    <span class="built_in">CGFloat</span> curOffsetX = scrollView<span class="variable">.contentOffset</span><span class="variable">.x</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取差值</span></span><br><span class="line">    <span class="built_in">CGFloat</span> delta = curOffsetX - _lastOffsetX;</span><br><span class="line">    </span><br><span class="line">    _guideView<span class="variable">.x</span> += <span class="number">2</span> *  delta;</span><br><span class="line">    _guideLargetView<span class="variable">.x</span> += <span class="number">2</span> * delta;</span><br><span class="line">    _guideSmallView<span class="variable">.x</span> +=  <span class="number">2</span> * delta;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.25</span> animations:^&#123;</span><br><span class="line">        _guideView<span class="variable">.x</span> -=  delta;</span><br><span class="line">        _guideLargetView<span class="variable">.x</span> -= delta;</span><br><span class="line">        _guideSmallView<span class="variable">.x</span> -=   delta;</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> page = curOffsetX / <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.width</span> + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 修改控件的内容</span></span><br><span class="line">    _guideView<span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"guide%d"</span>,page]];</span><br><span class="line">    _lastOffsetX = curOffsetX;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义cell继承自UICollectionViewCell</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCNewFeatureCell</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UIImageView</span> *imageView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCNewFeatureCell</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIImageView</span> *)imageView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_imageView == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="built_in">UIImageView</span> *imageV = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="keyword">self</span><span class="variable">.bounds</span>];</span><br><span class="line">        </span><br><span class="line">        _imageView = imageV;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:imageV];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> _imageView;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setImage:(<span class="built_in">UIImage</span> *)image</span><br><span class="line">&#123;</span><br><span class="line">    _image = image;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置模块">设置模块</h3><ul>
-<li><p>封装一个设置控制器的基类(MCBaseSettingViewController)</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCBaseSettingViewController</span> : <span class="title">UITableViewController</span></span></span><br><span class="line"><span class="comment">// 记录当前tableView的所有数组</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSMutableArray</span> *groups;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>封装不同类型的item模型(image、title、subTitle、itemOpertionBlock、跳转的控制器Class、UISwitch状态)</p>
-</li>
-<li>封装group模型(items、headTitle、footTitle)</li>
-<li>自定义cell</li>
-<li>实现数据源方法和代理方法(点击不同的item执行不同的block来处理跳转)<br><code>- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath</code></li>
-</ul>
-<h3 id="Block">Block</h3><ul>
-<li>block会把代码里所有强指针全部强引用</li>
-<li><p>处理block引起的循环引用的问题,需要将所有block代码里面的self转为弱引用</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typeof获取括号里面的类型</span></span><br><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>block内部对外部的变量只可以读取;</p>
-</li>
-<li>默认情况下,block内部不能修改外面的变量，修改编译器就会报错；</li>
-<li>给局部变量加上__block关键字,这个局部变量可以在block内部修改。</li>
-</ul>
-<h3 id="JSON解析与KVC">JSON解析与KVC</h3><ul>
-<li><p>使用NSJSONSerialization解析json</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *filePath =  [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"help.json"</span> ofType:<span class="literal">nil</span>];      </span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:filePath];</span><br><span class="line"><span class="built_in">NSArray</span> *dictArr = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingAllowFragments</span> error:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>kvc 处理字典转模型</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果模型中的key与字典中的key不一致时,需要重写模型中的</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCHtmlItem</span></span></span><br><span class="line">+ (instancetype)itemWithDict:(<span class="built_in">NSDictionary</span> *)dict</span><br><span class="line">&#123;</span><br><span class="line">    MCHtmlItem *item = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    [item setValuesForKeysWithDictionary:dict];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历字典里面的所有key去模型中</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)key</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ([key isEqualToString:<span class="string">@"id"</span>]) &#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> setValue:value forKeyPath:<span class="string">@"ID"</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">super</span> setValue:value forKey:key];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//上面这个方式使用起来有很多弊端.</span></span><br><span class="line"><span class="comment">//所以我们为NSObject做一个分类,来反向查询字典并为model属性赋值</span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">Model</span>)</span></span><br><span class="line"></span><br><span class="line">+ (instancetype)objcWithDict:(<span class="built_in">NSDictionary</span> *)dict mapDict:(<span class="built_in">NSDictionary</span> *)mapDict</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">id</span> objc = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历模型中属性</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    Ivar *ivars = class_copyIvarList(<span class="keyword">self</span>, &amp;count);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; count; i++) &#123;</span><br><span class="line">        Ivar ivar = ivars[i];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 属性名称</span></span><br><span class="line">        <span class="built_in">NSString</span> *ivarName = @(ivar_getName(ivar));</span><br><span class="line">        </span><br><span class="line">        ivarName = [ivarName substringFromIndex:<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">id</span> value = dict[ivarName];</span><br><span class="line">        <span class="comment">// 需要由外界通知内部,模型中属性名对应字典里面的哪个key</span></span><br><span class="line">        <span class="comment">// ID -&gt; id</span></span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">nil</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mapDict) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *keyName = mapDict[ivarName];</span><br><span class="line">                </span><br><span class="line">            value = dict[keyName];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">            [objc setValue:value forKeyPath:ivarName];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> objc;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="自定义UITabBar">自定义UITabBar</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpTabBar</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    MCTabBar *tabBar = [[MCTabBar alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储UITabBarItem</span></span><br><span class="line">    tabBar<span class="variable">.items</span> = <span class="keyword">self</span><span class="variable">.items</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//移除系统的tabBar,相当于将tabBar上的所有按钮移除</span></span><br><span class="line">	<span class="comment">//将一个控件从父控件中移除并不会马上销毁,一般在下一次运行循环的时候,就会判断这个对象有没有强引用,如果没有,才会销毁</span></span><br><span class="line">	<span class="comment">//[self.tabBar removeFromSuperview];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//tabBar.frame = self.tabBar.frame;</span></span><br><span class="line"></span><br><span class="line">    tabBar<span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.bounds</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tabBar</span> addSubview:tabBar];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把系统的tabBar上的按钮干掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *childView <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![childView isKindOfClass:[MCTabBar class]]) &#123;</span><br><span class="line">            [childView removeFromSuperview];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS数据存储]]></title>
-    <link href="http://yoursite.com/2016/03/17/ios_save_data/"/>
-    <id>http://yoursite.com/2016/03/17/ios_save_data/</id>
-    <published>2016-03-17T12:00:00.000Z</published>
-    <updated>2016-03-19T10:17:33.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="如何定义block">如何定义block</h3><ul>
-<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="iOS应用数据存储的常用方式">iOS应用数据存储的常用方式</h3><ul>
-<li>XML属性列表(plist)归档</li>
-<li>Preference(偏好设置)</li>
-<li>NSKeyedArchiver归档(NSCoding)</li>
-<li>SQLite3</li>
-<li>Core Data</li>
-</ul>
-<h3 id="应用沙盒">应用沙盒</h3><p>应用沙盒的文件系统目录</p>
-<ul>
-<li>应用程序包:包含了所有的资源文件和可执行文件</li>
-<li>Documents:保持应用运行时生成的需要持久化的数据,iTunes同步设备时会备份该目录.</li>
-<li>Library<ul>
-<li>Caches:保存应用运行时生成的需要持久化的数据,iTunes同步设备时不会备份该目录.一般存储体积大、不需要备份的非重要数据</li>
-<li>Preferences:保存应用的所有偏好设置,iOS的Settings(设置)应用会在该目录中查找应用的设置信息.iTunes同步设备时会备份该目录</li>
-</ul>
-</li>
-<li>tmp:保存应用运行时所需要的临时数据,使用完毕后再将相应的文件从该目录删除.应用没有运行时,系统也可能会清除该目录下的文件,iTunes同步设备时不会备份该目录</li>
-</ul>
-<h5 id="模拟器应用沙盒的根路径在:(apple是用户名,8-0是模拟器版本)">模拟器应用沙盒的根路径在:(apple是用户名,8.0是模拟器版本)</h5><p><code>/Users/apple/Library/Application Support/iPhone Simulator/8.0/Applications</code></p>
-<h5 id="获取应用的文件夹(应用沙盒)">获取应用的文件夹(应用沙盒)</h5><p><code>NSString *homePath = NSHomeDirectory();</code></p>
-<h5 id="获取沙盒中的文件夹">获取沙盒中的文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory directory,NSSearchPathDomainMask domainMask,BOOL expandTilde);</code></p>
-<p>NSSearchPathDirectory:搜索的目录 <code>NSCacheDirectory</code><br>NSSearchPathDomainMask:搜索的范围 <code>NSUserDomainMask</code>:表示在用户的手机上查找<br>expandTilde:是否展开全路径,如果没展开,应用的沙盒路径就是~</p>
-<h5 id="获取Cache文件夹">获取Cache文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSCacheDirectory,NSUserDomainMask,YES)</code></p>
-<h5 id="获取Documents文件夹">获取Documents文件夹</h5><p><code>NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)</code></p>
-<h5 id="获取tmp临时文件夹">获取tmp临时文件夹</h5><p><code>NSTemporaryDirectory()</code></p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"arr.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSArray</span> *arr = @[<span class="string">@"A"</span>,<span class="string">@"123"</span>];</span><br><span class="line"><span class="comment">//写入plist文件</span></span><br><span class="line">[arr writeToFile:filePath atomically:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取plist中的内容</span></span><br><span class="line">[<span class="built_in">NSArray</span> arrayWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">//plist 不能存储自定义对象</span></span><br></pre></td></tr></table></figure>
-<h3 id="偏好设置存储">偏好设置存储</h3><ul>
-<li>存放在<code>Library/Preferences/xxx.plist</code><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> *userDefaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">[userDefaults setObject:<span class="string">@"value"</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line">[userDefaults setBOOL:<span class="literal">YES</span> forKey:<span class="string">@"key"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在iOS7之前,默认不会马上将数据写到文件中</span></span><br><span class="line"><span class="comment">// 这个方法会立即将缓存中的数据写入到文件中</span></span><br><span class="line">[userDefaults synchronize];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从偏好设置中读取数据</span></span><br><span class="line"><span class="built_in">NSString</span> *value = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] objectForKey:<span class="string">@"key"</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="NSKeyedArchiver归档和NSKeyedUnarchiver解档">NSKeyedArchiver归档和NSKeyedUnarchiver解档</h3><ul>
-<li><p>归档(<code>NSKeyedArchiver</code>)</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取Cache文件夹路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCacheDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼接文件名</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"person.data"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要归档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (void)encodeWithCoder:(NSCoder *)aCoder : 用来描述当前对象的哪些属性需要归档</span></span><br><span class="line"><span class="comment">//[aCoder encodeObject:(id) forKey:(NSString *)];</span></span><br><span class="line"><span class="comment">//[aCoder encodeInt:(int) forKey:(NSString *)];</span></span><br><span class="line"></span><br><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//将自定义对象归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:p toFile:filePath];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解档(<code>NSKeyedUnarchiver</code>)</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:(<span class="built_in">NSString</span> *)];</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义对象想要解档,必须遵守NSCoding协议,实现协议方法</span></span><br><span class="line"><span class="comment">//- (id)initWithCoder:(NSCoder *)aDecoder: 用来描述当前对象的哪些属性需要解档,当解档对象的时候调用</span></span><br><span class="line"><span class="comment">//解析文件会调用这个方法</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init])&#123;</span><br><span class="line">		<span class="comment">//一定要给成员变量赋值</span></span><br><span class="line">		_xxx = [aCoder decodeObjectForKey:(<span class="built_in">NSString</span> *)];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义View,从xib加载的时候系统会自动调用initWithCoder方法</span></span><br><span class="line"><span class="comment">//只要父类遵守了NSCoding协议就要调用initWithCoder</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过代码初始化的时候,调用init方法,底层会调用initWithFrame</span></span><br><span class="line">- (instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">self</span>=[<span class="keyword">super</span> initWithFrame:frame])&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="如何定义block">如何定义block</h3><ul>
-<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS界面跳转传值]]></title>
-    <link href="http://yoursite.com/2016/03/14/contact/"/>
-    <id>http://yoursite.com/2016/03/14/contact/</id>
-    <published>2016-03-14T14:00:00.000Z</published>
-    <updated>2016-03-20T06:34:57.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
-<li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
-</ul>
-<h3 id="什么是Segue">什么是Segue</h3><ul>
-<li>Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)</li>
-</ul>
-<a id="more"></a>
-<h3 id="Segue的属性">Segue的属性</h3><ul>
-<li>每一个Segue对象都有3个属性<ul>
-<li>唯一标识 <code>@property (nonatomic, readonly) NSString *identifier;</code></li>
-<li>来源控制器 <code>@property (nonatomic, readonly) id sourceViewController;</code></li>
-<li>目的控制器 <code>@property (nonatomic, readonly) id destinationViewController;</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="Segue的类型">Segue的类型</h3><ul>
-<li>根据Segue的执行(跳转)时刻,Segue可以分为2大类型<ul>
-<li>自动型:点击某个控件后(比如按钮),自动执行Segue,自动完成界面跳转</li>
-<li>手动型:需要通过写代码手动执行Segue,才能完成界面跳转</li>
-</ul>
-</li>
-</ul>
-<h3 id="自动型">自动型</h3><ul>
-<li>按住Control键,直接从控件拖线到目标控制器</li>
-<li>如果点击某个控件后,不需要做任何判断,一定要跳转到下一个界面,建议使用”自动型Segue”</li>
-</ul>
-<h3 id="手动型Segue">手动型Segue</h3><ul>
-<li>按住Control键,从来源控制器拖线到目标控制器</li>
-<li>手动型的Segue需要设置一个标识</li>
-<li>在恰当的时刻,使用perform方法执行对应的Segue<br><code>[self performSegueWithIdentifier:@&quot;login2contacts&quot; sender:nil];</code><br><code>Segue必须由来源控制器来执行,也就是说,这个perform方法必须由来源控制器来调用</code></li>
-<li>如果点击某个控件后,需要做一些判断,也就是说,满足一定条件后才能跳转到下一个界面,建议使用”手动型Segue”</li>
-</ul>
-<h3 id="performSegueWithIdentifier:sender:"><code>performSegueWithIdentifier:sender:</code></h3><ul>
-<li>利用<code>performSegueWithIdentifier:sender:</code>方法可以执行某个Segue,完成界面跳转</li>
-<li><p>接下来研究<code>performSegueWithIdentifier:sender:</code>方法的完整执行过程</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个self是来源控制器</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>根据identifier去storyboard中找到对应的线,新建UIStoryboardSegue对象<br>设置Segue对象的sourceViewController(来源控制器)<br>新建并且设置Segue对象的destinationViewController(目标控制器)</li>
-<li>调用sourceViewController的下面方法,做一些跳转前的准备工作并且传人创建好的Segue对象<br><code>- (void)prepareForSegue:(UIStoryboard *)segue sender:(id)sender;</code><br>这个sender是当初<code>performSegueWithIdentifier:sender:</code>中传人的sender</li>
-<li><p>调用Segue对象的<code>- (void)perform</code>方法开始执行界面跳转操作</p>
-<ul>
-<li><p>如果segue的style是push</p>
-<ul>
-<li>取得sourceViewController所在的UINavigationController</li>
-<li>调用UINavigationController的push方法将destinationViewController压人栈中,完成跳转.</li>
-</ul>
-</li>
-<li><p>如果segue的style是modal</p>
-<pre><code><span class="bullet">- </span>调用sourceViewController的presentViewController方法将destinationViewController展示出来
-</code></pre></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Modal">Modal</h3><ul>
-<li>除了push之外,还有另外一种控制器的切换方式,那就是Modal</li>
-<li>任何控制器都能通过Modal的形式展示出来</li>
-<li>Modal的默认效果: 新控制器从屏幕的最底部网上钻,直到盖住之前的控制器为止</li>
-<li>以Modal的形式展示控制器<br><code>- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^)(void))completion</code></li>
-<li>取消modal出的控制器<br><code>- (void)dismissViewControllerAnimated:(BOOL) completion:(void (^)(void))completion</code></li>
-</ul>
-<h5 id="modal的过程和原理:">modal的过程和原理:</h5><ul>
-<li>在iOS8之后modal出来的控制器view加到的是UITransitionView上,之前是加在UIWindow上</li>
-<li>UIWindow的rootViewController 强引用了 ViewController 而 ViewController的视图被自身的view属性强引用了</li>
-<li>被modal出来的View controller会被来源控制器中的 presentedViewController属性强引用保存起来</li>
-<li>当modal出View controller时,来源控制器的view会从UIWindow中移出</li>
-<li>View controller中的 presentedViewController 与 presentingViewController属性</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
-<li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
-</ul>
-<h3 id="什么是Segue">什么是Segue</h3><ul>
-<li>Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS多控制器]]></title>
-    <link href="http://yoursite.com/2016/03/13/multi_viewcontroller/"/>
-    <id>http://yoursite.com/2016/03/13/multi_viewcontroller/</id>
-    <published>2016-03-13T14:05:07.000Z</published>
-    <updated>2016-03-22T14:33:46.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="多控制器">多控制器</h3><ul>
-<li>UINavigationController</li>
-<li>UITabBarController</li>
-</ul>
-<h3 id="UINavigationController的简单使用">UINavigationController的简单使用</h3><ul>
-<li>UINavigationController的使用步骤<ul>
-<li>初始化UINavigationController</li>
-<li>设置UIWindow的rootViewController为UINavigationController</li>
-<li>根据具体情况,通过push方法添加对应个数的子控制器</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="UINavigationController的子控制器">UINavigationController的子控制器</h3><ul>
-<li>UINavigationController以栈的形式保存子控制器<br><code>@property(nonatomic,copy) NSArray *viewControllers;</code><br><code>@property(nonatomic,readonly) NSArray *childViewControllers;</code></li>
-<li>使用push方法能将某个控制器压入栈<br><code>- (void)pushViewController:(UIViewController *)viewController
-animated:(BOOL)animated;</code></li>
-<li>使用pop方法可以移除控制器<ul>
-<li>将栈顶的控制器移除(不是马上将控制器销毁,而是等到动画结束后才销毁)<br><code>- (UIViewController *)popViewControllerAnimated:(BOOL)animated;</code></li>
-<li>回到指定的子控制器<br><code>- (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated;</code></li>
-<li>回到根控制器(栈底控制器)<br><code>- (NSArray *)popToRootViewControllerAnimated:(BOOL)animated;</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="如何修改导航栏的内容">如何修改导航栏的内容</h3><ul>
-<li>导航栏的内容由栈顶控制器的navigationItem属性决定<br><code>self.navigationItem.title</code><br><code>self.title</code></li>
-<li>UINavigationItem: 控制导航条的内容</li>
-<li>UIBarButtonItem: 控制导航条上面按钮的内容</li>
-<li>UINavigationItem有以下属性影响着导航栏的内容<ul>
-<li>左上角的返回按钮<br><code>@property(nonatomic,retain) UIBarButtonItem *backBarButtonItem;</code></li>
-<li>中间的标题视图<br><code>@property(nonatomic,retain) UIView *titleView;</code></li>
-<li>中间的标题文字<br><code>@property(nonatomic,copy) NSString *title;</code></li>
-<li>左上角的视图<br><code>@property(nonatomic,retain) UIBarButtonItem *leftBarButtonItem;</code></li>
-<li>UIBarButtonItem <em>rightBarButtonItem 右上角的视图<br>`@property(nonatomic,retain) UIBarButtonItem </em>rightBarButtonItem;`</li>
-<li>自定义<br><code>[[UIBarButtonItem alloc] initWithCustomView:(UIView *)]</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="控制器View的生命周期顺序">控制器View的生命周期顺序</h3><ul>
-<li><code>- (void)viewDidLoad</code></li>
-<li><code>- (void)viewWillAppear:(BOOL)animated</code></li>
-<li><code>- (void)viewWillLayoutSubviews</code></li>
-<li><code>- (void)viewDidLayoutSubviews</code></li>
-<li><code>- (void)viewDidAppear:(BOOL)animated</code></li>
-<li><code>- (void)viewWillDisappear:(BOOL)animated</code></li>
-<li><code>- (void)viewDidDisappear:(BOOL)animated</code></li>
-<li>当控制器的view旋转的时候调用 <code>- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id&lt;UIViewControllerTransitionCoordinator&gt;)coordinator</code></li>
-<li>在非ARC中<ul>
-<li>view即将销毁 <code>- (void)viewWillUnload</code></li>
-<li>view完全销毁 <code>- (void)viewDidUnload</code> 在这个方法中管理内存,清空界面的数据.</li>
-</ul>
-</li>
-</ul>
-<h3 id="UITabBarController的view结构">UITabBarController的view结构</h3><ul>
-<li>UITabBar 高度为49</li>
-<li>存放子控制器的view</li>
-<li>UITabBarController控制器的view不是懒加载,在创建控制器的时候就会加载</li>
-</ul>
-<h4 id="UITabBarController的简单使用">UITabBarController的简单使用</h4><ul>
-<li>初始化UITabBarController</li>
-<li>设置UIWindow的rootViewController为UITabBarController</li>
-<li><p>根据具体情况,通过addChildViewController方法添加对应个数的子控制器</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建窗口</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"><span class="built_in">UITabBarController</span> *tabBarVC = [[<span class="built_in">UITabBarController</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = tabBarVC;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置按钮上面的内容</span></span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.title</span> = <span class="string">@"消息"</span>;</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.selectedImage</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@""</span>];</span><br><span class="line">vc<span class="variable">.tabBarItem</span><span class="variable">.badgeValue</span> = <span class="string">@"10"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加子控制器</span></span><br><span class="line">[tabBarVC addChildViewController:vc];</span><br><span class="line"></span><br><span class="line"><span class="comment">//显示窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UITabBar</p>
-<ul>
-<li>如果UITabBarController有N个子控制器,那么UITabBar内部就会有N个UITabBarButton作为子控件</li>
-<li>UITabBarButton里面显示什么内容,由对应子控制器的tabBarItem属性决定</li>
-<li>UITabBarItem有以下属性影响着UITabBarButton的内容<ul>
-<li>标题文字<br><code>@property(nonatomic,copy)NSString *title;</code></li>
-<li>图标<br><code>@property(nonatomic,retain)UIImage *image;</code></li>
-<li>选中时的图标<br><code>@property(nonatomic,retain)UIImage *selectedImage;</code></li>
-<li>提醒数字<br><code>@property(nonatomic,copy)NSString *badgeValue;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="多控制器">多控制器</h3><ul>
-<li>UINavigationController</li>
-<li>UITabBarController</li>
-</ul>
-<h3 id="UINavigationController的简单使用">UINavigationController的简单使用</h3><ul>
-<li>UINavigationController的使用步骤<ul>
-<li>初始化UINavigationController</li>
-<li>设置UIWindow的rootViewController为UINavigationController</li>
-<li>根据具体情况,通过push方法添加对应个数的子控制器</li>
-</ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS创建控制器]]></title>
-    <link href="http://yoursite.com/2016/03/13/create_viewcontroller/"/>
-    <id>http://yoursite.com/2016/03/13/create_viewcontroller/</id>
-    <published>2016-03-13T02:00:07.000Z</published>
-    <updated>2016-03-13T14:11:22.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="如何创建一个控制器">如何创建一个控制器</h3><ul>
-<li><p>控制器常见的创建方式有以下几种</p>
-<ul>
-<li><p>通过storyboard创建</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建窗口</span></span><br><span class="line">   <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载storyboard</span></span><br><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过storyboard实例化控制器</span></span><br><span class="line"><span class="comment">// instantiateInitialViewController: 加载箭头指向的控制器</span></span><br><span class="line"><span class="comment">// instantiateViewControllerWithIdentifier:(NSString *)identifier:通过Storyboard ID标识符来创建控制器</span></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将控制器设置为窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示主窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接创建<br><code>UIViewController *vc = [[UIViewController alloc] init];</code></p>
-</li>
-<li>指定xib文件创建<figure class="highlight"><table><tr><td class="code"><pre><span class="line">创建xib并添加一个view</span><br><span class="line">为文件的拥有者绑定Class(即设置File's Owner的Class类型 MCViewController)</span><br><span class="line">设置文件的拥有者Outlets view</span><br><span class="line">MCViewController *vc = [[MCViewController alloc] initWithNibName:@"MCViewController" bundle:nil];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="了解控制器的View是如何创建的">了解控制器的View是如何创建的</h3><h4 id="UIViewController中的-_(void)loadView方法">UIViewController中的<code>- (void)loadView</code>方法</h4><ul>
-<li>loadView的作用: 自定义控制器的view</li>
-<li>loadView什么时候调用: 第一次使用控制器的view的时候调用</li>
-<li>注意: 在这个方法中如果没有自定义view,就不能获取控制器的view</li>
-<li>一旦重写了这个方法,就不要调用[super loadView]</li>
-<li>如果重写了这个方法,就不会去加载storyboard描述的控制器的View<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)loadView&#123;</span><br><span class="line">	<span class="comment">// 系统默认的做法,加载storyboard或者xib描述的控制器的view</span></span><br><span class="line">	<span class="comment">//[super loadView];</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 不能通过这种方式设置背景颜色,会导致死循环</span></span><br><span class="line">	<span class="comment">// self.view.backgroundColor = [UIColor redColor];</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建控制器view</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.view</span> = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> purpleColor];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//系统内部可能是这样实现的</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)view</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_view == <span class="literal">nil</span>) &#123;</span><br><span class="line">        [<span class="keyword">self</span> loadView];</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> viewDidLoad];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="控制器view的创建(xib)">控制器view的创建(xib)</h4><ul>
-<li>加载跟类名相同的xib</li>
-<li>如果描述控制器View的xib跟控制器的类名相同,就会去加载</li>
-<li>只有控制器的init方法底层会调用initWithNibName:bundle:</li>
-<li>只要通过initWithNibName:bundle:初始化控制器,并且nibName为nil,就会执行以下几步.(例如:MCViewController类型)<ul>
-<li>1.寻找有没有跟控制器类名同名但是不带Controller的xib,如果有就会去加载（MCView.xib）</li>
-<li>2.寻找有没有跟控制器类名同名的xib,如果有就会去加载(MCViewController.xib)</li>
-<li>3.如果都没有找到,创建空的view</li>
-</ul>
-</li>
-<li>默认控制器view的颜色为几乎透明色</li>
-</ul>
-<h4 id="控制器view的懒加载">控制器view的懒加载</h4><ul>
-<li>创建UIViewController控制器,控制器的view并没有创建</li>
-<li><p>控制器的view懒加载:第一次使用的时候才会去加载,并不是创建UIViewController控制器的时候去加载</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[ViewController alloc] init];</span><br><span class="line"><span class="comment">//第一次使用的时候会去加载view</span></span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果控制器是窗口的根控制器就可以不用设置尺寸</p>
-</li>
-<li>在viewDidLoad中打印控制器的尺寸不准确,通常在viewDidAppear</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="如何创建一个控制器">如何创建一个控制器</h3><ul>
-<li><p>控制器常见的创建方式有以下几种</p>
-<ul>
-<li><p>通过storyboard创建</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建窗口</span></span><br><span class="line">   <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载storyboard</span></span><br><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过storyboard实例化控制器</span></span><br><span class="line"><span class="comment">// instantiateInitialViewController: 加载箭头指向的控制器</span></span><br><span class="line"><span class="comment">// instantiateViewControllerWithIdentifier:(NSString *)identifier:通过Storyboard ID标识符来创建控制器</span></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将控制器设置为窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示主窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接创建<br><code>UIViewController *vc = [[UIViewController alloc] init];</code></p>
-</li>
-<li>指定xib文件创建<figure class="highlight"><table><tr><td class="code"><pre><span class="line">创建xib并添加一个view</span><br><span class="line">为文件的拥有者绑定Class(即设置File's Owner的Class类型 MCViewController)</span><br><span class="line">设置文件的拥有者Outlets view</span><br><span class="line">MCViewController *vc = [[MCViewController alloc] initWithNibName:@"MCViewController" bundle:nil];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS之UIWindow]]></title>
-    <link href="http://yoursite.com/2016/03/12/uiwindow/"/>
-    <id>http://yoursite.com/2016/03/12/uiwindow/</id>
-    <published>2016-03-12T02:00:00.000Z</published>
-    <updated>2016-03-13T14:12:23.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="UIWindow">UIWindow</h3><ul>
-<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
-<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
-<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
-<li>也就说,没有UIWindow,就看不见任何UI界面</li>
-<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
-<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
-</ul>
-<a id="more"></a>
-<h3 id="iOS_App启动加载过程">iOS App启动加载过程</h3><p>main函数是程序的主入口,调用UIApplicationMain函数做的事情:</p>
-<ul>
-<li>创建UIApplication</li>
-<li>创建UIApplicationDelegate,并且成为UIApplication代理</li>
-<li>开启主运行循环,保持程序一直在运行</li>
-<li>加载info.plist,判断有没有指定main.stroyboard,指定了就加载 </li>
-<li>加载main.stroyboard做的事情:<ul>
-<li>创建窗口</li>
-<li>加载main.storyboard,并且加载main.storyboard指定的控制器</li>
-<li>把新创建的控制器作为窗口的跟控制器,让窗口显示出来</li>
-</ul>
-</li>
-<li>如果info.plist没有指定’Main storyboard file base name’,则不会创建窗口<br>需要在app启动完成方法中创建窗口然后创建窗口的根控制器最后再显示窗口</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 1.创建窗口,注意窗口必须要有尺寸,尺寸跟屏幕一样大的尺寸,窗口不要被释放</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// application.windows:只要一给delegate的window属性赋值,就会添加到windows数组</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,application<span class="variable">.windows</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line"></span><br><span class="line">vc<span class="variable">.view</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> yellowColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果设置窗口的根控制器,默认就会把控制器的view添加到窗口上</span></span><br><span class="line"><span class="comment">//设置窗口的根控制器,默认就有旋转功能</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;<span class="comment">//底层相当于[self.window addSubview:vc.view];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.显示窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible]; <span class="comment">//makeKeyAndVisible 相当于 成为App的主窗口([UIApplication sharedApplication].keyWindow)并显示 设置self.window.hidden = NO;</span></span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="UIWindow">UIWindow</h3><ul>
-<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
-<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
-<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
-<li>也就说,没有UIWindow,就看不见任何UI界面</li>
-<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
-<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
 </ul>]]>
     
     </summary>

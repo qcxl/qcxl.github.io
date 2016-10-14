@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>UICollectionView的使用 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="移动开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="自定义布局 - 继承UICollectionViewFlowLayout重写prepareLayout方法
+作用:在这个方法中做一些初始化操作
+注意:一定要调用[super prepareLayout]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UICollectionView的使用">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/uicollectionview/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="移动开发">
+<meta property="og:description" content="自定义布局 - 继承UICollectionViewFlowLayout重写prepareLayout方法
+作用:在这个方法中做一些初始化操作
+注意:一定要调用[super prepareLayout]">
+<meta property="og:updated_time" content="2016-10-14T12:20:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mobile Development">
-<meta name="twitter:description" content="移动开发">
+<meta name="twitter:title" content="UICollectionView的使用">
+<meta name="twitter:description" content="自定义布局 - 继承UICollectionViewFlowLayout重写prepareLayout方法
+作用:在这个方法中做一些初始化操作
+注意:一定要调用[super prepareLayout]">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -248,296 +255,136 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-uicollectionview" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/04/13/uicollectionview/" class="article-date">
+  	<time datetime="2016-04-13T05:54:05.000Z" itemprop="datePublished">2016-04-13</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UICollectionView的使用
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/24/javascript_note_06/" class="archive-article-date">
-  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">9月 24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自定义布局_-_继承UICollectionViewFlowLayout">自定义布局 - 继承UICollectionViewFlowLayout</h3><h4 id="重写prepareLayout方法">重写prepareLayout方法</h4><ul>
+<li>作用:在这个方法中做一些初始化操作</li>
+<li>注意:一定要调用[super prepareLayout]</li>
+</ul>
+<a id="more"></a>
+<h4 id="重写layoutAttributesForElementsInRect:方法">重写layoutAttributesForElementsInRect:方法</h4><ul>
+<li>作用:<ul>
+<li>这个方法的返回值是个数组</li>
+<li>这个数组中存放的都是UICollectionViewLayoutAttributes对象</li>
+<li>UICollectionViewLayoutAttributes对象决定了cell的排布方式(frame等)</li>
+</ul>
+</li>
+</ul>
+<h4 id="重写shouldInvalidateLayoutForBoundsChange:方法">重写shouldInvalidateLayoutForBoundsChange:方法</h4><ul>
+<li>作用:如果返回YES,那么collectionView显示的范围发生改变时,就会重新刷新布局</li>
+<li>一旦重新刷新布局,就会按顺序调用下面的方法:<ul>
+<li>prepareLayout</li>
+<li>layoutAttributesForElementsInRect:</li>
+</ul>
+</li>
+</ul>
+<h4 id="重写targetContentOffsetForProposedContentOffset:withScrollingVelocity:方法">重写targetContentOffsetForProposedContentOffset:withScrollingVelocity:方法</h4><ul>
+<li>作用:返回值决定了collectionView停止滚动时最终的偏移量(contentOffset)</li>
+<li>参数:<ul>
+<li>proposedContentOffset:原本情况下,collectionView停止滚动时最终的偏移量</li>
+<li>velocity:滚动速率,通过这个参数可以了解滚动的方向</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/14/quartz2d/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Quartz2D
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/04/nsinvocation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NSInvocation的使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/22/javascript_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-22T05:26:55.000Z" itemprop="datePublished">9月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/22/javascript_note_5/">JavaScript权威指南--函数</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/13/javascript_note_04/" class="archive-article-date">
-  	<time datetime="2015-09-13T08:31:07.000Z" itemprop="datePublished">9月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/13/javascript_note_04/">JavaScript权威指南--数组</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/javascript_note_03/" class="archive-article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">9月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="uicollectionview" data-title="UICollectionView的使用" data-url="http://yoursite.com/2016/04/13/uicollectionview/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/07/javascript_note_02/" class="archive-article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">9月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/06/javascript_note_01/" class="archive-article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">9月 6</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/02/html5_study_01/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">9月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_6/" class="archive-article-date">
-  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/jquery_note_4/" class="archive-article-date">
-  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">8月 31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -563,8 +410,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

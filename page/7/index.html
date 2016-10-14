@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Mobile Development</title>
+  <title>Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="移动开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mobile Development">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="Mobile Development">
 <meta property="og:description" content="移动开发">
 <meta name="twitter:card" content="summary">
@@ -250,295 +250,247 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-android_view_position" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/07/10/android_view_position/" class="article-date">
+  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/android_view_position/">Android自定义组件坐标详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="获取View自身宽高">获取View自身宽高</h3><blockquote>
+<p>View.getWidth();  #View宽<br>  View.getHeight(); #View高</p>
+</blockquote>
+<h3 id="获取View自身坐标">获取View自身坐标</h3><blockquote>
+<p>相对于父控件<br>    getLeft():获取到的是view自身的左边到其父布局左边的距离<br>    getTop:获取到的是view自身的顶边到其父布局顶边的距离<br>    getRight():获取到的是view自身的右边到其父布局左边的距离<br>    getBottom():获取到的是view自身的底边到其父布局顶边的距离</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/10/android_view_position/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/24/javascript_note_06/" class="archive-article-date">
-  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">9月 24</time>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-pinyin4j" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/09/pinyin4j/" class="article-date">
+  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">2015-07-09</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
+      <a class="article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="下载Pinyin4j库">下载<a href="http://mvnrepository.com/artifact/com.belerweb/pinyin4j/2.5.0">Pinyin4j</a>库</h3></li>
+<li><h3 id="封装排序Model">封装排序Model</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;   </span><br><span class="line">	<span class="keyword">private</span> String sortLetters;  </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">(String name, String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSortLetters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSortLetters</span><span class="params">(String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/09/pinyin4j/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/22/javascript_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-22T05:26:55.000Z" itemprop="datePublished">9月 22</time>
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/08/ffmpeg/" class="article-date">
+  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">2015-07-08</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/22/javascript_note_5/">JavaScript权威指南--函数</a>
+      <a class="article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
+<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
+<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
+</blockquote>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/13/javascript_note_04/" class="archive-article-date">
-  	<time datetime="2015-09-13T08:31:07.000Z" itemprop="datePublished">9月 13</time>
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-setup-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/07/setup-blog/" class="article-date">
+  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">2015-07-07</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/13/javascript_note_04/">JavaScript权威指南--数组</a>
+      <a class="article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
+<p>用到的工具:</p>
+<ul>
+<li>Mac mini</li>
+<li>Brew</li>
+<li>npm (包管理,类似于Python中的pip)</li>
+<li>Git</li>
+<li>Node.js</li>
+<li>Hexo</li>
+<li>SSH</li>
+<li>GitHub</li>
+<li>个人申请的域名
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/07/setup-blog/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/javascript_note_03/" class="archive-article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">9月 8</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/07/javascript_note_02/" class="archive-article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">9月 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/06/javascript_note_01/" class="archive-article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">9月 6</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/02/html5_study_01/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">9月 2</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_6/" class="archive-article-date">
-  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/01/jquery_note_5/" class="archive-article-date">
-  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">9月 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/jquery_note_4/" class="archive-article-date">
-  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">8月 31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
     </nav>
   
-
 </div>
       <footer id="footer">
   <div class="outer">
@@ -562,9 +514,9 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

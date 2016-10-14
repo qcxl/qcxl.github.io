@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>汇编语言学习 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mac 上搭建汇编环境
+下载DOSBOX
+下载debug.exe程序到Mac
+最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在/Users/weifeng/Downloads/DOS/,就在DOSBOX中运行命令:mount c: /Users/weifeng/Downloads/DOS/,再运行命令c:进入c盘符,最后运行命令:d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编语言学习">
+<meta property="og:url" content="http://yoursite.com/2016/09/10/汇编语言学习/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="Mac 上搭建汇编环境
+下载DOSBOX
+下载debug.exe程序到Mac
+最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在/Users/weifeng/Downloads/DOS/,就在DOSBOX中运行命令:mount c: /Users/weifeng/Downloads/DOS/,再运行命令c:进入c盘符,最后运行命令:d">
+<meta property="og:updated_time" content="2016-10-14T12:16:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编语言学习">
+<meta name="twitter:description" content="Mac 上搭建汇编环境
+下载DOSBOX
+下载debug.exe程序到Mac
+最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在/Users/weifeng/Downloads/DOS/,就在DOSBOX中运行命令:mount c: /Users/weifeng/Downloads/DOS/,再运行命令c:进入c盘符,最后运行命令:d">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-汇编语言学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/汇编语言学习/" class="article-date">
+  	<time datetime="2016-09-10T01:28:11.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      汇编语言学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
+<li>下载<a href="https://www.dosbox.com/" target="_blank" rel="external">DOSBOX</a></li>
+<li>下载debug.exe程序到Mac</li>
+<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
+</ul>
+<a id="more"></a>
+<h4 id="寄存器">寄存器</h4><ul>
+<li>AX、BX、CX、DX是通用寄存器</li>
+<li>它们有分成AH、AL…</li>
+<li>它们是用来存储数据的</li>
+</ul>
+<h5 id="地址加法器工作原理">地址加法器工作原理</h5><ul>
+<li>8086CPU外部提供了20根地址总线,而CPU内部由于技术的问题只能提供16位的地址那怎么办呢? 它提供了血汗工厂:地址加法器,将2个16位的地址最后合成一个20位的地址.</li>
+<li>地址加法器合成物理地址的方法:<code>物理地址 = 段地址 * 16 + 偏移地址</code> 其中段地址存储在段寄存器中,8086CPU有4个段寄存器:CS、DS、SS、ES.</li>
+<li>段地址乘以16相当于向左移一位.例如对于十进制数:<code>3 * 10 = 30</code> 向左移一位</li>
+<li>1个16进制的数代表4个二进制的位</li>
+<li><code>段地址 * 16</code> 有一个更为常用的说法就是数据左移4位.(二进制位)</li>
+<li>一个数据的二进制形式左移1位,相当于该数乘以2;</li>
+<li>一个数据的二进制形式左移N位,相当于该数据乘以2的N次方;</li>
+<li>一个数据的十六进制形式左移1位,相当于乘以16;</li>
+<li>一个数据的十进制形式左移1位,相当于乘以10;</li>
+<li>一个数据的X进制形式左移1位,相当于乘以X;</li>
+</ul>
+<!--more-->
+<h4 id="段的概念">段的概念</h4><ul>
+<li>内存并没有分段,段的划分来自于CPU,由于8086CPU用<code>物理地址 = 段地址 * 16 + 偏移地址</code>的方式给出内存单元的物理地址,使得我们可以用分段的方式来管理内存.</li>
+<li><code>段地址 *  16</code>必然是16的倍数,所以一个段的起始地址也一定是16的倍数;</li>
+<li>偏移地址为16位,16位地址的寻址能力为64K,所以一个段的长度最大为64K.</li>
+<li>CPU可以用不同的段地址和偏移地址形成同一个物理地址</li>
+<li>偏移地址16位,变化范围为0~FFFFH,仅用偏移地址来寻址最多可寻64K个内存单元</li>
+<li>比如:给定段地址1000H,用偏移地址寻址,CPU的寻址范围为:10000H~1FFFFH.</li>
+<li>在8086PC机中,存储单元的地址用两个元素来描述.即段地址和偏移地址.</li>
+<li>可根据需要,将地址连续、起始地址为16的倍数的一组内存单元定义为一个段</li>
+</ul>
+<h4 id="段寄存器">段寄存器</h4><ul>
+<li>段寄存器就是提供段地址的.<br>8086CPU有4个段寄存器:CS、DS、SS、ES</li>
+<li>当有8086CPU需要访问内存时,由这4个段寄存器提供内存单元的段地址.</li>
+<li>CS是Code Segement是代码段地址寄存器</li>
+<li>DS是Data Segement是数据段地址寄存器</li>
+<li>SS是Stack Segement是堆栈段地址寄存器</li>
+<li>ES是附加段地址寄存器</li>
+<li>CS和IP是8086CPU中最关键的寄存器,它们指示了CPU当前要读取指令的地址</li>
+<li>IP为指令指针寄存器</li>
+</ul>
+<h4 id="8086CPU工作过程的简要描述">8086CPU工作过程的简要描述</h4><ul>
+<li>从CS:IP指向内存单元读取指令,读取的指令进入指令缓冲器;</li>
+<li>IP = IP + 所读取指令的长度,从而指向下一条指令;</li>
+<li>执行指令.转到步骤 1 ,重复这个过程.</li>
+</ul>
+<h4 id="8086CPU工作过程的简要描述-1">8086CPU工作过程的简要描述</h4><ul>
+<li>在8086CPU加电启动或复位后(即CPU刚开始工作时)CS和IP被设置为CS = FFFFH,IP = 0000H.</li>
+<li>即在8086PC机刚启动时,CPU从内存FFFF0H单元中读取指令执行.</li>
+<li>FFFF0H单元中的指令是8086PC机开机后执行的第一条指令.</li>
+</ul>
+<h4 id="CS和IP">CS和IP</h4><ul>
+<li>在任何时候,CPU将CS、IP的内容当作指令的段地址和偏移地址,用它们合成指令的物理地址,到内存中读取指令码,执行.</li>
+<li>如果说,内存中的一段信息曾被CPU执行过的话,那么,它所在的内存单元必然被CS:IP指向过.</li>
+</ul>
+<h4 id="修改CS、IP的指令">修改CS、IP的指令</h4><ul>
+<li>在CPU中,程序员能够用指令读写的部件只有寄存器,程序员可以通过改变寄存器中的内容实现对CPU的控制</li>
+<li>CPU从何处执行指令是有CS、IP中的内容来控制CPU执行目标指令.</li>
+</ul>
+<h4 id="如何修改AX中的值">如何修改AX中的值</h4><ul>
+<li>mov 指令</li>
+<li>如: mov ax,123</li>
+<li>mov 指令可以改变8086CPU大部分寄存器的值,被称为传送指令</li>
+</ul>
+<h4 id="修改CS、IP的指令-1">修改CS、IP的指令</h4><ul>
+<li>mov指令不能用于设置CS、IP的值,8086CPU没有提供这样的功能</li>
+<li>8086CPU为CS、IP提供了另外的指令来改变它们的值:转移指令</li>
+<li>同时修改CS、IP的内容:jmp 段地址 : 偏移地址</li>
+<li>jmp 2AE3:3 (最后的地址为2AE33H)   jmp 3:0B16 (最后的地址为00B46H)</li>
+<li>功能:用指令中给出的段地址修改CS,偏移地址修改IP</li>
+<li>仅修改IP的内容: jmp 某一合法寄存器  </li>
+<li>jmp ax (类似于 mov IP,ax) 、jmp bx</li>
+<li>功能:用寄存器中的值修改IP</li>
+</ul>
+<h4 id="代码段">代码段</h4><ul>
+<li>对于8086PC机,在编程时,可以根据需要,将一组内存单元定义为一个段.</li>
+<li>可以将长度为N(N&lt;=64KB)的一组代码,存在一组地址连续、起始地址为16的倍数的内存单元中,这段内存是用来存放代码的,从而定义了一个代码段</li>
+<li>CPU只能被CS:IP指向的内存单元中的内容为指令</li>
+<li>所以要将CS:IP指向所定义的代码段中的第一条指令的首地址.</li>
+</ul>
+<h4 id="DEBUG">DEBUG</h4><ul>
+<li>R命令查看、改变CPU寄存器的内容</li>
+<li>D命令查看内存中的内容</li>
+<li>E命令改写内存中的内容</li>
+<li>U命令将内存中的机器指令翻译成汇编指令</li>
+<li>T命令执行一条机器指令</li>
+<li>A命令以汇编指令的格式在内存中写入一条机器指令<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">e <span class="number">1000</span>:<span class="number">0</span> <span class="number">23</span> <span class="number">11</span> <span class="number">22</span> <span class="number">66</span> -&gt; 向<span class="number">10000</span>H内存单元地址中写入 <span class="number">23</span> <span class="number">11</span> <span class="number">22</span> <span class="number">66</span></span><br><span class="line">d <span class="number">1000</span>:<span class="number">0</span> -&gt; 查看<span class="number">10000</span>H内存单元地址中写入的数据</span><br><span class="line">r 查看CPU寄存器的内容</span><br><span class="line">a <span class="number">073</span>f:<span class="number">011</span>a -&gt; 开始往<span class="number">0750</span>a中写入代码</span><br><span class="line">mov ax,<span class="number">1000</span></span><br><span class="line">mov ds,ax</span><br><span class="line">mov ax,[<span class="number">0</span>]</span><br><span class="line">mov bx,[<span class="number">2</span>]</span><br><span class="line">mov cx,[<span class="number">1</span>]</span><br><span class="line">add bx,[<span class="number">1</span>]</span><br><span class="line">add cx,[<span class="number">2</span>]</span><br><span class="line">t 单步执行汇编指令直到执行结束查看每一步执行时 ax、ds等的变化</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="DS和[address]">DS和[address]</h4><ul>
+<li>mov 指令的格式: mov 寄存器名,内存单元地址</li>
+<li>“[…]” 表示一个内存单元,”[…]”中的0表示内存单元的偏移地址.</li>
+<li>执行指令时,8086CPU自动取DS中的数据为内存单元的段地址.</li>
+<li>如何用mov指令从10000H中读取数据?<ul>
+<li>mov bx,1000H -&gt; mov ds,bx -&gt; mov al,[0]</li>
+<li>10000H表示为1000:0(段地址:偏移地址)</li>
+<li>将段地址1000H放入ds</li>
+<li>用mov al,[0]完成传送(mov指令中的[]说明操作对象是一个内存单元,[]中的0说明这个内存单元的偏移地址是0,它的段地址默认放在ds中)</li>
+</ul>
+</li>
+<li>如何把1000H送入ds?    </li>
+<li>8086CPU不支持将数据直接送入段寄存器的操作,ds是一个段寄存器.</li>
+<li>mov ds,1000H是非法的.</li>
+<li>数据 -&gt; 通用寄存器 -&gt; 段寄存器</li>
+<li>怎样将数据从寄存器送入内存单元?<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">move bx,<span class="number">1000</span>H</span><br><span class="line">move ds,bx</span><br><span class="line">move [<span class="number">0</span>],a1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="值的传送">值的传送</h4><ul>
+<li>因为8086CPU是16位结构,有16根数据线,所以,可以一次性传送16位的数据,也就是一次性传送一个字.</li>
+<li>比如:<pre><code class="objc">mov bx,<span class="number">1000</span>H
+mov ds,bx
+mov ax,[<span class="number">0</span>]  <span class="number">1000</span>:<span class="number">0</span>处的字型数据送入ax
+mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>位数据送到<span class="number">1000</span>:<span class="number">0</span>处
+</code></pre>
+</li>
+</ul>
+<h4 id="CPU提供的栈机制">CPU提供的栈机制</h4><ul>
+<li>8086CPU提供入栈和出栈指令:<ul>
+<li>PUSH (入栈)</li>
+<li>POP (出栈)</li>
+</ul>
+</li>
+<li>push ax: 将寄存器ax中的数据送人栈中</li>
+<li>pop ax: 从栈顶取出数据送人ax</li>
+<li>8086CPU的入栈和出栈操作都是以字为单位进行的</li>
+<li>8086CPU中,有两个寄存器:<ul>
+<li>段寄存器SS 存放栈顶的段地址</li>
+<li>寄存器SP 存放栈顶的偏移地址</li>
+</ul>
+</li>
+<li>任意时刻,SS:SP指向栈顶元素.</li>
+</ul>
+<h4 id="push指令的执行过程">push指令的执行过程</h4><ul>
+<li>push ax<ul>
+<li>SP = SP - 2</li>
+<li>将ax中的内容送人SS:SP指向的内存单元处,SS:SP此时指向新栈顶.</li>
+</ul>
+</li>
+<li>任意时刻,SS:SP指向栈顶元素,当栈为空的时候,栈中没有元素,也就不存在栈顶元素</li>
+<li>所以SS:SP只能指向栈的最底部单元下面的单元,该单元的偏移地址为栈最底部的字单元的偏移地址+2</li>
+<li>栈最底部字单元的地址为1000:000E,所以栈空时,SP=0010H。</li>
+</ul>
+<h4 id="pop指令的执行过程">pop指令的执行过程</h4><ul>
+<li>pop ax<ul>
+<li>将SS:SP指向的内存单元处的数据送人ax中</li>
+<li>SP = SP + 2, SS:SP指向当前栈顶下面的单元,以当前栈顶下面的单元为新的栈顶</li>
+</ul>
+</li>
+</ul>
+<h4 id="push、pop指令">push、pop指令</h4><ul>
+<li>push和pop指令是可以在寄存器和内存之间传送数据的</li>
+<li>push 寄存器 : 将一个寄存器中的数据入栈</li>
+<li>pop 寄存器  : 用一个寄存器接收出栈的数据</li>
+<li>push 段寄存器 : 将一个段寄存器中的数据入栈</li>
+<li>pop 段寄存器 : 出栈,用一个段寄存器接收出栈的数据</li>
+<li>push 内存单元 : 讲一个内存单元处的字入栈(栈操作都是以字为单位)</li>
+<li>pop 内存单元 : 出栈,用一个内存字单元接收出栈的数据</li>
+<li>指令执行时,CPU要知道内存单元的地址,可以在push、pop指令中给出内存单元的偏移地址,段地址在指令执行时,CPU从ds中取得.</li>
+</ul>
+<h4 id="栈与内存">栈与内存</h4><ul>
+<li>栈空间当然也是内存空间的一部分,它只是一段可以以一种特殊的方式进行访问的内存空间</li>
+<li>push、pop实质上就是一种内存传送指令,可以在寄存器和内存之间传送数据,与mov指令不同的是,push和pop指令访问的内存单元的地址不是指令中给出的,而是由SS:SP指出的.</li>
+<li>同时,push和pop指令还要改变SP中的内容</li>
+<li>执行push时 先改变SP,然后向SS:SP处传送.</li>
+<li>执行pop时    先读取SS:SP处的数据,然后改变SP.</li>
+<li>push、pop等栈操作指令,修改的只是SP也就是说,栈顶的变化范围最大为:0~FFFFH.因为SP存放的也是16位,所以最大值是FFFFH,2的16次方 = 65536,65536/1024 = 64KB,最大存储64KB的数据</li>
+</ul>
+<h4 id="定义一个段">定义一个段</h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/25/python_scrapy_study/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Python包管理工具的安装和爬虫学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/05/iOS逆向学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS逆向学习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="汇编语言学习" data-title="汇编语言学习" data-url="http://yoursite.com/2016/09/10/汇编语言学习/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>

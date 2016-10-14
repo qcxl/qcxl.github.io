@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MJRefresh 框架知识点 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UIScrollView的几个属性
+frame: 是指UIScrollView的可视范围
+contentSize: 是其滚动范围,内容视图的大小
+contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置
+contentOffset: 是个CGpoint类型的结构体,用来记录ScrollVi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MJRefresh 框架知识点">
+<meta property="og:url" content="http://yoursite.com/2016/08/26/MJRefresh框架知识点/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="UIScrollView的几个属性
+frame: 是指UIScrollView的可视范围
+contentSize: 是其滚动范围,内容视图的大小
+contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置
+contentOffset: 是个CGpoint类型的结构体,用来记录ScrollVi">
+<meta property="og:updated_time" content="2016-10-14T12:12:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MJRefresh 框架知识点">
+<meta name="twitter:description" content="UIScrollView的几个属性
+frame: 是指UIScrollView的可视范围
+contentSize: 是其滚动范围,内容视图的大小
+contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置
+contentOffset: 是个CGpoint类型的结构体,用来记录ScrollVi">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-MJRefresh框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/26/MJRefresh框架知识点/" class="article-date">
+  	<time datetime="2016-08-26T02:11:36.000Z" itemprop="datePublished">2016-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MJRefresh 框架知识点
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="UIScrollView的几个属性">UIScrollView的几个属性</h4><ul>
+<li>frame: 是指UIScrollView的可视范围</li>
+<li>contentSize: 是其滚动范围,内容视图的大小</li>
+<li>contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置</li>
+<li>contentOffset: 是个CGpoint类型的结构体,用来记录ScrollView的滚动位置.垂直往下滚动时contentOffset的Y值越来越小,当偏离UIScrollView左上角时,contentOffset的Y值为负值。垂直往上滚动时contentOffset的Y值越来越大。</li>
+</ul>
+<a id="more"></a>
+<h4 id="MJRefreshComponent刷新视图的基类。刷新头部和尾部视图都继承自该类">MJRefreshComponent刷新视图的基类。刷新头部和尾部视图都继承自该类</h4><ul>
+<li><code>- (instancetype)initWithFrame:(CGRect)frame</code> 初始化刷新视图,并将刷新状态置为空闲状态. 内部会调用<code>- (void)prepare</code> 做一些初始化刷新视图的准备工作。 </li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 当刷新视图即将添加到父视图(UITableView、UICollectionView)中的时候会调用。这个方法中设置刷新视图的宽和X坐标、记录UIScrollView、设置UIScrollView永远支持垂直弹簧效果、记录UIScrollView最开始的contentInset、添加UIScrollView的ContentOffset和ContentSize以及pan手势状态的监听</li>
+<li><code>- (void)placeSubviews</code> 调用子类的placeSubviews重新布局刷新视图的子控件</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新刷新视图状态 并刷新布局</li>
+<li><code>- (void)beginRefreshing</code> 进入刷新状态. 将刷新视图的透明度和拉拽的百分比值都置为1.0并更新刷新状态为正在刷新</li>
+<li><code>- (void)endRefreshing</code> 结束刷新状态. 更新刷新状态为结束刷新</li>
+<li><code>- (void)setAutomaticallyChangeAlpha:(BOOL)automaticallyChangeAlpha</code> 根据拖拽比例自动切换透明度</li>
+<li><code>- (void)setPullingPercent:(CGFloat)pullingPercent</code> 根据拖拽进度设置透明度</li>
+</ul>
+<h4 id="MJRefreshHeader刷新头部视图的基类继承自MJRefreshComponent">MJRefreshHeader刷新头部视图的基类继承自MJRefreshComponent</h4><ul>
+<li><code>+ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock</code> 和 <code>+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action</code> 通过设置正在刷新的回调来初始化刷新头部视图</li>
+<li><code>- (void)prepare</code> 在初始化视图的时候设置刷新头部视图高度为MJRefreshHeaderHeight(默认值为54)</li>
+<li><code>- (void)placeSubviews</code> 设置刷新头部视图的Y值。<code>Y = - MJRefreshHeaderHeight - 忽略多少scrollView的contentInset的top;</code> 刷新头部会移到UIScrollView顶部之外</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 当监听到UIScrollView的ContentOffset发生变化的时候会调用这个方法。记录当前UIScrollView的ContentInset、offsetY值、下拉刷新头刚好出现的offsetY、普通 和 即将刷新 的临界点,如果UIScrollView正在拖拽记录拖拽进度并通过比较offsetY与刷新 的临界点之间的大小来判断刷新状态是否即将刷新还是空闲状态并更新刷新头部状态,如果用户松开手指并且刷新状态为即将刷新 则执行<code>- (void)beginRefreshing</code>开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新刷新状态。如果当前是空闲状态并且上次为正在刷新状态(即当前刷新完毕)则保存刷新时间,恢复inset和offset,拖拽进度重置为0。如果当前是正在刷新状态设置UIScrollView的上边距为刷新头部视图高度加上原来上边距并设置ContentOffset为负的ContentInset.Top最后调用内部方法<code>- (void)executeRefreshingCallback</code>执行刷新回调</li>
+</ul>
+<h4 id="MJRefreshStateHeader带刷新状态和时间的刷新头部视图继承自MJRefreshHeader">MJRefreshStateHeader带刷新状态和时间的刷新头部视图继承自MJRefreshHeader</h4><ul>
+<li><code>- (void)prepare</code> 初始化文字距离圈圈、箭头的距离 与 初始化不同刷新状态下的文字 </li>
+<li><code>- (void)placeSubviews</code> 布局刷新状态和刷新时间UILabel</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 记录刷新状态、设置状态文字并重新显示时间</li>
+</ul>
+<h4 id="MJRefreshNormalHeader带刷新箭头和菊花样式的刷新头部视图继承自MJRefreshStateHeader">MJRefreshNormalHeader带刷新箭头和菊花样式的刷新头部视图继承自MJRefreshStateHeader</h4><ul>
+<li><code>- (void)prepare</code> 设置活动指示器的样式</li>
+<li><code>- (void)placeSubviews</code> 布局 刷新箭头和圈圈</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 记录刷新状态。如果当前是空闲状态隐藏圈圈重置并显示箭头,如果当前刷新状态是正在下拉刷新则隐藏圈圈显示箭头并将箭头逆时针旋转180°,如果当前刷新状态为正在刷新则显示圈圈隐藏箭头</li>
+</ul>
+<h4 id="MJRefreshGifHeader带Gif动画的刷新头部视图继承自MJRefreshStateHeader">MJRefreshGifHeader带Gif动画的刷新头部视图继承自MJRefreshStateHeader</h4><ul>
+<li><code>- (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(MJRefreshState)state</code> 设置不同刷新状态下的显示图片和动画时长</li>
+<li><code>- (void)prepare</code>初始化间距</li>
+<li><code>- (void)setPullingPercent:(CGFloat)pullingPercent</code> 如果当前状态为空闲状态即还没变成松开刷新和正在刷新状态时,根据拖拽进度显示对应的图片</li>
+<li><code>- (void)placeSubviews</code> 根据刷新状态Label和更新时间Label的显示状态来布局UIImageView Gif视图</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 更新对象刷新状态下显示的图片</li>
+</ul>
+<h4 id="MJRefreshFooter刷新尾部视图继承自MJRefreshComponent(根据ContentSize来布局尾部刷新视图)">MJRefreshFooter刷新尾部视图继承自MJRefreshComponent(根据ContentSize来布局尾部刷新视图)</h4><ul>
+<li><code>+ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock</code> 和 <code>+ (instancetype)footerWithRefreshingTarget:(id)target refreshingAction:(SEL)action</code> 通过设置正在刷新的回调来初始化刷新尾部视图</li>
+<li><code>- (void)prepare</code> 设置刷新尾部视图的高度 当无数据时默认不隐藏尾部刷新视图</li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 监听scrollView数据的变化来显示或隐藏刷新尾部视图</li>
+</ul>
+<h4 id="MJRefreshBackFooter继承自MJRefreshFooter">MJRefreshBackFooter继承自MJRefreshFooter</h4><ul>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 调用父类的该方法同时会调用<code>scrollViewContentSizeDidChange</code></li>
+<li><code>- (void)scrollViewContentSizeDidChange:(NSDictionary *)change</code> 根据内容的高度和表格的高度来设置尾部刷新视图的Y坐标</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 当监听到UIScrollView的ContentOffset发生变化的时候会调用这个方法。记录UIScrollView的contentInset、当前的contentOffset、尾部控件刚好出现的offsetY、拖拽进度值。如果UIScrollView正在拖拽 保存拖拽进度、获取普通 和 即将刷新 的临界点,如果当前刷新状态为空闲状态并且offsetY大于普通 和 即将刷新 的临界点值则更新为即将刷新状态,如果当前刷新状态为松开就可以进行刷新的状态并且offsetY小于普通 和 即将刷新 的临界点值则更新为空闲刷新状态。如果用户松开了手指并且当前刷新状态为松开就可以进行刷新的状态则调用<code>beginRefreshing</code>开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 根据状态来设置属性。如果当前刷新状态为正在刷新则更新UIScrollView的contentInset.bottom和contentOffset.y最后调用内部的<code>executeRefreshingCallback</code>执行刷新,如果当前刷新状态为所有数据加载完毕没有更多的数据或者普通闲置状态则调整contentInset.bottomcontentOffset.y重置拖拽进度值最后调用block结束刷新</li>
+</ul>
+<h4 id="MJRefreshAutoFooter继承自MJRefreshFooter">MJRefreshAutoFooter继承自MJRefreshFooter</h4><ul>
+<li><code>- (void)prepare</code> 初始化并设置默认底部控件100%出现时才会自动刷新</li>
+<li><code>- (void)willMoveToSuperview:(UIView *)newSuperview</code> 监听刷新尾部视图是否添加到UIScollView或者从其移除。如果添加到UIScrollView 将尾部刷新视图的Y坐标设置为contentSize.height 如果尾部刷新视图没被隐藏则添加底部间距为一个底部刷新视图的高度。如果被移除了底部间距要基于原来的基础上减去一个底部刷新视图的高度</li>
+<li><code>- (void)scrollViewContentSizeDidChange:(NSDictionary *)change</code> 当ContentSize变化时更新底部刷新控件的Y坐标为contentSize.height</li>
+<li><code>- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change</code> 如果内容超过一个屏幕并且<code>offsetY&gt;contentSize.height+contentInset.bottom-scrollView.height-刷新尾部视图高度+自动触发刷新的尾部视图高度比例</code> 则调用开始刷新</li>
+<li><code>- (void)scrollViewPanStateDidChange:(NSDictionary *)change</code> 监听手势 当手松开的时候如果不够一个屏幕 并且向上拽 则调用刷新。如果手松开内容超出一个屏幕并且<code>offsetY&gt;contentSize.height+contentInset.bottom-scrollView高度</code>则开始刷新</li>
+<li><code>- (void)setState:(MJRefreshState)state</code> 如果是正在刷新状态则执行内部的开始刷新,如果是所有数据加载完毕没有更多的数据了或者为普通空闲状态则调用结束刷新block</li>
+</ul>
+<h4 id="其它尾部视图刷新类的实现类似刷新头部视图">其它尾部视图刷新类的实现类似刷新头部视图</h4><h4 id="为UIScrollView做分类添加刷新头部和尾部视图供外部访问">为UIScrollView做分类添加刷新头部和尾部视图供外部访问</h4><h4 id="为UITableView和UICollectionView做分类_交换reloadData_和_mj_reloadData的实现">为UITableView和UICollectionView做分类 交换reloadData 和 mj_reloadData的实现</h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/01/AFNetworking 框架知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/23/SDWebImage 框架知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SDWebImage 框架知识点</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="MJRefresh框架知识点" data-title="MJRefresh 框架知识点" data-url="http://yoursite.com/2016/08/26/MJRefresh框架知识点/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>

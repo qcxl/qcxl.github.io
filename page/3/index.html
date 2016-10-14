@@ -250,6 +250,429 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-parent_childs_vc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/23/parent_childs_vc/" class="article-date">
+  	<time datetime="2016-03-23T02:09:28.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/parent_childs_vc/">iOS父子控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="父子控制器">父子控制器</h3><ul>
+<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
+</li>
+<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
+</li>
+<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/23/parent_childs_vc/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-color_card" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/22/color_card/" class="article-date">
+  	<time datetime="2016-03-22T01:00:00.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/color_card/">彩票项目主要知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自定义UITabBar">自定义UITabBar</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpTabBar</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    MCTabBar *tabBar = [[MCTabBar alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储UITabBarItem</span></span><br><span class="line">    tabBar<span class="variable">.items</span> = <span class="keyword">self</span><span class="variable">.items</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    tabBar<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//移除系统的tabBar,相当于将tabBar上的所有按钮移除</span></span><br><span class="line">	<span class="comment">//将一个控件从父控件中移除并不会马上销毁,一般在下一次运行循环的时候,就会判断这个对象有没有强引用,如果没有,才会销毁</span></span><br><span class="line">	<span class="comment">//[self.tabBar removeFromSuperview];</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//tabBar.frame = self.tabBar.frame;</span></span><br><span class="line"></span><br><span class="line">    tabBar<span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.bounds</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tabBar</span> addSubview:tabBar];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把系统的tabBar上的按钮干掉</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *childView <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.tabBar</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![childView isKindOfClass:[MCTabBar class]]) &#123;</span><br><span class="line">            [childView removeFromSuperview];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/22/color_card/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ios_save_data" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/ios_save_data/" class="article-date">
+  	<time datetime="2016-03-17T12:00:00.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/ios_save_data/">iOS数据存储</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何定义block">如何定义block</h3><ul>
+<li>快捷键inline<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">        statements</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/17/ios_save_data/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-contact" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/14/contact/" class="article-date">
+  	<time datetime="2016-03-14T14:00:00.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/contact/">iOS界面跳转传值</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="监听文本框内容改变">监听文本框内容改变</h3><ul>
+<li><code>[UITextField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];</code></li>
+</ul>
+<h3 id="什么是Segue">什么是Segue</h3><ul>
+<li>Storyboard上每一根用来界面跳转的线,都是一个UIStoryboardSegue对象(简称Segue)</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/14/contact/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-multi_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/multi_viewcontroller/" class="article-date">
+  	<time datetime="2016-03-13T14:05:07.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/multi_viewcontroller/">iOS多控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="多控制器">多控制器</h3><ul>
+<li>UINavigationController</li>
+<li>UITabBarController</li>
+</ul>
+<h3 id="UINavigationController的简单使用">UINavigationController的简单使用</h3><ul>
+<li>UINavigationController的使用步骤<ul>
+<li>初始化UINavigationController</li>
+<li>设置UIWindow的rootViewController为UINavigationController</li>
+<li>根据具体情况,通过push方法添加对应个数的子控制器</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/multi_viewcontroller/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-create_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/create_viewcontroller/" class="article-date">
+  	<time datetime="2016-03-13T02:00:07.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/create_viewcontroller/">iOS创建控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何创建一个控制器">如何创建一个控制器</h3><ul>
+<li><p>控制器常见的创建方式有以下几种</p>
+<ul>
+<li><p>通过storyboard创建</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建窗口</span></span><br><span class="line">   <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载storyboard</span></span><br><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过storyboard实例化控制器</span></span><br><span class="line"><span class="comment">// instantiateInitialViewController: 加载箭头指向的控制器</span></span><br><span class="line"><span class="comment">// instantiateViewControllerWithIdentifier:(NSString *)identifier:通过Storyboard ID标识符来创建控制器</span></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将控制器设置为窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示主窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接创建<br><code>UIViewController *vc = [[UIViewController alloc] init];</code></p>
+</li>
+<li>指定xib文件创建<figure class="highlight"><table><tr><td class="code"><pre><span class="line">创建xib并添加一个view</span><br><span class="line">为文件的拥有者绑定Class(即设置File's Owner的Class类型 MCViewController)</span><br><span class="line">设置文件的拥有者Outlets view</span><br><span class="line">MCViewController *vc = [[MCViewController alloc] initWithNibName:@"MCViewController" bundle:nil];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/create_viewcontroller/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-uiwindow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/12/uiwindow/" class="article-date">
+  	<time datetime="2016-03-12T02:00:00.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/uiwindow/">iOS之UIWindow</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UIWindow">UIWindow</h3><ul>
+<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
+<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
+<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
+<li>也就说,没有UIWindow,就看不见任何UI界面</li>
+<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
+<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/12/uiwindow/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-node_oauth" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -450,410 +873,9 @@
 
 
   
-    <article id="post-javascript_note_06" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/24/javascript_note_06/" class="article-date">
-  	<time datetime="2015-09-24T07:43:18.000Z" itemprop="datePublished">2015-09-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/24/javascript_note_06/">JavaScript权威指南--正则表达式模式匹配</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="正则表达式的定义">正则表达式的定义</h3><ul>
-<li>使用<code>RegExp()</code>构造函数来创建RegExp对象</li>
-<li>通过直接量定义为包含在一对斜杠(/)之间的字符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匹配所有以s结尾的字符串</span></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/s$/</span>; </span><br><span class="line"><span class="keyword">var</span> pattern = <span class="built_in">RegExp</span>(<span class="string">"s$"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/24/javascript_note_06/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/22/javascript_note_5/" class="article-date">
-  	<time datetime="2015-09-22T05:26:55.000Z" itemprop="datePublished">2015-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/22/javascript_note_5/">JavaScript权威指南--函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="函数调用方式">函数调用方式</h3><ul>
-<li>作为函数</li>
-<li>作为方法(该函数是一个对象的属性或数组中的一个元素)</li>
-<li>作为构造函数</li>
-<li>通过它们的<code>call()</code>和<code>apply()</code>方法间接调用</li>
-</ul>
-<h4 id="函数和方法调用">函数和方法调用</h4><p>以函数形式调用的函数通常不使用this关键字.作为方法调用时可以使用关键字this引用对象,<br>对象可以使用<code>.</code>符号或者<code>[]</code>的属性访问表达式来进行属性(方法)访问操作.<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/22/javascript_note_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_04" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/13/javascript_note_04/" class="article-date">
-  	<time datetime="2015-09-13T08:31:07.000Z" itemprop="datePublished">2015-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/13/javascript_note_04/">JavaScript权威指南--数组</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是数组?">什么是数组?</h3><blockquote>
-<p>数组是值的有序集合.每个值叫做一个元素,而每个元素在数组中有一个位置,以数字表示,称为索引.</p>
-</blockquote>
-<ul>
-<li>JavaScript数组是无类型的:数组元素可以是任意类型,并且同一个数组中的不同元素也可能有不同的类型.</li>
-<li>JavaScript数组是动态的:根据需要它们会增长或缩减,并且在创建数组时无须声明一个固定的大小或者在数组大小变化时无须重新分配空间.</li>
-<li>JavaScript数组可能是稀疏的:数组元素的索引不一定要连续的,它们之间可以有空缺.</li>
-<li>JavaScript数组都有一个length属性.针对非稀疏数组,该属性就是数组元素的个数.针对稀疏数组,length比所有元素的索引要大.</li>
-<li>数组继承自Array.prototype中的属性,它定义了一套丰富的数组操作方法.</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/13/javascript_note_04/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_03" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/08/javascript_note_03/" class="article-date">
-  	<time datetime="2015-09-08T05:33:30.000Z" itemprop="datePublished">2015-09-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/08/javascript_note_03/">JavaScript权威指南--对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="对象">对象</h3><h4 id="对象的”属性特征”">对象的”属性特征”</h4><p>1.可写:表示是否可以设置该属性的值<br>2.可枚举:表示是否可以通过for/in循环返回该属性<br>3.可配置:表示是否可以删除或修改该属性</p>
-<h4 id="对象的特性">对象的特性</h4><ul>
-<li>对象的原型:指向另外一个对象,本对象的属性继承自它的原型对象.<br>查询对象原型:<code>Object.getPrototypeOf(对象)</code><br>检测一个对象是否是另外一个对象的原型:<code>isPrototypeOf()</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;x:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(p);</span><br><span class="line">p.isPrototypeOf(o); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(o); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/08/javascript_note_03/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_02" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/07/javascript_note_02/" class="article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">2015-09-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="恒等运算符与相等运算符">恒等运算符与相等运算符</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/恒等.png" alt="hd" title="hd"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/07/javascript_note_02/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/06/javascript_note_01/" class="article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">2015-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类型、值">类型、值</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_capture_03.png" alt="js_capture_03" title="js_capture_03"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/06/javascript_note_01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-html5_study_01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/02/html5_study_01/" class="article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">2015-09-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自定义列表">自定义列表</h3><p><code>dl</code>:定义了定义列表（definition list）<br><code>dt</code>:定义一个定义列表中的一个项目<br><code>dd</code>:在定义列表中定义条目的定义部分<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>一个定义列表：<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dl</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">dt</span>&gt;</span>计算机<span class="tag">&lt;/<span class="title">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">dd</span>&gt;</span>用来计算的仪器 ... ...<span class="tag">&lt;/<span class="title">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">dt</span>&gt;</span>显示器<span class="tag">&lt;/<span class="title">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">dd</span>&gt;</span>以视觉方式显示信息的装置 ... ...<span class="tag">&lt;/<span class="title">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/02/html5_study_01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
