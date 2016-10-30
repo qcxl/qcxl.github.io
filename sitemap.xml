@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/10/17/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2016-10-30T13:51:57.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/08/23/SDWebImage%20%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2016-10-14T12:28:33.000Z</lastmod>
   </url>

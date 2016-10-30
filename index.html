@@ -250,6 +250,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-python基础语法学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/17/python基础语法学习/" class="article-date">
+  	<time datetime="2016-10-17T00:39:39.000Z" itemprop="datePublished">2016-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/17/python基础语法学习/">Python基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="文件处理">文件处理</h4><ul>
+<li>读文件示例<figure class="highlight"><table><tr><td class="code"><pre><span class="line">myFile.txt</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line"></span><br><span class="line">code:</span><br><span class="line">f = file('myFile.txt', 'r')</span><br><span class="line">for line in f.readlines():</span><br><span class="line">	line = line.strip('\n').split(':')</span><br><span class="line">	print(line)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">['root', 'x', '0', '0', 'root', '/root, '/bin/bash']</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">f = file('/etc/passwd')</span><br><span class="line">for i in f.readlines():</span><br><span class="line">	print(i.strip('\n').split(':')) #脱掉一行中行首和行尾的换行符,i.strip()为脱掉空格和换行符以及Tab</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/17/python基础语法学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-python_scrapy_study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -777,63 +834,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/04/13/uicollectionview/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-nsinvocation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/nsinvocation/" class="article-date">
-  	<time datetime="2016-04-04T12:43:37.000Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/nsinvocation/">NSInvocation的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
-<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/nsinvocation/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

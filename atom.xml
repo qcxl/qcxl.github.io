@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-10-14T12:17:02.000Z</updated>
+  <updated>2016-10-30T13:51:57.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,249 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Python基础]]></title>
+    <link href="http://yoursite.com/2016/10/17/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2016/10/17/python基础语法学习/</id>
+    <published>2016-10-17T00:39:39.000Z</published>
+    <updated>2016-10-30T13:51:57.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="文件处理">文件处理</h4><ul>
+<li>读文件示例<figure class="highlight"><table><tr><td class="code"><pre><span class="line">myFile.txt</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line"></span><br><span class="line">code:</span><br><span class="line">f = file('myFile.txt', 'r')</span><br><span class="line">for line in f.readlines():</span><br><span class="line">	line = line.strip('\n').split(':')</span><br><span class="line">	print(line)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">['root', 'x', '0', '0', 'root', '/root, '/bin/bash']</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">f = file('/etc/passwd')</span><br><span class="line">for i in f.readlines():</span><br><span class="line">	print(i.strip('\n').split(':')) #脱掉一行中行首和行尾的换行符,i.strip()为脱掉空格和换行符以及Tab</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="文件处理模式">文件处理模式</h4><ul>
+<li>r 以只读模式打开文件</li>
+<li>w 以只写模式打开文件</li>
+<li>a 以追加模式打开文件</li>
+<li>r+b以读写模式打开 b代表以二进制的形式处理文件,保证在windows上也有用</li>
+<li>w+b以写读模式打开 先清空文件再写</li>
+<li>a+b以追加及读模式</li>
+</ul>
+<h4 id="字符串处理">字符串处理</h4><ul>
+<li>S.find(sub[, start[, end]])</li>
+<li>S.rfind(sub[, start[, end]]) 反向查找</li>
+<li>S.index(sub[, start[, end]])</li>
+<li>S.rindex(sub[, start[, end]])</li>
+<li>S.count(sub[, start[, end]])</li>
+<li>S.endswith(suffix[, start[, end]])</li>
+<li>S.startswith(prefix[, start[, end]])</li>
+<li>S.capitalize()</li>
+<li>S.lower()</li>
+<li>S.upper()</li>
+<li>S.swapcase() 小写转大写,大写转小写</li>
+<li>S.split(sep=None, maxsplit=-1)</li>
+<li>S.join(iterable)</li>
+<li>S.replace(old, new[, count])</li>
+<li>len(str) 字符串长度</li>
+</ul>
+<h4 id="列表">列表</h4><ul>
+<li>L.append(object)</li>
+<li>L.insert(index, object)</li>
+<li>L.remove(value)</li>
+<li>L.count(value)</li>
+<li>L.index(value, [start, [stop]])</li>
+<li>L.pop([index])</li>
+<li>L.reverse()</li>
+<li>L.sort(key=None, reverse=False)</li>
+<li>L.clear()</li>
+<li>L.extend(iterable)</li>
+<li>L.copy()</li>
+<li>del L[index]</li>
+<li>del L</li>
+<li>L[start::step] 从start位置开始,每隔step-start个取一个<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">33</span>]</span><br><span class="line">first_pos = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(name.count(<span class="number">2</span>)):</span><br><span class="line">	new_list = name[first_pos:]</span><br><span class="line">	next_pos = new_list.index(<span class="number">2</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">	print(<span class="string">'Find position:'</span>, first_pos + new_list.index(<span class="number">2</span>))</span><br><span class="line">	first_pos += next_pos</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">pos = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(name.count(<span class="number">2</span>)):</span><br><span class="line">	<span class="keyword">if</span> pos == <span class="number">0</span>:</span><br><span class="line">		pos = name.index(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		pos = name.index(<span class="number">2</span>,pos+<span class="number">1</span>)</span><br><span class="line">	print(pos)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="元组">元组</h4><ul>
+<li>tuple: 元组(即常量数组)</li>
+<li>tuple = (‘a’, ‘b’, ‘c’)</li>
+<li>可以用list的[],操作符提取元素</li>
+<li>列表和元组之间是可以互相转换的 元组转列表: list(元组)  列表转元组:tuple(列表)</li>
+</ul>
+<h4 id="字典Dict">字典Dict</h4><ul>
+<li>D.clear()</li>
+<li>删除键和对应的值:del D[‘key’] 删除字典 del D</li>
+<li>D.copy() </li>
+<li>D.fromkeys(iterable, value=None, /)</li>
+<li>D.get(k[,d])</li>
+<li>D.items()</li>
+<li>D.keys()</li>
+<li>D.pop(k[,d])</li>
+<li>D.popitem()</li>
+<li>D.setdefault(k[,d]) 如果字典中不存在这个key就设置key和对应的值,否则不设置</li>
+<li>D.values()</li>
+<li>D.update([E, ]**F)</li>
+</ul>
+<h4 id="Set集合">Set集合</h4><ul>
+<li>Set.add(…)</li>
+<li>Set.clear(…)</li>
+<li>Set.discard(…) 删除一个元素</li>
+<li>Set.copy(…)</li>
+<li>Set.pop(…)</li>
+<li>Set.remove(…)删除一个元素</li>
+</ul>
+<h4 id="Set集合运算">Set集合运算</h4><ul>
+<li>a &amp; b #求交集 a.intersection(b)</li>
+<li>a | b #求并集 a.union(b)</li>
+<li>a - b #求差集 a.difference(b)</li>
+<li>a ^ b #求对称差集 a.symmetric_difference(b)</li>
+<li>a.issubset(b) #a是b的子集</li>
+<li>a.issuperset(b) #a是否包含b</li>
+</ul>
+<h4 id="模块和模块的常用方法"><a href="http://www.cnblogs.com/wupeiqi/articles/4276448.html" target="_blank" rel="external">模块和模块的常用方法</a></h4><ul>
+<li>至关重要的<strong>init</strong>.py</li>
+<li>是否为主文件:<strong>name</strong><br><code>if __name__ == &#39;__main__&#39;</code>  如果是主文件<strong>name</strong>的值是<code>__main__</code>否则是<code>文件夹.文件名</code></li>
+<li>当前文件路径:<strong>file</strong> </li>
+<li>当前文件描述:<strong>doc</strong> </li>
+</ul>
+<h4 id="函数式编程">函数式编程</h4><ul>
+<li>参数  def Fun(arg, <em>args, *</em>kargs):</li>
+<li>默认参数 print(arg) 放到参数列表最后面</li>
+<li>可变参数 print(args, kargs)</li>
+<li>返回值 retrun ‘success’</li>
+</ul>
+<h4 id="生成器">生成器</h4><blockquote>
+<p>Generator 是创建迭代器的简单而强大的工具。它们写起来就像是正规的函数,需要返回数据的时候使用 yield 语句。每次 next() 被调用时,生成器恢复它脱离的位置（它记忆语句最后一次执行的位置和所有的数据值）。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FileReadlines</span><span class="params">()</span>:</span></span><br><span class="line">    seek = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'D:/temp.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.seek(seek)</span><br><span class="line">            data = f.readline()</span><br><span class="line">            <span class="keyword">if</span> data:</span><br><span class="line">                seek = f.tell()</span><br><span class="line">                <span class="keyword">yield</span> data</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> FileReadlines():</span><br><span class="line">    <span class="keyword">print</span> i</span><br></pre></td></tr></table></figure>
+<h4 id="三元运算和lambda表达式">三元运算和lambda表达式</h4><ul>
+<li><p>三元运算</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = <span class="string">'gt'</span> <span class="keyword">if</span> <span class="number">1</span>&gt;<span class="number">3</span> <span class="keyword">else</span> <span class="string">'lt'</span></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lambda表达式:实际上就是一个匿名函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="keyword">lambda</span> x,y:x+y</span><br><span class="line">print(a(<span class="number">4</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Python内置函数">Python内置函数</h4><ul>
+<li>help()</li>
+<li>dir() 用于按模块名搜索模块定义,它返回一个字符串类型的存储列表。无参数调用时,dir() 函数返回当前定义的命名,注意该列表列出了所有类型的名称:变量,模块,函数,等等。dir() 不会列出内置函数和变量名。如果你想列出这些内容,它们在标准模块 builtins 中定义:<code>import builtins dir(builtins)</code></li>
+<li>vars() 以字典形式返回参数中每个成员的当前值,如果vars函数没有带参数,那么它会返回包含当前局部命名空间中所有成员的当前值的一个字典。</li>
+<li>import temp 导入模块</li>
+<li>reload(temp) 重新导入模块</li>
+<li>id() 查看内存地址</li>
+<li>eval(str) 将字符串当做表达式执行一下</li>
+<li>abs(x) 去x的绝对值</li>
+<li>bool(x) 当参数x为ture时返回True,否则返回False</li>
+<li>divmod(x, y): 返回((x-x%y)/y, x%y)</li>
+<li>max(…): 返回最大值</li>
+<li>min(…): 返回最小值</li>
+<li>sum(iterable, start=0): 返回序列值的总和</li>
+<li>pow(x, y, z=None): 等价于<code>x**y</code> 或者 <code>x**y % z</code></li>
+<li>len(obj): 返回指定对象的长度</li>
+<li>all(iterable): 如果序列中每个数据的bool(x)是True结果就为True,否则则为False</li>
+<li>any(iterable): 如果序列中任意一个个数据的bool(x)是True结果就为True,都为False则返回False</li>
+<li>chr(i): 返回i对应的Unicode字符，0 &lt;= i &lt;= 0x10ffff(1114111)</li>
+<li>ord(c): 返回c字符对应的Unicode code point</li>
+<li>hex(number): 返回一个整数对应的十六进制值</li>
+<li>oct(number): 返回一个整数对应的八进制值</li>
+<li>bin(number): 返回一个整数对应的二进制值</li>
+<li>range(stop): 0~(stop-1)</li>
+<li>range(start, stop[, step]): 如果只有start和stop则值的范围是start~(stop-1)</li>
+<li>map(func, *iterables): func作用于对序列中的每个值</li>
+<li>filter(function or None, iterable): Return an iterator yielding those items of iterable for which function(item) is true. If function is None, return the items that are true.</li>
+<li>zip(iter1 [,iter2 […]]): 交换行值和列值</li>
+<li><code>module = __import__(str)</code>: 根据字符串导入模块,然后可以获取模块里面的函数、属性等等.<code>hasattr(module, &#39;version&#39;)</code>、<code>getattr()</code>、<code>delattr()</code></li>
+<li>callable(obj): 对象是否能被调用.函数、类必须要有 <code>__call__</code> 方法</li>
+<li>compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)</li>
+<li>isinstance(obj, class_or_tuple)</li>
+<li>issubclass(cls, class_or_tuple)</li>
+<li>super(object)</li>
+<li>staticmethod(object)</li>
+</ul>
+<h4 id="常用模块"><a href="https://pypi.python.org/pypi" target="_blank" rel="external">常用模块</a></h4><ul>
+<li><p>random 用于生成随机数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">print</span> random.random() <span class="comment">#0~1</span></span><br><span class="line"><span class="keyword">print</span> random.randint(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#[1,2]</span></span><br><span class="line"><span class="keyword">print</span> random.randrange(<span class="number">1</span>,<span class="number">10</span>) <span class="comment">#randrange(start, stop=None, step=1, _int=&lt;class 'int'&gt;) [1,10)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>md5 加密</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">hash = hashlib.md5()</span><br><span class="line">hash.update(<span class="string">'admin'</span>)</span><br><span class="line"><span class="keyword">print</span> hash.hexdigest()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>序列化和json</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">data = &#123;<span class="string">'a'</span>:<span class="number">123</span>, <span class="string">'b'</span>:<span class="number">456</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pickle.dumps 将数据通过特殊的形式转换为只有python语言认识的字符串</span></span><br><span class="line">p_str = pickle.dumps(data)</span><br><span class="line">print(p_str)</span><br><span class="line"></span><br><span class="line"><span class="comment">#pickle.dump 将数据通过特殊的形式转换为只有python语言认识的字符串,并写入文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'/Users/weifeng/Downloads/result.pk'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">	pickle.dump(data, fp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment">#json.dumps 将数据通过特殊的形式转换为所有程序语言都认识的字符串</span></span><br><span class="line">j_str = json.dumps(data)</span><br><span class="line">print(j_str)</span><br><span class="line"></span><br><span class="line"><span class="comment">#json.dump 将数据通过特殊的形式转换为所有程序语言都认识的字符串,并写入文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'/Users/weifeng/Downloads/result.json'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">	json.dump(data, fp)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="re">re</h4><ul>
+<li>compile</li>
+<li>match search findall</li>
+<li>group groups</li>
+</ul>
+<h4 id="time">time</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">#1、时间戳    1970年1月1日之后的秒</span></span><br><span class="line"><span class="comment">#3、元组 包含了：年、日、星期等... time.struct_time</span></span><br><span class="line"><span class="comment">#4、格式化的字符串    2014-11-11 11:11</span></span><br><span class="line"> </span><br><span class="line">print(time.time()) </span><br><span class="line">print(time.mktime(time.localtime())) </span><br><span class="line"> </span><br><span class="line">print(time.gmtime())     <span class="comment">#可加时间戳参数</span></span><br><span class="line">print(time.localtime())  <span class="comment">#可加时间戳参数</span></span><br><span class="line">print(time.strptime(<span class="string">'2014-11-11'</span>, <span class="string">'%Y-%m-%d'</span>)) </span><br><span class="line"> </span><br><span class="line">print(time.strftime(<span class="string">'%Y-%m-%d'</span>))  <span class="comment">#默认当前时间</span></span><br><span class="line">print(time.strftime(<span class="string">'%Y-%m-%d'</span>,time.localtime()))  <span class="comment">#默认当前时间</span></span><br><span class="line">print(time.asctime()) </span><br><span class="line">print(time.asctime(time.localtime())) </span><br><span class="line">print(time.ctime(time.time())) </span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="string">'''</span><br><span class="line">datetime.date: 表示日期的类。常用的属性有year, month, day</span><br><span class="line">datetime.time: 表示时间的类。常用的属性有hour, minute, second, microsecond</span><br><span class="line">datetime.datetime: 表示日期时间</span><br><span class="line">datetime.timedelta: 表示时间间隔，即两个时间点之间的长度</span><br><span class="line">timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]])</span><br><span class="line">strftime("%Y-%m-%d")</span><br><span class="line">'''</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">print(datetime.datetime.now()) </span><br><span class="line">print(datetime.datetime.now() - datetime.timedelta(days=<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="http://images.cnitblog.com/blog/425762/201412/182222027044557.png" alt=""><br><img src="http://images.cnitblog.com/blog/425762/201412/182222117511121.png" alt=""></p>
+<h4 id="sys">sys</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sys.argv           命令行参数List,第一个元素是程序本身路径</span><br><span class="line">sys.exit(n)        退出程序,正常退出时exit(<span class="number">0</span>)</span><br><span class="line">sys.version        获取Python解释程序的版本信息</span><br><span class="line">sys.maxint         最大的Int值</span><br><span class="line">sys.maxunicode     最大的Unicode值</span><br><span class="line">sys.path           返回模块的搜索路径,初始化时使用PYTHONPATH环境变量的值</span><br><span class="line">sys.platform       返回操作系统平台名称</span><br><span class="line">sys.stdout.write(<span class="string">'please:'</span>)</span><br><span class="line">val = sys.stdin.readline()[:-<span class="number">1</span>]</span><br><span class="line">print(val)</span><br></pre></td></tr></table></figure>
+<h4 id="os">os</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">os.getcwd() 获取当前工作目录，即当前python脚本工作的目录路径</span><br><span class="line">os.chdir("dirname")  改变当前脚本工作目录；相当于shell下cd</span><br><span class="line">os.curdir  返回当前目录: ('.')</span><br><span class="line">os.pardir  获取当前目录的父目录字符串名：('..')</span><br><span class="line">os.makedirs('dirname1/dirname2')    可生成多层递归目录</span><br><span class="line">os.removedirs('dirname1')    若目录为空，则删除，并递归到上一级目录，如若也为空，则删除，依此类推</span><br><span class="line">os.mkdir('dirname')    生成单级目录；相当于shell中mkdir dirname</span><br><span class="line">os.rmdir('dirname')    删除单级空目录，若目录不为空则无法删除，报错；相当于shell中rmdir dirname</span><br><span class="line">os.listdir('dirname')    列出指定目录下的所有文件和子目录，包括隐藏文件，并以列表方式打印</span><br><span class="line">os.remove()  删除一个文件</span><br><span class="line">os.rename("oldname","newname")  重命名文件/目录</span><br><span class="line">os.stat('path/filename')  获取文件/目录信息</span><br><span class="line">os.sep    输出操作系统特定的路径分隔符，win下为"\\",Linux下为"/"</span><br><span class="line">os.linesep    输出当前平台使用的行终止符，win下为"\t\n",Linux下为"\n"</span><br><span class="line">os.pathsep    输出用于分割文件路径的字符串</span><br><span class="line">os.name    输出字符串指示当前使用平台。win-&gt;'nt'; Linux-&gt;'posix'</span><br><span class="line">os.system("bash command")  运行shell命令，直接显示</span><br><span class="line">os.environ  获取系统环境变量</span><br><span class="line">os.path.abspath(path)  返回path规范化的绝对路径</span><br><span class="line">os.path.split(path)  将path分割成目录和文件名二元组返回</span><br><span class="line">os.path.dirname(path)  返回path的目录。其实就是os.path.split(path)的第一个元素</span><br><span class="line">os.path.basename(path)  返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。即os.path.split(path)的第二个元素</span><br><span class="line">os.path.exists(path)  如果path存在，返回True；如果path不存在，返回False</span><br><span class="line">os.path.isabs(path)  如果path是绝对路径，返回True</span><br><span class="line">os.path.isfile(path)  如果path是一个存在的文件，返回True。否则返回False</span><br><span class="line">os.path.isdir(path)  如果path是一个存在的目录，则返回True。否则返回False</span><br><span class="line">os.path.join(path1[, path2[, ...]])  将多个路径组合后返回，第一个绝对路径之前的参数将被忽略</span><br><span class="line">os.path.getatime(path)  返回path所指向的文件或者目录的最后存取时间</span><br><span class="line">os.path.getmtime(path)  返回path所指向的文件或者目录的最后修改时间</span><br></pre></td></tr></table></figure>
+<h4 id="装饰器">装饰器</h4><ul>
+<li><p>装饰器本质上就是函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(fun)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(arg)</span>:</span></span><br><span class="line">		print(<span class="string">'Hello'</span>)</span><br><span class="line">		result = fun(arg)</span><br><span class="line">		print(<span class="string">'Python'</span>)</span><br><span class="line">		<span class="keyword">return</span> result</span><br><span class="line">	<span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="decorator">@outer</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Func1</span><span class="params">(arg)</span>:</span></span><br><span class="line">	print(<span class="string">'check'</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'result'</span></span><br><span class="line"></span><br><span class="line">response = Func1(<span class="string">'Study'</span>)</span><br><span class="line"></span><br><span class="line">其实就是:</span><br><span class="line">Func1 = <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(arg)</span>:</span></span><br><span class="line">			print(<span class="string">'Hello'</span>)</span><br><span class="line">			result = fun(arg)</span><br><span class="line">			print(<span class="string">'Python'</span>)</span><br><span class="line">			<span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带参数的装饰器</p>
+</li>
+<li>在函数执行的前后,执行任意函数</li>
+</ul>
+<h4 id="面向对象编程">面向对象编程</h4><ul>
+<li>静态方法: 方法上加上@staticmethod 使用方式为 类名.方法名(参数) 或者 对象.方法名(参数)</li>
+<li>特性 只读: 方法上面加上@property 使用方式为 对象.方法名  不需要带括号</li>
+<li>特性 只写: 方法上面加上@方法名.setter 使用方式为 对象.方法名  不需要带括号 = 需要传人的参数值</li>
+<li>经典类中的特性全部都是可读可写(没有只读的功能)</li>
+<li>新式类中的特性默认都是只读,如果想要设置,那么就需要再创建一个被装饰@方法名.setter修饰的特性</li>
+<li>私有字段: __字段名</li>
+<li>私有方法: __方法名(参数) </li>
+<li>调用私有方法-不建议使用: 对象名.<em>类名_</em>私有方法名(参数)</li>
+<li>析构函数: <strong>del</strong>(self) 对象销毁的时候会调用这个方法通知它对象即将要销毁了</li>
+<li><strong>call</strong>方法: 对象() 默认执行类里面的<strong>call</strong>方法</li>
+<li>子类调用父类的函数: 父类.函数名(参数) 或者 super(子类名, self).父类函数名(参数)</li>
+<li>新式类: 类继承自object </li>
+<li>经典类: 没有继承自object</li>
+<li>多继承: 类名(类名, 类名)</li>
+<li>抽象类: 在方法上加上@abstractmethod</li>
+<li>在函数内部局部变量不能修改同名全局变量的值,如果要修改需要加上global</li>
+<li>捕获并处理异常: try … except (ImportError,AttributeError),e: 处理异常 except Exception,ex: 处理异常 else: 没有出错的处理 finally: 无论异常与否,都会执行</li>
+<li>打印对象的字符串表示的自定义信息: 重写<strong>str</strong>(self)</li>
+<li>断言: assert(真假表达式)</li>
+<li>主动触发异常: raise MyException(‘自定义错误’)</li>
+<li>自定义异常<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span><span class="params">(Exception)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, msg)</span>:</span></span><br><span class="line">		self.error = msg</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.error</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="数据库和Socket操作"><a href="http://www.cnblogs.com/wupeiqi/articles/4198124.html" target="_blank" rel="external">数据库和Socket操作</a></h4><ul>
+<li>安装MySQL: brew install mysql</li>
+<li>由于Python2.7时代连接MySql的MySQLdb还不支持Python3.x,不过我们可以安装PyMySQL:pip install PyMySQL</li>
+<li><p>数据库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">show databases;</span><br><span class="line">create database  [name];</span><br><span class="line">use [databasename];</span><br><span class="line">drop database [name];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">show tables;</span><br><span class="line">create table  <span class="keyword">if</span> <span class="keyword">not</span> exists [表名] (属性名 数据类型 [完整约束条件]);</span><br><span class="line"></span><br><span class="line">完整性约束:</span><br><span class="line">约束条件				说明</span><br><span class="line">PRIMARY KEY         标识该属性为该表的主键,可以唯一的标识对应的元组</span><br><span class="line">FOREIGN KEY         标识该属性为该表的外键,是与之联系某表的主键</span><br><span class="line">NOT NULL            标识该属性不能为空</span><br><span class="line">UNIQUE              标识该属性的值是唯一的</span><br><span class="line">AUTO_INCREMENT      标识该属性的值是自动增加,这是MySQL的SQL语句的特色</span><br><span class="line">DEFAULT             为该属性设置默认值</span><br><span class="line"></span><br><span class="line">CREATE TABLE teacher (</span><br><span class="line">    id int PRIMARY KEY,</span><br><span class="line">    stu_id int,</span><br><span class="line">    name varchar(<span class="number">20</span>),</span><br><span class="line">    CONSTRAINT STUID FOREIGN KEY(stu_id) REFERENCES student1(id)</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE student (</span><br><span class="line">    id int PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    teacher_id int UNIQUE,</span><br><span class="line">    name varchar(<span class="number">20</span>) NOT NULL,</span><br><span class="line">    sex varchar(<span class="number">10</span>) DEFAULT <span class="string">'male'</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看表结构:</span><br><span class="line">DESC [表名];</span><br><span class="line"></span><br><span class="line">查看表详细结构语句:</span><br><span class="line">SHOW CREATE TABLE [表名];</span><br><span class="line"></span><br><span class="line">修改表名:</span><br><span class="line">ALTER TABLE 旧表名 RENAME 新表名;</span><br><span class="line"></span><br><span class="line">修改字段的数据类型:</span><br><span class="line">ALTER TABLE 表名 MODIFY 属性名 数据类型;</span><br><span class="line"></span><br><span class="line">修改字段名:</span><br><span class="line">ALTER TABLE 表名 CHANGE 旧属性名 新属性名 新数据类型; <span class="comment">#如果你不想修改数据类型的话就按照原来的写就行了</span></span><br><span class="line"></span><br><span class="line">增加字段:</span><br><span class="line">ALTER TABLE 表名 ADD 属性名<span class="number">1</span> 数据类型 [完整性约束条件] [FIRST | AFTER 属性名<span class="number">2</span>];</span><br><span class="line">其中,<span class="string">"属性名1"</span>参数指需要增加的字段的名称;<span class="string">"FIRST"</span>参数是可选参数,其作用是将新增字段设置为表的第一个字段;<span class="string">"AFTER"</span>参数也是可选的参数,其作用是将新增字段添加到<span class="string">"属性名2"</span>后面;<span class="string">"属性名2"</span>当然就是指表中已经有的字段</span><br><span class="line"></span><br><span class="line">删除字段:</span><br><span class="line">ALTER TABLE 表名 DROP 属性名;</span><br><span class="line"></span><br><span class="line">删除表的外键约束:</span><br><span class="line">ALTER TABLE 表名 DROP FOREIGN KEY 外键别名;</span><br><span class="line"></span><br><span class="line">删除表:</span><br><span class="line">DROP TABLE 表名;</span><br><span class="line">删除没有被关联的普通表: 直接上面的SQL语句就行了</span><br><span class="line">删除被其他表关联的父表:</span><br><span class="line">方法一: 先删除子表,在删除父表</span><br><span class="line">方法二: 删除父表的外键约束（上面有介绍）,再删该表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">插入数据:</span><br><span class="line">INSERT INTO table_name ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br><span class="line"></span><br><span class="line">删除数据:</span><br><span class="line">DELETE FROM table_name [WHERE Clause]</span><br><span class="line"></span><br><span class="line">更新数据:</span><br><span class="line">UPDATE table_name SET field1=new-value1, field2=new-value2</span><br><span class="line">[WHERE Clause]</span><br><span class="line"></span><br><span class="line">查询数据:</span><br><span class="line">SELECT column_name,column_name</span><br><span class="line">FROM table_name</span><br><span class="line">[WHERE Clause]</span><br><span class="line">[OFFSET M ][LIMIT N]</span><br><span class="line"></span><br><span class="line">你可以通过OFFSET指定SELECT语句开始查询的数据偏移量。默认情况下偏移量为<span class="number">0</span>。</span><br><span class="line">你可以使用 LIMIT 属性来设定返回的记录数。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>什么是socket<br>所谓socket通常也称作”套接字”,用于描述IP地址和端口,是一个通信链的句柄,应用程序通常通过”套接字”向网络发出请求或者应答网络请求。<br>socket起源于Unix,而Unix/Linux基本哲学之一就是”一切皆文件”,都可以用”打开open –&gt; 读写write/read –&gt; 关闭close”模式来操作。Socket就是该模式的一个实现,socket即是一种特殊的文件,一些socket函数就是对其进行的操作（读/写IO、打开、关闭）<br><img src="http://images.cnitblog.com/blog/425762/201501/021241169032248.png" alt=""></p>
+</li>
+</ul>
+<h4 id="多线程"><a href="http://www.cnblogs.com/wupeiqi/articles/4356675.html" target="_blank" rel="external">多线程</a></h4><h4 id="多进程"><a href="https://docs.python.org/3/library/multiprocessing.html?highlight=multi#module-multiprocessing" target="_blank" rel="external">多进程</a></h4><h4 id="django"><a href="http://www.cnblogs.com/wupeiqi/articles/4491246.html" target="_blank" rel="external">django</a></h4><ul>
+<li>第一步: 安装django-<code>pip install django</code></li>
+<li>第二步: 创建项目 <code>django-admin startproject 项目名称</code></li>
+<li>第三步: 创建App <code>python manage.py startapp App名称</code></li>
+<li>第四步: 使用PyMySQL来连接MySQL时需要在工程目录下的<strong>init</strong>.py文件中输入<code>import pymysql 
+pymysql.install_as_MySQLdb()</code></li>
+<li><p>第五步: 修改工程目录下的settings.py配置文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="comment"># 'default': &#123;</span></span><br><span class="line">    <span class="comment">#     'ENGINE': 'django.db.backends.sqlite3',</span></span><br><span class="line">    <span class="comment">#     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),</span></span><br><span class="line">    <span class="comment"># &#125;</span></span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'test_django_db'</span>,</span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'root'</span>,</span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'PORT'</span>: <span class="string">''</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第六步: 启动MySQL: brew services start mysql 或者 mysql.server start</p>
+</li>
+<li>第七步: 连接数据库: mysql -uroot</li>
+<li>第八步: 创建并使用数据库</li>
+<li>查看manage.py支持的命令:python manage.py help</li>
+<li>第九步: 在应用程序目录中的models.py文件中创建数据库模型</li>
+<li>第十步: python manage.py makemigrations polls</li>
+<li>第十一步: python manage.py migrate<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserType</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    username = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    Gender = models.BooleanField(default=<span class="keyword">False</span>)</span><br><span class="line">    Age = models.IntegerField(default=<span class="number">21</span>)</span><br><span class="line">    memo = models.TextField(default=<span class="string">'xxxx'</span>)</span><br><span class="line">    CreateDate = models.DateTimeField(default=<span class="string">'2016-10-30 20:41'</span>)</span><br><span class="line">    typeId = models.ForeignKey(<span class="string">'UserType'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Group</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    Name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    Name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    Email = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    group_relation = models.ManyToManyField(<span class="string">'Group'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="文件处理">文件处理</h4><ul>
+<li>读文件示例<figure class="highlight"><table><tr><td class="code"><pre><span class="line">myFile.txt</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line"></span><br><span class="line">code:</span><br><span class="line">f = file('myFile.txt', 'r')</span><br><span class="line">for line in f.readlines():</span><br><span class="line">	line = line.strip('\n').split(':')</span><br><span class="line">	print(line)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">['root', 'x', '0', '0', 'root', '/root, '/bin/bash']</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">f = file('/etc/passwd')</span><br><span class="line">for i in f.readlines():</span><br><span class="line">	print(i.strip('\n').split(':')) #脱掉一行中行首和行尾的换行符,i.strip()为脱掉空格和换行符以及Tab</span><br></pre></td></tr></table></figure>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Python包管理工具的安装和爬虫学习]]></title>
@@ -1796,62 +2039,6 @@ dispatch_get_global_queue(long identifier, unsigned long flags);//identifier队�
 </li>
 <li><p>Main.storyboard 添加导航控制器为初始化控制器,添加UIViewController为导航控制器的根控制器并设置其Class类型为MCHomeViewController,为UIViewController添加2个UIScrollView并设置好约束,设置contentScrollView代理为MCHomeViewController</p>
 </li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[static与copy关键字]]></title>
-    <link href="http://yoursite.com/2016/03/23/static_copy/"/>
-    <id>http://yoursite.com/2016/03/23/static_copy/</id>
-    <published>2016-03-23T06:55:35.000Z</published>
-    <updated>2016-03-25T13:16:53.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
-<li>让局部变量只初始化一次</li>
-<li>局部变量在程序中只有一份内存</li>
-<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
-</ul>
-<a id="more"></a>
-<h4 id="static修饰全局变量">static修饰全局变量</h4><ul>
-<li>全局变量的作用域仅限于当前文件</li>
-</ul>
-<h4 id="全局变量">全局变量</h4><ul>
-<li>作用范围:整个程序</li>
-<li>外部通过extern来访问全局变量(例如:<code>extern int age;</code>)</li>
-<li>任何全局变量是不安全的,随时都可能被外部修改</li>
-</ul>
-<h3 id="实现拷贝的方法">实现拷贝的方法</h3><ul>
-<li><p>copy</p>
-<ul>
-<li>只会产生不可变的副本对象(比如NSString),如果对不可变对象调用copy,不会产生新对象(浅拷贝-指针拷贝),反之会产生新对象(深度拷贝-内容拷贝)</li>
-</ul>
-</li>
-<li><p>mutableCopy</p>
-<ul>
-<li>只会产生可变的副本对象(比如NSMutableString),都会产生新对象(深度拷贝-内容拷贝)</li>
-</ul>
-</li>
-<li><p>自定义对象的copy</p>
-<ul>
-<li>自定义对象需要遵守NSCopying协议实现下面的方法<br><code>- (id)copyWithZone:(nullable NSZone *)zone;</code><br><code>- (id)mutableCopyWithZone:(nullable NSZone *)zone;</code></li>
-<li>copy 会调用自定义对象的 copyWithZone</li>
-<li><p>mutableCopy 会调用自定义对象的 mutableCopyWithZone</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCPerson</span>() &lt;<span class="title">NSCopying</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCPerson</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    MCPerson *person = [[MCPerson allocWithZone:zone] init];</span><br><span class="line">    person<span class="variable">.age</span> = <span class="keyword">self</span><span class="variable">.age</span>;</span><br><span class="line">    person<span class="variable">.money</span> = <span class="keyword">self</span><span class="variable">.money</span>;</span><br><span class="line">    <span class="keyword">return</span> person;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>@property中的copy</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是strong则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">//如果是copy则其set方法是:</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    _name = [name <span class="keyword">copy</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> copyProperty()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableString</span> *string = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"jack"</span>];</span><br><span class="line">    </span><br><span class="line">    MCPerson *p = [[MCPerson alloc] init];</span><br><span class="line">    p<span class="variable">.name</span> = string;</span><br><span class="line">    <span class="comment">//[p setName:string];</span></span><br><span class="line">    </span><br><span class="line">    [string appendString:<span class="string">@" rose"</span>];</span><br><span class="line">    <span class="comment">//如果property中是strong 则输出是"jack rose",copy则输出"jack"</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, p<span class="variable">.name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** name属性值永远是不可变，所以定义为NSMutableString是不合理的 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSMutableString</span> *name;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
-<li>让局部变量只初始化一次</li>
-<li>局部变量在程序中只有一份内存</li>
-<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
 </ul>]]>
     
     </summary>
