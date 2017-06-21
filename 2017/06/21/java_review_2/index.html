@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java类的生命周期 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类的生命周期一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java类的生命周期">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/java_review_2/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="类的生命周期一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:">
+<meta property="og:image" content="http://img.blog.csdn.net/20170602113030666">
+<meta property="og:updated_time" content="2017-06-21T15:33:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java类的生命周期">
+<meta name="twitter:description" content="类的生命周期一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-java_review_2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_2/" class="article-date">
+  	<time datetime="2017-06-21T15:32:49.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java类的生命周期
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
+<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>
+<a id="more"></a>
+<h4 id="加载">加载</h4><blockquote>
+<p>通常我们说类加载指的是类的生命周期中加载、连接、初始化三个阶段。在加载阶段,java虚拟机会做什么工作呢?其实很简单,就是找到需要加载的类并把类的信息加载到jvm的方法区中,然后在堆区中实例化一个java.lang.Class对象,作为方法区中这个类的信息的入口。</p>
+</blockquote>
+<p>类的加载方式:</p>
+<ul>
+<li>根据类的全路径名找到相应的class文件,然后从class文件中读取文件内容</li>
+<li>从jar文件中读取。</li>
+<li>从网络中获取</li>
+<li>根据一定的规则实时生成,比如设计模式中的动态代理模式,就是根据相应的类自动生成它的代理类。</li>
+<li>从非class文件中获取,其实这与直接从class文件中获取的方式本质上是一样的,这些非class文件在jvm中运行之前会被转换为可被jvm所识别的字节码文件。</li>
+</ul>
+<p>类的加载时机:</p>
+<ul>
+<li>当jvm”预期”到一个类将要被使用时,就会在使用它之前对这个类进行加载。比如说,在一段代码中出现了一个类的名字,jvm在执行这段代码之前并不能确定这个类是否会被使用到,于是,有些jvm会在执行前就加载这个类,而有些则在真正需要用的时候才会去加载它,这取决于具体的jvm实现。我们常用的hotspot虚拟机是采用的后者,就是说当真正用到一个类的时候才对它进行加载。<br>加载阶段是类的生命周期中的第一个阶段,加载阶段之后,是连接阶段。有一点需要注意,就是有时连接阶段并不会等加载阶段完全完成之后才开始,而是交叉进行,可能一个类只加载了一部分之后,连接阶段就已经开始了。但是这两个阶段总的开始时间和完成时间总是固定的:加载阶段总是在连接阶段之前开始,连接阶段总是在加载阶段完成之后完成。</li>
+</ul>
+<h4 id="连接">连接</h4><p>连接阶段比较复杂,一般会跟加载阶段和初始化阶段交叉进行,这个阶段的主要任务就是做一些加载后的验证工作以及一些初始化前的准备工作,可以细分为三个步骤:</p>
+<ul>
+<li><p>验证: 当一个类被加载之后,必须要验证一下这个类是否合法,比如这个类是不是符合字节码的格式、变量与方法是不是有重复、数据类型是不是有效、继承与实现是否合乎标准等等。总之,这个阶段的目的就是保证加载的类是能够被jvm所运行。</p>
+</li>
+<li><p>准备: 准备阶段的工作就是为类的静态变量分配内存并设为jvm默认的初值,对于非静态的变量,则不会为它们分配内存。有一点需要注意,这时候,静态变量的初值为jvm默认的初值,而不是我们在程序中设定的初值。jvm默认的初值是这样的:</p>
+<ul>
+<li><p>基本类型: (int、long、short、char、byte、boolean、float、double)的默认值为0</p>
+</li>
+<li><p>引用类型: 默认值为null</p>
+</li>
+<li><p>常量: 默认值为我们程序中设定的值,比如我们在程序中定义final static int a = 100，则准备阶段中a的初值就是100</p>
+</li>
+</ul>
+</li>
+<li><p>解析: 这一阶段的任务就是把常量池中的符号引用转换为直接引用。那么什么是符号引用,什么又是直接引用呢？<br>比如我们要在内存中找一个类里面的一个叫做show的方法,显然是找不到。但是在解析阶段,jvm就会把show这个名字转换为指向方法区的的一块内存地址,比如c17164,通过c17164就可以找到show这个方法具体分配在内存的哪一个区域了。这里show就是符号引用,而c17164就是直接引用。在解析阶段,jvm会将所有的类或接口名、字段名、方法名转换为具体的内存地址。</p>
+</li>
+</ul>
+<h4 id="初始化">初始化</h4><p>如果一个类被直接引用,就会触发类的初始化。在java中,直接引用的情况有:</p>
+<ul>
+<li><p>通过new关键字实例化对象、读取或设置类的静态变量、调用类的静态方法</p>
+</li>
+<li><p>通过反射方式执行以上三种行为</p>
+</li>
+<li><p>初始化子类的时候,会触发父类的初始化</p>
+</li>
+<li><p>作为程序入口直接运行时(也就是直接调用main方法)</p>
+</li>
+</ul>
+<p>除了以上四种情况,其他使用类的方式叫做被动引用,而被动引用不会触发类的初始化。</p>
+<p>类的初始化过程是这样的:按照顺序自上而下运行类中的变量赋值语句和静态语句,如果有父类,则首先按照顺序运行父类中的变量赋值语句和静态语句。</p>
+<p>在类的初始化阶段,只会初始化与类相关的静态赋值语句和静态语句,也就是有static关键字修饰的信息,而没有static修饰的赋值语句和执行语句在实例化对象的时候才会运行。</p>
+<h4 id="使用">使用</h4><p>被动引用:</p>
+<ul>
+<li><p>引用父类的静态字段,只会引起父类的初始化,而不会引起子类的初始化</p>
+</li>
+<li><p>定义类数组,不会引起类的初始化</p>
+</li>
+<li><p>引用类的常量,不会引起类的初始化</p>
+</li>
+</ul>
+<p>使用阶段包括主动引用和被动引用,主动饮用会引起类的初始化,而被动引用不会引起类的初始化。</p>
+<h4 id="卸载">卸载</h4><ul>
+<li><p>该类所有的实例都已经被回收,也就是java堆中不存在该类的任何实例</p>
+</li>
+<li><p>加载该类的ClassLoader已经被回收</p>
+</li>
+<li><p>该类对应的java.lang.Class对象没有任何地方被引用,无法在任何地方通过反射访问该类的方法</p>
+</li>
+</ul>
+<p>如果以上三个条件全部满足,jvm就会在方法区垃圾回收的时候对类进行卸载,类的卸载过程其实就是在方法区中清空类信息,java类的整个生命周期就结束了</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/21/java_review_3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java垃圾回收器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/21/java_review_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java类加载器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="java_review_2" data-title="Java类的生命周期" data-url="http://yoursite.com/2017/06/21/java_review_2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -250,6 +250,347 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java_review_5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_5/" class="article-date">
+  	<time datetime="2017-06-21T15:43:10.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_5/">Java算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="冒泡排序">冒泡排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * 冒泡排序</span><br><span class="line"> * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。  </span><br><span class="line"> * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。  </span><br><span class="line"> * 针对所有的元素重复以上的步骤，除了最后一个。</span><br><span class="line"> * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 </span><br><span class="line"> * @param numbers 需要排序的整型数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = numbers.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size-<span class="number">1</span>; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; size-<span class="number">1</span>-i ; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[j] &gt; numbers[j+<span class="number">1</span>])  <span class="comment">//交换两数位置</span></span><br><span class="line">        &#123;</span><br><span class="line">        temp = numbers[j];</span><br><span class="line">        numbers[j] = numbers[j+<span class="number">1</span>];</span><br><span class="line">        numbers[j+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_5/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_4/" class="article-date">
+  	<time datetime="2017-06-21T15:42:04.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_4/">Java面试基础题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
+<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
+</li>
+<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_3/" class="article-date">
+  	<time datetime="2017-06-21T15:34:17.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_3/">Java垃圾回收器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_3/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_2/" class="article-date">
+  	<time datetime="2017-06-21T15:32:49.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_2/">Java类的生命周期</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
+<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_1/" class="article-date">
+  	<time datetime="2017-06-21T15:23:07.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_1/">Java类加载器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
+<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
+<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
+<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
+</li>
+<li><p>显式: 通过class.forname()动态加载</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_0/" class="article-date">
+  	<time datetime="2017-06-21T14:49:34.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_0/">JVM的结构</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JVM内存区域">JVM内存区域</h3><blockquote>
+<p>JVM = <code>类加载器</code> ClassLoader + <code>执行引擎</code> Execution Engine + <code>运行时数据区域</code> Runtime Data Area。 ClassLoader 把硬盘上的Class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行, 而这个是 <code>执行引擎</code> 负责的</p>
+</blockquote>
+<h5 id="HotSpot_JVM_架构图">HotSpot JVM 架构图</h5><p><img src="https://itimetraveler.github.io/gallery/hotspot-jvm.png" alt=""></p>
+<h5 id="Java_虚拟机内存结构图">Java 虚拟机内存结构图</h5><p><img src="https://segmentfault.com/img/bVmxl8" alt="">  </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-python基础语法学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -487,372 +828,9 @@
 
 
   
-    <article id="post-MJRefresh框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/26/MJRefresh框架知识点/" class="article-date">
-  	<time datetime="2016-08-26T02:11:36.000Z" itemprop="datePublished">2016-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/26/MJRefresh框架知识点/">MJRefresh 框架知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="UIScrollView的几个属性">UIScrollView的几个属性</h4><ul>
-<li>frame: 是指UIScrollView的可视范围</li>
-<li>contentSize: 是其滚动范围,内容视图的大小</li>
-<li>contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置</li>
-<li>contentOffset: 是个CGpoint类型的结构体,用来记录ScrollView的滚动位置.垂直往下滚动时contentOffset的Y值越来越小,当偏离UIScrollView左上角时,contentOffset的Y值为负值。垂直往上滚动时contentOffset的Y值越来越大。</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/26/MJRefresh框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-SDWebImage 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/23/SDWebImage 框架知识点/" class="article-date">
-  	<time datetime="2016-08-23T02:57:36.000Z" itemprop="datePublished">2016-08-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/23/SDWebImage 框架知识点/">SDWebImage 框架知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
-<li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
-</ul>
-<h3 id="检查缓存文件是否是PNG图片">检查缓存文件是否是PNG图片</h3><ul>
-<li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/23/SDWebImage 框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-AFNetworking 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/21/AFNetworking 框架知识点/" class="article-date">
-  	<time datetime="2016-07-21T01:16:36.000Z" itemprop="datePublished">2016-07-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/21/AFNetworking 框架知识点/">AFNetworking 框架知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
-<ul>
-<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
-</li>
-<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
-</li>
-<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/21/AFNetworking 框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-swift_note" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/01/swift_note/" class="article-date">
-  	<time datetime="2016-05-01T14:28:11.000Z" itemprop="datePublished">2016-05-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/01/swift_note/">Swift</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常量&amp;变量">常量&amp;变量</h3><ul>
-<li>let 定义常量,设置之后不可以修改</li>
-<li>var 定义变量,设置之后可以修改</li>
-<li>语句末尾不用使用 ;</li>
-<li>在Swift中使用print() 替代OC中的NSLog</li>
-<li>print 的性能更好</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/01/swift_note/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-quartz2d" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/14/quartz2d/" class="article-date">
-  	<time datetime="2016-04-14T14:02:11.000Z" itemprop="datePublished">2016-04-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/14/quartz2d/">Quartz2D</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是Quartz2D">什么是Quartz2D</h3><ul>
-<li>Quartz 2D是一个二维绘图引擎,同时支持iOS和Mac系统</li>
-<li>Quartz 2D 能完成的工作<ul>
-<li>绘制图形:线条\三角形\矩形\弧等</li>
-<li>绘制文字</li>
-<li>绘制\生成图片(图像)</li>
-<li>读取\生成PDF</li>
-<li>截图\裁剪图片</li>
-<li>自定义UI控件</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/14/quartz2d/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-uicollectionview" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/13/uicollectionview/" class="article-date">
-  	<time datetime="2016-04-13T05:54:05.000Z" itemprop="datePublished">2016-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/13/uicollectionview/">UICollectionView的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自定义布局_-_继承UICollectionViewFlowLayout">自定义布局 - 继承UICollectionViewFlowLayout</h3><h4 id="重写prepareLayout方法">重写prepareLayout方法</h4><ul>
-<li>作用:在这个方法中做一些初始化操作</li>
-<li>注意:一定要调用[super prepareLayout]</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/13/uicollectionview/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -860,7 +838,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 weifeng
+    		&copy; 2017 weifeng
     	</div>
       	<div class="footer-right">
       		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->

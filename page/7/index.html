@@ -250,6 +250,388 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-html_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/18/html_study/" class="article-date">
+  	<time datetime="2015-08-18T02:43:04.000Z" itemprop="datePublished">2015-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/html_study/">HTML+CSS基础入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用CSS样式的方法">使用CSS样式的方法</h3><ul>
+<li><p>HTML&lt;!DOCTYPE&gt;</p>
+<ul>
+<li>&lt;!DOCTYPE&gt;声明必须是HTML文档的第一行,位于<html>标签之前.</li>
+<li>&lt;!DOCTYPE&gt;声明不是HTML标签,它是指示web浏览器关于页面使用哪个HTML版本进行编写的指令.</li>
+<li>在HTML 4.01中,&lt;!DOCTYPE&gt;声明引用DTD,因为HTML4.01是基于SGML,DTD规定了标记语言的规则,这样浏览器才能正确的呈现内容.</li>
+<li>HTML5不基于SGML,所以不需要一用DTD.</li>
+<li>HTML5 <ul>
+<li><code>&lt;!DOCTYPE html&gt; &lt;meta charset=&quot;utf-8&quot;&gt;</code></li>
+</ul>
+</li>
+<li><p>HTML4.01</p>
+<ul>
+<li><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></li>
+<li>该DTD包含所有HTML元素和属性,包括展示性和弃用的元素(比如font),不允许框架集(Framesets)</li>
+<li><p><code>&lt;meta http-equiv=Content-Type content=&quot;text/html;charset=utf-8&quot;&gt;</code></p>
+<blockquote>
+<p>meat标签的http-equiv属性语法格式是:<code>＜meta http-equiv=&quot;参数&quot; content=&quot;参数变量值&quot;＞</code>;其中http-equiv属性主要有以下几种参数:<br>1.Expires(期限):可以用于设定网页的到期时间.一旦网页过期,必须到服务器上重新传输.<br>必须使用GMT的时间格式 <code>＜meta http-equiv=&quot;expires&quot; content=&quot;Wed, 20 Jun 2015 22:33:00 GMT&quot;＞</code><br>2.Pragma(cache模式):是用于设定禁止浏览器从本地机的缓存中调阅页面内容,设定后一旦离开网页就无法从Cache中再调出<br><code>＜meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;＞</code><br>3.Refresh(刷新):自动刷新并指向新页面<br><code>＜meta http-equiv=&quot;Refresh&quot; content=&quot;2; URL=http://www.net.cn/&quot;＞</code> #其中的2是指停留2秒钟后自动刷新到URL网址<br>4.Set-Cookie(cookie设定):如果网页过期,那么存盘的cookie将被删除<br><code>＜meta http-equiv=&quot;Set-Cookie&quot; content=&quot;cookievalue=xxx;expires=Wednesday, 20-Jun-2007 22:33:00 GMT; path=/&quot;＞</code> #必须使用GMT的时间格式<br>5.Window-target(显示窗口的设定):强制页面在当前窗口以独立页面显示<br><code>＜meta http-equiv=&quot;Window-target&quot; content=&quot;_top&quot;＞</code> #用来防止别人在框架里调用自己的页面<br>6.content-Type(显示字符集的设定):设定页面使用的字符集<br><code>＜meta http-equiv=&quot;content-Type&quot; content=&quot;text/html; charset=gb2312&quot;＞</code><br>7.Pics-label(网页等级评定)<br><code>&lt;meta http-equiv=&quot;Pics-label&quot; contect=&quot;&quot;&gt;</code> #在IE的internet选项中有一项内容设置,可以防止浏览一些受限制的网站,而网站的限制级别就是通过meta属性来设置的<br>8.Page_Enter、Page_Exit:设定进入页面时的特殊效果、设定离开页面时的特殊效果<br><code>&lt;meta http-equiv=&quot;Page-Enter&quot;    contect=&quot;revealTrans(duration=1.0,transtion=12)&quot;&gt;</code><br><code>&lt;meta http-equiv=&quot;Page-Exit&quot;    contect=&quot;revealTrans(duration=1.0,transtion=12)&quot;&gt;</code><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/meta_anim.png" alt="meta_anim" title="meta_anim"><br>9.清除缓存（再访问这个网站要重新下载!) <code>&lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;</code><br>10.设定网页的到期时间 <code>&lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;</code><br>11.关键字,给搜索引擎用的 <code>&lt;meta http-equiv=&quot;keywords&quot; content=&quot;keyword1,keyword2,keyword3&quot;&gt;</code><br>12.页面描述 <code>&lt;meta http-equiv=&quot;description&quot; content=&quot;This is my page&quot;&gt;</code></p>
+</blockquote>
+</li>
+<li><p>注意的规则:</p>
+<ul>
+<li>单标记必须闭合 比如<code>&lt;br&gt;必须写为&lt;br/&gt; &lt;input/&gt;</code></li>
+<li>单属性必须添加属性值 <code>&lt;input type=&quot;radio&quot; checked&gt;</code> 必须写为 <code>&lt;input type=&quot;radio&quot; checked=&quot;checked&quot;&gt;</code></li>
+<li>标记和属性必须使用小写 <code>&lt;Body&gt; &lt;BODY&gt;是错的必须写为&lt;body&gt;</code></li>
+<li>属性的属性值必须使用”” 在HTML4.01之前可以使用<code>&lt;body bgcolor=red&gt;</code>,HTML4.01必须写为<code>&lt;body bgcolor=&quot;red&quot;&gt;</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/18/html_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-basic-python-knowledge" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/17/basic-python-knowledge/" class="article-date">
+  	<time datetime="2015-08-17T01:57:06.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/basic-python-knowledge/">Python 基础知识学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="将Python值转换为字符串的三种方式">将Python值转换为字符串的三种方式</h3><ul>
+<li>str 它会把值转换为合理形式的字符串,以便用户可以理解 <code>print str(&#39;Hello,World!&#39;)</code> #输出为 Hello,World!</li>
+<li>repr 会创建一个字符串,它以合法的Python表达式的形式来表示值 <code>print repr(&#39;Hello,World!&#39;)</code> #输出为 ‘Hello,World!’</li>
+<li>用2个反引号`,但是在Python3.0中,已经不再使用反引号了.   </li>
+</ul>
+<h3 id="input和raw_input的区别">input和raw_input的区别</h3><ul>
+<li>input会假设用户输入的是合法的Python表达式(当中变量来查找)</li>
+<li>raw_input 它会把所用的输入当作原始数据,然后将其放入字符串中</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/17/basic-python-knowledge/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-use-django-create-db" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/13/use-django-create-db/" class="article-date">
+  	<time datetime="2015-08-13T09:20:50.000Z" itemprop="datePublished">2015-08-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/13/use-django-create-db/">Django入门学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Python连接并使用MySQL">Python连接并使用MySQL</h3><ul>
+<li>在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现<code>EnvironmentError: mysql_config not found</code>错误</li>
+<li><code>brew install mysql</code></li>
+<li>将MySQL添加到系统环境变量中去 <code>export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin</code> 或者 <code>export PATH=$PATH:/usr/local/opt/mysql/bin</code></li>
+<li>使用pip活着easy_install安装MySQL-Python <code>pip install MySQL-Python</code> 或者 <code>sudo easy_install MySQL-Python</code>.
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/13/use-django-create-db/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-django" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/13/install-django/" class="article-date">
+  	<time datetime="2015-08-13T01:37:17.000Z" itemprop="datePublished">2015-08-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/13/install-django/">Mac 下安装Django</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先讲讲Mac_命令行中如何用sublime打开指定文件">首先讲讲Mac 命令行中如何用sublime打开指定文件</h3><ul>
+<li>其实打开文本文件有很多方式,比如命令行下<code>open -e xxx.txt</code>,或者使用vim,今天我们讲讲命令行中使用sublime打开文本文件<ul>
+<li>下载Sublime Text</li>
+<li>打开终端敲入以下命令 <code>ln -s /Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</code></li>
+<li>最后我们就可以直接在终端下敲入 <code>subl xxx.txt</code> 就可以打开指定的文本文件了</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/13/install-django/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/11/install-mongodb/" class="article-date">
+  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">2015-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads">MongoDB</a></h3><ul>
+<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png" alt="mongodb" title="mongodb"></li>
+</ul>
+<ul>
+<li>或者使用brew安装<ul>
+<li><code>brew install mongodb</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/11/install-mongodb/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-scrapy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/10/scrapy/" class="article-date">
+  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4">lxml</a>模块,当前版本是3.4.4</h3><ul>
+<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
+</ul>
+<ul>
+<li><p>安装lxml</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/10/scrapy/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-install-python-plug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -479,74 +861,9 @@
 
 
   
-    <article id="post-setup-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/07/setup-blog/" class="article-date">
-  	<time datetime="2015-07-07T08:39:17.000Z" itemprop="datePublished">2015-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/07/setup-blog/">使用Hexo搭建Blog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近研究了下如何搭建静态Blog,周末花了点时间搭建好了，顺便将自己建站的过程记录下。</p>
-<p>用到的工具:</p>
-<ul>
-<li>Mac mini</li>
-<li>Brew</li>
-<li>npm (包管理,类似于Python中的pip)</li>
-<li>Git</li>
-<li>Node.js</li>
-<li>Hexo</li>
-<li>SSH</li>
-<li>GitHub</li>
-<li>个人申请的域名
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/07/setup-blog/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -554,7 +871,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 weifeng
+    		&copy; 2017 weifeng
     	</div>
       	<div class="footer-right">
       		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->

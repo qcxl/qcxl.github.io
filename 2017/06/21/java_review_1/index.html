@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java类加载器 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是类加载器类加载器是一个用来加载类文件的类。
+类加载器的作用在运行时加载类(装载.class文件)
+类加载器装载class的方式(时机)
+隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM
+
+显式: 通过class.forname()动态加载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java类加载器">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/java_review_1/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="什么是类加载器类加载器是一个用来加载类文件的类。
+类加载器的作用在运行时加载类(装载.class文件)
+类加载器装载class的方式(时机)
+隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM
+
+显式: 通过class.forname()动态加载">
+<meta property="og:image" content="https://segmentfault.com/img/bVk0W2">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/java_ext_pathjava_ext_path.png">
+<meta property="og:updated_time" content="2017-06-21T15:34:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java类加载器">
+<meta name="twitter:description" content="什么是类加载器类加载器是一个用来加载类文件的类。
+类加载器的作用在运行时加载类(装载.class文件)
+类加载器装载class的方式(时机)
+隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM
+
+显式: 通过class.forname()动态加载">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-java_review_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_1/" class="article-date">
+  	<time datetime="2017-06-21T15:23:07.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java类加载器
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
+<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
+<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
+<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
+</li>
+<li><p>显式: 通过class.forname()动态加载</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="Java类加载器基于三个机制">Java类加载器基于三个机制</h3><blockquote>
+<p>委托、可见性和单一性</p>
+</blockquote>
+<ul>
+<li><p>委托机制是指将加载一个类的请求交给父类加载器,如果这个父类加载器不能够找到或者加载这个类,那么再由当前的类加载器加载,并将其放入它自己的缓存中,以便下次有加载请求的时候直接返回。<br>当一个类加载和初始化的时候,类仅在有需要加载的时候被加载。假设你有一个应用需要的类叫作Abc.class,首先加载这个类的请求由Application类加载器委托给它的父类加载器Extension类加载器,然后再委托给Bootstrap类加载器。Bootstrap类加载器会先看看rt.jar中有没有这个类,因为并没有这个类,所以这个请求由回到Extension类加载器,它会查看jre/lib/ext目录下有没有这个类,如果这个类被Extension类加载器找到了,那么它将被加载,而Application类加载器不会加载这个类;而如果这个类没有被Extension类加载器找到,那么再由Application类加载器从classpath中寻找。记住classpath定义的是类文件的加载目录,而PATH是定义的是可执行程序如javac,java等的执行路径。</p>
+</li>
+<li><p>可见性的原理是子类的加载器可以看见所有的父类加载器加载的类,而父类加载器看不到子类加载器加载的类。</p>
+</li>
+<li><p>单一性原理是指仅加载一个类一次,这是由委托机制确保子类加载器不会再次加载父类加载器加载过的类。根据这个机制,父加载器加载过的类不能被子加载器加载第二次。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.util.logging.Level;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Java program to demonstrate How ClassLoader works in Java,</span><br><span class="line"> * in particular about visibility principle of ClassLoader.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@author</span> weifeng</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;          </span><br><span class="line">            <span class="comment">//printing ClassLoader of this class</span></span><br><span class="line">            System.out.println(<span class="string">"ClassLoaderTest.getClass().getClassLoader() : "</span></span><br><span class="line">                                 + ClassLoaderTest.class.getClassLoader());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//trying to explicitly load this class again using Extension class loader</span></span><br><span class="line">            Class.forName(<span class="string">"test.ClassLoaderTest"</span>, <span class="keyword">true</span></span><br><span class="line">                            ,  ClassLoaderTest.class.getClassLoader().getParent());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException ex) &#123;</span><br><span class="line">            Logger.getLogger(ClassLoaderTest.class.getName()).log(Level.SEVERE, <span class="keyword">null</span>, ex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ClassLoaderTest.getClass().getClassLoader() : sun.misc.Launcher$AppClassLoader@<span class="number">601</span>bb1</span><br><span class="line"><span class="number">21</span>/<span class="number">06</span>/<span class="number">2017</span> <span class="number">2</span>:<span class="number">36</span>:<span class="number">18</span> PM test.ClassLoaderTest main</span><br><span class="line">SEVERE: <span class="keyword">null</span></span><br><span class="line">java.lang.ClassNotFoundException: test.ClassLoaderTest</span><br><span class="line">        at java.net.URLClassLoader$<span class="number">1</span>.run(URLClassLoader.java:<span class="number">202</span>)</span><br><span class="line">        at java.security.AccessController.doPrivileged(Native Method)</span><br><span class="line">        at java.net.URLClassLoader.findClass(URLClassLoader.java:<span class="number">190</span>)</span><br><span class="line">        at sun.misc.Launcher$ExtClassLoader.findClass(Launcher.java:<span class="number">229</span>)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">306</span>)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">247</span>)</span><br><span class="line">        at java.lang.Class.forName0(Native Method)</span><br><span class="line">        at java.lang.Class.forName(Class.java:<span class="number">247</span>)</span><br><span class="line">        at test.ClassLoaderTest.main(ClassLoaderTest.java:<span class="number">29</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="类加载器ClassLoader的层次结构">类加载器ClassLoader的层次结构</h3><p><img src="https://segmentfault.com/img/bVk0W2" alt=""></p>
+<ul>
+<li><p>Bootstrap ClassLoader: 负责加载rt.jar中的JDK类文件,它是所有类加载器的父加载器。Bootstrap类加载器没有任何父类加载器，如果你调用String.class.getClassLoader(),会返回null,任何基于此的代码会抛出NUllPointerException异常。Bootstrap加载器被称为初始类加载器。当运行 java 虚拟机时,这个类加载器被创建,它负责加载虚拟机的核心类库,如 java.lang.* 等。例如 java.lang.Object 就是由根类加载器加载的。需要注意的是,这个类加载器不是用 java 语言写的,而是用 C/C++ 写的。</p>
+</li>
+<li><p>Extension ClassLoader: 这个加载器加载出了基本 API 之外的一些拓展类。Extension将加载类的请求先委托给它的父加载器,也就是Bootstrap,如果没有成功加载的话,再从jre/lib/ext目录下或者java.ext.dirs系统属性定义的目录下加载类。Extension加载器由sun.misc.Launcher$ExtClassLoader实现。</p>
+</li>
+</ul>
+<ul>
+<li>System类加载器(或者叫作Application类加载器): 它负责从classpath环境变量中加载某些应用相关的类,classpath环境变量通常由-classpath或-cp命令行选项来定义,或者是JAR中的Manifest的classpath属性.Application类加载器是Extension类加载器的子加载器.通过sun.misc.Launcher$AppClassLoader实现。<br>当Abc.class已经被Application类加载器加载过了,然后如果想要使用Extension类加载器加载这个类,将会抛出java.lang.ClassNotFoundException异常。</li>
+</ul>
+<ul>
+<li>User-defined Class Loader: 用户定制的类加载器</li>
+</ul>
+<p>除了Bootstrap类加载器是大部分由C来写的,其他的类加载器都是通过java.lang.ClassLoader来实现的。</p>
+<p>总结一下,下面是三种类加载器加载类文件的地方:</p>
+<ul>
+<li><p>Bootstrap类加载器 – jre/lib/rt.jar</p>
+</li>
+<li><p>Extension类加载器 – jre/lib/ext或者java.ext.dirs指向的目录</p>
+</li>
+<li><p>Application类加载器 – CLASSPATH环境变量, 由-classpath或-cp选项定义,或者是JAR中的Manifest的classpath属性定义.</p>
+</li>
+</ul>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/java_ext_pathjava_ext_path.png" alt=""></p>
+<h3 id="如何显式的加载类">如何显式的加载类</h3><p>Java提供了显式加载类的API:Class.forName(classname)和Class.forName(classname, initialized, classloader)。就像上面的例子中,你可以指定类加载器的名称以及要加载的类的名称。类的加载是通过调用java.lang.ClassLoader的loadClass()方法,而loadClass()方法则调用了findClass()方法来定位相应类的字节码。在这个例子中Extension类加载器使用了java.net.URLClassLoader,它从JAR和目录中进行查找类文件,所有以”/“结尾的查找路径被认为是目录。如果findClass()没有找到那么它会抛出java.lang.ClassNotFoundException异常,而如果找到的话则会调用defineClass()将字节码转化成类实例,然后返回。</p>
+<p>Mac 下查看安装的JDK以及路径: <code>/usr/libexec/java_home -V</code></p>
+<p>查看 JDK1.6 的安装路径: <code>/usr/libexec/java_home -v 1.6</code></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/21/java_review_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java类的生命周期
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/21/java_review_0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM的结构</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="java_review_1" data-title="Java类加载器" data-url="http://yoursite.com/2017/06/21/java_review_1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_3/</loc>
+    <lastmod>2017-06-21T15:52:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_5/</loc>
+    <lastmod>2017-06-21T15:45:31.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_4/</loc>
+    <lastmod>2017-06-21T15:42:57.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_1/</loc>
+    <lastmod>2017-06-21T15:34:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_2/</loc>
+    <lastmod>2017-06-21T15:33:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/21/java_review_0/</loc>
+    <lastmod>2017-06-21T15:33:28.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/10/17/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2016-10-30T13:51:57.000Z</lastmod>
   </url>

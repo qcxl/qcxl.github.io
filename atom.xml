@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2016-10-30T13:51:57.000Z</updated>
+  <updated>2017-06-21T15:45:31.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -14,6 +14,371 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Java算法]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_5/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_5/</id>
+    <published>2017-06-21T15:43:10.000Z</published>
+    <updated>2017-06-21T15:45:31.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="冒泡排序">冒泡排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * 冒泡排序</span><br><span class="line"> * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。  </span><br><span class="line"> * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。  </span><br><span class="line"> * 针对所有的元素重复以上的步骤，除了最后一个。</span><br><span class="line"> * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 </span><br><span class="line"> * @param numbers 需要排序的整型数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = numbers.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size-<span class="number">1</span>; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; size-<span class="number">1</span>-i ; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[j] &gt; numbers[j+<span class="number">1</span>])  <span class="comment">//交换两数位置</span></span><br><span class="line">        &#123;</span><br><span class="line">        temp = numbers[j];</span><br><span class="line">        numbers[j] = numbers[j+<span class="number">1</span>];</span><br><span class="line">        numbers[j+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="快速排序">快速排序</h4><p>把整个序列看做一个数组,把第零个位置看做中轴,和最后一个比,如果比它小交换,比它大不做任何处理;交换了以后再和小的那端比,比它小不交换,比他大交换。这样循环往复,一趟排序完成,左边就是比中轴小的,右边就是比中轴大的,然后再用分治法,分别对这两个独立的数组进行排序.</p>
+<p>代码实现如下:</p>
+<p>查找中轴(最低位作为中轴)所在位置:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 查找出中轴（默认是最低位low）的在numbers数组排序后所在位置</span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@param</span> numbers 带查找数组</span><br><span class="line"> * <span class="doctag">@param</span> low   开始位置</span><br><span class="line"> * <span class="doctag">@param</span> high  结束位置</span><br><span class="line"> * <span class="doctag">@return</span>  中轴所在位置</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMiddle</span><span class="params">(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = numbers[low]; <span class="comment">//数组的第一个作为中轴</span></span><br><span class="line">    <span class="keyword">while</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">while</span>(low &lt; high &amp;&amp; numbers[high] &gt; temp)</span><br><span class="line">    &#123;</span><br><span class="line">        high--;</span><br><span class="line">    &#125;</span><br><span class="line">    numbers[low] = numbers[high];<span class="comment">//比中轴小的记录移到低端</span></span><br><span class="line">    <span class="keyword">while</span>(low &lt; high &amp;&amp; numbers[low] &lt; temp)</span><br><span class="line">    &#123;</span><br><span class="line">        low++;</span><br><span class="line">    &#125;</span><br><span class="line">    numbers[high] = numbers[low] ; <span class="comment">//比中轴大的记录移到高端</span></span><br><span class="line">    &#125;</span><br><span class="line">    numbers[low] = temp ; <span class="comment">//中轴记录到尾</span></span><br><span class="line">    <span class="keyword">return</span> low ; <span class="comment">// 返回中轴的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归形式的分治排序算法:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@param</span> numbers 带排序数组</span><br><span class="line"> * <span class="doctag">@param</span> low  开始位置</span><br><span class="line"> * <span class="doctag">@param</span> high 结束位置</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] numbers,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">    　　<span class="keyword">int</span> middle = getMiddle(numbers,low,high); <span class="comment">//将numbers数组进行一分为二</span></span><br><span class="line">    　　quickSort(numbers, low, middle-<span class="number">1</span>);   <span class="comment">//对低字段表进行递归排序</span></span><br><span class="line">    　　quickSort(numbers, middle+<span class="number">1</span>, high); <span class="comment">//对高字段表进行递归排序</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>快速排序提供方法调用:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 快速排序</span><br><span class="line"> * <span class="doctag">@param</span> numbers 带排序数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numbers.length &gt; <span class="number">0</span>)   <span class="comment">//查看数组是否为空</span></span><br><span class="line">    &#123;</span><br><span class="line">    quickSort(numbers, <span class="number">0</span>, numbers.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="选择排序">选择排序</h4><ul>
+<li>基本思想:在要排序的一组数中,选出最小的一个数与第一个位置的数交换;然后在剩下的数当中再找最小的与第二个位置的数交换,如此循环到倒数第二个数和最后一个数比较为止.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 选择排序算法</span><br><span class="line"> * 在未排序序列中找到最小元素，存放到排序序列的起始位置  </span><br><span class="line"> * 再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。 </span><br><span class="line"> * 以此类推，直到所有元素均排序完毕。 </span><br><span class="line"> * <span class="doctag">@param</span> numbers</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> size = numbers.length; <span class="comment">//数组长度</span></span><br><span class="line"><span class="keyword">int</span> temp = <span class="number">0</span> ; <span class="comment">//中间变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size ; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> k = i;   <span class="comment">//待确定的位置</span></span><br><span class="line">    <span class="comment">//选择出应该在第i个位置的数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = size -<span class="number">1</span> ; j &gt; i ; j--)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">if</span>(numbers[j] &lt; numbers[k])</span><br><span class="line">    &#123;</span><br><span class="line">        k = j;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//交换两个数</span></span><br><span class="line">    temp = numbers[i];</span><br><span class="line">    numbers[i] = numbers[k];</span><br><span class="line">    numbers[k] = temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="插入排序">插入排序</h4><ul>
+<li>基本思想:每步将一个待排序的记录,按其顺序码大小插入到前面已经排序的字序列的合适位置(从后向前找到合适位置后),直到全部插入排序完为止。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**  </span><br><span class="line"> * 插入排序</span><br><span class="line"> * </span><br><span class="line"> * 从第一个元素开始，该元素可以认为已经被排序</span><br><span class="line"> * 取出下一个元素，在已经排序的元素序列中从后向前扫描 </span><br><span class="line"> * 如果该元素（已排序）大于新元素，将该元素移到下一位置  </span><br><span class="line"> * 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置  </span><br><span class="line"> * 将新元素插入到该位置中  </span><br><span class="line"> * 重复步骤2  </span><br><span class="line"> * <span class="doctag">@param</span> numbers  待排序数组</span><br><span class="line"> */</span>  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> size = numbers.length;</span><br><span class="line"><span class="keyword">int</span> temp = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">int</span> j =  <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size ; i++)</span><br><span class="line">&#123;</span><br><span class="line">    temp = numbers[i];</span><br><span class="line">    <span class="comment">//假如temp比前面的值小，则将前面的值后移</span></span><br><span class="line">    <span class="keyword">for</span>(j = i ; j &gt; <span class="number">0</span> &amp;&amp; temp &lt; numbers[j-<span class="number">1</span>] ; j --)</span><br><span class="line">    &#123;</span><br><span class="line">    numbers[j] = numbers[j-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    numbers[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="冒泡排序">冒泡排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * 冒泡排序</span><br><span class="line"> * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。  </span><br><span class="line"> * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。  </span><br><span class="line"> * 针对所有的元素重复以上的步骤，除了最后一个。</span><br><span class="line"> * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 </span><br><span class="line"> * @param numbers 需要排序的整型数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = numbers.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size-<span class="number">1</span>; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; size-<span class="number">1</span>-i ; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[j] &gt; numbers[j+<span class="number">1</span>])  <span class="comment">//交换两数位置</span></span><br><span class="line">        &#123;</span><br><span class="line">        temp = numbers[j];</span><br><span class="line">        numbers[j] = numbers[j+<span class="number">1</span>];</span><br><span class="line">        numbers[j+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Java面试基础题]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_4/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_4/</id>
+    <published>2017-06-21T15:42:04.000Z</published>
+    <updated>2017-06-21T15:42:57.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
+<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
+</li>
+<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="内部类的作用">内部类的作用</h3><ul>
+<li><p>实现对类进行隐藏,一般外部类是public属性,而内部类可以是private、protected</p>
+</li>
+<li><p>内部类可以访问包括私有成员在内的外部类的所有成员</p>
+</li>
+<li><p>通过内部类可以实现多重继承.一个类只能继承一个类,通过定义多个内部类,可以实现继承不止一个类.</p>
+</li>
+<li><p>若要实现的接口中有与类相同名字的方法,可通过内部类来实现这个接口,避免修改接口方法名.</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
+<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
+</li>
+<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Java垃圾回收器]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_3/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_3/</id>
+    <published>2017-06-21T15:34:17.000Z</published>
+    <updated>2017-06-21T15:52:28.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
+<a id="more"></a>
+<h4 id="何为垃圾？">何为垃圾？</h4><p>Java中那些不可达的对象就会变成垃圾。那么什么叫做不可达？其实就是没有办法再引用到该对象了。主要有以下情况使对象变为垃圾:</p>
+<ul>
+<li><p>对非线程的对象来说,所有的活动线程都不能访问该对象,那么该对象就会变为垃圾。</p>
+</li>
+<li><p>对线程对象来说,满足上面的条件,且线程未启动或者已停止。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">例如: </span><br><span class="line">(<span class="number">1</span>)改变对象的引用，如置为<span class="keyword">null</span>或者指向其他对象。 </span><br><span class="line">   Object x=<span class="keyword">new</span> Object();<span class="comment">//object1 </span></span><br><span class="line">   Object y=<span class="keyword">new</span> Object();<span class="comment">//object2 </span></span><br><span class="line">   x=y;<span class="comment">//object1 变为垃圾 </span></span><br><span class="line">   x=y=<span class="keyword">null</span>;<span class="comment">//object2 变为垃圾 </span></span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>)超出作用域 </span><br><span class="line">   <span class="keyword">if</span>(i==<span class="number">0</span>)&#123; </span><br><span class="line">      Object x=<span class="keyword">new</span> Object();<span class="comment">//object1 </span></span><br><span class="line">   &#125;<span class="comment">//括号结束后object1将无法被引用，变为垃圾 </span></span><br><span class="line">(<span class="number">3</span>)类嵌套导致未完全释放 </span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123; </span><br><span class="line">      A a; </span><br><span class="line">   &#125; </span><br><span class="line">   A x= <span class="keyword">new</span> A();<span class="comment">//分配一个空间 </span></span><br><span class="line">   x.a= <span class="keyword">new</span> A();<span class="comment">//又分配了一个空间 </span></span><br><span class="line">   x=<span class="keyword">null</span>;<span class="comment">//将会产生两个垃圾 </span></span><br><span class="line">(<span class="number">4</span>)线程中的垃圾 </span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;   </span><br><span class="line">     <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123; </span><br><span class="line">       <span class="comment">//.... </span></span><br><span class="line">     &#125; </span><br><span class="line">   &#125; </span><br><span class="line">   <span class="comment">//main </span></span><br><span class="line">   A x=<span class="keyword">new</span> A();<span class="comment">//object1 </span></span><br><span class="line">   x.start(); </span><br><span class="line">   x=<span class="keyword">null</span>;<span class="comment">//等线程执行完后object1才被认定为垃圾 </span></span><br><span class="line">   这样看，确实在代码执行过程中会产生很多垃圾，不过不用担心，java可以有效地处理他们。</span><br></pre></td></tr></table></figure>
+<h4 id="为何要这样设计">为何要这样设计</h4><p>因为GC也是进程,也要消耗CPU等资源,如果GC执行过于频繁会对java的程序的执行产生较大的影响(java解释器本来就不快),因此JVM的设计者们选着了不定期的GC</p>
+<p>GC有关的是: runtime data area 中的 heap(对象实例会存储在这里) 和 gabage collector方法。</p>
+<p>程序运行期间,所有对象实例存储在运行时数据区域的heap中,当一个对象不再被引用（使用）,它就需要被收回。在GC过程中,这些不再被使用的对象从heap中收回,这样就会有空间被循环利用。</p>
+<p>GC为内存中不再使用的对象进行回收,GC中调用回收的方法—收集器garbage collector. 由于GC要消耗一些资源和时间,Java 在对对象的生命周期特征（eden or survivor）进行分析之后,采用了分代的方式进行对象的收集,以缩短GC对应用造成的暂停。</p>
+<p>在垃圾回收器回收内存之前,还需要一些清理工作。</p>
+<p>因为垃圾回收gc只能回收通过new关键字申请的内存（在堆上）,但是堆上的内存并不完全是通过new申请分配的。还有一些本地方法(一般是调用的C方法)。这部分”特殊的内存”如果不手动释放,就会导致内存泄露,gc是无法回收这部分内存的。<br>所以需要在finalize中用本地方法(native method)如free操作等,再使用gc方法。显示的GC方法是system.gc()</p>
+<h4 id="JVM中对象的引用类型">JVM中对象的引用类型</h4><ul>
+<li><p>强引用(StrongReference) - 默认情况下,对象采用的均为强引用 JVM 宁可抛出 OOM ,也不会让 GC 回收具有强引用的对象 <code>(GC不会回收)</code></p>
+</li>
+<li><p>软引用(SoftReference) - 软引用是Java中提供的一种比较适合于缓存场景的应用 <code>(只有在内存不够用的情况下才会被GC)</code></p>
+</li>
+<li><p>弱引用(WeakReference) - 在 GC 时,一旦发现了只具有弱引用的对象,不管当前内存空间足够与否,都会回收它的内存;</p>
+</li>
+<li><p>虚引用 - 在GC时一定会被GC回收.任何时候都可以被GC回收,当垃圾回收器准备回收一个对象时,如果发现它还有虚引用,就会在回收对象的内存之前,把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否存在该对象的虚引用,来了解这个对象是否将要被回收。可以用来作为GC回收Object的标志。</p>
+</li>
+</ul>
+<h4 id="引用计数法">引用计数法</h4><p>为每一个创建的对象分配一个引用计数器,用来存储该对象被引用的个数。当该个数为零,意味着没有人再使用这个对象,可以认为”对象死亡”。但是,这种方案存在严重的问题,就是无法检测”循环引用”:当两个对象互相引用,即时它俩都不被外界任何东西引用,它俩的计数都不为零,因此永远不会被回收。而实际上对于开发者而言,这两个对象已经完全没有用处了。</p>
+<h4 id="可达性分析">可达性分析</h4><p>这种方案是目前主流语言里采用的对象存活性判断方案。基本思路是把所有引用的对象想象成一棵树,从树的根结点 GC Roots 出发,持续遍历找出所有连接的树枝对象,这些对象则被称为”可达”对象,或称”存活”对象。其余的对象则被视为”死亡”的”不可达”对象,或称”垃圾”。</p>
+<p>参考下图,object5,object6 和 object7 便是不可达对象,视为”死亡状态”,应该被垃圾回收器回收.</p>
+<p><img src="http://wingjay.com/img/gc/reachable.JPG" alt=""></p>
+<p>GC Roots 究竟指谁呢?<br>我们可以猜测,GC Roots 本身一定是可达的,这样从它们出发遍历到的对象才能保证一定可达。那么,Java 里有哪些对象是一定可达呢？主要有以下四种:</p>
+<ul>
+<li><p>虚拟机栈（帧栈中的本地变量表）中引用的对象。</p>
+</li>
+<li><p>方法区中静态属性引用的对象。</p>
+</li>
+<li><p>方法区中常量引用的对象。</p>
+</li>
+<li><p>本地方法栈中 JNI 引用的对象。</p>
+</li>
+</ul>
+<h4 id="有哪些方式来回收这些垃圾呢？">有哪些方式来回收这些垃圾呢？</h4><p>上面已经知道,所有 GC Roots 不可达的对象都称为垃圾,参考下图,黑色的表示垃圾,灰色表示存活对象,绿色表示空白空间。</p>
+<p><img src="http://wingjay.com/img/gc/garbage.png" alt=""></p>
+<p>那么,我们如何来回收这些垃圾呢？</p>
+<ul>
+<li>标记－清理</li>
+</ul>
+<p>第一步,所谓”标记”就是利用可达性遍历堆内存,把”存活”对象和”垃圾”对象进行标记,得到的结果如上图;<br>第二步,既然”垃圾”已经标记好了,那我们再遍历一遍，把所有”垃圾”对象所占的空间直接 清空 即可。</p>
+<p>结果如下:<br><img src="http://wingjay.com/img/gc/mark-sweep.png" alt=""></p>
+<p>这便是 <code>标记－清理</code> 方案,<code>简单方便</code>,但是容易产生 <code>内存碎片</code>。</p>
+<ul>
+<li>标记－整理</li>
+</ul>
+<p>既然上面的方法会产生内存碎片,那好,我在清理的时候,把所有 存活 对象扎堆到同一个地方,让它们待在一起,这样就没有内存碎片了。</p>
+<p>结果如下:</p>
+<p><img src="http://wingjay.com/img/gc/mark-compact.png" alt=""></p>
+<p>这两种方案适合 <code>存活对象多,垃圾少</code> 的情况,它只需要清理掉少量的垃圾,然后挪动下存活对象就可以了。</p>
+<ul>
+<li>复制</li>
+</ul>
+<p>这种方法比较粗暴,直接把堆内存分成两部分,一段时间内只允许在其中一块内存上进行分配,当这块内存被分配完后,则执行垃圾回收,把所有 存活 对象全部复制到另一块内存上,当前内存则直接全部清空。</p>
+<p>结果如下:</p>
+<p><img src="http://wingjay.com/img/gc/copying.png" alt=""></p>
+<p>起初时只使用上面部分的内存,直到内存使用完毕,才进行垃圾回收,把所有存活对象搬到下半部分,并把上半部分进行清空。</p>
+<p>这种做法不容易产生碎片,也简单粗暴;但是,它意味着你在一段时间内只能使用一部分的内存,超过这部分内存的话就意味着堆内存里频繁的 <code>复制清空</code>。</p>
+<p>这种方案适合 <code>存活对象少,垃圾多</code> 的情况,这样在复制时就不需要复制太多对象过去,多数垃圾直接被清空处理。</p>
+<h4 id="Java_的分代回收机制">Java 的分代回收机制</h4><p>上面我们看到有至少三种方法来回收内存,那么 Java 里是如何选择利用这三种回收算法呢？是只用一种还是三种都用呢？</p>
+<p>Java 的堆结构<br>一块 Java 堆空间一般分成三部分,这三部分用来存储三类数据:</p>
+<ul>
+<li><p>刚刚创建的对象。在代码运行时会持续不断地创造新的对象,这些新创建的对象会被统一放在一起。因为有很多局部变量等在新创建后很快会变成 <code>不可达</code> 的对象,<code>快速死去</code> ,因此这块区域的特点是 <code>存活对象少,垃圾多</code> 。形象点描述这块区域为: <code>新生代</code>;</p>
+</li>
+<li><p>存活了一段时间的对象。这些对象早早就被创建了,而且一直活了下来。我们把这些 <code>存活时间较长</code> 的对象放在一起,它们的特点是 <code>存活对象多,垃圾少</code>。形象点描述这块区域为: <code>老年代</code>;</p>
+</li>
+<li><p>永久存在的对象。比如一些静态文件,这些对象的特点是不需要垃圾回收,永远存活。形象点描述这块区域为: <code>永久代</code></p>
+</li>
+</ul>
+<p>也就是说,常规的 Java 堆至少包括了 <code>新生代</code> 和 <code>老年代</code> 两块内存区域,而且这两块区域有很明显的特征:</p>
+<ul>
+<li><p>新生代:存活对象少、垃圾多 - <code>复制 回收机制</code></p>
+</li>
+<li><p>老年代:存活对象多、垃圾少 - <code>标记整理 回收机制</code></p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Java类的生命周期]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_2/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_2/</id>
+    <published>2017-06-21T15:32:49.000Z</published>
+    <updated>2017-06-21T15:33:46.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
+<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>
+<a id="more"></a>
+<h4 id="加载">加载</h4><blockquote>
+<p>通常我们说类加载指的是类的生命周期中加载、连接、初始化三个阶段。在加载阶段,java虚拟机会做什么工作呢?其实很简单,就是找到需要加载的类并把类的信息加载到jvm的方法区中,然后在堆区中实例化一个java.lang.Class对象,作为方法区中这个类的信息的入口。</p>
+</blockquote>
+<p>类的加载方式:</p>
+<ul>
+<li>根据类的全路径名找到相应的class文件,然后从class文件中读取文件内容</li>
+<li>从jar文件中读取。</li>
+<li>从网络中获取</li>
+<li>根据一定的规则实时生成,比如设计模式中的动态代理模式,就是根据相应的类自动生成它的代理类。</li>
+<li>从非class文件中获取,其实这与直接从class文件中获取的方式本质上是一样的,这些非class文件在jvm中运行之前会被转换为可被jvm所识别的字节码文件。</li>
+</ul>
+<p>类的加载时机:</p>
+<ul>
+<li>当jvm”预期”到一个类将要被使用时,就会在使用它之前对这个类进行加载。比如说,在一段代码中出现了一个类的名字,jvm在执行这段代码之前并不能确定这个类是否会被使用到,于是,有些jvm会在执行前就加载这个类,而有些则在真正需要用的时候才会去加载它,这取决于具体的jvm实现。我们常用的hotspot虚拟机是采用的后者,就是说当真正用到一个类的时候才对它进行加载。<br>加载阶段是类的生命周期中的第一个阶段,加载阶段之后,是连接阶段。有一点需要注意,就是有时连接阶段并不会等加载阶段完全完成之后才开始,而是交叉进行,可能一个类只加载了一部分之后,连接阶段就已经开始了。但是这两个阶段总的开始时间和完成时间总是固定的:加载阶段总是在连接阶段之前开始,连接阶段总是在加载阶段完成之后完成。</li>
+</ul>
+<h4 id="连接">连接</h4><p>连接阶段比较复杂,一般会跟加载阶段和初始化阶段交叉进行,这个阶段的主要任务就是做一些加载后的验证工作以及一些初始化前的准备工作,可以细分为三个步骤:</p>
+<ul>
+<li><p>验证: 当一个类被加载之后,必须要验证一下这个类是否合法,比如这个类是不是符合字节码的格式、变量与方法是不是有重复、数据类型是不是有效、继承与实现是否合乎标准等等。总之,这个阶段的目的就是保证加载的类是能够被jvm所运行。</p>
+</li>
+<li><p>准备: 准备阶段的工作就是为类的静态变量分配内存并设为jvm默认的初值,对于非静态的变量,则不会为它们分配内存。有一点需要注意,这时候,静态变量的初值为jvm默认的初值,而不是我们在程序中设定的初值。jvm默认的初值是这样的:</p>
+<ul>
+<li><p>基本类型: (int、long、short、char、byte、boolean、float、double)的默认值为0</p>
+</li>
+<li><p>引用类型: 默认值为null</p>
+</li>
+<li><p>常量: 默认值为我们程序中设定的值,比如我们在程序中定义final static int a = 100，则准备阶段中a的初值就是100</p>
+</li>
+</ul>
+</li>
+<li><p>解析: 这一阶段的任务就是把常量池中的符号引用转换为直接引用。那么什么是符号引用,什么又是直接引用呢？<br>比如我们要在内存中找一个类里面的一个叫做show的方法,显然是找不到。但是在解析阶段,jvm就会把show这个名字转换为指向方法区的的一块内存地址,比如c17164,通过c17164就可以找到show这个方法具体分配在内存的哪一个区域了。这里show就是符号引用,而c17164就是直接引用。在解析阶段,jvm会将所有的类或接口名、字段名、方法名转换为具体的内存地址。</p>
+</li>
+</ul>
+<h4 id="初始化">初始化</h4><p>如果一个类被直接引用,就会触发类的初始化。在java中,直接引用的情况有:</p>
+<ul>
+<li><p>通过new关键字实例化对象、读取或设置类的静态变量、调用类的静态方法</p>
+</li>
+<li><p>通过反射方式执行以上三种行为</p>
+</li>
+<li><p>初始化子类的时候,会触发父类的初始化</p>
+</li>
+<li><p>作为程序入口直接运行时(也就是直接调用main方法)</p>
+</li>
+</ul>
+<p>除了以上四种情况,其他使用类的方式叫做被动引用,而被动引用不会触发类的初始化。</p>
+<p>类的初始化过程是这样的:按照顺序自上而下运行类中的变量赋值语句和静态语句,如果有父类,则首先按照顺序运行父类中的变量赋值语句和静态语句。</p>
+<p>在类的初始化阶段,只会初始化与类相关的静态赋值语句和静态语句,也就是有static关键字修饰的信息,而没有static修饰的赋值语句和执行语句在实例化对象的时候才会运行。</p>
+<h4 id="使用">使用</h4><p>被动引用:</p>
+<ul>
+<li><p>引用父类的静态字段,只会引起父类的初始化,而不会引起子类的初始化</p>
+</li>
+<li><p>定义类数组,不会引起类的初始化</p>
+</li>
+<li><p>引用类的常量,不会引起类的初始化</p>
+</li>
+</ul>
+<p>使用阶段包括主动引用和被动引用,主动饮用会引起类的初始化,而被动引用不会引起类的初始化。</p>
+<h4 id="卸载">卸载</h4><ul>
+<li><p>该类所有的实例都已经被回收,也就是java堆中不存在该类的任何实例</p>
+</li>
+<li><p>加载该类的ClassLoader已经被回收</p>
+</li>
+<li><p>该类对应的java.lang.Class对象没有任何地方被引用,无法在任何地方通过反射访问该类的方法</p>
+</li>
+</ul>
+<p>如果以上三个条件全部满足,jvm就会在方法区垃圾回收的时候对类进行卸载,类的卸载过程其实就是在方法区中清空类信息,java类的整个生命周期就结束了</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
+<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Java类加载器]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_1/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_1/</id>
+    <published>2017-06-21T15:23:07.000Z</published>
+    <updated>2017-06-21T15:34:09.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
+<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
+<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
+<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
+</li>
+<li><p>显式: 通过class.forname()动态加载</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="Java类加载器基于三个机制">Java类加载器基于三个机制</h3><blockquote>
+<p>委托、可见性和单一性</p>
+</blockquote>
+<ul>
+<li><p>委托机制是指将加载一个类的请求交给父类加载器,如果这个父类加载器不能够找到或者加载这个类,那么再由当前的类加载器加载,并将其放入它自己的缓存中,以便下次有加载请求的时候直接返回。<br>当一个类加载和初始化的时候,类仅在有需要加载的时候被加载。假设你有一个应用需要的类叫作Abc.class,首先加载这个类的请求由Application类加载器委托给它的父类加载器Extension类加载器,然后再委托给Bootstrap类加载器。Bootstrap类加载器会先看看rt.jar中有没有这个类,因为并没有这个类,所以这个请求由回到Extension类加载器,它会查看jre/lib/ext目录下有没有这个类,如果这个类被Extension类加载器找到了,那么它将被加载,而Application类加载器不会加载这个类;而如果这个类没有被Extension类加载器找到,那么再由Application类加载器从classpath中寻找。记住classpath定义的是类文件的加载目录,而PATH是定义的是可执行程序如javac,java等的执行路径。</p>
+</li>
+<li><p>可见性的原理是子类的加载器可以看见所有的父类加载器加载的类,而父类加载器看不到子类加载器加载的类。</p>
+</li>
+<li><p>单一性原理是指仅加载一个类一次,这是由委托机制确保子类加载器不会再次加载父类加载器加载过的类。根据这个机制,父加载器加载过的类不能被子加载器加载第二次。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.util.logging.Level;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Java program to demonstrate How ClassLoader works in Java,</span><br><span class="line"> * in particular about visibility principle of ClassLoader.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@author</span> weifeng</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;          </span><br><span class="line">            <span class="comment">//printing ClassLoader of this class</span></span><br><span class="line">            System.out.println(<span class="string">"ClassLoaderTest.getClass().getClassLoader() : "</span></span><br><span class="line">                                 + ClassLoaderTest.class.getClassLoader());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//trying to explicitly load this class again using Extension class loader</span></span><br><span class="line">            Class.forName(<span class="string">"test.ClassLoaderTest"</span>, <span class="keyword">true</span></span><br><span class="line">                            ,  ClassLoaderTest.class.getClassLoader().getParent());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException ex) &#123;</span><br><span class="line">            Logger.getLogger(ClassLoaderTest.class.getName()).log(Level.SEVERE, <span class="keyword">null</span>, ex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ClassLoaderTest.getClass().getClassLoader() : sun.misc.Launcher$AppClassLoader@<span class="number">601</span>bb1</span><br><span class="line"><span class="number">21</span>/<span class="number">06</span>/<span class="number">2017</span> <span class="number">2</span>:<span class="number">36</span>:<span class="number">18</span> PM test.ClassLoaderTest main</span><br><span class="line">SEVERE: <span class="keyword">null</span></span><br><span class="line">java.lang.ClassNotFoundException: test.ClassLoaderTest</span><br><span class="line">        at java.net.URLClassLoader$<span class="number">1</span>.run(URLClassLoader.java:<span class="number">202</span>)</span><br><span class="line">        at java.security.AccessController.doPrivileged(Native Method)</span><br><span class="line">        at java.net.URLClassLoader.findClass(URLClassLoader.java:<span class="number">190</span>)</span><br><span class="line">        at sun.misc.Launcher$ExtClassLoader.findClass(Launcher.java:<span class="number">229</span>)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">306</span>)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:<span class="number">247</span>)</span><br><span class="line">        at java.lang.Class.forName0(Native Method)</span><br><span class="line">        at java.lang.Class.forName(Class.java:<span class="number">247</span>)</span><br><span class="line">        at test.ClassLoaderTest.main(ClassLoaderTest.java:<span class="number">29</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="类加载器ClassLoader的层次结构">类加载器ClassLoader的层次结构</h3><p><img src="https://segmentfault.com/img/bVk0W2" alt=""></p>
+<ul>
+<li><p>Bootstrap ClassLoader: 负责加载rt.jar中的JDK类文件,它是所有类加载器的父加载器。Bootstrap类加载器没有任何父类加载器，如果你调用String.class.getClassLoader(),会返回null,任何基于此的代码会抛出NUllPointerException异常。Bootstrap加载器被称为初始类加载器。当运行 java 虚拟机时,这个类加载器被创建,它负责加载虚拟机的核心类库,如 java.lang.* 等。例如 java.lang.Object 就是由根类加载器加载的。需要注意的是,这个类加载器不是用 java 语言写的,而是用 C/C++ 写的。</p>
+</li>
+<li><p>Extension ClassLoader: 这个加载器加载出了基本 API 之外的一些拓展类。Extension将加载类的请求先委托给它的父加载器,也就是Bootstrap,如果没有成功加载的话,再从jre/lib/ext目录下或者java.ext.dirs系统属性定义的目录下加载类。Extension加载器由sun.misc.Launcher$ExtClassLoader实现。</p>
+</li>
+</ul>
+<ul>
+<li>System类加载器(或者叫作Application类加载器): 它负责从classpath环境变量中加载某些应用相关的类,classpath环境变量通常由-classpath或-cp命令行选项来定义,或者是JAR中的Manifest的classpath属性.Application类加载器是Extension类加载器的子加载器.通过sun.misc.Launcher$AppClassLoader实现。<br>当Abc.class已经被Application类加载器加载过了,然后如果想要使用Extension类加载器加载这个类,将会抛出java.lang.ClassNotFoundException异常。</li>
+</ul>
+<ul>
+<li>User-defined Class Loader: 用户定制的类加载器</li>
+</ul>
+<p>除了Bootstrap类加载器是大部分由C来写的,其他的类加载器都是通过java.lang.ClassLoader来实现的。</p>
+<p>总结一下,下面是三种类加载器加载类文件的地方:</p>
+<ul>
+<li><p>Bootstrap类加载器 – jre/lib/rt.jar</p>
+</li>
+<li><p>Extension类加载器 – jre/lib/ext或者java.ext.dirs指向的目录</p>
+</li>
+<li><p>Application类加载器 – CLASSPATH环境变量, 由-classpath或-cp选项定义,或者是JAR中的Manifest的classpath属性定义.</p>
+</li>
+</ul>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/java_ext_pathjava_ext_path.png" alt=""></p>
+<h3 id="如何显式的加载类">如何显式的加载类</h3><p>Java提供了显式加载类的API:Class.forName(classname)和Class.forName(classname, initialized, classloader)。就像上面的例子中,你可以指定类加载器的名称以及要加载的类的名称。类的加载是通过调用java.lang.ClassLoader的loadClass()方法,而loadClass()方法则调用了findClass()方法来定位相应类的字节码。在这个例子中Extension类加载器使用了java.net.URLClassLoader,它从JAR和目录中进行查找类文件,所有以”/“结尾的查找路径被认为是目录。如果findClass()没有找到那么它会抛出java.lang.ClassNotFoundException异常,而如果找到的话则会调用defineClass()将字节码转化成类实例,然后返回。</p>
+<p>Mac 下查看安装的JDK以及路径: <code>/usr/libexec/java_home -V</code></p>
+<p>查看 JDK1.6 的安装路径: <code>/usr/libexec/java_home -v 1.6</code></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
+<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
+<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
+<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
+</li>
+<li><p>显式: 通过class.forname()动态加载</p>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[JVM的结构]]></title>
+    <link href="http://yoursite.com/2017/06/21/java_review_0/"/>
+    <id>http://yoursite.com/2017/06/21/java_review_0/</id>
+    <published>2017-06-21T14:49:34.000Z</published>
+    <updated>2017-06-21T15:33:28.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="JVM内存区域">JVM内存区域</h3><blockquote>
+<p>JVM = <code>类加载器</code> ClassLoader + <code>执行引擎</code> Execution Engine + <code>运行时数据区域</code> Runtime Data Area。 ClassLoader 把硬盘上的Class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行, 而这个是 <code>执行引擎</code> 负责的</p>
+</blockquote>
+<h5 id="HotSpot_JVM_架构图">HotSpot JVM 架构图</h5><p><img src="https://itimetraveler.github.io/gallery/hotspot-jvm.png" alt=""></p>
+<h5 id="Java_虚拟机内存结构图">Java 虚拟机内存结构图</h5><p><img src="https://segmentfault.com/img/bVmxl8" alt="">  </p>
+<a id="more"></a>
+<p>下面对各个部分的功能和存储的内容进行描述:</p>
+<ul>
+<li>PC程序计数器: 一块较小的内存空间,可以看做是当前线程所执行的字节码的行号指示器, NAMELY存储每个线程下一步将执行的JVM指令,如该方法为native的,则PC寄存器中不存储任何信息。Java 的多线程机制离不开程序计数器,每个线程都有一个自己的PC,以便完成不同线程上下文环境的切换。</li>
+</ul>
+<ul>
+<li>栈区: 也叫java虚拟机栈,虚拟机栈描述的是Java 方法执行的内存模型,是由一个一个的栈帧组成的后进先出的栈式结构,栈桢中存放方法运行时产生的局部变量、方法出口等信息。当调用一个方法时,虚拟机栈中就会创建一个栈帧存放这些数据,当方法调用完成时,栈帧消失,如果方法中调用了其他方法,则继续在栈顶创建新的栈桢.每一个方法被调用直至执行完成的过程就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程.<br>与PC程序计数器一样,java 虚拟机栈也是线程私有的。每一个 JVM 线程都有自己的 Java 虚拟机栈,这个栈与线程同时创建,它的生命周期与线程相同。</li>
+</ul>
+<ul>
+<li>本地方法栈: 与虚拟机栈的作用相似,虚拟机栈为虚拟机执行执行java方法服务,而本地方法栈则为虚拟机使用到的本地方法服务。</li>
+</ul>
+<ul>
+<li>堆区: 用于存放类的对象实例。被所有线程共享的一块存储区域,在虚拟机启动时创建,它是JVM用来存储对象实例以及数组值的区域,可以认为Java中所有通过new创建的对象的内存都在此分配。JVM将Heap分为两块: 新生代New Generation和旧生代Old Generation。</li>
+</ul>
+<ul>
+<li>方法区: 在java的虚拟机中有一块专门用来存放已经加载的类信息、常量、静态变量以及方法代码的内存区域,叫做方法区。方法区和堆区域一样,是各个线程共享的内存区域,它用于存储每一个类的结构信息,例如运行时常量池,成员变量和方法数据,构造函数和普通函数的字节码内容,还包括一些在类、实例、接口初始化时用到的特殊方法。当开发人员在程序中通过Class对象中的getName、isInstance等方法获取信息时,这些数据都来自方法区。<br>方法区也是全局共享的,在虚拟机启动时候创建。在一定条件下它也会被GC。这块区域对应Permanent Generation 持久代。</li>
+</ul>
+<ul>
+<li>常量池:常量池是方法区的一部分,其空间从方法区中分配,主要用来存放常量和类中的符号引用等信息。</li>
+</ul>
+<h5 id="类加载器"><a href="">类加载器</a></h5><h5 id="执行引擎">执行引擎</h5><p>作用: 执行字节码,或者执行本地方法</p>
+<h5 id="runtime_data_area">runtime data area</h5><p>JVM 运行时数据区 (JVM Runtime Area) 其实就是指 JVM 在运行期间,其对JVM内存空间的划分和分配.JVM在运行时将数据划分为了6个区域来存储。</p>
+<p>程序员写的所有程序都被加载到运行时数据区域中,不同类别存放在heap, java stack, native method stack, PC register, method area.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="JVM内存区域">JVM内存区域</h3><blockquote>
+<p>JVM = <code>类加载器</code> ClassLoader + <code>执行引擎</code> Execution Engine + <code>运行时数据区域</code> Runtime Data Area。 ClassLoader 把硬盘上的Class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行, 而这个是 <code>执行引擎</code> 负责的</p>
+</blockquote>
+<h5 id="HotSpot_JVM_架构图">HotSpot JVM 架构图</h5><p><img src="https://itimetraveler.github.io/gallery/hotspot-jvm.png" alt=""></p>
+<h5 id="Java_虚拟机内存结构图">Java 虚拟机内存结构图</h5><p><img src="https://segmentfault.com/img/bVmxl8" alt="">  </p>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Python基础]]></title>
@@ -1462,582 +1827,6 @@ mov [<span class="number">0</span>],cx  cx中的<span class="number">16</span>�
 <li>请求超时</li>
 <li>…</li>
 </ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[RunLoop的基本使用]]></title>
-    <link href="http://yoursite.com/2016/03/25/nsrunloop/"/>
-    <id>http://yoursite.com/2016/03/25/nsrunloop/</id>
-    <published>2016-03-25T07:52:46.000Z</published>
-    <updated>2016-04-03T10:13:28.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="什么是RunLoop">什么是RunLoop</h3><ul>
-<li>从字面意思看<ul>
-<li>运行循环</li>
-<li>跑圈</li>
-</ul>
-</li>
-<li>基本作用<ul>
-<li>保持程序的持续运行</li>
-<li>处理App中的各种事件(比如触摸事件、定时器事件、Selector事件)</li>
-<li>节省CPU资源,提高程序性能:该做事情时做事情,该休息时休息</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<h4 id="main函数中的RunLoop">main函数中的RunLoop</h4><ul>
-<li>UIApplicationMain函数内部就启动了一个RunLoop</li>
-<li>所以UIApplicationMain函数一直没有返回,保持程序的持续运行</li>
-<li>这个默认启动的RunLoop是跟主线程相关联的</li>
-</ul>
-<h4 id="RunLoop对象">RunLoop对象</h4><ul>
-<li><p>iOS中有2套API来访问和使用RunLoop</p>
-<ul>
-<li>Foundation <ul>
-<li>NSRunLoop</li>
-</ul>
-</li>
-<li>Core Foundation <ul>
-<li>CFRunLoopRef</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NSRunLoop和CFRunLoopRef都代表着RunLoop对象</p>
-</li>
-<li><p>NSRunLoop是基于CFRunLoopRef的一层OC包装,所以要了解RunLoop内部结构,需要多研究CFRunLoopRef层面的API</p>
-</li>
-</ul>
-<h4 id="RunLoop与线程">RunLoop与线程</h4><ul>
-<li><p>每条线程都有唯一的一个与之对应的RunLoop对象</p>
-</li>
-<li><p>主线程的RunLoop已经创建好了,子线程的RunLoop需要主动创建</p>
-</li>
-<li><p>RunLoop在第一次获取的时候创建,在线程结束的时候销毁</p>
-</li>
-</ul>
-<h4 id="获取RunLoop">获取RunLoop</h4><ul>
-<li>获取当前线程的RunLoop:<code>+ (NSRunLoop *)currentRunLoop;</code></li>
-<li>获取主线程的RunLoop:<code>+ (NSRunLoop *)mainRunLoop;</code></li>
-<li>获取当前线程的RunLoop:<code>CFRunLoopGetCurrent();</code></li>
-<li>获取主线程的RunLoop:<code>CFRunLoopGetMain();</code></li>
-</ul>
-<h4 id="RunLoop相关类">RunLoop相关类</h4><ul>
-<li>Core Foundation中关于RunLoop的5个类<ul>
-<li>CFRunLoopRef</li>
-<li>CFRunLoopModeRef</li>
-<li>CFRunLoopSourceRef</li>
-<li>CFRunLoopTimerRef</li>
-<li>CFRunLoopObserverRef</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/runloop.png" alt=""></p>
-<h4 id="CFRunLoopModeRef">CFRunLoopModeRef</h4><ul>
-<li><p>CFRunLoopModeRef代表RunLoop的运行模式</p>
-</li>
-<li><p>一个RunLoop包含若干个Mode,每个Mode又包含若干个Source/Timer/Observer</p>
-</li>
-<li><p>每次RunLoop启动时,只能指定其中一个Mode,这个Mode被称作CurrentMode<br><code>[[NSRunLoop currentRunLoop] currentMode];</code></p>
-</li>
-<li><p>如果需要切换Mode,只能退出Loop,再重新指定一个Mode进入</p>
-</li>
-<li><p>这样做主要是为了分隔开不同组Source/Timer/Observer,让其互不影响</p>
-</li>
-<li><p>系统默认注册了5个Mode:</p>
-<ul>
-<li>kCFRunLoopDefaultMode:App的默认Mode,通常主线程是这个Mode下运行</li>
-<li>UITrackingRunLoop:界面跟踪Mode,用于ScrollView追踪触摸滑动,保证界面滑动时不受其他Mode影响</li>
-<li>UIInitializationRunLoopMode:在刚启动App时进入的第一个Mode,启动完成后就不再使用</li>
-<li>GSEventReceiverRunLoopMode:接收系统事件的内部Mode,通常用不到</li>
-<li>kCFRunLoopCommonModes:这是一个占位用的Mode,不是一种真正的Mode(等价于kCFRunLoopDefaultMode + UITrackingRunLoop这2种模式)</li>
-</ul>
-</li>
-<li><p>子线程中需要手动创建并启动NSRunLoop</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    [<span class="built_in">NSRunLoop</span> mainRunLoop];</span><br><span class="line">    [<span class="built_in">NSRunLoop</span> currentRunLoop];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRunLoopGetCurrent</span>();</span><br><span class="line">    <span class="built_in">CFRunLoopGetMain</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) object:<span class="literal">nil</span>];</span><br><span class="line">	[thread start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)run</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">		<span class="comment">// add Source</span></span><br><span class="line">		[[<span class="built_in">NSRunLoop</span> currentRunLoop] addPort:[<span class="built_in">NSPort</span> port] forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line">		<span class="comment">//add Timer</span></span><br><span class="line">		[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 这句相当于下面那句,如果RunLoop中没有Source、Timer、Observer那么这个RunLoop会自动结束并退出</span></span><br><span class="line">		[[<span class="built_in">NSRunLoop</span> currentRunLoop] run];</span><br><span class="line">	    </span><br><span class="line">	    [[<span class="built_in">NSRunLoop</span> currentRunLoop] runMode:<span class="built_in">NSDefaultRunLoopMode</span> beforeDate:[<span class="built_in">NSDate</span> distantFuture]];</span><br><span class="line">		[[<span class="built_in">NSRunLoop</span> currentRunLoop] runMode:&lt;<span class="preprocessor">#(NSString *)#&gt; beforeDate:<span class="title">&lt;#(NSDate *)#&gt;</span>];</span></span><br><span class="line">		[[<span class="built_in">NSRunLoop</span> currentRunLoop] runUntilDate:[<span class="built_in">NSDate</span> distantFuture]];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="CFRunLoopTimerRef">CFRunLoopTimerRef</h4><ul>
-<li>CFRunLoopTimerRef是基于时间的触发器</li>
-<li>CFRunLoopTimerRef基本上说的就是NSTimer,它受RunLoop的Mode影响</li>
-<li>GCD的定时器不受RunLoop的Mode影响</li>
-<li>基本上说的就是NSTimer</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用了scheduledTimer返回的定时器,已经自动被添加到当前RunLoop中,而且是NSDefaultRunLoopMode模式</span></span><br><span class="line">[<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line"><span class="comment">// 修改模式</span></span><br><span class="line">[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(run) userInfo:nil repeats:YES];等价于下面2句</span></span><br><span class="line"><span class="built_in">NSTimer</span> *timer = [<span class="built_in">NSTimer</span> timerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line"><span class="comment">// 定时器只运行在NSDefaultRunLoopMode下,一旦RunLoop进入其他模式,这个定时器就不会工作</span></span><br><span class="line">[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器会跑在标记为common modes的模式下</span></span><br><span class="line"><span class="comment">// 标记为common modes的模式: UITrackingRunLoopMode和kCFRunLoopDefaultMode</span></span><br><span class="line">[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定时器只运行在UITrackingRunLoopMode下,一旦RunLoop进入其他模式,这个定时器就不会工作</span></span><br><span class="line">[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">UITrackingRunLoopMode</span>];</span><br></pre></td></tr></table></figure>
-<h4 id="CFRunLoopSourceRef">CFRunLoopSourceRef</h4><ul>
-<li><p>CFRunLoopSourceRef是事件源(输入源)</p>
-</li>
-<li><p>按照官方文档,Source的分类</p>
-<ul>
-<li>Port-Based Sources</li>
-<li>Custom Input Sources</li>
-<li>Cocoa Perform Selector Sources</li>
-</ul>
-</li>
-<li><p>按照函数调用栈,Source的分类</p>
-<ul>
-<li>Source0:非基于Port</li>
-<li>Source1:基于Port的,通过内核和其他线程通信,接收、分发系统事件</li>
-</ul>
-</li>
-</ul>
-<h4 id="CFRunLoopObserverRef">CFRunLoopObserverRef</h4><ul>
-<li><p>CFRunLoopObserverRef是观察者,能够监听RunLoop的状态改变</p>
-</li>
-<li><p>可以监听的时间点有以下几个</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Run Loop Observer Activities */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">CF_OPTIONS</span>(<span class="built_in">CFOptionFlags</span>, <span class="built_in">CFRunLoopActivity</span>) &#123;</span><br><span class="line">    k<span class="built_in">CFRunLoopEntry</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">0</span>), <span class="comment">//1 即将进入Loop </span></span><br><span class="line">    k<span class="built_in">CFRunLoopBeforeTimers</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">1</span>), <span class="comment">//2 即将处理Timer </span></span><br><span class="line">    k<span class="built_in">CFRunLoopBeforeSources</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">2</span>), <span class="comment">//4 即将处理Source </span></span><br><span class="line">    k<span class="built_in">CFRunLoopBeforeWaiting</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">5</span>), <span class="comment">//32 即将进入休眠</span></span><br><span class="line">    k<span class="built_in">CFRunLoopAfterWaiting</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">6</span>), <span class="comment">//64 刚从休眠中唤醒</span></span><br><span class="line">    k<span class="built_in">CFRunLoopExit</span> = (<span class="number">1</span>UL &lt;&lt; <span class="number">7</span>), <span class="comment">//128 即将退出Loop</span></span><br><span class="line">    k<span class="built_in">CFRunLoopAllActivities</span> = <span class="number">0x0FFFFFFF</span>U</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)observer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建observer</span></span><br><span class="line">    <span class="built_in">CFRunLoopObserverRef</span> observer = <span class="built_in">CFRunLoopObserverCreateWithHandler</span>(<span class="built_in">CFAllocatorGetDefault</span>(), k<span class="built_in">CFRunLoopAllActivities</span>, <span class="literal">YES</span>, <span class="number">0</span>, ^(<span class="built_in">CFRunLoopObserverRef</span> observer, <span class="built_in">CFRunLoopActivity</span> activity) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----监听到RunLoop状态发生改变---%zd"</span>, activity);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加观察者:监听RunLoop的状态</span></span><br><span class="line">    <span class="built_in">CFRunLoopAddObserver</span>(<span class="built_in">CFRunLoopGetCurrent</span>(), observer, k<span class="built_in">CFRunLoopDefaultMode</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span><br><span class="line">    CF的内存管理（Core Foundation）</span><br><span class="line">    1.凡是带有Create、Copy、Retain等字眼的函数,创建出来的对象,都需要在最后做一次release</span><br><span class="line">    * 比如CFRunLoopObserverCreate</span><br><span class="line">    2.release函数:CFRelease(对象);</span><br><span class="line"> 	*/</span></span><br><span class="line">    <span class="comment">// 释放Observer</span></span><br><span class="line">    <span class="built_in">CFRelease</span>(observer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/runloop_1.png" alt=""></p>
-<h4 id="RunLoop应用">RunLoop应用</h4><ul>
-<li>NSTimer</li>
-<li>ImageView显示</li>
-<li>PerformSelector</li>
-<li>常驻线程</li>
-<li>自动释放池</li>
-</ul>
-<h4 id="RunLoop面试题">RunLoop面试题</h4><ul>
-<li>什么是RunLoop?<ul>
-<li>从字面意思看:运行循环、跑圈</li>
-<li>其实它内部就是do-while循环,在这个循环内部不断地处理各种任务(比如Source、Timer、Observer)</li>
-<li>一个线程对应一个RunLoop,主线程的RunLoop默认已经启动,子线程的RunLoop得手动启动(调用Run方法)</li>
-<li>RunLoop只能选择一个Mode启动,如果当前Mode中没有任何Source(Sources0、Sources1)、Timer,那么久直接退出RunLoop</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>你在开发过程中怎么使用RunLoop?什么应用场景?<ul>
-<li>开启一个常驻线程(让一个子线程不进入消亡状态,等待其他线程发来消息,处理其他事件)<ul>
-<li>在子线程中开启一个定时器</li>
-<li>在子线程中进行一些长期监控一些行为</li>
-</ul>
-</li>
-<li>可以控制定时器在特定模式下执行</li>
-<li>可以让某些事件(行为、任务)在特定模式下执行</li>
-<li>可以添加Observer监听RunLoop的状态,比如监听点击事件的处理(在所有点击事件之前做一些事情)</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>自动释放池什么时候释放?<ul>
-<li>通过Observer监听RunLoop的状态,一旦监听到RunLoop即将进入睡眠等待状态,就释放自动释放池(kCFRunLoopBeforeWaiting)</li>
-<li>监听了3个地方activity = 0x1(kCFRunLoopEntry) 、 0xa0(kCFRunLoopBeforeWaiting | kCFRunLoopExit ) -&gt;(kCFRunLoopEntry创建一个自动释放池、kCFRunLoopBeforeWaiting销毁自动释放池,创建一个新的自动释放池、kCFRunLoopExit 销毁自动释放池)</li>
-</ul>
-</li>
-</ul>
-<h4 id="GCD定时器">GCD定时器</h4><ul>
-<li><p>创建GCD定时器 <code>dispatch_source_t dispatch_source_create(dispatch_source_type_t type,uintptr_t handle,unsigned long mask,dispatch_queue_t queue);</code></p>
-</li>
-<li><p>设置定时器的各种属性 <code>dispatch_source_set_timer(dispatch_source_t source,dispatch_time_t start,uint64_t interval,uint64_t leeway);</code></p>
-</li>
-<li><p>设置定时器处理任务 <code>dispatch_source_set_event_handler(dispatch_source_t source,dispatch_block_t handler);</code></p>
-</li>
-<li><p>启动定时器 <code>dispatch_resume(dispatch_object_t object);</code></p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="comment">/** 定时器(这里不用带*,因为dispatch_source_t就是个类,内部已经包含了*) */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) dispatch_source_t timer;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>));</span><br><span class="line">    </span><br><span class="line">    dispatch_after(when, dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获得队列</span></span><br><span class="line">	<span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//dispatch_queue_t queue = dispatch_get_main_queue();</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建一个定时器(dispatch_source_t本质还是个OC对象)</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.timer</span> = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, <span class="number">0</span>, <span class="number">0</span>, queue);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置定时器的各种属性(何时开始任务,每隔多长时间执行一次)</span></span><br><span class="line">    <span class="comment">// GCD的时间参数,一般是纳秒（1秒 == 10的9次方纳秒）</span></span><br><span class="line">    <span class="comment">// 何时开始执行第一个任务</span></span><br><span class="line">    <span class="comment">// dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC) 比当前时间晚3秒</span></span><br><span class="line">    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>));</span><br><span class="line">    uint64_t interval = (uint64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>);</span><br><span class="line">    dispatch_source_set_timer(<span class="keyword">self</span><span class="variable">.timer</span>, start, interval, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置回调</span></span><br><span class="line">    dispatch_source_set_event_handler(<span class="keyword">self</span><span class="variable">.timer</span>, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"------------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">        count++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (count == <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="comment">// 取消定时器</span></span><br><span class="line">            dispatch_cancel(<span class="keyword">self</span><span class="variable">.timer</span>);</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.timer</span> = <span class="literal">nil</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 启动定时器</span></span><br><span class="line">    dispatch_resume(<span class="keyword">self</span><span class="variable">.timer</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="什么是RunLoop">什么是RunLoop</h3><ul>
-<li>从字面意思看<ul>
-<li>运行循环</li>
-<li>跑圈</li>
-</ul>
-</li>
-<li>基本作用<ul>
-<li>保持程序的持续运行</li>
-<li>处理App中的各种事件(比如触摸事件、定时器事件、Selector事件)</li>
-<li>节省CPU资源,提高程序性能:该做事情时做事情,该休息时休息</li>
-</ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS单例模式]]></title>
-    <link href="http://yoursite.com/2016/03/25/single_instance/"/>
-    <id>http://yoursite.com/2016/03/25/single_instance/</id>
-    <published>2016-03-25T02:32:46.000Z</published>
-    <updated>2016-04-21T12:57:07.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="单例模式">单例模式</h3><ul>
-<li>单例模式的作用<ul>
-<li>可以保证在程序运行过程,一个类只有一个实例,而且该实例易于供外界访问</li>
-<li>从而方便地控制了实例个数,并节约系统资源</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>ARC中,单例模式的实现步骤<ul>
-<li>在.m中保留一个全局的static的实例<code>static id _instance;</code></li>
-<li><code>+ (instancetype)alloc</code>内部会调用<code>+ (instancetype)allocWithZone:(struct _NSZone *)zone</code></li>
-<li>为了防止分配多个内存,我们需要重写NSObject的<code>+ (instancetype)allocWithZone:(struct _NSZone *)zone</code>,但是我们防止不了init多次,在这里创建唯一的实例(注意需要是线程安全的)</li>
-<li>使用GCD的<code>static dispatch_once_t onceToken;dispatch_once(&amp;onceToken, ^{});</code>来创建唯一的实例.</li>
-<li>对外提供一个<code>+ (instancetype)sharedInstance</code>类方法来构造一个对象,这个方法中同样使用dispatch_once</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCPerson</span>() &lt;<span class="title">NSCopying</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCPerson</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> MCPerson *_person;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (instancetype)allocWithZone:(<span class="keyword">struct</span> _<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        _person = [<span class="keyword">super</span> allocWithZone:zone];</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> _person;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedPerson</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        _person = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> _person;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> _person;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将单例的实现抽成宏<ul>
-<li>创建一个MCSingleton.h文件,将头文件和实现文件中的方法定义成宏</li>
-<li>在使用的地方导入MCSingleton.h文件,头文件中使用MCSingletonH(Person),实现文件中使用MCSingletonM(Person)</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// .h文件</span></span><br><span class="line"><span class="preprocessor">#define SingletonH(name) + (instancetype)shared##name;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// .m文件</span></span><br><span class="line"><span class="preprocessor">#define SingletonM(name) \</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">id</span> _instance; \</span><br><span class="line"> \</span><br><span class="line">+ (instancetype)allocWithZone:(<span class="keyword">struct</span> _<span class="built_in">NSZone</span> *)zone \</span><br><span class="line">&#123; \</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken; \</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123; \</span><br><span class="line">        _instance = [<span class="keyword">super</span> allocWithZone:zone]; \</span><br><span class="line">    &#125;); \</span><br><span class="line">    <span class="keyword">return</span> _instance; \</span><br><span class="line">&#125; \</span><br><span class="line"> \</span><br><span class="line">+ (instancetype)shared<span class="preprocessor">##name \</span></span><br><span class="line">&#123; \</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken; \</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123; \</span><br><span class="line">        _instance = [[<span class="keyword">self</span> alloc] init]; \</span><br><span class="line">    &#125;); \</span><br><span class="line">    <span class="keyword">return</span> _instance; \</span><br><span class="line">&#125; \</span><br><span class="line"> \</span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone \</span><br><span class="line">&#123; \</span><br><span class="line">    <span class="keyword">return</span> _instance; \</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>传统方式实现单例<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MCPerson</span>()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCPerson</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">id</span> _instance;</span><br><span class="line"></span><br><span class="line">+ (instancetype)allocWithZone:(<span class="keyword">struct</span> _<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">@synchronized</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="literal">nil</span>) &#123;</span><br><span class="line">            _instance = [<span class="keyword">super</span> allocWithZone:zone];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">@synchronized</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_instance == <span class="literal">nil</span>) &#123;</span><br><span class="line">            _instance = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> _instance;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="单例模式">单例模式</h3><ul>
-<li>单例模式的作用<ul>
-<li>可以保证在程序运行过程,一个类只有一个实例,而且该实例易于供外界访问</li>
-<li>从而方便地控制了实例个数,并节约系统资源</li>
-</ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS中的线程]]></title>
-    <link href="http://yoursite.com/2016/03/24/gcd/"/>
-    <id>http://yoursite.com/2016/03/24/gcd/</id>
-    <published>2016-03-24T06:37:39.000Z</published>
-    <updated>2016-03-28T13:28:47.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="多线程的基本概念">多线程的基本概念</h3><ul>
-<li>创建线程是有开销的,iOS下主要成本包括:内核数据结构（大约1KB）、栈空间(子线程512KB、主线程1MB,也可以使用-setStackSize:设置,但必须是4K的倍数,而且最小是16K),创建线程大约需要90毫秒的创建时间</li>
-</ul>
-<h3 id="多线程的实现方案">多线程的实现方案</h3><a id="more"></a>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/thread.png" alt=""></p>
-<h3 id="pthread的使用">pthread的使用</h3><p><code>int pthread_create(pthread_t * __restrict, const pthread_attr_t * __restrict,
-        void *(*)(void *), void * __restrict);</code><br><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">void</span> * run(<span class="keyword">void</span> *param)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">50000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"------buttonClick---%zd--%@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)buttonClick:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    pthread_t thread;</span><br><span class="line">    pthread_create(&amp;thread, <span class="literal">NULL</span>, run, <span class="literal">NULL</span>);</span><br><span class="line">    </span><br><span class="line">    pthread_t thread2;</span><br><span class="line">    pthread_create(&amp;thread2, <span class="literal">NULL</span>, run, <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="NSThread的使用">NSThread的使用</h3><ul>
-<li>如何创建并管理NSThread</li>
-</ul>
-<p><code>+ (void)detachNewThreadSelector:(SEL)selector toTarget:(id)target withObject:(nullable id)argument;// 直接创建并启动</code></p>
-<p><code>- (instancetype)initWithTarget:(id)target selector:(SEL)selector object:(nullable id)argument NS_AVAILABLE(10_5, 2_0);//创建线程但是没有启动</code></p>
-<p><code>+ (NSThread *)currentThread;</code></p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建线程</span></span><br><span class="line"><span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run:) object:<span class="string">@"jack"</span>];</span><br><span class="line"><span class="comment">// 线程名字</span></span><br><span class="line">thread<span class="variable">.name</span> = <span class="string">@"mc"</span>;</span><br><span class="line"><span class="comment">// thread 是否是主线程</span></span><br><span class="line">[thread isMainThread];</span><br><span class="line"><span class="comment">// 启动线程</span></span><br><span class="line">[thread start];</span><br><span class="line"><span class="comment">// 取消线程</span></span><br><span class="line">[thread cancel];</span><br><span class="line"><span class="comment">//线程是否正在执行</span></span><br><span class="line">[thread executing];</span><br><span class="line"><span class="comment">//线程是否完成</span></span><br><span class="line">[thread finished];</span><br><span class="line"><span class="comment">//线程是否被取消</span></span><br><span class="line">[thread cancelled];</span><br><span class="line"><span class="comment">// 方法是否在主线程</span></span><br><span class="line">[<span class="built_in">NSThread</span> isMainThread];</span><br><span class="line"><span class="comment">// 直接退出线程</span></span><br><span class="line">[<span class="built_in">NSThread</span> exit]; </span><br><span class="line"><span class="comment">// 让线程睡眠2秒（阻塞2秒）</span></span><br><span class="line">[<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];</span><br><span class="line">[<span class="built_in">NSThread</span> sleepUntilDate:[<span class="built_in">NSDate</span> distantFuture]];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>NSObject 线程分类</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">NSThreadPerformAdditions</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(nullable <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait modes:(nullable <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)array;</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(nullable <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</span><br><span class="line">    <span class="comment">// equivalent to the first method with kCFRunLoopCommonModes</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(nullable <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait modes:(nullable <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)array <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_5, <span class="number">2</span>_0);</span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(nullable <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_5, <span class="number">2</span>_0);</span><br><span class="line">    <span class="comment">// equivalent to the first method with kCFRunLoopCommonModes</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelectorInBackground:(SEL)aSelector withObject:(nullable <span class="keyword">id</span>)arg <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_5, <span class="number">2</span>_0);</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获取2个时间间隔</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSDate</span> *begin = [<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSDate</span> *end = [<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, [end timeIntervalSinceDate:begin]);</span><br><span class="line"><span class="built_in">CFTimeInterval</span> begin = <span class="built_in">CFAbsoluteTimeGetCurrent</span>();</span><br><span class="line"><span class="built_in">CFTimeInterval</span> end = <span class="built_in">CFAbsoluteTimeGetCurrent</span>();</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%f"</span>, end - begin);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>线程安全</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)saleTicket&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">@synchronized</span>(<span class="keyword">self</span>)&#123;</span><br><span class="line">            <span class="comment">// 先取出总数</span></span><br><span class="line">            <span class="built_in">NSInteger</span> count = <span class="keyword">self</span><span class="variable">.ticketCount</span>;</span><br><span class="line">             <span class="keyword">if</span> (count &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.ticketCount</span> = count - <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"%@卖了一张票，还剩下%zd张"</span>, [<span class="built_in">NSThread</span> currentThread]<span class="variable">.name</span>, <span class="keyword">self</span><span class="variable">.ticketCount</span>);</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"票已经卖完了"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="GCD">GCD</h3><ul>
-<li>全称是Grand Central Dispatch,可译为”牛逼的中枢调度器”</li>
-<li>GCD中有2个核心概念:任务-执行什么操作,队列-用来存放任务</li>
-<li>GCD的使用就2个步骤<ul>
-<li>定制任务(确定想做的事情)</li>
-<li>将任务添加到队列中(GCD会自动将队列中的任务取出,放到对应的线程中执行,任务的取出遵循队列的FIFO)</li>
-</ul>
-</li>
-</ul>
-<h4 id="执行任务">执行任务</h4><ul>
-<li>GCD中有2个用来执行任务的常用函数<ul>
-<li>同步的方式执行任务(只能在当前线程中执行任务,不具备开启新线程的能力)<br><code>dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);</code></li>
-<li>异步的方式执行任务(可以在新的线程中执行任务,具备开启新线程的能力)<br><code>dispatch_async(dispatch_queue_t queue, dispatch_block_t block);</code></li>
-<li><code>dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);</code>在前面的任务执行结束后它才执行,而且它后面的任务等它执行完成之后才会执行,这个queue不能是全局的并发队列</li>
-</ul>
-</li>
-</ul>
-<h4 id="队列的类型">队列的类型</h4><ul>
-<li>并发队列<ul>
-<li>可以让多个任务并发(同时)执行(自动开启多个线程同时执行任务)</li>
-<li>并发功能只有在异步(dispatch_async)函数下才有效</li>
-</ul>
-</li>
-<li>串行队列<ul>
-<li>让任务一个接着一个执行</li>
-</ul>
-</li>
-</ul>
-<h4 id="并发队列">并发队列</h4><ul>
-<li>使用dispatch_queue_create函数创建队列</li>
-<li>GCD默认已经提供全局的并发队列,供整个程序使用,可以无需手动创建<ul>
-<li>使用dispatch_get_global_queue函数获取全局的并发队列<br><code>dispatch_queue_t
-dispatch_get_global_queue(long identifier, unsigned long flags);//identifier队列的优先级  flags此参数无用,用0即可</code></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 异步函数 + 并发队列:可以同时开启多条线程</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)asyncConcurrent</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 创建一个并发队列</span></span><br><span class="line"><span class="comment">// label:队列名字</span></span><br><span class="line"><span class="comment">// attr:队列类型-DISPATCH_QUEUE_SERIAL  DISPATCH_QUEUE_CONCURRENT</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="keyword">const</span> <span class="keyword">char</span> *label, dispatch_queue_attr_t attr);</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define DISPATCH_QUEUE_PRIORITY_HIGH 2</span></span><br><span class="line"><span class="preprocessor">#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0</span></span><br><span class="line"><span class="preprocessor">#define DISPATCH_QUEUE_PRIORITY_LOW (-2)</span></span><br><span class="line"><span class="preprocessor">#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN</span></span><br><span class="line"><span class="comment">// 获得全局的并发队列</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.将任务加入队列</span></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 同步函数 + 并发队列:不会开启新的线程</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)syncConcurrent</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.获得全局的并发队列</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.将任务加入队列</span></span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 异步函数 + 串行队列:会开启新的线程,但是任务是串行的,执行完一个任务,再执行下一个任务</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)asyncSerial</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.创建串行队列</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"com.mc.queue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.将任务加入队列</span></span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 同步函数 + 串行队列:不会开启新的线程,在当前线程执行任务。任务是串行的,执行完一个任务,再执行下一个任务</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)syncSerial</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.创建串行队列</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"com.mc.queue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.将任务加入队列</span></span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 异步函数 + 主队列:只在主线程中执行任务</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)asyncMain</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.获得主队列</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_main_queue();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.将任务加入队列</span></span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 同步函数 + 主队列:导致等待阻塞</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)syncMain</span><br><span class="line">&#123;   </span><br><span class="line">    <span class="comment">// 1.获得主队列</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_main_queue();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.将任务加入队列</span></span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>线程间通信<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 回到主线程</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="GCD的其它常用函数">GCD的其它常用函数</h4><ul>
-<li><code>dispatch_barrier_async</code></li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)barrier</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"mc"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----1-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----2-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----barrier-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----3-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"----4-----%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>一次性代码,使用dispatch_once函数能保证某代码在程序运行过程中只被执行1次</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">    <span class="comment">//只执行1次的代码(这里是线程安全的)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>延迟执行</p>
-<ul>
-<li><code>- (void)performSelector:(SEL)aSelector withObject:(nullable id)anArgument afterDelay:(NSTimeInterval)delay;</code></li>
-<li><code>dispatch_after(dispatch_time_t when,dispatch_queue_t queue,dispatch_block_t block);</code></li>
-<li><code>+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;</code></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 延迟执行</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)delay</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> afterDelay:<span class="number">2.0</span>];</span><br><span class="line">    </span><br><span class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"run-----"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">NO</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>快速迭代: <code>dispatch_apply(size_t iterations, dispatch_queue_t queue,void (^block)(size_t));</code></li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 快速迭代</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)apply</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">NSString</span> *from = <span class="string">@"/Users/weifeng/Desktop/From"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *to = <span class="string">@"/Users/weifeng/Desktop/To"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSFileManager</span> *mgr = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="built_in">NSArray</span> *subpaths = [mgr subpathsAtPath:from];</span><br><span class="line">    </span><br><span class="line">    dispatch_apply(subpaths<span class="variable">.count</span>, queue, ^(size_t index) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *subpath = subpaths[index];</span><br><span class="line">        <span class="built_in">NSString</span> *fromFullpath = [from stringByAppendingPathComponent:subpath];</span><br><span class="line">        <span class="built_in">NSString</span> *toFullpath = [to stringByAppendingPathComponent:subpath];</span><br><span class="line">        <span class="comment">// 剪切</span></span><br><span class="line">        [mgr moveItemAtPath:fromFullpath toPath:toFullpath error:<span class="literal">nil</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@---%@"</span>, [<span class="built_in">NSThread</span> currentThread], subpath);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="队列组">队列组</h4><ul>
-<li><code>dispatch_group_async(dispatch_group_t group,dispatch_queue_t queue,dispatch_block_t block);</code><br><code>dispatch_group_notify(dispatch_group_t group,dispatch_queue_t queue,dispatch_block_t block);</code></li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)group</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 创建一个队列组</span></span><br><span class="line">    dispatch_group_t group = dispatch_group_create();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.下载图片1</span></span><br><span class="line">    dispatch_group_async(group, queue, ^&#123;</span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.image1</span> = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.下载图片2</span></span><br><span class="line">    dispatch_group_async(group, queue, ^&#123;</span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://pic38.nipic.com/20140228/5571398_215900721128_2.jpg"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.image2</span> = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.将图片1、图片2合成一张新的图片</span></span><br><span class="line">    dispatch_group_notify(group, queue, ^&#123;</span><br><span class="line">        <span class="comment">// 开启新的图形上下文</span></span><br><span class="line">        <span class="built_in">UIGraphicsBeginImageContext</span>(<span class="built_in">CGSizeMake</span>(<span class="number">100</span>, <span class="number">100</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 绘制图片</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.image1</span> drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">100</span>)];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.image2</span> drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">100</span>)];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 取得上下文中的图片</span></span><br><span class="line">        <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 结束上下文</span></span><br><span class="line">        <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 回到主线程显示图片</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="comment">// 4.将新图片显示出来 </span></span><br><span class="line">            <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="NSOperation">NSOperation</h4><ul>
-<li><p>NSOperation的作用</p>
-<ul>
-<li>配合使用NSOperation和NSOperationQueue也能实现多线程编程</li>
-</ul>
-</li>
-<li><p>NSOperation和NSOperationQueue实现多线程的具体步骤</p>
-<ul>
-<li>先将需要执行的操作封装到一个NSOperation对象中</li>
-<li>然后将NSOperation对象添加到NSOperationQueue中</li>
-<li>系统会自动将NSOperationQueue中NSOperation取出来</li>
-<li>将取出的NSOperation封装的操作放到一条新线程中执行</li>
-</ul>
-</li>
-</ul>
-<h4 id="NSOperation的子类">NSOperation的子类</h4><ul>
-<li><p>NSOperation是个抽象类,并不具备封装操作的能力,必须使用它的子类</p>
-</li>
-<li><p>使用NSOperation子类的方式有3种</p>
-<ul>
-<li>NSInvocationOperation</li>
-<li>NSBlockOperation</li>
-<li>自定义子类继承NSOperation,实现内部相应的方法</li>
-</ul>
-</li>
-<li><p>将任务包装起来调用NSOperation start就可以执行任务了</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)run</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)invocationOperation</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSInvocationOperation</span> *op = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    [op start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)blockOperation</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="comment">// 在主线程</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"下载1------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加额外的任务(在子线程执行)</span></span><br><span class="line">    [op addExecutionBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"下载2------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    [op addExecutionBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"下载3------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    [op addExecutionBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"下载4------%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [op start];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="NSOperationQueue">NSOperationQueue</h4><ul>
-<li>NSOperationQueue的作用<ul>
-<li>NSOperation可以调用start方法执行任务,但默认是同步执行的</li>
-<li>如果将NSOperation添加到NSOperationQueue(操作队列)中,系统会自动异步执行NSOperation中的操作</li>
-</ul>
-</li>
-</ul>
-<h5 id="GCD的队列类型">GCD的队列类型</h5><ul>
-<li>并发队列<ul>
-<li>自己创建的</li>
-<li>全局的</li>
-</ul>
-</li>
-<li>串行队列<ul>
-<li>主队列</li>
-<li>自己创建的</li>
-</ul>
-</li>
-</ul>
-<h5 id="NSOperationQueue的队列类型">NSOperationQueue的队列类型</h5><ul>
-<li><p>主队列</p>
-<ul>
-<li>[NSOperationQueue mainQueue]</li>
-<li>凡是添加到主队列中的任务(NSOperation),都会放到主队列中执行</li>
-</ul>
-</li>
-<li><p>非主队列(其它队列)</p>
-<ul>
-<li>[[NSOperationQueue alloc] init]</li>
-<li>同时包含了:串行、并发功能</li>
-<li>添加到这种队列中的任务(NSOperation),就会自动放到子线程中执行</li>
-</ul>
-</li>
-<li><p>NSOperationQueue<br><code>- (void)addOperation:(NSOperation *)op;</code><br><code>- (void)addOperations:(NSArray&lt;NSOperation *&gt; *)ops waitUntilFinished:(BOOL)wait;</code><br><code>- (void)addOperationWithBlock:(void (^)(void))block;</code><br><code>@property (readonly) NSUInteger operationCount;//任务数量</code><br><code>@property NSInteger maxConcurrentOperationCount;//最大的并发数量,如果设置为1则是串行,为0则不执行任何任务</code><br><code>@property (getter=isSuspended) BOOL suspended;//获取或者设置是否挂起任务</code><br><code>@property (nullable, copy) NSString *name;//获取或者设置队列名字</code><br><code>- (void)cancelAllOperations;//取消所有任务,但是正在执行的不会被取消</code><br><code>- (void)waitUntilAllOperationsAreFinished;</code><br><code>+ (nullable NSOperationQueue *)currentQueue;当前队列</code><br><code>+ (NSOperationQueue *)mainQueue;//主队列</code></p>
-</li>
-</ul>
-<ul>
-<li><p>NSInvocationOperation<br><code>- (nullable instancetype)initWithTarget:(id)target selector:(SEL)sel object:(nullable id)arg;</code><br><code>- (instancetype)initWithInvocation:(NSInvocation *)inv</code></p>
-</li>
-<li><p>NSBlockOperation<br><code>+ (instancetype)blockOperationWithBlock:(void (^)(void))block;</code><br><code>- (void)addExecutionBlock:(void (^)(void))block;</code><br><code>@property (readonly, copy) NSArray&lt;void (^)(void)&gt; *executionBlocks;</code></p>
-</li>
-<li><p>NSOperation<br><code>- (void)start;//执行任务</code><br><code>- (void)main;//自定义NSOperation需要重写该方法,将任务需要做的事情写到这个方法当中,官方建议在这个方法当中如果有耗时的操作使用isCancelled判断下是否需结束该任务</code><br><code>- (void)cancel;//取消任务</code><br><code>@property (readonly, getter=isExecuting) BOOL executing;</code><br><code>@property (readonly, getter=isFinished) BOOL finished;</code><br><code>- (void)addDependency:(NSOperation *)op;//添加任务依赖</code><br><code>- (void)removeDependency:(NSOperation *)op;//移除任务依赖</code><br><code>@property (nullable, copy) void (^completionBlock)(void);//监听任务的完成会执行这个block</code></p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)operationQueueTest&#123;</span><br><span class="line">    <span class="comment">// 创建队列</span></span><br><span class="line">    <span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置最大并发操作数</span></span><br><span class="line">    <span class="comment">// queue.maxConcurrentOperationCount = 2;</span></span><br><span class="line">    queue<span class="variable">.maxConcurrentOperationCount</span> = <span class="number">1</span>; <span class="comment">// 就变成了串行队列</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建操作(任务)</span></span><br><span class="line">    <span class="comment">// 创建NSInvocationOperation</span></span><br><span class="line">    <span class="built_in">NSInvocationOperation</span> *op = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(download) object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建NSBlockOperation</span></span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download1 --- %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [op1 addExecutionBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download2 --- %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加操作到队列中</span></span><br><span class="line">    [queue addOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download3 --- %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加任务到队列中</span></span><br><span class="line">    [queue addOperation:op1]; <span class="comment">// [op1 start]</span></span><br><span class="line">    [queue addOperation:op2]; <span class="comment">// [op2 start]</span></span><br><span class="line">    [queue addOperation:[[MCOperation alloc] init]];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.queue</span><span class="variable">.isSuspended</span>) &#123;</span><br><span class="line">        <span class="comment">// 恢复队列，继续执行</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.queue</span><span class="variable">.suspended</span> = <span class="literal">NO</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 暂停（挂起）队列，暂停执行</span></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.queue</span><span class="variable">.suspended</span> = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.queue</span> cancelAllOperations];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCOperation</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 需要执行的任务</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download1 -%zd-- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.isCancelled</span>) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download2 -%zd-- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.isCancelled</span>) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download3 -%zd-- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.isCancelled</span>) <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)operationDependency</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 不能相互依赖</span></span><br><span class="line">    <span class="comment">// 可以在不同queue的NSOperation之间创建依赖关系</span></span><br><span class="line">    <span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download1----%@"</span>, [<span class="built_in">NSThread</span>  currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download2----%@"</span>, [<span class="built_in">NSThread</span>  currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op3 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download3----%@"</span>, [<span class="built_in">NSThread</span>  currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op4 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"download4----%@"</span>, [<span class="built_in">NSThread</span>  currentThread]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *op5 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"download5----%@"</span>, [<span class="built_in">NSThread</span>  currentThread]);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="comment">// 监听op5任务执行完毕会调用这个block</span></span><br><span class="line">    op5<span class="variable">.completionBlock</span> = ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"op5执行完毕---%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置依赖</span></span><br><span class="line">    [op3 addDependency:op1];</span><br><span class="line">    [op3 addDependency:op2];</span><br><span class="line">    [op3 addDependency:op4];</span><br><span class="line">    </span><br><span class="line">    [queue addOperation:op1];</span><br><span class="line">    [queue addOperation:op2];</span><br><span class="line">    [queue addOperation:op3];</span><br><span class="line">    [queue addOperation:op4];</span><br><span class="line">    [queue addOperation:op5];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h4 id="线程之间的通讯">线程之间的通讯</h4><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 线程之间的通信</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)test</span><br><span class="line">&#123;</span><br><span class="line">    [[[<span class="built_in">NSOperationQueue</span> alloc] init] addOperationWithBlock:^&#123;</span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">       <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"</span>];</span><br><span class="line">     </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 回到主线程</span></span><br><span class="line">        [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 合成图片</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">    <span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    __block <span class="built_in">UIImage</span> *image1 = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 下载图片1</span></span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *download1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        image1 = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    __block <span class="built_in">UIImage</span> *image2 = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 下载图片2</span></span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *download2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 图片的网络路径</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://pic38.nipic.com/20140228/5571398_215900721128_2.jpg"</span>];</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 加载图片</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 生成图片</span></span><br><span class="line">        image2 = [<span class="built_in">UIImage</span> imageWithData:data];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 合成图片</span></span><br><span class="line">    <span class="built_in">NSBlockOperation</span> *combine = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">        <span class="comment">// 开启新的图形上下文</span></span><br><span class="line">        <span class="built_in">UIGraphicsBeginImageContext</span>(<span class="built_in">CGSizeMake</span>(<span class="number">100</span>, <span class="number">100</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 绘制图片</span></span><br><span class="line">        [image1 drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">100</span>)];</span><br><span class="line">        image1 = <span class="literal">nil</span>;</span><br><span class="line">        </span><br><span class="line">        [image2 drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">100</span>)];</span><br><span class="line">        image2 = <span class="literal">nil</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 取得上下文中的图片</span></span><br><span class="line">        <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 结束上下文</span></span><br><span class="line">        <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 回到主线程</span></span><br><span class="line">        [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">    [combine addDependency:download1];</span><br><span class="line">    [combine addDependency:download2];</span><br><span class="line">    </span><br><span class="line">    [queue addOperation:download1];</span><br><span class="line">    [queue addOperation:download2];</span><br><span class="line">    [queue addOperation:combine];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="多线程的基本概念">多线程的基本概念</h3><ul>
-<li>创建线程是有开销的,iOS下主要成本包括:内核数据结构（大约1KB）、栈空间(子线程512KB、主线程1MB,也可以使用-setStackSize:设置,但必须是4K的倍数,而且最小是16K),创建线程大约需要90毫秒的创建时间</li>
-</ul>
-<h3 id="多线程的实现方案">多线程的实现方案</h3>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[const和指针]]></title>
-    <link href="http://yoursite.com/2016/03/24/const_point/"/>
-    <id>http://yoursite.com/2016/03/24/const_point/</id>
-    <published>2016-03-24T05:44:56.000Z</published>
-    <updated>2016-03-24T13:37:21.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="const和宏的区别">const和宏的区别</h3><ul>
-<li><p>相同点:</p>
-<ul>
-<li>值是常量,不能动态更改 </li>
-<li>更改后,其它使用到的地方会自动更改</li>
-</ul>
-</li>
-<li><p>不同点:</p>
-<ul>
-<li>宏:会产生很多临时空间</li>
-<li>const:<ul>
-<li>只有一份内存</li>
-<li>写在外面是全局常量</li>
-<li>不能运行时修改常量值</li>
-<li>加上static之后只能在本文件访问</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="const与指针">const与指针</h3><ul>
-<li>看const右边整体是什么,什么就不能修改.<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p1;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p2;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 定义一个指针变量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = <span class="literal">NULL</span>;(等同于 <span class="keyword">int</span> <span class="keyword">const</span> *p = <span class="literal">NULL</span>;)</span><br><span class="line"><span class="comment">// p指向a</span></span><br><span class="line">p = &amp;a;(可以修改)</span><br><span class="line"><span class="comment">//*p = 20;(*p不能改,const后面是*p所以不能改)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;c;(p不能被修改,一开始指向什么,以后都不能更改)</span><br><span class="line">*p = <span class="number">30</span>;(但是可以修改它指向的变量c的值)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 值传递比较有用,想让别人不更改你的值可以通过这种方式使用</span></span><br><span class="line"><span class="keyword">void</span> test(<span class="keyword">const</span> <span class="keyword">int</span> *p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//*p = 100;(不能修改*p的值)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修饰指针,指针不能更改</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> NAME = <span class="string">@""</span>;</span><br><span class="line"><span class="comment">//不能修改</span></span><br><span class="line"><span class="comment">//NAME = @"123";</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="const和宏的区别">const和宏的区别</h3><ul>
-<li><p>相同点:</p>
-<ul>
-<li>值是常量,不能动态更改 </li>
-<li>更改后,其它使用到的地方会自动更改</li>
-</ul>
-</li>
-<li><p>不同点:</p>
-<ul>
-<li>宏:会产生很多临时空间</li>
-<li>const:<ul>
-<li>只有一份内存</li>
-<li>写在外面是全局常量</li>
-<li>不能运行时修改常量值</li>
-<li>加上static之后只能在本文件访问</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[UIScrollView常见功能]]></title>
-    <link href="http://yoursite.com/2016/03/24/uiscrollview_common_feature/"/>
-    <id>http://yoursite.com/2016/03/24/uiscrollview_common_feature/</id>
-    <published>2016-03-24T05:25:49.000Z</published>
-    <updated>2016-03-28T13:21:20.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="子控件悬停">子控件悬停</h3><ul>
-<li>获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上</li>
-</ul>
-<h3 id="下拉放大">下拉放大</h3><ul>
-<li>获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放 </li>
-</ul>
-<a id="more"></a>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">UIScrollViewDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *redView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imageView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *blueView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIScrollView</span> *scrollView;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.scrollView</span><span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.blueView</span><span class="variable">.frame</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - <span class="title">&lt;UIScrollViewDelegate&gt;</span></span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageH = <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = scrollView<span class="variable">.contentOffset</span><span class="variable">.y</span>;</span><br><span class="line">    <span class="keyword">if</span> (offsetY &gt;= imageH) &#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到控制器的view中,设置Y值为0</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span>;</span><br><span class="line">        redF<span class="variable">.origin</span><span class="variable">.y</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span> = redF;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.redView</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到scrollView中,设置Y值为图片的高度</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span>;</span><br><span class="line">        redF<span class="variable">.origin</span><span class="variable">.y</span> = <span class="number">140</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.redView</span><span class="variable">.frame</span> = redF;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.scrollView</span> addSubview:<span class="keyword">self</span><span class="variable">.redView</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> scale = <span class="number">1</span> - (offsetY / <span class="number">70</span>);</span><br><span class="line">    scale = (scale &gt;= <span class="number">1</span>) ? scale : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformMakeScale</span>(scale, scale);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h3 id="UIScrollView内部子控件添加约束的注意点">UIScrollView内部子控件添加约束的注意点</h3><ul>
-<li><p>子控件的尺寸不能通过UIScrollView来计算,可以考虑通过以下方式计算</p>
-<ul>
-<li>可以设置固定值（width==100,height==300）</li>
-<li>可以相对于UIScrollView以外的其他控件来计算尺寸</li>
-</ul>
-</li>
-<li><p>UIScrollView的frame应该通过子控件以外的其他控件来计算</p>
-</li>
-<li><p>UIScrollView的contentSize通过子控件来计算</p>
-<ul>
-<li>根据子控件的尺寸以及子控件与UIScrollView之间的间距</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="子控件悬停">子控件悬停</h3><ul>
-<li>获取UIScrollView垂直方向上的滚动距离来动态调整子控件的frame并将子控件添加到最顶层父控件或者UIScrollView上</li>
-</ul>
-<h3 id="下拉放大">下拉放大</h3><ul>
-<li>获取UIScrollView垂直方向上的滚动距离,计算一个scale值,通过改变控件的形变来实现缩放 </li>
-</ul>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[网易新闻项目]]></title>
-    <link href="http://yoursite.com/2016/03/24/ios_news/"/>
-    <id>http://yoursite.com/2016/03/24/ios_news/</id>
-    <published>2016-03-24T02:08:49.000Z</published>
-    <updated>2016-03-24T13:20:49.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="网易新闻项目知识点">网易新闻项目知识点</h3><ul>
-<li><p>自定义MCHomeViewController继承自UIViewController</p>
-</li>
-<li><p>Main.storyboard 添加导航控制器为初始化控制器,添加UIViewController为导航控制器的根控制器并设置其Class类型为MCHomeViewController,为UIViewController添加2个UIScrollView并设置好约束,设置contentScrollView代理为MCHomeViewController</p>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>自定义MCSocialViewController继承自UITableViewController并实现好数据源方法</p>
-</li>
-<li><p>在MCHomeViewController.m中初始化多个MCSocialViewController并通过addChildViewController方式添加到控制器中</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加子控制器</span></span><br><span class="line">    [<span class="keyword">self</span> setupChildVc];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加标题</span></span><br><span class="line">    [<span class="keyword">self</span> setupTitle];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 默认显示第0个子控制器</span></span><br><span class="line">    [<span class="keyword">self</span> scrollViewDidEndScrollingAnimation:<span class="keyword">self</span><span class="variable">.contentScrollView</span>];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setupChildVc</span><br><span class="line">&#123;</span><br><span class="line">    MCSocialViewController *social0 = [[MCSocialViewController alloc] init];</span><br><span class="line">    social0<span class="variable">.title</span> = <span class="string">@"国际"</span>;</span><br><span class="line">    [<span class="keyword">self</span> addChildViewController:social0];</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>为顶部的titleScrollView添加多个标题并设置其滚动视图的contentSize和contentScrollView的contentSize</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 添加标题</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)setupTitle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 定义临时变量</span></span><br><span class="line">    <span class="built_in">CGFloat</span> labelW = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> labelY = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> labelH = <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加label</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i&lt;<span class="number">7</span>; i++) &#123;</span><br><span class="line">        XMGHomeLabel *label = [[XMGHomeLabel alloc] init];</span><br><span class="line">        label<span class="variable">.text</span> = [<span class="keyword">self</span><span class="variable">.childViewControllers</span>[i] title];</span><br><span class="line">        <span class="built_in">CGFloat</span> labelX = i * labelW;</span><br><span class="line">        label<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(labelX, labelY, labelW, labelH);</span><br><span class="line">        [label addGestureRecognizer:[[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(labelClick:)]];</span><br><span class="line">        label<span class="variable">.tag</span> = i;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.titleScrollView</span> addSubview:label];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123; <span class="comment">// 最前面的label</span></span><br><span class="line">            label<span class="variable">.scale</span> = <span class="number">1.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置contentSize</span></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">7</span> * labelW, <span class="number">0</span>);</span><br><span class="line">	<span class="comment">// 这里设置contentScrollView.contentSize宽高不能根据self.contentScrollView.frame.size 因为viewDidLoad从storyboard加载的时候尺寸是600*600,在执行- (void)viewDidAppear:(BOOL)animated时候能得到真正的尺寸,并且contentScrollView添加过约束,所以最后才能得到其准确的frame</span></span><br><span class="line">	<span class="keyword">self</span><span class="variable">.contentScrollView</span><span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">7</span> * [<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理顶部标题点击事件</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)labelClick:(<span class="built_in">UITapGestureRecognizer</span> *)tap</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 取出被点击label的索引</span></span><br><span class="line">    <span class="built_in">NSInteger</span> index = tap<span class="variable">.view</span><span class="variable">.tag</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 让底部的内容scrollView滚动到对应位置</span></span><br><span class="line">    <span class="built_in">CGPoint</span> offset = <span class="keyword">self</span><span class="variable">.contentScrollView</span><span class="variable">.contentOffset</span>;</span><br><span class="line">    offset<span class="variable">.x</span> = index * <span class="keyword">self</span><span class="variable">.contentScrollView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentScrollView</span> setContentOffset:offset animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理滚动动画结束后,显示对应位置的控制器并将对应位置的标题显示在中间</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * scrollView结束了滚动动画以后就会调用这个方法(比如- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;方法执行的动画完毕后)</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndScrollingAnimation:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 一些临时变量</span></span><br><span class="line">    <span class="built_in">CGFloat</span> width = scrollView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> height = scrollView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetX = scrollView<span class="variable">.contentOffset</span><span class="variable">.x</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当前位置需要显示的控制器的索引</span></span><br><span class="line">    <span class="built_in">NSInteger</span> index = offsetX / width;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 让对应的顶部标题居中显示</span></span><br><span class="line">    <span class="built_in">UILabel</span> *label = <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span>[index];</span><br><span class="line">    <span class="built_in">CGPoint</span> titleOffset = <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.contentOffset</span>;</span><br><span class="line">    titleOffset<span class="variable">.x</span> = label<span class="variable">.center</span><span class="variable">.x</span> - width * <span class="number">0.5</span>;</span><br><span class="line">    <span class="comment">// 左边超出处理</span></span><br><span class="line">    <span class="keyword">if</span> (titleOffset<span class="variable">.x</span> &lt; <span class="number">0</span>) titleOffset<span class="variable">.x</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 右边超出处理</span></span><br><span class="line">    <span class="built_in">CGFloat</span> maxTitleOffsetX = <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.contentSize</span><span class="variable">.width</span> - width;</span><br><span class="line">    <span class="keyword">if</span> (titleOffset<span class="variable">.x</span> &gt; maxTitleOffsetX) titleOffset<span class="variable">.x</span> = maxTitleOffsetX;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.titleScrollView</span> setContentOffset:titleOffset animated:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 让其他label回到最初的状态</span></span><br><span class="line">    <span class="keyword">for</span> (MCHomeLabel *otherLabel <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (otherLabel != label) otherLabel<span class="variable">.scale</span> = <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 取出需要显示的控制器</span></span><br><span class="line">    <span class="built_in">UIViewController</span> *willShowVc = <span class="keyword">self</span><span class="variable">.childViewControllers</span>[index];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果当前位置的位置已经显示过了,就直接返回</span></span><br><span class="line">    <span class="keyword">if</span> ([willShowVc isViewLoaded]) <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">//if (willShowVc.view.superview) return;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加控制器的view到contentScrollView中;</span></span><br><span class="line">    willShowVc<span class="variable">.view</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(offsetX, <span class="number">0</span>, width, height);</span><br><span class="line">    [scrollView addSubview:willShowVc<span class="variable">.view</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理手指滑动松开scrollView后显示对应位置的控制器</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 手指松开scrollView后,scrollView停止减速完毕就会调用这个</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span> scrollViewDidEndScrollingAnimation:scrollView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>处理滚动contentScrollView时标题缩放变色</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 只要scrollView在滚动，就会调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> scale = scrollView<span class="variable">.contentOffset</span><span class="variable">.x</span> / scrollView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="keyword">if</span> (scale &lt; <span class="number">0</span> || scale &gt; <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span><span class="variable">.count</span> - <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获得需要操作的左边label</span></span><br><span class="line">    <span class="built_in">NSInteger</span> leftIndex = scale;</span><br><span class="line">    MCHomeLabel *leftLabel = <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span>[leftIndex];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获得需要操作的右边label</span></span><br><span class="line">    <span class="built_in">NSInteger</span> rightIndex = leftIndex + <span class="number">1</span>;</span><br><span class="line">    MCHomeLabel *rightLabel = (rightIndex == <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span><span class="variable">.count</span>) ? <span class="literal">nil</span> : <span class="keyword">self</span><span class="variable">.titleScrollView</span><span class="variable">.subviews</span>[rightIndex];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 右边比例</span></span><br><span class="line">    <span class="built_in">CGFloat</span> rightScale = scale - leftIndex;</span><br><span class="line">    <span class="comment">// 左边比例</span></span><br><span class="line">    <span class="built_in">CGFloat</span> leftScale = <span class="number">1</span> - rightScale;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置label的比例</span></span><br><span class="line">    leftLabel<span class="variable">.scale</span> = leftScale;</span><br><span class="line">    rightLabel<span class="variable">.scale</span> = rightScale;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>封装titleLabel</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MCHomeLabel</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame]) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:MCRed green:M<span class="built_in">CGreen</span> blue:MCBlue alpha:<span class="number">1.0</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentCenter</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> clearColor];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setScale:(<span class="built_in">CGFloat</span>)scale</span><br><span class="line">&#123;</span><br><span class="line">    _scale = scale;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//      R G B</span></span><br><span class="line">    <span class="comment">// 默认：0.4 0.6 0.7</span></span><br><span class="line">    <span class="comment">// 红色：1   0   0</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> red = MCRed + (<span class="number">1</span> - XMGRed) * scale;</span><br><span class="line">    <span class="built_in">CGFloat</span> green = M<span class="built_in">CGreen</span> + (<span class="number">0</span> - XMGGreen) * scale;</span><br><span class="line">    <span class="built_in">CGFloat</span> blue = MCBlue + (<span class="number">0</span> - XMGBlue) * scale;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:red green:green blue:blue alpha:<span class="number">1.0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 大小缩放比例</span></span><br><span class="line">    <span class="built_in">CGFloat</span> transformScale = <span class="number">1</span> + scale * <span class="number">0.3</span>; <span class="comment">// [1, 1.3]</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformMakeScale</span>(transformScale, transformScale);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="网易新闻项目知识点">网易新闻项目知识点</h3><ul>
-<li><p>自定义MCHomeViewController继承自UIViewController</p>
-</li>
-<li><p>Main.storyboard 添加导航控制器为初始化控制器,添加UIViewController为导航控制器的根控制器并设置其Class类型为MCHomeViewController,为UIViewController添加2个UIScrollView并设置好约束,设置contentScrollView代理为MCHomeViewController</p>
 </li>
 </ul>]]>
     
