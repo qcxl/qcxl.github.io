@@ -250,6 +250,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iOS逆向学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/05/iOS逆向学习/" class="article-date">
+  	<time datetime="2016-09-05T01:28:11.000Z" itemprop="datePublished">2016-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/iOS逆向学习/">iOS逆向学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="当Mac_OSX_10-11的/usr/bin目录不可写之后,class-dump应该何处安家?">当Mac OSX 10.11的/usr/bin目录不可写之后,class-dump应该何处安家?</h4><ul>
+<li>打开Terminal,输入mkdir ~/bin,在当前用户根目录下创建一个bin目录;</li>
+<li>把class-dump给拷贝到这个目录里,并赋予其可执行权限:mv /path/to/class-dump ~/bin; chmod +x ~/bin/class-dump;</li>
+<li>打开~/.bash_profile文件:vi ~/.bash_profile,在文件最上方加一行:export PATH=$HOME/bin/:$PATH,然后保存并退出,然后输入wq,回车即可;</li>
+<li>在Terminal中执行source ~/.bash_profile;</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/05/iOS逆向学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-MJRefresh框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -772,71 +831,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/04/03/image_switch/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ios_network" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/28/ios_network/" class="article-date">
-  	<time datetime="2016-03-28T03:08:14.000Z" itemprop="datePublished">2016-03-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/28/ios_network/">iOS网络</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NSURLConnection">NSURLConnection</h3><h4 id="常用类">常用类</h4><ul>
-<li><p>NSURL:请求地址</p>
-</li>
-<li><p>NSURLRequest:一个NSURLRequest对象就代表一个请求,它包含的信息有</p>
-<ul>
-<li>一个NSURL对象</li>
-<li>请求方法、请求头、请求体</li>
-<li>请求超时</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/28/ios_network/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

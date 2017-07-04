@@ -250,6 +250,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-javascript_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/19/javascript_study/" class="article-date">
+  	<time datetime="2015-08-19T09:14:07.000Z" itemprop="datePublished">2015-08-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/19/javascript_study/">JavaScript学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript可以放置的位置">JavaScript可以放置的位置</h3><ul>
+<li>可以将js放置在<code>&lt;head&gt; &lt;/head&gt;</code>之间</li>
+<li>可以将js放置在<code>&lt;body&gt; &lt;/body&gt;</code>之间</li>
+<li>可以将js放置在<code>&lt;/body&gt; &lt;/html&gt;</code>之间</li>
+</ul>
+<h3 id="调试JavaScript的几种方法">调试JavaScript的几种方法</h3><ul>
+<li>alert();</li>
+<li>debugger;</li>
+<li>使用window的onerror属性<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="axapta"></span><br><span class="line">window.onerror = function(sMsg, sUrl,sLine)&#123;</span><br><span class="line">	<span class="keyword">str</span> = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">str</span> += sMsg; <span class="preprocessor">#报错信息</span></span><br><span class="line">	<span class="keyword">str</span> += sUrl; <span class="preprocessor">#报错的当前url</span></span><br><span class="line">	<span class="keyword">str</span> += sLine; <span class="preprocessor">#报错的文件行数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意:每行语句的结尾以<code>;</code>结束.<br>单行注释<code>//</code>,多行注释<code>/* */</code><br>关键值不能作为变量和函数名<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/19/javascript_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-html_study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -792,60 +858,6 @@
         <p class="article-more-link">
           <a  href="/2015/07/09/pinyin4j/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/08/ffmpeg/" class="article-date">
-  	<time datetime="2015-07-08T02:27:30.000Z" itemprop="datePublished">2015-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/08/ffmpeg/">FFmpeg For Android</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>去年做项目时有用到这一块的,突然间看到群里面有人问到,然后回看了下项目,Google了一下找到了之前的资料,<br>这里我使用的是编译好的Lib,你也可以自己编译ffmpeg.</p>
-<h3 id="FFmpeg4Android">FFmpeg4Android</h3><blockquote>
-<p><a href="http://androidwarzone.blogspot.com/2011/12/ffmpeg4android.html" target="_blank" rel="external">Android WarZone</a> 可能需要翻墙<br><a href="http://hiteshsondhi88.github.io/ffmpeg-android-java/" target="_blank" rel="external">FFmpeg Android Java</a></p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>
