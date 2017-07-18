@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2017-07-18T09:29:18.000Z</updated>
+  <updated>2017-07-18T14:44:26.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title></title>
     <link href="http://yoursite.com/2017/07/18/android_diff_patch/"/>
     <id>http://yoursite.com/2017/07/18/android_diff_patch/</id>
-    <published>2017-07-18T14:37:21.000Z</published>
-    <updated>2017-07-18T09:29:18.000Z</updated>
+    <published>2017-07-18T14:44:59.000Z</published>
+    <updated>2017-07-18T14:44:26.000Z</updated>
     <content type="html"><![CDATA[<h2 id="NDK开发之增量更新-差分包">NDK开发之增量更新-差分包</h2><p>需要使用到的开源项目</p>
 <ul>
 <li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff-4.3.tar.gz" target="_blank" rel="external">BsDiff</a> (依赖于 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz" target="_blank" rel="external">Bzip2</a>)</p>
@@ -35,6 +35,7 @@
 <li><p>将<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip" target="_blank" rel="external">bsdiff4.3-win32-src.zip</a>下载解压后导入Microsoft VS中,删除bspatch.cpp</p>
 </li>
 </ul>
+<a id="more"></a>
 <h4 id="会出现如下错误">会出现如下错误</h4><ul>
 <li><p>用了不安全的函数</p>
 </li>
@@ -159,7 +160,19 @@
     <summary type="html">
     <![CDATA[<h2 id="NDK开发之增量更新-差分包">NDK开发之增量更新-差分包</h2><p>需要使用到的开源项目</p>
 <ul>
-<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff-4.3.tar.gz" t]]>
+<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff-4.3.tar.gz">BsDiff</a> (依赖于 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a>)</p>
+</li>
+<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a></p>
+</li>
+</ul>
+<h3 id="Windows下服务端差分">Windows下服务端差分</h3><p>在Microsoft VS中导入 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a> 源代码(不用拷贝bspatch.c文件)</p>
+<ul>
+<li><p>使用<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>代码,生成dll动态库,用于得到差分包</p>
+</li>
+<li><p>将<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>下载解压后导入Microsoft VS中,删除bspatch.cpp</p>
+</li>
+</ul>]]>
+    
     </summary>
     
   </entry>
