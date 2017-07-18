@@ -250,6 +250,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-汇编语言学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/汇编语言学习/" class="article-date">
+  	<time datetime="2016-09-10T01:28:11.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/汇编语言学习/">汇编语言学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
+<li>下载<a href="https://www.dosbox.com/">DOSBOX</a></li>
+<li>下载debug.exe程序到Mac</li>
+<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/10/汇编语言学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-iOS逆向学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -774,63 +832,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/04/03/reachability/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-image_switch" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/03/image_switch/" class="article-date">
-  	<time datetime="2016-04-03T03:04:43.000Z" itemprop="datePublished">2016-04-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/image_switch/">iOS实现图片轮播</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用2个UIImageView实现图片轮播">使用2个UIImageView实现图片轮播</h3><h4 id="轮播原理">轮播原理</h4><ul>
-<li>假设轮播控件的宽度为x高度为y,我们设置UIScrollView的contentSize.width为3x,并让UIScrollView的水平偏移量为x,既显示最中间内容<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">scrollView<span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">3</span>x, y);</span><br><span class="line">scrollView<span class="variable">.contentOffset</span> = <span class="built_in">CGPointMake</span>(x, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/03/image_switch/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
