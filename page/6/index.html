@@ -250,6 +250,122 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jquery_note_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/31/jquery_note_4/" class="article-date">
+  	<time datetime="2015-08-31T02:38:59.000Z" itemprop="datePublished">2015-08-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/jquery_note_4/">《锋利的jQuery》--读书笔记四</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery中的事件">jQuery中的事件</h3><h4 id="加载DOM">加载DOM</h4><ul>
+<li>JavaScript中使用<code>window.onload</code>方法,而在jQuery中使用<code>$(document).ready()</code>方法.<br>它们之间的区别:<br><code>window.onload</code>方法是在网页所有的元素(包括元素的所有关联文件)完全加载到浏览器后才执行,即JavaScript此时才可以访问网页中的任何元素.<br>而通过jQuery中的<code>$(document).ready()</code>方法注册的事件处理程序,在DOM完全就绪时就可以被调用.此时网页的所有元素对jQuery都是可以访问的,但是这并不意味着这些元素的所有关联文件都已经下载完毕.</li>
+<li>多次使用<code>window.onload</code>方法只会执行最后一个(相当于后面的函数会覆盖前面的函数).<br>而多次使用<code>$(document).ready()</code>方法则会根据注册的顺序依次执行.</li>
+<li>简写形式:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$(document).ready(function()&#123;&#125;);</span><br><span class="line">$(function()&#123;&#125;);</span><br><span class="line">$().ready(function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/31/jquery_note_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-jquery_note_3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/28/jquery_note_3/" class="article-date">
+  	<time datetime="2015-08-28T01:46:21.000Z" itemprop="datePublished">2015-08-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/jquery_note_3/">《锋利的jQuery》--读书笔记三</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_中的DOM操作">jQuery 中的DOM操作</h3><h4 id="DOM操作分类">DOM操作分类</h4><ul>
+<li>DOM Core<br>使用DOM Core来获取表单对象的方法:<code>document.getElementsByTagName(&quot;form&quot;);</code><br>使用DOM Core来获取某元素的src属性的方法:<code>element.getAttribute(&quot;src&quot;);</code></li>
+<li>HTML-DOM<br>使用HTML-DOM来获取表单对象的方法:<code>document.forms;</code><br>使用HTML-DOM来获取某元素的src属性的方法:<code>element.src;</code></li>
+<li>CSS-DOM<br>CSS-DOM 是针对CSS的操作,例如设置某元素style对象字体颜色的方法:<code>element.style.color = &quot;red&quot;;</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/28/jquery_note_3/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jquery_note_2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -708,119 +824,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/26/jQuery事件与应用/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery_DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/26/jQuery_DOM操作/" class="article-date">
-  	<time datetime="2015-08-26T01:12:56.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/jQuery_DOM操作/">jQuery DOM操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery_DOM操作">jQuery DOM操作</h3><ul>
-<li>使用<code>attr()</code>方法控制元素的属性. <code>attr()</code>方法的作用是设置或者返回元素的属性,其中<code>attr(属性名)</code>格式是获取元素属性名的值,<code>attr(属性名,属性值)</code>格式则是设置元素属性名的值.<br><img src="http://img.mukewang.com/52bb8ca300011b7203780146.jpg" alt="attrImg" title="attrImg"><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>操作元素属性<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://libs.baidu.com/jquery/1.9.0/jquery.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>attr()方法设置元素属性<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://127.0.0.1"</span> <span class="attribute">id</span>=<span class="value">"a1"</span>&gt;</span>点我就变<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>我改变后的地址是：<span class="tag">&lt;<span class="title">span</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span> , <span class="string">"www.imooc.com"</span>)</span>;</span><br><span class="line">            var $url = $<span class="params">(<span class="string">"#a1"</span>)</span>.attr<span class="params">(<span class="string">"href"</span>)</span>;</span><br><span class="line">            $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">($url)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">style.css</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">    margin: 10px 0px;</span><br><span class="line">&#125;</span><br><span class="line">span</span><br><span class="line">&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/26/jQuery_DOM操作/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jquery环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/23/jquery环境搭建/" class="article-date">
-  	<time datetime="2015-08-23T03:52:26.000Z" itemprop="datePublished">2015-08-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/23/jquery环境搭建/">jQuery环境搭建与三种选择器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery环境搭建">jQuery环境搭建</h3><ul>
-<li>第一种方式在<a href="http://jquery.com">jQuery</a>的官方网站中,下载最新版本的jQuery文件库.在网站中找到最新版本文件的下载按钮,将jQuery框架文件下载到本地即可,引入jQuery文件库<br>下载完jQuery框架文件后,并不需要任何的安装,仅需要使用<code>&lt;script&gt;</code>文件导入标记,将jQuery框架文件导入页面中即可.那么,在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<br><code>&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code><br>在页面的头部分，加入上述代码后，便完成了jQuery框架开发环境的搭建，就可以开始我们的jQuery学习了.</li>
-<li>第二种方式在页面的<code>&lt;head&gt;&lt;/head&gt;</code>中加入如下代码:<code>&lt;script src=&quot;//code.jquery.com/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;</code>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/23/jquery环境搭建/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

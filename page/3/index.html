@@ -250,6 +250,124 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-nsinvocation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/04/nsinvocation/" class="article-date">
+  	<time datetime="2016-04-04T12:43:37.000Z" itemprop="datePublished">2016-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/04/nsinvocation/">NSInvocation的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
+<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/04/nsinvocation/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-reachability" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/reachability/" class="article-date">
+  	<time datetime="2016-04-03T10:22:04.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/03/reachability/">iOS使用Reachability实时检测网络连接状况</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Reachability能做什么">Reachability能做什么</h3><ul>
+<li><p>监测网络是否可用</p>
+</li>
+<li><p>判断当前处于什么网络环境(2G/3G,WIFI)</p>
+</li>
+<li><p>监测连接方式的变更</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/03/reachability/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-image_switch" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -730,125 +848,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/24/ios_news/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-static_copy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/23/static_copy/" class="article-date">
-  	<time datetime="2016-03-23T06:55:35.000Z" itemprop="datePublished">2016-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/23/static_copy/">static与copy关键字</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="static的作用">static的作用</h3><h4 id="修饰局部变量">修饰局部变量</h4><ul>
-<li>让局部变量只初始化一次</li>
-<li>局部变量在程序中只有一份内存</li>
-<li>并不会改变局部变量的作用域,仅仅是改变了局部变量的生命周期(只到程序结束，这个局部变量才会销毁)</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/23/static_copy/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-parent_childs_vc" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/23/parent_childs_vc/" class="article-date">
-  	<time datetime="2016-03-23T02:09:28.000Z" itemprop="datePublished">2016-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/23/parent_childs_vc/">iOS父子控制器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="父子控制器">父子控制器</h3><ul>
-<li><p>UIViewController 添加子控制器<br><code>- (void)addChildViewController:(UIViewController *)childController</code></p>
-</li>
-<li><p>将当前控制器从父控制器中移除<br><code>- (void) removeFromParentViewController</code></p>
-</li>
-<li><p>获取当前控制器的所有子控制器<br><code>@property(nonatomic,readonly) NSArray&lt;__kindof UIViewController *&gt; *childViewControllers</code></p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/23/parent_childs_vc/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
