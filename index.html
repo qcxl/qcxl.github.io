@@ -250,6 +250,57 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ndk_cpp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/ndk_cpp/" class="article-date">
+  	<time datetime="2017-08-04T15:02:40.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: C++基础<br>date: 2017-07-25 23:28:16<br>tags: </p>
+<h2 id="C++">C++</h2><h3 id="C与C++的关系">C与C++的关系</h3><ul>
+<li><p>C++可以与C代码进行混编</p>
+</li>
+<li><p>C++面向对象的编程语言、C是面向过程的编程</p>
+</li>
+<li><p>C++是对C的一个增强</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/ndk_cpp/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-android_ffmpeg_4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -672,6 +723,69 @@
 
 
   
+    <article id="post-ndk_fmod" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/24/ndk_fmod/" class="article-date">
+  	<time datetime="2017-07-24T14:35:06.000Z" itemprop="datePublished">2017-07-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/24/ndk_fmod/">使用fmod实现QQ变声功能</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="fmod初步使用">fmod初步使用</h3><ul>
+<li><p>新建Android工程qq_voicer_change</p>
+</li>
+<li><p>进入项目根目录新建libs目录,并将fmod example工程中fmod.jar拷贝进去</p>
+</li>
+<li><p>进入项目根目录新建jni目录,并将fmod example工程中inc整个目录拷贝进去</p>
+</li>
+<li><p>拷贝fmod example工程中play_sound.cpp、common.h、common.cpp、common_platform.cpp、common_platform.h文件到jni目录</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/07/24/ndk_fmod/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-android_diff_patch" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -739,117 +853,9 @@
 
 
   
-    <article id="post-c_01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/26/c_01/" class="article-date">
-  	<time datetime="2017-06-26T14:23:41.000Z" itemprop="datePublished">2017-06-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/c_01/">C语言基础</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="指针类型">指针类型</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">//指针为什么要有类型？</span></span><br><span class="line"><span class="comment">//指针有类型,地址没有类型</span></span><br><span class="line"><span class="comment">//地址只是开始的位置,类型读取到什么位置结束</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">89</span>;</span><br><span class="line">	<span class="comment">//int 类型的指针</span></span><br><span class="line">	<span class="keyword">int</span> *p = &amp;i;</span><br><span class="line">	<span class="keyword">double</span> j = <span class="number">78.9</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//赋值为double类型变量的地址</span></span><br><span class="line">	p = &amp;j;</span><br><span class="line">	<span class="comment">//double 类型长度为8字节</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"double size:%d\n"</span>,<span class="keyword">sizeof</span>(<span class="keyword">double</span>));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%#x,%lf\n"</span>,p,*p);<span class="comment">//想通过4字节去读取8字节变量的值,是不行的</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//不断读取用户输入防止程序自动退出 或者使用 system("pause");</span></span><br><span class="line">	getchar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/26/c_01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_5/" class="article-date">
-  	<time datetime="2017-06-21T15:43:10.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_5/">Java算法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="冒泡排序">冒泡排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * 冒泡排序</span><br><span class="line"> * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。  </span><br><span class="line"> * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。  </span><br><span class="line"> * 针对所有的元素重复以上的步骤，除了最后一个。</span><br><span class="line"> * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 </span><br><span class="line"> * @param numbers 需要排序的整型数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> size = numbers.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size-<span class="number">1</span>; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; size-<span class="number">1</span>-i ; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[j] &gt; numbers[j+<span class="number">1</span>])  <span class="comment">//交换两数位置</span></span><br><span class="line">        &#123;</span><br><span class="line">        temp = numbers[j];</span><br><span class="line">        numbers[j] = numbers[j+<span class="number">1</span>];</span><br><span class="line">        numbers[j+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

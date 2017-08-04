@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/07/24/ndk_fmod/</loc>
+    <lastmod>2017-08-04T15:07:33.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/04/ndk_cpp/</loc>
+    <lastmod>2017-08-04T15:01:55.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/04/android_ffmpeg_4/</loc>
     <lastmod>2017-08-04T14:14:09.000Z</lastmod>
   </url>
