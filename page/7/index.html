@@ -250,6 +250,297 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jQuery_UI型插件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery_UI型插件/" class="article-date">
+  	<time datetime="2015-08-26T01:18:06.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery_UI型插件/">jQuery UI型插件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_UI型插件">jQuery UI型插件</h3><ul>
+<li>拖曳插件——draggable 拖曳插件draggable的功能是拖动被绑定的元素,当这个jQuery UI插件与元素绑定后,可以通过调用<code>draggable()</code>方法,实现各种拖曳元素的效果,调用格式如下:<br><code>$(selector). draggable({options})</code><br>options参数为方法调用时的配置对象,根据该对象可以设置各种拖曳效果,如”containment”属性指定拖曳区域,”axis”属性设置拖曳时的坐标方向<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divtest"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"x"</span> <span class="attribute">class</span>=<span class="value">"drag"</span>&gt;</span>沿x轴拖拽<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"y"</span> <span class="attribute">class</span>=<span class="value">"drag"</span>&gt;</span>沿y轴拖拽<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"#x"</span>).draggable(&#123;containment:<span class="string">"parent"</span>,axis:<span class="string">"x"</span>&#125;);</span><br><span class="line">                $(<span class="string">"#y"</span>).draggable(&#123;containment:<span class="string">"parent"</span>,axis:<span class="string">"y"</span>&#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52e4b50c0001545304260177.jpg" alt="draggableImg" title="draggableImg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery_UI型插件/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery常用插件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery常用插件/" class="article-date">
+  	<time datetime="2015-08-26T01:17:34.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery常用插件/">jQuery 常用插件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_常用插件">jQuery 常用插件</h3><ul>
+<li>表单验证插件——<code>validate</code>该插件自带包含必填、数字、URL在内容的验证规则,即时显示异常信息,此外,还允许自定义验证规则,插件调用方法如下:<code>$(form).validate({options})</code>其中form参数表示表单元素名称,options参数表示调用方法时的配置对象,所有的验证规则和异常信息显示的位置都在该对象中进行设置.<br><img src="http://img.mukewang.com/52e474e70001b2cc04780576.jpg" alt="validateImg" title="validateImg"></li>
+<li>表单插件——form通过表单form插件,调用<code>ajaxForm()</code>方法，实现ajax方式向服务器提交表单数据,并通过方法中的options对象获取服务器返回数据,调用格式如下:<code>$(form). ajaxForm ({options})</code>其中form参数表示表单元素名称;options是一个配置对象,用于在发送ajax请求过程,设置发送时的数据和参数.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"frmV"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divtest"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>个人信息页<span class="tag">&lt;/<span class="title">span</span>&gt;</span> </span><br><span class="line">                    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fr"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"btnSubmit"</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"提交"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"user"</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">type</span>=<span class="value">"text"</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>昵称：<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"nick"</span> <span class="attribute">name</span>=<span class="value">"nick"</span> <span class="attribute">type</span>=<span class="value">"text"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> options = &#123;</span><br><span class="line">                    url: <span class="string">"http://www.imooc.com/data/form_f.php"</span>, </span><br><span class="line">                    target: <span class="string">".tip"</span></span><br><span class="line">                &#125;</span><br><span class="line">                $(<span class="string">"#frmV"</span>).ajaxForm(options)</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52e4861d000143ad04720449.jpg" alt="formImg" title="formImg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery常用插件/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery实现Ajax应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery实现Ajax应用/" class="article-date">
+  	<time datetime="2015-08-26T01:16:44.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery实现Ajax应用/">jQuery 实现Ajax应用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_实现Ajax应用">jQuery 实现Ajax应用</h3><ul>
+<li>使用<code>load()</code>方法异步请求数据.使用<code>load()</code>方法通过Ajax请求加载服务器中的数据,并把返回的数据放置到指定的元素中,它的调用格式为:<code>load(url,[data],[callback])</code><br>参数url为加载服务器地址,可选项data参数为请求时发送的数据,callback参数为数据请求成功后,执行的回调函数.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"divtest"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fl"</span>&gt;</span>我最爱吃的水果<span class="tag">&lt;/<span class="title">span</span>&gt;</span> </span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"fr"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"btnShow"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"加载"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ul</span>&gt;</span><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">            $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"#btnShow"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">                    $(<span class="string">"ul"</span>)</span><br><span class="line">                    .html(<span class="string">"&lt;img src='Images/Loading.gif' alt=''/&gt;"</span>)</span><br><span class="line">                    .load(<span class="string">"http://www.imooc.com/data/fruit_part.html"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                        $<span class="keyword">this</span>.attr(<span class="string">"disabled"</span>, <span class="string">"true"</span>);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52dccb920001d2d505970337.jpg" alt="loadImg" title="loadImg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery实现Ajax应用/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery动画与特效" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery动画与特效/" class="article-date">
+  	<time datetime="2015-08-26T01:16:05.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery动画与特效/">jQuery 动画特效</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_动画特效">jQuery 动画特效</h3><ul>
+<li>调用<code>show()</code>和<code>hide()</code>方法显示和隐藏元素.<code>$(selector).hide(speed,[callback])</code>和<code>$(selector).show(speed,[callback])</code>参数speed设置隐藏或显示时的速度值,可为”slow”、”fast”或毫秒数值,可选项参数callback为隐藏或显示动作执行完成后调用的函数名.<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>使用show()和hide()方法显示和隐藏元素<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">h4</span>&gt;</span>我喜欢吃的水果<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>苹果<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>甘桔<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">li</span>&gt;</span>梨<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"hidval"</span> <span class="attribute">type</span>=<span class="value">"hidden"</span> <span class="attribute">value</span>=<span class="value">"0"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(function <span class="params">()</span> &#123;</span><br><span class="line">                $<span class="params">(<span class="string">"h4"</span>)</span>.bind<span class="params">(<span class="string">"click"</span>, function <span class="params">()</span> &#123;</span><br><span class="line">                    if <span class="params">($<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">()</span> == <span class="number">0</span>)</span> &#123;</span><br><span class="line">                        $<span class="params">(<span class="string">"ul"</span>)</span>.show<span class="params">()</span>;</span><br><span class="line">                        $<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">(<span class="number">1</span>)</span>;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        $<span class="params">(<span class="string">"ul"</span>)</span>.hide<span class="params">()</span>;</span><br><span class="line">                        $<span class="params">(<span class="string">"#hidval"</span>)</span>.val<span class="params">(<span class="number">0</span>)</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span>;</span><br><span class="line">            &#125;)</span>;</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52dc9f250001508d03860257.jpg" alt="shImg" title="shImg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery动画与特效/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery事件与应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/26/jQuery事件与应用/" class="article-date">
+  	<time datetime="2015-08-26T01:14:51.000Z" itemprop="datePublished">2015-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/jQuery事件与应用/">jQuery 事件与应用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery_事件与应用">jQuery 事件与应用</h3><ul>
+<li>页面加载时触发<code>ready()</code>事件.<code>ready()</code>事件类似于<code>onLoad()</code>事件,但前者只要页面的DOM结构加载后便触发,而后者必须在页面全部元素加载成功才触发,<code>ready()</code>可以写多个,按顺序执行.此外,下列写法是相等的:<code>$(document).ready(function(){})</code>等价于<code>$(function(){});</code><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h3</span>&gt;</span>页面载入时触发ready()事件<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"tip"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"btntest"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"点下我"</span> /&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">            $<span class="params">(<span class="string">"document"</span>)</span>.ready<span class="params">(&#123;</span><br><span class="line">                $<span class="params">(<span class="string">"#btntest"</span>)</span>.bind<span class="params">(<span class="string">"click"</span>, function <span class="params">()</span> &#123;</span><br><span class="line">                    $<span class="params">(<span class="string">"#tip"</span>)</span>.html<span class="params">(<span class="string">"我被点击了！"</span>)</span>;</span><br><span class="line">                &#125;)</span>;</span><br><span class="line">            &#125;)</span>;);</span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.mukewang.com/52d227fa000171db03160136.jpg" alt="readyImg" title="readyImg"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/26/jQuery事件与应用/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-jQuery_DOM操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -554,309 +845,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/18/html_study/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-basic-python-knowledge" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/17/basic-python-knowledge/" class="article-date">
-  	<time datetime="2015-08-17T01:57:06.000Z" itemprop="datePublished">2015-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/basic-python-knowledge/">Python 基础知识学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="将Python值转换为字符串的三种方式">将Python值转换为字符串的三种方式</h3><ul>
-<li>str 它会把值转换为合理形式的字符串,以便用户可以理解 <code>print str(&#39;Hello,World!&#39;)</code> #输出为 Hello,World!</li>
-<li>repr 会创建一个字符串,它以合法的Python表达式的形式来表示值 <code>print repr(&#39;Hello,World!&#39;)</code> #输出为 ‘Hello,World!’</li>
-<li>用2个反引号`,但是在Python3.0中,已经不再使用反引号了.   </li>
-</ul>
-<h3 id="input和raw_input的区别">input和raw_input的区别</h3><ul>
-<li>input会假设用户输入的是合法的Python表达式(当中变量来查找)</li>
-<li>raw_input 它会把所用的输入当作原始数据,然后将其放入字符串中</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/17/basic-python-knowledge/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-use-django-create-db" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/13/use-django-create-db/" class="article-date">
-  	<time datetime="2015-08-13T09:20:50.000Z" itemprop="datePublished">2015-08-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/13/use-django-create-db/">Django入门学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Python连接并使用MySQL">Python连接并使用MySQL</h3><ul>
-<li>在此之前得先安装MySQL,如果安装好了可以跳过,直接进入安装MySQL-Python,不然会出现<code>EnvironmentError: mysql_config not found</code>错误</li>
-<li><code>brew install mysql</code></li>
-<li>将MySQL添加到系统环境变量中去 <code>export PATH=$PATH:/usr/local/Cellar/mysql/5.6.25/bin</code> 或者 <code>export PATH=$PATH:/usr/local/opt/mysql/bin</code></li>
-<li>使用pip活着easy_install安装MySQL-Python <code>pip install MySQL-Python</code> 或者 <code>sudo easy_install MySQL-Python</code>.
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/13/use-django-create-db/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-install-django" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/13/install-django/" class="article-date">
-  	<time datetime="2015-08-13T01:37:17.000Z" itemprop="datePublished">2015-08-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/13/install-django/">Mac 下安装Django</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="首先讲讲Mac_命令行中如何用sublime打开指定文件">首先讲讲Mac 命令行中如何用sublime打开指定文件</h3><ul>
-<li>其实打开文本文件有很多方式,比如命令行下<code>open -e xxx.txt</code>,或者使用vim,今天我们讲讲命令行中使用sublime打开文本文件<ul>
-<li>下载Sublime Text</li>
-<li>打开终端敲入以下命令 <code>ln -s /Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</code></li>
-<li>最后我们就可以直接在终端下敲入 <code>subl xxx.txt</code> 就可以打开指定的文本文件了</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/13/install-django/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-install-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/11/install-mongodb/" class="article-date">
-  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">2015-08-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads">MongoDB</a></h3><ul>
-<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png" alt="mongodb" title="mongodb"></li>
-</ul>
-<ul>
-<li>或者使用brew安装<ul>
-<li><code>brew install mongodb</code>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/11/install-mongodb/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-scrapy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/10/scrapy/" class="article-date">
-  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">2015-08-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4">lxml</a>模块,当前版本是3.4.4</h3><ul>
-<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
-</ul>
-<ul>
-<li><p>安装lxml</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/10/scrapy/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

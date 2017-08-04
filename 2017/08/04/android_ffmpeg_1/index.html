@@ -3,40 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Vim使用 | Mobile Development</title>
+  <title>FFmpeg和libyuv的基本使用(二) | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vim的基本使用
-进入编辑模式: i
+  <meta name="description" content="配置FFmpeg编译脚本
+进入FFmpeg-master源码目录
 
-进入命令模式 Esc
+touch config.sh 添加如下内容
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
 
-强制退出 shift : q!">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim使用">
-<meta property="og:url" content="http://yoursite.com/2017/07/26/vim/index.html">
+<meta property="og:title" content="FFmpeg和libyuv的基本使用(二)">
+<meta property="og:url" content="http://yoursite.com/2017/08/04/android_ffmpeg_1/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="Vim的基本使用
-进入编辑模式: i
+<meta property="og:description" content="配置FFmpeg编译脚本
+进入FFmpeg-master源码目录
 
-进入命令模式 Esc
+touch config.sh 添加如下内容
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
 
-强制退出 shift : q!">
-<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/A159B6EB-9B20-4EB2-A56A-A52FAD84BE32.png">
-<meta property="og:updated_time" content="2017-08-04T06:24:48.000Z">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
+<meta property="og:updated_time" content="2017-08-04T13:20:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim使用">
-<meta name="twitter:description" content="Vim的基本使用
-进入编辑模式: i
+<meta name="twitter:title" content="FFmpeg和libyuv的基本使用(二)">
+<meta name="twitter:description" content="配置FFmpeg编译脚本
+进入FFmpeg-master源码目录
 
-进入命令模式 Esc
+touch config.sh 添加如下内容
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
 
-强制退出 shift : q!">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -271,11 +267,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-android_ffmpeg_1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/26/vim/" class="article-date">
-  	<time datetime="2017-07-26T13:44:23.000Z" itemprop="datePublished">2017-07-26</time>
+      <a href="/2017/08/04/android_ffmpeg_1/" class="article-date">
+  	<time datetime="2017-08-04T13:15:36.000Z" itemprop="datePublished">2017-08-04</time>
 </a>
     </div>
   
@@ -288,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vim使用
+      FFmpeg和libyuv的基本使用(二)
     </h1>
   
 
@@ -304,43 +300,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vim的基本使用">Vim的基本使用</h3><ul>
-<li><p>进入编辑模式: <code>i</code></p>
+        <h3 id="配置FFmpeg编译脚本">配置FFmpeg编译脚本</h3><ul>
+<li><p>进入FFmpeg-master源码目录</p>
 </li>
-<li><p>进入命令模式 <code>Esc</code></p>
-</li>
-<li><p>保存退出 <code>shift zz</code> 或者 <code>Esc退出编辑模式,shift : wq</code></p>
-</li>
-<li><p>强制退出 <code>shift : q!</code></p>
+<li><p><code>touch config.sh</code> 添加如下内容</p>
 </li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
-<li><p>撤回 <code>u</code> </p>
+<li><code>touch build_android.sh</code> 添加如下内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">. config.sh</span><br><span class="line"></span><br><span class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></span><br><span class="line">ADDI_CFLAGS=<span class="string">""</span></span><br><span class="line"><span class="keyword">function</span> build_android</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line">    --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line">    --enable-shared \</span><br><span class="line">    --disable-static \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-ffmpeg \</span><br><span class="line">    --disable-ffplay \</span><br><span class="line">    --disable-ffprobe \</span><br><span class="line">    --disable-ffserver \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-symver \</span><br><span class="line">    --disable-x86asm \</span><br><span class="line">    --enable-gpl \</span><br><span class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/x86_64-linux-android- \</span><br><span class="line">    --target-os=linux \</span><br><span class="line">    --arch=x86_64 \</span><br><span class="line">    --enable-cross-compile \</span><br><span class="line">    --sysroot=<span class="variable">$SYSROOT</span> \</span><br><span class="line">    --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</span><br><span class="line">    --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</span><br><span class="line">    <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line">build_android</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改<code>configure</code>文件中<code># build settings</code>下内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># build settings</span></span><br><span class="line">SHFLAGS=<span class="string">'-shared -Wl,-soname,$$(@F)'</span></span><br><span class="line">LIBPREF=<span class="string">"lib"</span></span><br><span class="line">LIBSUF=<span class="string">".a"</span></span><br><span class="line">FULLNAME=<span class="string">'$(NAME)$(BUILDSUF)'</span></span><br><span class="line">LIBNAME=<span class="string">'$(LIBPREF)$(FULLNAME)$(LIBSUF)'</span></span><br><span class="line">SLIBPREF=<span class="string">"lib"</span></span><br><span class="line">SLIBSUF=<span class="string">".so"</span></span><br><span class="line">SLIBNAME=<span class="string">'$(SLIBPREF)$(FULLNAME)$(SLIBSUF)'</span></span><br><span class="line">SLIBNAME_WITH_VERSION=<span class="string">'$(SLIBNAME).$(LIBVERSION)'</span></span><br><span class="line">SLIBNAME_WITH_MAJOR=<span class="string">'$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)'</span>  </span><br><span class="line">LIB_INSTALL_EXTRA_CMD=<span class="string">'$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'</span>  </span><br><span class="line">SLIB_INSTALL_NAME=<span class="string">'$(SLIBNAME_WITH_MAJOR)'</span>  </span><br><span class="line">SLIB_INSTALL_LINKS=<span class="string">'$(SLIBNAME)'</span></span><br><span class="line">VERSION_SCRIPT_POSTPROCESS_CMD=<span class="string">"cat"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>为<code>build_android.sh</code>和<code>config.sh</code>添加执行权限  <code>chmod u+x build_android.sh</code> 、 <code>chmod u+x config.sh</code></p>
 </li>
-<li><p>在命令模式下 <code>x</code> 删除, <code>dd</code> 删除一行</p>
-</li>
-<li><p>在命令模式下 <code>0</code> 跳到行首</p>
-</li>
-<li><p>在命令模式下 <code>shift g</code> 跳到文尾</p>
-</li>
-<li><p>在命令模式下 <code>gg</code> 跳到文首</p>
-</li>
-<li><p>在命令模式下 <code>w</code> 光标跳到下个字的开头</p>
-</li>
-<li><p>在命令模式下 <code>e</code> 光标跳到下个字的结尾</p>
-</li>
-<li><p>在命令模式下 <code>b</code> 光标回到上个字的开头</p>
+<li><p>执行<code>./build_android.sh</code> 编译并生成动态库</p>
 </li>
 </ul>
-<h3 id="Vim配置">Vim配置</h3><ul>
-<li><p><code>cp /usr/share/vim/vimrc ~/.vimrc</code></p>
-</li>
-<li><p><code>cd  ~/.vimrc</code></p>
-</li>
-</ul>
-<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/A159B6EB-9B20-4EB2-A56A-A52FAD84BE32.png" alt=""></p>
-
+<p>如果要生成arm平台下的动态库,则要修改<code>config.sh</code>和<code>build_android.sh</code>内容如下:</p>
+<p><code>config.sh</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">21</span>/arch-arm</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=armv7<span class="operator">-a</span></span><br></pre></td></tr></table></figure>
+<p><code>build_android.sh</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">. config.sh</span><br><span class="line"></span><br><span class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></span><br><span class="line">ADDI_CFLAGS=<span class="string">"-marm"</span></span><br><span class="line"><span class="keyword">function</span> build_android</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line">    --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line">    --enable-shared \</span><br><span class="line">    --disable-static \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-ffmpeg \</span><br><span class="line">    --disable-ffplay \</span><br><span class="line">    --disable-ffprobe \</span><br><span class="line">    --disable-ffserver \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-symver \</span><br><span class="line">    --enable-gpl \</span><br><span class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</span><br><span class="line">    --target-os=linux \</span><br><span class="line">    --arch=arm \</span><br><span class="line">    --enable-cross-compile \</span><br><span class="line">    --sysroot=<span class="variable">$SYSROOT</span> \</span><br><span class="line">    --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</span><br><span class="line">    --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</span><br><span class="line">    <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line">build_android</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -349,18 +335,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/08/04/as_javap_javah/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/04/android_ffmpeg_2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android Studio配置自动生成类的头文件和查看类中方法签名
+          FFmpeg和libyuv的基本使用(三)
         
       </div>
     </a>
   
   
-    <a href="/2017/06/27/android_diff_patch/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NDK开发之增量更新</div>
+    <a href="/2017/08/04/android_ffmpeg_0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FFmpeg和libyuv的基本使用(一)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +375,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vim" data-title="Vim使用" data-url="http://yoursite.com/2017/07/26/vim/"></div>
+	<div class="ds-thread" data-thread-key="android_ffmpeg_1" data-title="FFmpeg和libyuv的基本使用(二)" data-url="http://yoursite.com/2017/08/04/android_ffmpeg_1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -250,11 +250,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-android_ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android_ffmpeg_4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/27/android_ffmpeg/" class="article-date">
-  	<time datetime="2017-07-27T13:58:22.000Z" itemprop="datePublished">2017-07-27</time>
+      <a href="/2017/08/04/android_ffmpeg_4/" class="article-date">
+  	<time datetime="2017-08-04T14:10:19.000Z" itemprop="datePublished">2017-08-04</time>
 </a>
     </div>
   
@@ -267,7 +267,244 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/27/android_ffmpeg/">FFmpeg和libyuv的基本使用</a>
+      <a class="article-title" href="/2017/08/04/android_ffmpeg_4/">FFmpeg和libyuv的基本使用(五)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="FFmpeg_和_libyuv的基本使用">FFmpeg 和 libyuv的基本使用</h3><h4 id="万能视频播放器">万能视频播放器</h4><p>实现的基本过程:</p>
+<p>将任意格式的视频文件统一解码成YUV格式,然后将解码后的帧数据绘制到本地ANativeWindow里的Surface上. 这里的Surface由SurfaceView提供</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/android_ffmpeg_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-android_ffmpeg_3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/android_ffmpeg_3/" class="article-date">
+  	<time datetime="2017-08-04T13:23:18.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/android_ffmpeg_3/">FFmpeg和libyuv的基本使用(四)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="新建并配置工程">新建并配置工程</h3><p>下面使用Android Studio 2.2.3来进行实例工程的开发</p>
+<ul>
+<li><p>新建FFmpegDemo 工程</p>
+</li>
+<li><p>将之前生成的FFmpeg头文件、FFmpeg动态库、libyuv头文件、libyuv动态库拷贝到libs目录下</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/android_ffmpeg_3/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-android_ffmpeg_2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/android_ffmpeg_2/" class="article-date">
+  	<time datetime="2017-08-04T13:20:30.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/android_ffmpeg_2/">FFmpeg和libyuv的基本使用(三)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置libyuv编译脚本">配置libyuv编译脚本</h3><p>如果需要将YUV格式转RGBA像素格式,建议使用另外一个开源库<code>libyuv</code>,接下来教大家编译并生成<code>libyuv.so</code>库</p>
+<ul>
+<li><p>下载<a href="https://chromium.googlesource.com/libyuv/libyuv/">libyuv</a>源代码</p>
+</li>
+<li><p>使用git clone下来 <code>git clone https://chromium.googlesource.com/libyuv/libyuv</code></p>
+</li>
+<li><p><code>cd libyuv</code> 进入libyuv源码目录,新建jni目录<code>mkdir jni</code>将源码拷贝到jni目录下</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/android_ffmpeg_2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-android_ffmpeg_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/android_ffmpeg_1/" class="article-date">
+  	<time datetime="2017-08-04T13:15:36.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/android_ffmpeg_1/">FFmpeg和libyuv的基本使用(二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置FFmpeg编译脚本">配置FFmpeg编译脚本</h3><ul>
+<li><p>进入FFmpeg-master源码目录</p>
+</li>
+<li><p><code>touch config.sh</code> 添加如下内容</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/android_ffmpeg_1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-android_ffmpeg_0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/android_ffmpeg_0/" class="article-date">
+  	<time datetime="2017-08-04T12:15:36.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/android_ffmpeg_0/">FFmpeg和libyuv的基本使用(一)</a>
     </h1>
   
 
@@ -296,7 +533,66 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/27/android_ffmpeg/#more">more >></a>
+          <a  href="/2017/08/04/android_ffmpeg_0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-as_javap_javah" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/as_javap_javah/" class="article-date">
+  	<time datetime="2017-08-04T06:33:37.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/as_javap_javah/">Android Studio配置自动生成类的头文件和查看类中方法签名</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Android_Studio配置自动生成类的头文件以及查看类中方法签名">Android Studio配置自动生成类的头文件以及查看类中方法签名</h3><ul>
+<li><p>Android Studio-&gt;Preferences-&gt;Tools-&gt;External Tools</p>
+</li>
+<li><p>查看项目中类方法签名配置如下</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/04/as_javap_javah/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -535,293 +831,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/06/21/java_review_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_4/" class="article-date">
-  	<time datetime="2017-06-21T15:42:04.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_4/">Java面试基础题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
-<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
-</li>
-<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_4/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_3/" class="article-date">
-  	<time datetime="2017-06-21T15:34:17.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_3/">Java垃圾回收器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_3/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_2/" class="article-date">
-  	<time datetime="2017-06-21T15:32:49.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_2/">Java类的生命周期</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
-<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_2/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_1/" class="article-date">
-  	<time datetime="2017-06-21T15:23:07.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_1/">Java类加载器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
-<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
-<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
-<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
-</li>
-<li><p>显式: 通过class.forname()动态加载</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_0" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_0/" class="article-date">
-  	<time datetime="2017-06-21T14:49:34.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_0/">JVM的结构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JVM内存区域">JVM内存区域</h3><blockquote>
-<p>JVM = <code>类加载器</code> ClassLoader + <code>执行引擎</code> Execution Engine + <code>运行时数据区域</code> Runtime Data Area。 ClassLoader 把硬盘上的Class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行, 而这个是 <code>执行引擎</code> 负责的</p>
-</blockquote>
-<h5 id="HotSpot_JVM_架构图">HotSpot JVM 架构图</h5><p><img src="https://itimetraveler.github.io/gallery/hotspot-jvm.png" alt=""></p>
-<h5 id="Java_虚拟机内存结构图">Java 虚拟机内存结构图</h5><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/java_review_0.png" alt="">  </p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_0/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -250,6 +250,340 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-multi_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/multi_viewcontroller/" class="article-date">
+  	<time datetime="2016-03-13T14:05:07.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/multi_viewcontroller/">iOS多控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="多控制器">多控制器</h3><ul>
+<li>UINavigationController</li>
+<li>UITabBarController</li>
+</ul>
+<h3 id="UINavigationController的简单使用">UINavigationController的简单使用</h3><ul>
+<li>UINavigationController的使用步骤<ul>
+<li>初始化UINavigationController</li>
+<li>设置UIWindow的rootViewController为UINavigationController</li>
+<li>根据具体情况,通过push方法添加对应个数的子控制器</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/multi_viewcontroller/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-create_viewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/create_viewcontroller/" class="article-date">
+  	<time datetime="2016-03-13T02:00:07.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/create_viewcontroller/">iOS创建控制器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何创建一个控制器">如何创建一个控制器</h3><ul>
+<li><p>控制器常见的创建方式有以下几种</p>
+<ul>
+<li><p>通过storyboard创建</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建窗口</span></span><br><span class="line">   <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载storyboard</span></span><br><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过storyboard实例化控制器</span></span><br><span class="line"><span class="comment">// instantiateInitialViewController: 加载箭头指向的控制器</span></span><br><span class="line"><span class="comment">// instantiateViewControllerWithIdentifier:(NSString *)identifier:通过Storyboard ID标识符来创建控制器</span></span><br><span class="line"><span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将控制器设置为窗口的根控制器</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示主窗口</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接创建<br><code>UIViewController *vc = [[UIViewController alloc] init];</code></p>
+</li>
+<li>指定xib文件创建<figure class="highlight"><table><tr><td class="code"><pre><span class="line">创建xib并添加一个view</span><br><span class="line">为文件的拥有者绑定Class(即设置File's Owner的Class类型 MCViewController)</span><br><span class="line">设置文件的拥有者Outlets view</span><br><span class="line">MCViewController *vc = [[MCViewController alloc] initWithNibName:@"MCViewController" bundle:nil];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/create_viewcontroller/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-uiwindow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/12/uiwindow/" class="article-date">
+  	<time datetime="2016-03-12T02:00:00.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/uiwindow/">iOS之UIWindow</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UIWindow">UIWindow</h3><ul>
+<li>UIWindow是一种特殊的UIView,通常在一个app中一般都会有一个UIWindow</li>
+<li>iOS程序启动完毕后,创建的第一个视图控件就是UIWindow,接着创建控制器的view,最后将控制器的view添加到UIWindow上,于是控制器的view就显示在屏幕上了</li>
+<li>一个iOS程序之所以能显示到屏幕上,完全是因为它有UIWindow</li>
+<li>也就说,没有UIWindow,就看不见任何UI界面</li>
+<li>键盘和状态栏都是窗口而UIAlertView不是窗口</li>
+<li>窗口是有层级关系的.(UIWindowLevel:UIWindowLevelNormal &lt; UIWindowLevelStatusBar &lt; UIWindowLevelAlert)</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/12/uiwindow/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-node_oauth" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/28/node_oauth/" class="article-date">
+  	<time datetime="2015-10-28T01:29:34.000Z" itemprop="datePublished">2015-10-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/28/node_oauth/">Node.js 使用OAuth2.0教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用第三方中间件实现OAuth2-0认证授权">使用第三方中间件实现OAuth2.0认证授权</h3><p><a href="https://github.com/thomseddon/node-oauth2-server" target="_blank" rel="external">node-oauth2-server</a></p>
+<ul>
+<li>使用Express构建项目<br><code>express -e OAuth2 &amp;&amp; cd OAuth2 &amp;&amp; npm install</code></li>
+<li>安装node-oauth2-server<br><code>npm install oauth2-server --save</code></li>
+<li>安装mongoose<br><code>npm install mongoose --save</code></li>
+<li>安装crypto<br><code>npm install crypto --save</code></li>
+</ul>
+<h3 id="复制model到项目models文件夹下">复制model到项目models文件夹下</h3><ul>
+<li>在项目目录下新建models文件夹</li>
+<li>复制<code>node-oauth2-server-master/examples/mongodb/model.js到OAuth2/models/</code> 下</li>
+<li>修改<code>model.js</code>文件,添加如下内容:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">model.OAuthUsersEntity = OAuthUsersModel;</span><br><span class="line">model.OAuthClientsEntity = OAuthClientsModel;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="插入测试数据">插入测试数据</h3><ul>
+<li>先将用户数据插入到OAuthUsers</li>
+<li>然后将client_id、client_secret、redirectUri(需要后端人员算法自行生成)插入到OAuthClients. 例如:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用户数据</span></span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> OAuthUsers(&#123;</span><br><span class="line">    username: req.body.name,</span><br><span class="line">    password: req.body.password,</span><br><span class="line">    firstname: req.body.firstname,</span><br><span class="line">    lastname: req.body.lastname,</span><br><span class="line">    email: req.body.email</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//客户端数据</span></span><br><span class="line"><span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime().toString();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> md5 = crypto.createHash(<span class="string">'md5'</span>),</span><br><span class="line">    client_secret = md5.update(time).digest(<span class="string">'hex'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> OAuthClients(&#123;</span><br><span class="line">    clientId: client_id,</span><br><span class="line">    clientSecret: client_secret,</span><br><span class="line">    redirectUri: redirectUri</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//保存数据到mongodb</span></span><br><span class="line">user.save(callback);</span><br><span class="line">client.save(callback);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="处理授权请求">处理授权请求</h3><ul>
+<li><p>打开app.js添加如下内容</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> oauthserver = <span class="built_in">require</span>(<span class="string">'oauth2-server'</span>);</span><br><span class="line">app.oauth = oauthserver(&#123;</span><br><span class="line">  model: <span class="built_in">require</span>(<span class="string">'./models/model'</span>),</span><br><span class="line">  grants: [<span class="string">'auth_code'</span>,<span class="string">'password'</span>,<span class="string">'refresh_token'</span>],</span><br><span class="line">  debug: <span class="literal">true</span>,</span><br><span class="line">  accessTokenLifetime: <span class="number">360</span>,</span><br><span class="line">  refreshTokenLifetime: <span class="number">3600</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.all(<span class="string">'/oauth/token'</span>, app.oauth.grant());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以提交表单的方式post数据到后台</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">请求头:</span><br><span class="line">Authorization: ("Basic " + client_id:client_secret base64'd) </span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">表单内容:</span><br><span class="line">grant_type=password&amp;username=johndoe&amp;password=A3ddj3w</span><br><span class="line"></span><br><span class="line">提交后:</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json;charset=UTF-8</span><br><span class="line">Cache-Control: no-store</span><br><span class="line">Pragma: no-cache</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  "access_token":"2YotnFZFEjr1zCsicMWpAA",</span><br><span class="line">  "token_type":"bearer",</span><br><span class="line">  "expires_in":3600,</span><br><span class="line">  "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="验证AccessToken">验证AccessToken</h3><ul>
+<li>在需要验证的路由上添加<code>app.oauth.authorise()</code>,例如评论接口:<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">router.post(<span class="string">'/post_comments'</span>,app.oauth.authorise(),<span class="function"><span class="keyword">function</span>(<span class="params">error, req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">        <span class="comment">//处理错误</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="错误处理">错误处理</h3><ul>
+<li>可以使用<code>node-oauth2-server</code>提供的错误处理方法<br><code>app.use(app.oauth.errorHandler());</code></li>
+<li>或者自己在callback中处理</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-mongoose" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/22/mongoose/" class="article-date">
+  	<time datetime="2015-10-22T14:08:56.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/mongoose/">Mongoose使用指南</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Mongoose连接Mongodb">Mongoose连接Mongodb</h3><ul>
+<li>第一种方式: <code>mongoose.connect(uri, options);</code></li>
+<li>第二种方式: <code>mongoose.createConnection(&#39;url&#39;, options);</code></li>
+<li><a href="http://mongoosejs.com/docs/connections.html">参考地址</a></li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/22/mongoose/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-install_node_js" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -531,284 +865,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/08/javascript_note_03/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_02" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/07/javascript_note_02/" class="article-date">
-  	<time datetime="2015-09-07T06:46:45.000Z" itemprop="datePublished">2015-09-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/07/javascript_note_02/">JavaScript权威指南--表达式和运算符</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="恒等运算符与相等运算符">恒等运算符与相等运算符</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/恒等.png" alt="hd" title="hd"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/07/javascript_note_02/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-javascript_note_01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/06/javascript_note_01/" class="article-date">
-  	<time datetime="2015-09-06T09:36:50.000Z" itemprop="datePublished">2015-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/06/javascript_note_01/">JavaScript权威指南--类型、值和变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类型、值">类型、值</h3><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/js_capture_03.png" alt="js_capture_03" title="js_capture_03"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/06/javascript_note_01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-html5_study_01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/02/html5_study_01/" class="article-date">
-  	<time datetime="2015-09-02T02:19:11.000Z" itemprop="datePublished">2015-09-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/02/html5_study_01/">HTML5基础学习--01</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自定义列表">自定义列表</h3><p><code>dl</code>:定义了定义列表（definition list）<br><code>dt</code>:定义一个定义列表中的一个项目<br><code>dd</code>:在定义列表中定义条目的定义部分<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>一个定义列表：<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dl</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">dt</span>&gt;</span>计算机<span class="tag">&lt;/<span class="title">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">dd</span>&gt;</span>用来计算的仪器 ... ...<span class="tag">&lt;/<span class="title">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">dt</span>&gt;</span>显示器<span class="tag">&lt;/<span class="title">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">dd</span>&gt;</span>以视觉方式显示信息的装置 ... ...<span class="tag">&lt;/<span class="title">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/02/html5_study_01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jquery_note_6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/01/jquery_note_6/" class="article-date">
-  	<time datetime="2015-09-01T05:12:59.000Z" itemprop="datePublished">2015-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/01/jquery_note_6/">《锋利的jQuery》--读书笔记六</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery与Ajax的应用">jQuery与Ajax的应用</h3><h4 id="Ajax的优势与不足">Ajax的优势与不足</h4><ul>
-<li><p>Ajax的优势<br>1.不需要插件支持<br>2.优秀的用户体验<br>3.提高web程序的性能<br>4.减轻服务器和宽带的负担</p>
-</li>
-<li><p>Ajax的不足<br>1.浏览器对XMLHttpRequest对象的支持度不足<br>2.破坏浏览器前进、后退按钮的正常功能<br>3.对搜索引擎的支持不足<br>4.开发和调试工具的缺乏</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/01/jquery_note_6/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jquery_note_5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/01/jquery_note_5/" class="article-date">
-  	<time datetime="2015-09-01T02:50:41.000Z" itemprop="datePublished">2015-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/01/jquery_note_5/">《锋利的jQuery》--读书笔记五</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单选框控制表格行高亮">单选框控制表格行高亮</h4><ul>
-<li>使用了<code>end()</code>方法<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$("tbody&gt;tr").click(function()&#123;</span><br><span class="line">    $(this).addClass("selected")</span><br><span class="line">    .siblings().removeClass("selected")</span><br><span class="line">    .end()</span><br><span class="line">    .find(":radio").attr("checked",true);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/01/jquery_note_5/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
