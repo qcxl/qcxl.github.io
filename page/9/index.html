@@ -250,6 +250,364 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-install-django" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/13/install-django/" class="article-date">
+  	<time datetime="2015-08-13T01:37:17.000Z" itemprop="datePublished">2015-08-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/13/install-django/">Mac 下安装Django</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先讲讲Mac_命令行中如何用sublime打开指定文件">首先讲讲Mac 命令行中如何用sublime打开指定文件</h3><ul>
+<li>其实打开文本文件有很多方式,比如命令行下<code>open -e xxx.txt</code>,或者使用vim,今天我们讲讲命令行中使用sublime打开文本文件<ul>
+<li>下载Sublime Text</li>
+<li>打开终端敲入以下命令 <code>ln -s /Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</code></li>
+<li>最后我们就可以直接在终端下敲入 <code>subl xxx.txt</code> 就可以打开指定的文本文件了</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/13/install-django/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/11/install-mongodb/" class="article-date">
+  	<time datetime="2015-08-11T05:41:14.000Z" itemprop="datePublished">2015-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/11/install-mongodb/">Mac 下安装并配置启动MongoDB</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装MongoDB">安装<a href="https://www.mongodb.org/downloads">MongoDB</a></h3><ul>
+<li>从<a href="https://www.mongodb.org/downloads">MongoDB</a>官网下载<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/mongodb.png" alt="mongodb" title="mongodb"></li>
+</ul>
+<ul>
+<li>或者使用brew安装<ul>
+<li><code>brew install mongodb</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/11/install-mongodb/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-scrapy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/10/scrapy/" class="article-date">
+  	<time datetime="2015-08-10T14:04:25.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/scrapy/">Mac下安装爬虫框架Scrapy</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装lxml模块,当前版本是3-4-4">安装<a href="https://pypi.python.org/pypi/lxml/3.4.4">lxml</a>模块,当前版本是3.4.4</h3><ul>
+<li>下载并解压<a href="https://pypi.python.org/packages/source/l/lxml/lxml-3.4.4.tar.gz#md5=a9a65972afc173ec7a39c585f4eea69c">lxml-3.4.4.tar.gz</a><br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml.png" alt="lxml" title="lxml"></li>
+</ul>
+<ul>
+<li><p>安装lxml</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lxml-<span class="number">3.4</span>.<span class="number">4</span> <span class="comment">#进入lxml目录</span></span><br><span class="line">sudo python setup.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果执行成功,那么lxml就安装成功了,很有可能遇到如下错误:<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/lxml_error.png" alt="lxml_error" title="lxml_error"></p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/10/scrapy/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-python-plug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/08/install-python-plug/" class="article-date">
+  	<time datetime="2015-08-08T01:13:07.000Z" itemprop="datePublished">2015-08-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/08/install-python-plug/">Python 安装第三方模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装easy_install">安装easy_install</h3><blockquote>
+<p>在Python中安装第三方模块是通过setuptools这个工具完成的。Python有两个封装了setuptools的包管理工具:<br>  easy_install 和 pip 。目前官方推荐使用pip 。如果你正在使用Mac或者Linux,安装pip本身这个步骤就可以跳过了.<br>  这里讲讲Mac下如何安装easy_install。</p>
+</blockquote>
+<ul>
+<li>目前<a href="https://pypi.python.org/pypi/setuptools">setuptools</a>版本是18.1<br><img src="http://7xk9ih.com1.z0.glb.clouddn.com/setuptools.png" alt="setuptools" title="setuptools">
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/08/install-python-plug/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-android_view_position" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/10/android_view_position/" class="article-date">
+  	<time datetime="2015-07-10T05:48:07.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/android_view_position/">Android自定义组件坐标详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="获取View自身宽高">获取View自身宽高</h3><blockquote>
+<p>View.getWidth();  #View宽<br>  View.getHeight(); #View高</p>
+</blockquote>
+<h3 id="获取View自身坐标">获取View自身坐标</h3><blockquote>
+<p>相对于父控件<br>    getLeft():获取到的是view自身的左边到其父布局左边的距离<br>    getTop:获取到的是view自身的顶边到其父布局顶边的距离<br>    getRight():获取到的是view自身的右边到其父布局左边的距离<br>    getBottom():获取到的是view自身的底边到其父布局顶边的距离</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/10/android_view_position/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-pinyin4j" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/09/pinyin4j/" class="article-date">
+  	<time datetime="2015-07-09T05:10:45.000Z" itemprop="datePublished">2015-07-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/09/pinyin4j/">使用Pinyin4j 实现列表按内容首字母排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="下载Pinyin4j库">下载<a href="http://mvnrepository.com/artifact/com.belerweb/pinyin4j/2.5.0">Pinyin4j</a>库</h3></li>
+<li><h3 id="封装排序Model">封装排序Model</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String name;   </span><br><span class="line">	<span class="keyword">private</span> String sortLetters;  </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SortModel</span><span class="params">(String name, String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSortLetters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSortLetters</span><span class="params">(String sortLetters)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sortLetters = sortLetters;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/09/pinyin4j/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

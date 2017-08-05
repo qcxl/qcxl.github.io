@@ -250,6 +250,358 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java_review_2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_2/" class="article-date">
+  	<time datetime="2017-06-21T15:32:49.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_2/">Java类的生命周期</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="类的生命周期">类的生命周期</h3><p>一个java类的完整的生命周期会经历<code>加载</code>、<code>连接</code>、<code>初始化</code>、<code>使用</code>、和<code>卸载</code>五个阶段,当然也有在加载或者连接之后没有被初始化就直接被使用的情况,如图所示:</p>
+<p><img src="http://img.blog.csdn.net/20170602113030666" alt="类的生命周期"></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_1/" class="article-date">
+  	<time datetime="2017-06-21T15:23:07.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_1/">Java类加载器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是类加载器">什么是类加载器</h3><p>类加载器是一个用来加载类文件的类。</p>
+<h3 id="类加载器的作用">类加载器的作用</h3><p>在运行时加载类(装载.class文件)</p>
+<h3 id="类加载器装载class的方式(时机)">类加载器装载class的方式(时机)</h3><ul>
+<li><p>隐式: 运行过程中,碰到new方式生成对象时,隐式调用ClassLoader到JVM</p>
+</li>
+<li><p>显式: 通过class.forname()动态加载</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_0/" class="article-date">
+  	<time datetime="2017-06-21T14:49:34.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_0/">JVM的结构</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JVM内存区域">JVM内存区域</h3><blockquote>
+<p>JVM = <code>类加载器</code> ClassLoader + <code>执行引擎</code> Execution Engine + <code>运行时数据区域</code> Runtime Data Area。 ClassLoader 把硬盘上的Class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行, 而这个是 <code>执行引擎</code> 负责的</p>
+</blockquote>
+<h5 id="HotSpot_JVM_架构图">HotSpot JVM 架构图</h5><p><img src="https://itimetraveler.github.io/gallery/hotspot-jvm.png" alt=""></p>
+<h5 id="Java_虚拟机内存结构图">Java 虚拟机内存结构图</h5><p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/java_review_0.png" alt="">  </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-python基础语法学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/17/python基础语法学习/" class="article-date">
+  	<time datetime="2016-10-17T00:39:39.000Z" itemprop="datePublished">2016-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/17/python基础语法学习/">Python基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="文件处理">文件处理</h4><ul>
+<li>读文件示例<figure class="highlight"><table><tr><td class="code"><pre><span class="line">myFile.txt</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line"></span><br><span class="line">code:</span><br><span class="line">f = file('myFile.txt', 'r')</span><br><span class="line">for line in f.readlines():</span><br><span class="line">	line = line.strip('\n').split(':')</span><br><span class="line">	print(line)</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">['root', 'x', '0', '0', 'root', '/root, '/bin/bash']</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">f = file('/etc/passwd')</span><br><span class="line">for i in f.readlines():</span><br><span class="line">	print(i.strip('\n').split(':')) #脱掉一行中行首和行尾的换行符,i.strip()为脱掉空格和换行符以及Tab</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/17/python基础语法学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-python_scrapy_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/25/python_scrapy_study/" class="article-date">
+  	<time datetime="2016-09-25T01:28:11.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/python_scrapy_study/">Python包管理工具的安装和爬虫学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="pip简介"><a href="https://pypi.python.org/pypi/pip">pip</a>简介</h4><ul>
+<li><code>pip</code>是一个安装和管理Python包的工具,是<code>easy_install</code>的一个替换品.<code>pip</code>的目标非常明确 – 取代<code>easy_install</code>. easy_install有很多不足:<ul>
+<li>安装事务是非原子操作</li>
+<li>只支持svn</li>
+<li>没有提供卸载命令</li>
+<li>安装一系列包时需要写脚本</li>
+</ul>
+</li>
+<li>pip使用<a href="http://pip.readthedocs.io/en/latest/">帮助文档</a></li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/25/python_scrapy_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-汇编语言学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/汇编语言学习/" class="article-date">
+  	<time datetime="2016-09-10T01:28:11.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/汇编语言学习/">汇编语言学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
+<li>下载<a href="https://www.dosbox.com/">DOSBOX</a></li>
+<li>下载debug.exe程序到Mac</li>
+<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/10/汇编语言学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-iOS逆向学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -474,363 +826,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/21/AFNetworking 框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-swift_note" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/01/swift_note/" class="article-date">
-  	<time datetime="2016-05-01T14:28:11.000Z" itemprop="datePublished">2016-05-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/01/swift_note/">Swift</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常量&amp;变量">常量&amp;变量</h3><ul>
-<li>let 定义常量,设置之后不可以修改</li>
-<li>var 定义变量,设置之后可以修改</li>
-<li>语句末尾不用使用 ;</li>
-<li>在Swift中使用print() 替代OC中的NSLog</li>
-<li>print 的性能更好</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/01/swift_note/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-quartz2d" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/14/quartz2d/" class="article-date">
-  	<time datetime="2016-04-14T14:02:11.000Z" itemprop="datePublished">2016-04-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/14/quartz2d/">Quartz2D</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是Quartz2D">什么是Quartz2D</h3><ul>
-<li>Quartz 2D是一个二维绘图引擎,同时支持iOS和Mac系统</li>
-<li>Quartz 2D 能完成的工作<ul>
-<li>绘制图形:线条\三角形\矩形\弧等</li>
-<li>绘制文字</li>
-<li>绘制\生成图片(图像)</li>
-<li>读取\生成PDF</li>
-<li>截图\裁剪图片</li>
-<li>自定义UI控件</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/14/quartz2d/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-uicollectionview" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/13/uicollectionview/" class="article-date">
-  	<time datetime="2016-04-13T05:54:05.000Z" itemprop="datePublished">2016-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/13/uicollectionview/">UICollectionView的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自定义布局_-_继承UICollectionViewFlowLayout">自定义布局 - 继承UICollectionViewFlowLayout</h3><h4 id="重写prepareLayout方法">重写prepareLayout方法</h4><ul>
-<li>作用:在这个方法中做一些初始化操作</li>
-<li>注意:一定要调用[super prepareLayout]</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/13/uicollectionview/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-nsinvocation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/nsinvocation/" class="article-date">
-  	<time datetime="2016-04-04T12:43:37.000Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/nsinvocation/">NSInvocation的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NSInvocation的简单使用">NSInvocation的简单使用</h3><h5 id="创建方法签名">创建方法签名</h5><ul>
-<li>使用NSObject的对象方法或者类方法来创建NSMethodSignature<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NSObject的对象方法,任何继承自NSObject的对象都可以调用</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSObject的类方法,任何继承自NSObject的类都可以调用</span></span><br><span class="line">+ (<span class="built_in">NSMethodSignature</span> *)instanceMethodSignatureForSelector:(SEL)aSelector</span><br><span class="line"></span><br><span class="line">SEL selector = <span class="built_in">NSSelectorFromString</span>(methodNameStr);</span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">self</span> methodSignatureForSelector:selector];</span><br><span class="line"><span class="comment">//或使用下面这种方式</span></span><br><span class="line"><span class="built_in">NSMethodSignature</span> *signature = [[<span class="keyword">self</span> class] instanceMethodSignatureForSelector:selector];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/nsinvocation/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-reachability" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/03/reachability/" class="article-date">
-  	<time datetime="2016-04-03T10:22:04.000Z" itemprop="datePublished">2016-04-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/reachability/">iOS使用Reachability实时检测网络连接状况</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Reachability能做什么">Reachability能做什么</h3><ul>
-<li><p>监测网络是否可用</p>
-</li>
-<li><p>判断当前处于什么网络环境(2G/3G,WIFI)</p>
-</li>
-<li><p>监测连接方式的变更</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/03/reachability/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-image_switch" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/03/image_switch/" class="article-date">
-  	<time datetime="2016-04-03T03:04:43.000Z" itemprop="datePublished">2016-04-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/image_switch/">iOS实现图片轮播</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用2个UIImageView实现图片轮播">使用2个UIImageView实现图片轮播</h3><h4 id="轮播原理">轮播原理</h4><ul>
-<li>假设轮播控件的宽度为x高度为y,我们设置UIScrollView的contentSize.width为3x,并让UIScrollView的水平偏移量为x,既显示最中间内容<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">scrollView<span class="variable">.contentSize</span> = <span class="built_in">CGSizeMake</span>(<span class="number">3</span>x, y);</span><br><span class="line">scrollView<span class="variable">.contentOffset</span> = <span class="built_in">CGPointMake</span>(x, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/03/image_switch/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

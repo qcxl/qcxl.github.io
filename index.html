@@ -672,11 +672,11 @@
 
 
   
-    <article id="post-ndk_cpp" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ndk_cpp_6" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/25/ndk_cpp/" class="article-date">
-  	<time datetime="2017-07-25T15:28:16.000Z" itemprop="datePublished">2017-07-25</time>
+      <a href="/2017/07/25/ndk_cpp_6/" class="article-date">
+  	<time datetime="2017-07-25T15:55:16.000Z" itemprop="datePublished">2017-07-25</time>
 </a>
     </div>
   
@@ -689,7 +689,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/ndk_cpp/">C++基础</a>
+      <a class="article-title" href="/2017/07/25/ndk_cpp_6/">C++基础(七)</a>
     </h1>
   
 
@@ -698,14 +698,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="C与C++的关系">C与C++的关系</h3><ul>
-<li><p>C++可以与C代码进行混编</p>
-</li>
-<li><p>C++面向对象的编程语言、C是面向过程的编程</p>
-</li>
-<li><p>C++是对C的一个增强</p>
-</li>
+        <h4 id="IO流">IO流</h4><ul>
+<li>读写文本文件</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;fstream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//文本文件操作</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* fname = <span class="string">"/Users/weifeng/dest.txt"</span>;</span><br><span class="line">    <span class="comment">//输出流</span></span><br><span class="line">    <span class="function">ofstream <span class="title">fout</span><span class="params">(fname)</span></span>;</span><br><span class="line">    <span class="comment">//创建失败</span></span><br><span class="line">    <span class="keyword">if</span>(fout.bad())&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    fout &lt;&lt; <span class="string">"Jack"</span> &lt;&lt; endl;</span><br><span class="line">    fout &lt;&lt; <span class="string">"Rose"</span> &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关闭输出流</span></span><br><span class="line">    fout.close();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//读取</span></span><br><span class="line">    <span class="function">ifstream <span class="title">fin</span><span class="params">(fname)</span></span>;</span><br><span class="line">    <span class="keyword">if</span>(fin.bad())&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span>(fin.get(ch))&#123;</span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ch;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    fin.close();</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -716,7 +712,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/25/ndk_cpp/#more">more >></a>
+          <a  href="/2017/07/25/ndk_cpp_6/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -733,11 +729,11 @@
 
 
   
-    <article id="post-ndk_fmod" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ndk_cpp_5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/24/ndk_fmod/" class="article-date">
-  	<time datetime="2017-07-24T14:35:06.000Z" itemprop="datePublished">2017-07-24</time>
+      <a href="/2017/07/25/ndk_cpp_5/" class="article-date">
+  	<time datetime="2017-07-25T15:50:16.000Z" itemprop="datePublished">2017-07-25</time>
 </a>
     </div>
   
@@ -750,7 +746,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/24/ndk_fmod/">使用fmod实现QQ变声功能</a>
+      <a class="article-title" href="/2017/07/25/ndk_cpp_5/">C++基础(六)</a>
     </h1>
   
 
@@ -759,16 +755,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="fmod初步使用">fmod初步使用</h3><ul>
-<li><p>新建Android工程qq_voicer_change</p>
-</li>
-<li><p>进入项目根目录新建libs目录,并将fmod example工程中fmod.jar拷贝进去</p>
-</li>
-<li><p>进入项目根目录新建jni目录,并将fmod example工程中inc整个目录拷贝进去</p>
-</li>
-<li><p>拷贝fmod example工程中play_sound.cpp、common.h、common.cpp、common_platform.cpp、common_platform.h文件到jni目录</p>
-</li>
-</ul>
+        <h4 id="模板类">模板类</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(T a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    T a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//普通类继承模板类</span></span><br><span class="line"><span class="keyword">class</span> B : <span class="keyword">public</span> A&lt;<span class="keyword">int</span>&gt;&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B(<span class="keyword">int</span> a, <span class="keyword">int</span> b) : A&lt;<span class="keyword">int</span>&gt;(a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;b = b;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -779,7 +766,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/24/ndk_fmod/#more">more >></a>
+          <a  href="/2017/07/25/ndk_cpp_5/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -796,11 +783,11 @@
 
 
   
-    <article id="post-android_diff_patch" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ndk_cpp_4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/27/android_diff_patch/" class="article-date">
-  	<time datetime="2017-06-27T14:23:41.000Z" itemprop="datePublished">2017-06-27</time>
+      <a href="/2017/07/25/ndk_cpp_4/" class="article-date">
+  	<time datetime="2017-07-25T15:45:16.000Z" itemprop="datePublished">2017-07-25</time>
 </a>
     </div>
   
@@ -813,7 +800,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/27/android_diff_patch/">NDK开发之增量更新</a>
+      <a class="article-title" href="/2017/07/25/ndk_cpp_4/">C++基础(五)</a>
     </h1>
   
 
@@ -822,20 +809,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="NDK开发之增量更新-差分包">NDK开发之增量更新-差分包</h2><p>需要使用到的开源项目</p>
-<ul>
-<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff-4.3.tar.gz">BsDiff</a> (依赖于 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a>)</p>
-</li>
-<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a></p>
-</li>
-</ul>
-<h3 id="Windows下服务端差分">Windows下服务端差分</h3><p>在Microsoft VS中导入 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a> 源代码(不用拷贝bspatch.c文件)</p>
-<ul>
-<li><p>使用<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>代码,生成dll动态库,用于得到差分包</p>
-</li>
-<li><p>将<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>下载解压后导入Microsoft VS中,删除bspatch.cpp</p>
-</li>
-</ul>
+        <h4 id="多继承">多继承</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Person&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公民</span></span><br><span class="line"><span class="keyword">class</span> Citizen&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Student : <span class="keyword">public</span> Person, <span class="keyword">public</span> Citizen&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -846,7 +820,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/06/27/android_diff_patch/#more">more >></a>
+          <a  href="/2017/07/25/ndk_cpp_4/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

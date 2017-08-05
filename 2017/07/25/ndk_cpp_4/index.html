@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++基础(五) | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多继承class Person&amp;#123;&amp;#125;;//公民class Citizen&amp;#123;&amp;#125;;class Student : public Person, public Citizen&amp;#123;    &amp;#125;;void main()&amp;#123;    system(&quot;pause&quot;);&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++基础(五)">
+<meta property="og:url" content="http://yoursite.com/2017/07/25/ndk_cpp_4/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="多继承class Person&amp;#123;&amp;#125;;//公民class Citizen&amp;#123;&amp;#125;;class Student : public Person, public Citizen&amp;#123;    &amp;#125;;void main()&amp;#123;    system(&quot;pause&quot;);&amp;#125;">
+<meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/33287F78-183F-4673-917F-9B6BA29B7381.png">
+<meta property="og:updated_time" content="2017-08-05T13:11:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++基础(五)">
+<meta name="twitter:description" content="多继承class Person&amp;#123;&amp;#125;;//公民class Citizen&amp;#123;&amp;#125;;class Student : public Person, public Citizen&amp;#123;    &amp;#125;;void main()&amp;#123;    system(&quot;pause&quot;);&amp;#125;">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-ndk_cpp_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/25/ndk_cpp_4/" class="article-date">
+  	<time datetime="2017-07-25T15:45:16.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++基础(五)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="多继承">多继承</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Person&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公民</span></span><br><span class="line"><span class="keyword">class</span> Citizen&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Student : <span class="keyword">public</span> Person, <span class="keyword">public</span> Citizen&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><img src="http://7xk9ih.com1.z0.glb.clouddn.com/33287F78-183F-4673-917F-9B6BA29B7381.png" alt=""></p>
+<h4 id="继承的二义性">继承的二义性</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">char</span>* name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//虚继承,不同路径继承来的同名成员只有一份拷贝,解决不明确的问题</span></span><br><span class="line"><span class="keyword">class</span> A1 : <span class="keyword">virtual</span> <span class="keyword">public</span> A&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> A2 : <span class="keyword">virtual</span> <span class="keyword">public</span> A&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> B : <span class="keyword">public</span> A1, <span class="keyword">public</span> A2&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    B b;</span><br><span class="line">    <span class="comment">//b.name = "Jack";//没有加virtual前 NO</span></span><br><span class="line">    <span class="comment">//指定父类显示调用</span></span><br><span class="line">    b.A1::name = <span class="string">"Jack"</span>;</span><br><span class="line">    b.A2::name = <span class="string">"Rose"</span>;</span><br><span class="line">    b.name = <span class="string">"Jack"</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="虚函数-多态(程序的扩展性)">虚函数-多态(程序的扩展性)</h4><ul>
+<li><p>动态多态: 程序运行过程中,觉得哪一个函数被调用(重写)</p>
+</li>
+<li><p>静态多态: 重载</p>
+</li>
+</ul>
+<p>发生动态多态的条件:</p>
+<ul>
+<li><p>继承</p>
+</li>
+<li><p>父类的引用或者指针指向子类的对象</p>
+</li>
+<li><p>函数的重写</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Plane.h</span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//普通飞机</span></span><br><span class="line"><span class="keyword">class</span> Plane&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">land</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Plane.cpp</span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Plane.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Plane::fly()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"起飞"</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Plane::land()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"着陆"</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Jet.h</span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//直升飞机</span></span><br><span class="line"><span class="keyword">class</span> Jet : <span class="keyword">public</span> Plane&#123;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">land</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Jet.cpp</span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Jet.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Jet::fly()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"直升飞机在原地起飞..."</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Jet::land()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"直升飞机降落在屋顶"</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Copter.h</span><br><span class="line"><span class="preprocessor">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Plane.h"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Copter : <span class="keyword">public</span> Plane&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">land</span><span class="params">()</span></span>;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Copter.cpp</span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Copter.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Copter::fly()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"喷气式飞机在跑道上起飞"</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Copter::land()&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"喷气式飞机在跑道上着陆"</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">01.</span>cpp</span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Plane.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Jet.h"</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "Copter.h"</span></span><br><span class="line"><span class="comment">//业务函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bizPlay</span><span class="params">(Plane&amp; p)</span></span>&#123;</span><br><span class="line">    p.fly();</span><br><span class="line">    p.land();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Plane p1;</span><br><span class="line">    bizPlay(p1);</span><br><span class="line">    </span><br><span class="line">    Jet p2;</span><br><span class="line">    bizPlay(p2);</span><br><span class="line">    </span><br><span class="line">    Copter p3;</span><br><span class="line">    bizPlay(p3);</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="纯虚函数(抽象类)">纯虚函数(抽象类)</h4><ul>
+<li><p>当一个类具有一个纯虚函数,这个类就是抽象类</p>
+</li>
+<li><p>抽象类不能实例化对象</p>
+</li>
+<li><p>子类继承抽象类,必须要实现纯虚函数,如果没有,子类也是抽象类</p>
+</li>
+</ul>
+<p>抽象类的作用:</p>
+<ul>
+<li>为了继承约束,根本不知道未来的实现</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Shape&#123;<span class="comment">//具有纯虚函数的类叫抽象类</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//纯虚函数</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">sayArea</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"hi"</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Circle : <span class="keyword">public</span> Shape&#123;<span class="comment">//如果没有实现父类的纯虚函数,则该类也是抽象类</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Circle(<span class="keyword">int</span> r)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;r = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sayArea</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"圆的面积: "</span> &lt;&lt; <span class="number">3.14</span> * r * r &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> r;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Circle <span class="title">c</span><span class="params">(10)</span></span>;</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="接口(只是逻辑上的划分,语法上跟抽象类的写法没有区别)">接口(只是逻辑上的划分,语法上跟抽象类的写法没有区别)</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//可以当做一个接口</span></span><br><span class="line"><span class="keyword">class</span> Drawable&#123;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="函数模板(泛型)">函数模板(泛型)</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myswap</span><span class="params">(<span class="keyword">int</span>&amp; a, <span class="keyword">int</span>&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myswap</span><span class="params">(<span class="keyword">char</span>&amp; a, <span class="keyword">char</span>&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> tmp = <span class="number">0</span>;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myswap</span><span class="params">(T&amp; a, T&amp; b)</span></span>&#123;</span><br><span class="line">    T tmp = <span class="number">0</span>;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//根据实际类型,自动推导</span></span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line">    myswap(a, b);<span class="comment">//或者写成 myswap&lt;int&gt;(a, b);</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">","</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> x = <span class="string">'x'</span>, y = <span class="string">'y'</span>;</span><br><span class="line">    myswap(x, y);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">","</span> &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="异常处理">异常处理</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//异常处理,根据抛出的异常数据类型,进入到相应的catch块中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age = <span class="number">300</span>;</span><br><span class="line">        <span class="keyword">if</span>(age &gt; <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//throw age;</span></span><br><span class="line">            <span class="comment">//throw "发生异常";</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="number">9.8</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(<span class="keyword">int</span> a)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"int 异常"</span> &lt;&lt; endl;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(<span class="keyword">char</span>* b)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(...)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"未知异常"</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抛出函数外</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">"除数为零"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        mydiv(<span class="number">8</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(<span class="keyword">char</span>* a)&#123;</span><br><span class="line">        <span class="keyword">throw</span> a;<span class="comment">//throw 抛出函数外</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        mydiv(<span class="number">8</span>,<span class="number">0</span>);</span><br><span class="line">        func();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(<span class="keyword">char</span>* a)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抛出对象</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> MyException&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//throw MyException();</span></span><br><span class="line">        <span class="comment">//throw new MyException //不要抛出异常指针,需要手动 delete</span></span><br><span class="line">        <span class="keyword">throw</span> MyException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        mydiv(<span class="number">8</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(MyException* e1)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"MyException 指针"</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">delete</span> e1;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(MyException&amp; e2)&#123; <span class="comment">//不会产生副本</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"MyException 引用"</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//catch(MyException e)&#123;//会产生对象的副本,因为调用了拷贝构造函数</span></span><br><span class="line">        <span class="comment">//cout &lt;&lt; "MyException" &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>throw声明函数会抛出的异常类型</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> <span class="title">throw</span> <span class="params">(<span class="keyword">char</span>*, <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">"除数为零"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标准异常(类似于Java中的NullPointException)</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdexcpt&gt; <span class="comment">//需要引入标准异常</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b &gt; <span class="number">10</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> out_of_range(<span class="string">"超出范围"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> invalid_argument(<span class="string">"参数不合法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义异常</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> NullPointException : <span class="keyword">public</span> exception&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    NullPointException(<span class="keyword">char</span>* msg) : exception(msg)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b &gt; <span class="number">10</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> out_of_range(<span class="string">"超出范围"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//else if(b == 0)&#123;</span></span><br><span class="line">        <span class="comment">//throw invalid_argument("参数不合法");</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b == NULL)&#123;</span><br><span class="line">        <span class="keyword">throw</span> NullPointException(<span class="string">"为空"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        mydiv(<span class="number">8</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(out_of_range e1)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; e1.what() &lt;&lt; endl;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(NullPointException&amp; e2)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; e2.what() &lt;&lt; endl;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(...)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"其它异常"</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>外部类异常</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Err&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> MyException&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        MyException()&#123;</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mydiv</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b &gt; <span class="number">10</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> Err::MyException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/25/ndk_cpp_5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++基础(六)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/25/ndk_cpp_3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++基础(四)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ndk_cpp_4" data-title="C++基础(五)" data-url="http://yoursite.com/2017/07/25/ndk_cpp_4/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>
