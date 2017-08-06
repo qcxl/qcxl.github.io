@@ -250,6 +250,128 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SDWebImage 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/23/SDWebImage 框架知识点/" class="article-date">
+  	<time datetime="2016-08-23T02:57:36.000Z" itemprop="datePublished">2016-08-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/23/SDWebImage 框架知识点/">SDWebImage 框架知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
+<li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
+</ul>
+<h3 id="检查缓存文件是否是PNG图片">检查缓存文件是否是PNG图片</h3><ul>
+<li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/23/SDWebImage 框架知识点/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-AFNetworking 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/21/AFNetworking 框架知识点/" class="article-date">
+  	<time datetime="2016-07-21T01:16:36.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/21/AFNetworking 框架知识点/">AFNetworking 框架知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
+<ul>
+<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
+</li>
+<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
+</li>
+<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/21/AFNetworking 框架知识点/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-swift_note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -722,123 +844,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/25/nsrunloop/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-single_instance" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/25/single_instance/" class="article-date">
-  	<time datetime="2016-03-25T02:32:46.000Z" itemprop="datePublished">2016-03-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/25/single_instance/">iOS单例模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单例模式">单例模式</h3><ul>
-<li>单例模式的作用<ul>
-<li>可以保证在程序运行过程,一个类只有一个实例,而且该实例易于供外界访问</li>
-<li>从而方便地控制了实例个数,并节约系统资源</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/25/single_instance/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-gcd" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/24/gcd/" class="article-date">
-  	<time datetime="2016-03-24T06:37:39.000Z" itemprop="datePublished">2016-03-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/24/gcd/">iOS中的线程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多线程的基本概念">多线程的基本概念</h3><ul>
-<li>创建线程是有开销的,iOS下主要成本包括:内核数据结构（大约1KB）、栈空间(子线程512KB、主线程1MB,也可以使用-setStackSize:设置,但必须是4K的倍数,而且最小是16K),创建线程大约需要90毫秒的创建时间</li>
-</ul>
-<h3 id="多线程的实现方案">多线程的实现方案</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/24/gcd/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

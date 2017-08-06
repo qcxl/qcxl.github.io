@@ -250,6 +250,114 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ndk_cpp_5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/25/ndk_cpp_5/" class="article-date">
+  	<time datetime="2017-07-25T15:50:16.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/25/ndk_cpp_5/">C++基础(六)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="模板类">模板类</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(T a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    T a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//普通类继承模板类</span></span><br><span class="line"><span class="keyword">class</span> B : <span class="keyword">public</span> A&lt;<span class="keyword">int</span>&gt;&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B(<span class="keyword">int</span> a, <span class="keyword">int</span> b) : A&lt;<span class="keyword">int</span>&gt;(a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;b = b;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/07/25/ndk_cpp_5/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ndk_cpp_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/25/ndk_cpp_4/" class="article-date">
+  	<time datetime="2017-07-25T15:45:16.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/25/ndk_cpp_4/">C++基础(五)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="多继承">多继承</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Person&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公民</span></span><br><span class="line"><span class="keyword">class</span> Citizen&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Student : <span class="keyword">public</span> Person, <span class="keyword">public</span> Citizen&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/07/25/ndk_cpp_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ndk_cpp_3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -697,119 +805,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/06/21/java_review_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_4/" class="article-date">
-  	<time datetime="2017-06-21T15:42:04.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_4/">Java面试基础题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
-<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
-</li>
-<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_4/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-java_review_3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/21/java_review_3/" class="article-date">
-  	<time datetime="2017-06-21T15:34:17.000Z" itemprop="datePublished">2017-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/java_review_3/">Java垃圾回收器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/06/21/java_review_3/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

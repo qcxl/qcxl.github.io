@@ -250,6 +250,123 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/06/shell/" class="article-date">
+  	<time datetime="2017-08-06T10:40:56.000Z" itemprop="datePublished">2017-08-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/06/shell/">Shell基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Shell基本语法">Shell基本语法</h3><ul>
+<li><code>#!/bin/sh</code>: 第一行需要说明当前使用的是哪种类型的shell.是bsh 还是 csh</li>
+<li>创建局部变量并赋值时不能有空格,如果值中有空格需要将整个值使用””</li>
+<li><code>echo</code>: 输出</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/06/shell/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-linux_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/06/linux_study/" class="article-date">
+  	<time datetime="2017-08-06T10:00:56.000Z" itemprop="datePublished">2017-08-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/06/linux_study/">Linux命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="文件操作">文件操作</h3><h4 id="显示列表">显示列表</h4><ul>
+<li><code>ls -l</code>: 显示文件列表</li>
+<li><code>ls -la</code> 或者 <code>ls -all</code>: 显示所有文件包含隐藏文件</li>
+<li><code>ls -ls 文件名或者文件夹名/</code>: 显示指定的文件或者文件夹信息</li>
+<li><code>ls -l xxx*</code>: 通配符查找 显示当前目录下包含xxx的所有文件和文件夹</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/06/linux_study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-android_ffmpeg_4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -713,114 +830,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/07/25/ndk_cpp_6/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ndk_cpp_5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/25/ndk_cpp_5/" class="article-date">
-  	<time datetime="2017-07-25T15:50:16.000Z" itemprop="datePublished">2017-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/ndk_cpp_5/">C++基础(六)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="模板类">模板类</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(T a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    T a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//普通类继承模板类</span></span><br><span class="line"><span class="keyword">class</span> B : <span class="keyword">public</span> A&lt;<span class="keyword">int</span>&gt;&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B(<span class="keyword">int</span> a, <span class="keyword">int</span> b) : A&lt;<span class="keyword">int</span>&gt;(a)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;b = b;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/07/25/ndk_cpp_5/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ndk_cpp_4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/25/ndk_cpp_4/" class="article-date">
-  	<time datetime="2017-07-25T15:45:16.000Z" itemprop="datePublished">2017-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/ndk_cpp_4/">C++基础(五)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="多继承">多继承</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Person&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公民</span></span><br><span class="line"><span class="keyword">class</span> Citizen&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Student : <span class="keyword">public</span> Person, <span class="keyword">public</span> Citizen&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/07/25/ndk_cpp_4/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

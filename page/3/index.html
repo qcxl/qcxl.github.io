@@ -250,6 +250,119 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java_review_4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_4/" class="article-date">
+  	<time datetime="2017-06-21T15:42:04.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_4/">Java面试基础题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="子类能否重写父类的静态方法">子类能否重写父类的静态方法</h3><ul>
+<li><p>所谓静态就是指:在编译之后所分配的内存会一直存在(不会被回收),直到程序退出内存才会释放这个空间.因为静态方法从程序开始运行后就已经分配了内存,也就是说已经写死了.所有引用到该方法的对象(父类的对象也好子类的对象也好)所指向的都是同一块内存中的数据,也就是该静态方法.子类中如果定义了相同名称的静态方法,并不会重写,而应该是在内存中又分配了一块给子类的静态方法,没有重写这一说。</p>
+</li>
+<li><p>静态方法属于静态绑定,在编译阶段已经确定函数名和地址,静态方法当然是可以被继承的,但是却不能被重写,为什么?<br>因为重写的意思是重新定义父类的虚函数,但是虚函数是动态绑定的,而静态方法是静态绑定的,所以静态函数必然不能是虚函数,也就不存在所说的重写了.你在子类中重新写一个同名的函数,覆盖了父类的同名函数,在使用子类指针进行调用的时候,调用的就是子类的这个静态方法.</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-java_review_3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/21/java_review_3/" class="article-date">
+  	<time datetime="2017-06-21T15:34:17.000Z" itemprop="datePublished">2017-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java_review_3/">Java垃圾回收器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="GC">GC</h3><h4 id="何为GC？">何为GC？</h4><p>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的,GC是后台的守护进程。它的特别之处是它是一个低优先级进程,但是可以根据内存的使用情况动态的调整他的优先级。因此,它是在内存中低到一定限度时才会自动运行,从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/21/java_review_3/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-java_review_2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -704,128 +817,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/26/MJRefresh框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-SDWebImage 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/23/SDWebImage 框架知识点/" class="article-date">
-  	<time datetime="2016-08-23T02:57:36.000Z" itemprop="datePublished">2016-08-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/23/SDWebImage 框架知识点/">SDWebImage 框架知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="计算缓存图片大小">计算缓存图片大小</h3><ul>
-<li><code>image.size.height * image.size.width * image.scale * image.scale</code></li>
-</ul>
-<h3 id="检查缓存文件是否是PNG图片">检查缓存文件是否是PNG图片</h3><ul>
-<li>PNG图片前8位是137, 80, 78, 71, 13, 10, 26, 10 对应十六进制为0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)imageDataHasPNGPreffix:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> kPNGSignatureBytes[<span class="number">8</span>] = &#123;<span class="number">0x89</span>, <span class="number">0x50</span>, <span class="number">0x4E</span>, <span class="number">0x47</span>, <span class="number">0x0D</span>, <span class="number">0x0A</span>, <span class="number">0x1A</span>, <span class="number">0x0A</span>&#125;;</span><br><span class="line">	<span class="built_in">NSData</span> *kPNGSignatureData = [<span class="built_in">NSData</span> dataWithBytes:kPNGSignatureBytes length:<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">NSUInteger</span> pngSignatureLength = [kPNGSignatureData length];</span><br><span class="line">    <span class="keyword">if</span> ([data length] &gt;= pngSignatureLength) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, pngSignatureLength)] isEqualToData:kPNGSignatureData]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/23/SDWebImage 框架知识点/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-AFNetworking 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/21/AFNetworking 框架知识点/" class="article-date">
-  	<time datetime="2016-07-21T01:16:36.000Z" itemprop="datePublished">2016-07-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/21/AFNetworking 框架知识点/">AFNetworking 框架知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="iOS进度指示器——NSProgress">iOS进度指示器——NSProgress</h3><hr>
-<ul>
-<li><p><code>+ (nullable NSProgress *)currentProgress;</code> 获取当前线程的进度管理对象根节点,注意:当有NSProgress对象调用了becomeCurrentWithPendingUnitCount:方法后,这个方法才能获取到</p>
-</li>
-<li><p><code>+ (NSProgress *)progressWithTotalUnitCount:(int64_t)unitCount</code> 创建一个NSProgress对象,需要传入进度的单元数量</p>
-</li>
-<li><p><code>+ (NSProgress *)discreteProgressWithTotalUnitCount:(int64_t)unitCount</code> 和上一个方法功能相似 iOS9之后的新方法</p>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/21/AFNetworking 框架知识点/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
