@@ -5,38 +5,38 @@
   
   <title>Vim使用 | Mobile Development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vim的基本使用
-进入编辑模式: i
+  <meta name="description" content="Vim的基本使用插入模式
+i 进入插入模式,光标前
 
-进入命令模式 Esc
+a 进入插入模式,光标后
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
+I 行首
 
-强制退出 shift : q!">
+A 行末">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim使用">
 <meta property="og:url" content="http://yoursite.com/2017/07/26/vim/index.html">
 <meta property="og:site_name" content="Mobile Development">
-<meta property="og:description" content="Vim的基本使用
-进入编辑模式: i
+<meta property="og:description" content="Vim的基本使用插入模式
+i 进入插入模式,光标前
 
-进入命令模式 Esc
+a 进入插入模式,光标后
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
+I 行首
 
-强制退出 shift : q!">
+A 行末">
 <meta property="og:image" content="http://7xk9ih.com1.z0.glb.clouddn.com/A159B6EB-9B20-4EB2-A56A-A52FAD84BE32.png">
-<meta property="og:updated_time" content="2017-08-04T06:24:48.000Z">
+<meta property="og:updated_time" content="2017-08-06T13:58:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim使用">
-<meta name="twitter:description" content="Vim的基本使用
-进入编辑模式: i
+<meta name="twitter:description" content="Vim的基本使用插入模式
+i 进入插入模式,光标前
 
-进入命令模式 Esc
+a 进入插入模式,光标后
 
-保存退出 shift zz 或者 Esc退出编辑模式,shift : wq
+I 行首
 
-强制退出 shift : q!">
+A 行末">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -304,33 +304,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vim的基本使用">Vim的基本使用</h3><ul>
-<li><p>进入编辑模式: <code>i</code></p>
+        <h2 id="Vim的基本使用">Vim的基本使用</h2><h3 id="插入模式">插入模式</h3><ul>
+<li><p><code>i</code> 进入插入模式,光标前</p>
 </li>
-<li><p>进入命令模式 <code>Esc</code></p>
+<li><p><code>a</code> 进入插入模式,光标后</p>
 </li>
+<li><p><code>I</code> 行首</p>
+</li>
+<li><p><code>A</code> 行末</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="命令模式">命令模式</h3><ul>
+<li><p><code>Esc</code> 进入命令模式</p>
+</li>
+<li><p><code>u</code> 撤销上一步的操作</p>
+</li>
+<li><p><code>Ctrl r</code> 恢复上一步被撤销的操作 </p>
+</li>
+<li><p><code>x</code> 删除, <code>dd</code> 删除一行</p>
+</li>
+<li><p><code>0</code> 跳到行首</p>
+</li>
+<li><p><code>shift g</code> 跳到文尾</p>
+</li>
+<li><p><code>gg</code> 跳到文首</p>
+</li>
+<li><p><code>w</code> 光标跳到下个字的开头</p>
+</li>
+<li><p><code>e</code> 光标跳到下个字的结尾</p>
+</li>
+<li><p><code>b</code> 光标回到上个字的开头</p>
+</li>
+<li><p><code>yy</code> 复制行</p>
+</li>
+<li><p><code>p</code> 粘贴</p>
+</li>
+<li><p><code>Ctrl f</code> 上一页  <code>Ctrl b</code> 下一页</p>
+</li>
+</ul>
+<h3 id="退出Vim">退出Vim</h3><ul>
 <li><p>保存退出 <code>shift zz</code> 或者 <code>Esc退出编辑模式,shift : wq</code></p>
 </li>
 <li><p>强制退出 <code>shift : q!</code></p>
 </li>
 </ul>
-<a id="more"></a>
-<ul>
-<li><p>撤回 <code>u</code> </p>
+<h3 id="文本搜索">文本搜索</h3><ul>
+<li><p><code>? pattern Enter</code></p>
 </li>
-<li><p>在命令模式下 <code>x</code> 删除, <code>dd</code> 删除一行</p>
+<li><p><code>n</code> 朝同一方向搜索</p>
 </li>
-<li><p>在命令模式下 <code>0</code> 跳到行首</p>
-</li>
-<li><p>在命令模式下 <code>shift g</code> 跳到文尾</p>
-</li>
-<li><p>在命令模式下 <code>gg</code> 跳到文首</p>
-</li>
-<li><p>在命令模式下 <code>w</code> 光标跳到下个字的开头</p>
-</li>
-<li><p>在命令模式下 <code>e</code> 光标跳到下个字的结尾</p>
-</li>
-<li><p>在命令模式下 <code>b</code> 光标回到上个字的开头</p>
+<li><p><code>N</code> 朝相反方向搜索</p>
 </li>
 </ul>
 <h3 id="Vim配置">Vim配置</h3><ul>
