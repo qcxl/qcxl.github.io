@@ -11,7 +11,7 @@
 touch config.sh 添加如下内容
 
 
-NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64#交叉编译(在不同的平台下编译生成不同平台下的动态库需要交叉编译以及交叉编译工具) 工具链 目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FFmpeg和libyuv的基本使用(二)">
 <meta property="og:url" content="http://yoursite.com/2017/08/04/android_ffmpeg_1/index.html">
@@ -22,8 +22,8 @@ NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-
 touch config.sh 添加如下内容
 
 
-NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
-<meta property="og:updated_time" content="2017-08-04T13:20:17.000Z">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64#交叉编译(在不同的平台下编译生成不同平台下的动态库需要交叉编译以及交叉编译工具) 工具链 目">
+<meta property="og:updated_time" content="2017-08-09T15:02:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFmpeg和libyuv的基本使用(二)">
 <meta name="twitter:description" content="配置FFmpeg编译脚本
@@ -32,7 +32,7 @@ NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-
 touch config.sh 添加如下内容
 
 
-NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64TOOLCHAIN=$NDK/toolchains/x86_64-4.9/prebuilt/d">
+NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-22/arch-x86_64#交叉编译(在不同的平台下编译生成不同平台下的动态库需要交叉编译以及交叉编译工具) 工具链 目">
   
     <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
   
@@ -306,12 +306,12 @@ NDK=/Users/weifeng/Library/Android/sdk/ndk-bundleSYSROOT=$NDK/platforms/android-
 <li><p><code>touch config.sh</code> 添加如下内容</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line"><span class="comment">#交叉编译(在不同的平台下编译生成不同平台下的动态库需要交叉编译以及交叉编译工具) 工具链 目录路径</span></span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li><code>touch build_android.sh</code> 添加如下内容</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">. config.sh</span><br><span class="line"></span><br><span class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></span><br><span class="line">ADDI_CFLAGS=<span class="string">""</span></span><br><span class="line"><span class="keyword">function</span> build_android</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line">    --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line">    --enable-shared \</span><br><span class="line">    --disable-static \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-ffmpeg \</span><br><span class="line">    --disable-ffplay \</span><br><span class="line">    --disable-ffprobe \</span><br><span class="line">    --disable-ffserver \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-symver \</span><br><span class="line">    --disable-x86asm \</span><br><span class="line">    --enable-gpl \</span><br><span class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/x86_64-linux-android- \</span><br><span class="line">    --target-os=linux \</span><br><span class="line">    --arch=x86_64 \</span><br><span class="line">    --enable-cross-compile \</span><br><span class="line">    --sysroot=<span class="variable">$SYSROOT</span> \</span><br><span class="line">    --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</span><br><span class="line">    --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</span><br><span class="line">    <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line">build_android</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">. config.sh</span><br><span class="line"><span class="comment">#声明变量 PREFIX代表编译后生成动态库的路径</span></span><br><span class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></span><br><span class="line">ADDI_CFLAGS=<span class="string">""</span></span><br><span class="line"><span class="comment">#--enable-cross-compile开启交叉编译,--cross-prefix 设置交叉编译所需要的交叉编译工具链所在目录</span></span><br><span class="line"><span class="comment">#--sysroot 交叉编译的根路径</span></span><br><span class="line"><span class="comment">#--arch 指定CPU架构</span></span><br><span class="line"><span class="comment">#--target-os 为哪个目标操作系统编译动态库</span></span><br><span class="line"><span class="comment">#--extra-cflags="-fpic"  动态库能够在Android上使用需要加上gcc fpic</span></span><br><span class="line"><span class="comment">#make clean 清除.o的临时文件</span></span><br><span class="line"><span class="comment">#make 自动编译</span></span><br><span class="line"><span class="comment">#make install 编译并且生成动态库</span></span><br><span class="line"><span class="keyword">function</span> build_android</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line">    --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line">    --enable-shared \</span><br><span class="line">    --disable-static \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-ffmpeg \</span><br><span class="line">    --disable-ffplay \</span><br><span class="line">    --disable-ffprobe \</span><br><span class="line">    --disable-ffserver \</span><br><span class="line">    --disable-doc \</span><br><span class="line">    --disable-symver \</span><br><span class="line">    --disable-x86asm \</span><br><span class="line">    --enable-gpl \</span><br><span class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/x86_64-linux-android- \</span><br><span class="line">    --target-os=linux \</span><br><span class="line">    --arch=x86_64 \</span><br><span class="line">    --enable-cross-compile \</span><br><span class="line">    --sysroot=<span class="variable">$SYSROOT</span> \</span><br><span class="line">    --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</span><br><span class="line">    --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</span><br><span class="line">    <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line">build_android</span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改<code>configure</code>文件中<code># build settings</code>下内容</li>
 </ul>

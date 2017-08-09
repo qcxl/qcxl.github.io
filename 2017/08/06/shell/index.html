@@ -17,7 +17,7 @@ echo: 输出">
 #!/bin/sh: 第一行需要说明当前使用的是哪种类型的shell.是bsh 还是 csh
 创建局部变量并赋值时不能有空格,如果值中有空格需要将整个值使用””
 echo: 输出">
-<meta property="og:updated_time" content="2017-08-07T14:49:24.000Z">
+<meta property="og:updated_time" content="2017-08-09T14:37:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell基础">
 <meta name="twitter:description" content="Shell基本语法
@@ -404,6 +404,9 @@ done</code></p>
 <li>引入其他脚本<code>source</code> 或者 <code>.</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">add</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">echo</span> $[ <span class="variable">$1</span> + <span class="variable">$2</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局变量 <code>export 变量名=赋值</code>,多个shell脚本都可以使用</li>
+</ul>
 
       
     </div>

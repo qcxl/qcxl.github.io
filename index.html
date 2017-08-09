@@ -576,7 +576,7 @@
 <li><p><code>touch config.sh</code> 添加如下内容</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NDK=/Users/weifeng/Library/Android/sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-<span class="number">22</span>/arch-x86_64</span><br><span class="line"><span class="comment">#交叉编译(在不同的平台下编译生成不同平台下的动态库需要交叉编译以及交叉编译工具) 工具链 目录路径</span></span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/x86_64-<span class="number">4.9</span>/prebuilt/darwin-x86_64</span><br><span class="line">CPU=x86_64</span><br></pre></td></tr></table></figure>
       
     </div>
     
