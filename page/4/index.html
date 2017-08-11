@@ -250,6 +250,124 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iOS逆向学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/05/iOS逆向学习/" class="article-date">
+  	<time datetime="2016-09-05T01:28:11.000Z" itemprop="datePublished">2016-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/iOS逆向学习/">iOS逆向学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="当Mac_OSX_10-11的/usr/bin目录不可写之后,class-dump应该何处安家?">当Mac OSX 10.11的/usr/bin目录不可写之后,class-dump应该何处安家?</h4><ul>
+<li>打开Terminal,输入mkdir ~/bin,在当前用户根目录下创建一个bin目录;</li>
+<li>把class-dump给拷贝到这个目录里,并赋予其可执行权限:mv /path/to/class-dump ~/bin; chmod +x ~/bin/class-dump;</li>
+<li>打开~/.bash_profile文件:vi ~/.bash_profile,在文件最上方加一行:export PATH=$HOME/bin/:$PATH,然后保存并退出,然后输入wq,回车即可;</li>
+<li>在Terminal中执行source ~/.bash_profile;</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/05/iOS逆向学习/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-MJRefresh框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/26/MJRefresh框架知识点/" class="article-date">
+  	<time datetime="2016-08-26T02:11:36.000Z" itemprop="datePublished">2016-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/26/MJRefresh框架知识点/">MJRefresh 框架知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="UIScrollView的几个属性">UIScrollView的几个属性</h4><ul>
+<li>frame: 是指UIScrollView的可视范围</li>
+<li>contentSize: 是其滚动范围,内容视图的大小</li>
+<li>contentInset: 为UIScrollView增加额外的滚动区域,是UIScrollView的contentView的顶点相对于UIScrollView的位置</li>
+<li>contentOffset: 是个CGpoint类型的结构体,用来记录ScrollView的滚动位置.垂直往下滚动时contentOffset的Y值越来越小,当偏离UIScrollView左上角时,contentOffset的Y值为负值。垂直往上滚动时contentOffset的Y值越来越大。</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/26/MJRefresh框架知识点/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-SDWebImage 框架知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -729,140 +847,9 @@
 
 
   
-    <article id="post-ios_network" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/28/ios_network/" class="article-date">
-  	<time datetime="2016-03-28T03:08:14.000Z" itemprop="datePublished">2016-03-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/28/ios_network/">iOS网络</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NSURLConnection">NSURLConnection</h3><h4 id="常用类">常用类</h4><ul>
-<li><p>NSURL:请求地址</p>
-</li>
-<li><p>NSURLRequest:一个NSURLRequest对象就代表一个请求,它包含的信息有</p>
-<ul>
-<li>一个NSURL对象</li>
-<li>请求方法、请求头、请求体</li>
-<li>请求超时</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/28/ios_network/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-nsrunloop" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/25/nsrunloop/" class="article-date">
-  	<time datetime="2016-03-25T07:52:46.000Z" itemprop="datePublished">2016-03-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/25/nsrunloop/">RunLoop的基本使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是RunLoop">什么是RunLoop</h3><ul>
-<li>从字面意思看<ul>
-<li>运行循环</li>
-<li>跑圈</li>
-</ul>
-</li>
-<li>基本作用<ul>
-<li>保持程序的持续运行</li>
-<li>处理App中的各种事件(比如触摸事件、定时器事件、Selector事件)</li>
-<li>节省CPU资源,提高程序性能:该做事情时做事情,该休息时休息</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/25/nsrunloop/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </div>

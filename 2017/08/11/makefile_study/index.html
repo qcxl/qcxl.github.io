@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Makefile学习 | Mobile Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="gcc
+gcc 是编译工具 类似javac,将.c文件编译gcc -c .c文件生成.o的目标文件,然后将目标文件链接(gcc xxx.o yyy.o zzz.o  -o  myapp 最后生成myapp可执行程序)得到可执行程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makefile学习">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/makefile_study/index.html">
+<meta property="og:site_name" content="Mobile Development">
+<meta property="og:description" content="gcc
+gcc 是编译工具 类似javac,将.c文件编译gcc -c .c文件生成.o的目标文件,然后将目标文件链接(gcc xxx.o yyy.o zzz.o  -o  myapp 最后生成myapp可执行程序)得到可执行程序">
+<meta property="og:updated_time" content="2017-08-11T14:55:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Makefile学习">
+<meta name="twitter:description" content="gcc
+gcc 是编译工具 类似javac,将.c文件编译gcc -c .c文件生成.o的目标文件,然后将目标文件链接(gcc xxx.o yyy.o zzz.o  -o  myapp 最后生成myapp可执行程序)得到可执行程序">
+  
+    <link rel="alternative" href="/atom.xml" title="Mobile Development" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">weifeng</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">移动开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-arsenal.com/">Android Arsenal</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androiddevtools.cn/">AndroidDevTools</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidweekly.net/">Android Weekly</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://android-libs.com/">AndroidLibs</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xjanker.github.io/akita/">Akita</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://dusunboy.github.io/android-nice-repo/">Android 开源项目</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hmkcode.com/">HMKCode</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weekly.manong.io/issues/">码农周刊</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://toutiao.io/">开发者头条</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidweekly.cn/">Android开发技术周报</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devtf.cn/">开发技术前线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://gank.io/">干货集中营</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.androidchina.net/">AndroidChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.codeceo.com/">码农网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jcodecraeer.com/">泡在网上的日子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jobbole.com/">伯乐在线</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.kuqin.com/">酷勤网</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.akaifa.com/">爱开发</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://androidperformance.com/">Performance Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lightskystreet.com/">lightSky Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.guolingfa.cn/">GuoBlog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yanshi.name/">Kinney&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.inferjay.com/">脉脉不得语的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://droidyue.com/">技术小黑屋</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sunjiajia.com/">安卓猴Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.race604.com/">Jlog博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.apkdv.com/">LengYue&#39;s Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wuyexiong.github.io/">Wuyexiong de Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.25xt.com/">25学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://get.jobdeer.com/">Get社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://evis.me/tag/app/">壹维思_EVIS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weirss.me/">WeiRSS</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://next.36kr.com/posts">NEXT</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android 开发</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">weifeng</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://img0.imgtn.bdimg.com/it/u=781933599,3526596667&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">weifeng</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">移动开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-makefile_study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/11/makefile_study/" class="article-date">
+  	<time datetime="2017-08-11T14:44:13.000Z" itemprop="datePublished">2017-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Makefile学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="gcc">gcc</h3><ul>
+<li>gcc 是编译工具 类似javac,将.c文件编译<code>gcc -c .c文件</code>生成.o的目标文件,然后将目标文件链接(<code>gcc xxx.o yyy.o zzz.o  -o  myapp</code> 最后生成myapp可执行程序)得到可执行程序 </li>
+</ul>
+<a id="more"></a>
+<h3 id="Makefile">Makefile</h3><p>Makefile 构建工具 类似Gradle、Maven、Ant,只需通过make一句命令就可以构建一个可执行程序</p>
+<p>在很多C/C++中开源项目中,configrue文件用来检查系统配置生成配置文件(这些配置文件会在接下来的makefile文件中被使用到)</p>
+<p>Makefile文件用来生成我们需要的动态库文件</p>
+<p>为什么要写Makefile文件？</p>
+<ul>
+<li><p>当项目非常庞大时,让构建过程,自动化,简单</p>
+</li>
+<li><p>依赖文件,比目标文件更新,会重建目标文件</p>
+</li>
+</ul>
+<h4 id="Makefile_三要素">Makefile 三要素</h4><ul>
+<li><p>目标</p>
+</li>
+<li><p>依赖</p>
+</li>
+<li><p>命令</p>
+</li>
+</ul>
+<p>新建Makefile文件:</p>
+<p><code>touch Makefile</code></p>
+<p><code>vim Makefile</code></p>
+<p>Makefile内容如下:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#myapp目标(最终目标,第一行是最终目标)</span></span><br><span class="line"><span class="comment">#:后的文件,这些都是依赖</span></span><br><span class="line"><span class="comment">#命令必须是TAB键开头,如何由依赖文件得到目标</span></span><br><span class="line"><span class="comment">#step 1</span></span><br><span class="line"><span class="comment">#myapp:main.o plus.o minus.o multi.o divi.o</span></span><br><span class="line"><span class="comment">#    gcc main.o plus.o minus.o multi.o divi.o -o myapp</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#目标: main.o</span></span><br><span class="line"><span class="comment">#依赖: main.c</span></span><br><span class="line"><span class="comment">#命令: gcc -c main.c</span></span><br><span class="line"><span class="comment">#main.o:main.c</span></span><br><span class="line"><span class="comment">#    gcc -c main.c</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plus.o:plus.c</span></span><br><span class="line"><span class="comment">#    gcc -c plus.c</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#minus.o:minus.c</span></span><br><span class="line"><span class="comment">#    gcc -c minus.c</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#multi.o:multi.c</span></span><br><span class="line"><span class="comment">#    gcc -c multi.c</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#divi.o:divi.c</span></span><br><span class="line"><span class="comment">#    gcc -c divi.c</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">#step 2</span></span><br><span class="line"><span class="comment">#变量</span></span><br><span class="line"><span class="comment">#OBJECTS=main.o plus.o minus.o multi.o divi.o</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#step 3</span></span><br><span class="line"><span class="comment">#获取当前目录下所有.c源文件</span></span><br><span class="line">SOURCES=$(wildcard *.c)</span><br><span class="line"><span class="comment">#把.c后缀,替换成.o文件</span></span><br><span class="line">OBJECTS=$(patsubst %.c,%.o,$(SOURCES))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myapp:$(OBJECTS)</span><br><span class="line"><span class="comment">#自动化变量 $^表示所有依赖, $@表示目标</span></span><br><span class="line">    gcc $^ -o <span class="variable">$@</span> </span><br><span class="line"><span class="comment">#通配符</span></span><br><span class="line"><span class="comment">#main.o:main.c</span></span><br><span class="line">%.o:%.c</span><br><span class="line"><span class="comment">#gcc -c main.c -o main.o</span></span><br><span class="line">    gcc -c $^ -o <span class="variable">$@</span>  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#递归展开式 可以引用还有定义的变量,展开是在引用时展开</span></span><br><span class="line">str2=$(str1)</span><br><span class="line">str1=hello</span><br><span class="line"></span><br><span class="line"><span class="comment">#直接展开式</span></span><br><span class="line"><span class="comment">#必须引用定义好了的变量,定义之后就会展开</span></span><br><span class="line">str3 := android</span><br><span class="line">str4 := $(str3)</span><br><span class="line">str5 := $(str1) world</span><br><span class="line"></span><br><span class="line"><span class="comment">#变量的值追加</span></span><br><span class="line">str5 += hello</span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义函数</span></span><br><span class="line"><span class="comment">#第二个参数和第一个参数</span></span><br><span class="line">myfun=<span class="variable">$2</span> <span class="variable">$1</span></span><br><span class="line">myfun_ret=$(call myfun,<span class="number">20</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>:</span><br><span class="line">	@<span class="built_in">echo</span> $(str2)</span><br><span class="line">	@<span class="built_in">echo</span> $(str4)</span><br><span class="line">	@<span class="built_in">echo</span> $(str5)</span><br><span class="line">	@<span class="built_in">echo</span> $(myfun_ret)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#没有依赖</span></span><br><span class="line"><span class="comment">#clean清除所有的.o中间文件</span></span><br><span class="line"><span class="comment">#伪目标</span></span><br><span class="line">.PHONY:clean</span><br><span class="line">clean:</span><br><span class="line">    rm <span class="operator">-f</span> *.o</span><br><span class="line">    rm <span class="operator">-f</span> myapp</span><br><span class="line">    </span><br><span class="line"><span class="comment">#测试用 终端输入make test 查看输出结果   </span></span><br><span class="line"><span class="built_in">test</span>:</span><br><span class="line"><span class="comment">#加上@符号就不会将echo打印出来</span></span><br><span class="line">    @<span class="built_in">echo</span> $(OBJECTS)</span><br><span class="line">    @<span class="built_in">echo</span> $(SOURCES)</span><br></pre></td></tr></table></figure>
+<h4 id="Android-mk文件介绍">Android.mk文件介绍</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#区分大小写	</span></span><br><span class="line"><span class="comment">#调用my-dir函数,返回Android.mk文件所在的目录,LOCAL_PATH必须放在第一行,地址当前所在目录</span></span><br><span class="line">LOCAL_PATH := $(call my-dir)</span><br><span class="line"><span class="comment">#可以引入其他的Makefile文件</span></span><br><span class="line"><span class="comment">#编译模块时清空LOCAL_MODULE等模块</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE := fmod</span><br><span class="line"><span class="comment">#编译需要的源文件</span></span><br><span class="line">LOCAL_SRC_FILES := libfmod.so</span><br><span class="line"><span class="comment">#编译需要引入预编译(编译好的)动态库</span></span><br><span class="line">include $(PREBUILT_SHARED_LIBRARY)</span><br><span class="line"></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE := fmodL</span><br><span class="line">LOCAL_SRC_FILES := libfmodL.so</span><br><span class="line">include $(PREBUILT_SHARED_LIBRARY)</span><br><span class="line"></span><br><span class="line"><span class="comment">#myapp</span></span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE := Voicer</span><br><span class="line">LOCAL_SRC_FILES := Voicer.cpp</span><br><span class="line"><span class="comment">#需要的头文件</span></span><br><span class="line">LOCAL_C_INCLUDES += $(LOCAL_PATH)/inc</span><br><span class="line"><span class="comment">#-l代表的是库</span></span><br><span class="line">LOCAL_LDLIBS := -llog</span><br><span class="line">LOCAL_CPP_FEATURES := exceptions</span><br><span class="line">LOCAL_SHARED_LIBRARIES := fmod fmodL</span><br></pre></td></tr></table></figure>
+<h4 id="make命令使用">make命令使用</h4><ul>
+<li><p><code>make</code>  直接make,构建的是终极目标</p>
+</li>
+<li><p><code>make clean</code> 清除所有的.o中间文件和生成的程序</p>
+</li>
+<li><p><code>make main.o</code> 构建非终极目标</p>
+</li>
+</ul>
+<h4 id="Android_mk文件使用指南"><a href="https://developer.android.google.cn/ndk/guides/android_mk.html" target="_blank" rel="external">Android mk文件使用指南</a></h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/11/posix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          POSIX线程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/06/shell/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Shell基础</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="makefile_study" data-title="Makefile学习" data-url="http://yoursite.com/2017/08/11/makefile_study/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 weifeng
+    	</div>
+      	<div class="footer-right">
+      		<!--<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten-->
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+
+  </div>
+</body>
+</html>
