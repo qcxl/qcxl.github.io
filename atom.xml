@@ -5,7 +5,7 @@
   <subtitle><![CDATA[移动开发]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
-  <updated>2017-08-24T12:58:12.000Z</updated>
+  <updated>2017-08-24T15:05:37.000Z</updated>
   <id>http://yoursite.com//</id>
   
   <author>
@@ -16,13 +16,12 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title><![CDATA[VPS主机安装图形界面]]></title>
     <link href="http://yoursite.com/2017/08/24/centeros_study/"/>
     <id>http://yoursite.com/2017/08/24/centeros_study/</id>
-    <published>2017-08-24T12:58:15.000Z</published>
-    <updated>2017-08-24T12:58:12.000Z</updated>
-    <content type="html"><![CDATA[<p>title: VPS主机安装图形界面<br>date: 2017-08-24 20:57:02<br>tags: </p>
-<h3 id="CentOS_版本">CentOS 版本</h3><ul>
+    <published>2017-08-24T12:57:02.000Z</published>
+    <updated>2017-08-24T15:05:37.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="CentOS_版本">CentOS 版本</h3><ul>
 <li>查看CentOS 版本 <code>cat /etc/system-release</code></li>
 </ul>
 <h3 id="EPEL_是什么？">EPEL 是什么？</h3><blockquote>
@@ -128,8 +127,7 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: VPS主机安装图形界面<br>date: 2017-08-24 20:57:02<br>tags: </p>
-<h3 id="CentOS_版本">CentOS 版本</h3><ul>
+    <![CDATA[<h3 id="CentOS_版本">CentOS 版本</h3><ul>
 <li>查看CentOS 版本 <code>cat /etc/system-release</code></li>
 </ul>
 <h3 id="EPEL_是什么？">EPEL 是什么？</h3><blockquote>
