@@ -250,6 +250,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-android_diff_patch" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/27/android_diff_patch/" class="article-date">
+  	<time datetime="2017-06-27T14:23:41.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/27/android_diff_patch/">NDK开发之增量更新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="NDK开发之增量更新-差分包">NDK开发之增量更新-差分包</h2><p>需要使用到的开源项目</p>
+<ul>
+<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff-4.3.tar.gz">BsDiff</a> (依赖于 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a>)</p>
+</li>
+<li><p><a href="http://7xk9ih.com1.z0.glb.clouddn.com/bzip2-1.0.6.tar.gz">Bzip2</a></p>
+</li>
+</ul>
+<h3 id="Windows下服务端差分">Windows下服务端差分</h3><p>在Microsoft VS中导入 <a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a> 源代码(不用拷贝bspatch.c文件)</p>
+<ul>
+<li><p>使用<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>代码,生成dll动态库,用于得到差分包</p>
+</li>
+<li><p>将<a href="http://7xk9ih.com1.z0.glb.clouddn.com/bsdiff4.3-win32-src.zip">bsdiff4.3-win32-src.zip</a>下载解压后导入Microsoft VS中,删除bspatch.cpp</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/27/android_diff_patch/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-c_01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -749,64 +816,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/25/python_scrapy_study/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-汇编语言学习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/10/汇编语言学习/" class="article-date">
-  	<time datetime="2016-09-10T01:28:11.000Z" itemprop="datePublished">2016-09-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/10/汇编语言学习/">汇编语言学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Mac_上搭建汇编环境">Mac 上搭建汇编环境</h4><ul>
-<li>下载<a href="https://www.dosbox.com/">DOSBOX</a></li>
-<li>下载debug.exe程序到Mac</li>
-<li>最后运行DOSBOX,并挂载本地debug.exe所在的目录到DOSBOX的一个盘符,比如你的debug.exe在<code>/Users/weifeng/Downloads/DOS/</code>,就在DOSBOX中运行命令:<code>mount c: /Users/weifeng/Downloads/DOS/</code>,再运行命令<code>c:</code>进入c盘符,最后运行命令:<code>debug</code>,就行了.</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/10/汇编语言学习/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
